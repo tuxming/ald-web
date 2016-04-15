@@ -1,0 +1,149 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>我的工作</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) ../styles/main.css -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <!-- endbuild -->
+	<link rel="stylesheet" href="../styles/style.css">
+  </head>
+  <body class="ald-body" ng-controller="savedController">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+	
+	<div ng-include="'../template/header.html'"></div>
+	
+	<div class="container">
+		<!--tip bar-->
+		<div class="row tip-bar" id="tip-bar">
+			
+		</div><!--end tip bar-->
+		
+		<!--start center-->
+		<div class="row">
+			<div class="col-xs-12">	
+				<h3 class="page-title">我收藏的工作</h3>
+				<p>Keep track of jobs you're interested in. Once a job is closed, it will automatically be removed from your list.</p>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h2 class="job-title">
+							<a class="job-title-item" href="javascript:;">Java Web开发</a>
+							<a class="pull-right glyphicon glyphicon-heart job-title-item-cert icon-link" href="javascript:;"></a>
+						</h2>
+						<div class="job-detail">
+							<span class="job-info">
+								<strong>小时</strong>
+								-<span>货币($)</span>
+								<span>开发时间：3-6月</span>,
+								<span>发布时间：7天以前</span>
+							</span>
+							<p class="job-desc">
+								这个是项目的描述，这个是项目的描述，这个是项目的描述，这个是项目的描述
+								<a href="javascript:;">更多</a>
+							</p>
+							<div>
+								<label>
+									<strong>Client: </strong>
+									<div style="display:inline-block; width:30px; height:15px; overflow:hidden; background:#E0E0E0; border-radius:5px;">
+										<div style="width:10px;height:15px; background:#7BD454; display:inline-block;">
+										</div>
+										<span>$</span>
+									</div>
+									<span>
+										<span class="icon-active glyphicon glyphicon-star"></span>
+										<span class="icon-active glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+									</span>
+								</label>
+								<label>
+									<span>技能: </span>
+									<a class="tag-item" href="javascript:;">javascript</a>
+									<a class="tag-item" href="javascript:;">javascript</a>
+									<a class="tag-item" href="javascript:;">javascript</a>
+									<a class="tag-item" href="javascript:;">javascript</a>
+								</label>
+							</div>
+						</div>
+					</li><!--end job item-->
+					<li class="list-group-item">
+						<h2 class="job-title">
+							<a class="job-title-item" href="javascript:;">Java Web开发</a>
+							<a class="pull-right glyphicon glyphicon-heart job-title-item-cert icon-link" href="javascript:;"></a>
+						</h2>
+						<div class="job-detail">
+							<span class="job-info">
+								<strong>小时</strong>
+								-<span>货币($)</span>
+								<span>开发时间：3-6月</span>,
+								<span>发布时间：7天以前</span>
+							</span>
+							<p class="job-desc">
+								这个是项目的描述，这个是项目的描述，这个是项目的描述，这个是项目的描述
+								<a href="javascript:;">更多</a>
+							</p>
+							<div>
+								<label>
+									<strong>Client: </strong>
+									<div style="display:inline-block; width:30px; height:15px; overflow:hidden; background:#E0E0E0; border-radius:5px;">
+										<div style="width:10px;height:15px; background:#7BD454; display:inline-block;">
+										</div>
+										<span>$</span>
+									</div>
+									<span>
+										<span class="icon-active glyphicon glyphicon-star"></span>
+										<span class="icon-active glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+									</span>
+								</label>
+								<label>
+									<span>技能: </span>
+									<a class="tag-item" href="javascript:;">javascript</a>
+									<a class="tag-item" href="javascript:;">javascript</a>
+									<a class="tag-item" href="javascript:;">javascript</a>
+									<a class="tag-item" href="javascript:;">javascript</a>
+								</label>
+							</div>
+						</div>
+					</li><!--end job item-->
+				</ul>
+			</div><!--end center-->
+		</div><!--end row-->
+	</div><!--end content container-->
+	
+	<div ng-include="'../template/footer.html'"></div>
+	
+    <!-- build:js(.) ../scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endbower --> 
+    <!-- endbuild -->
+    
+	<script src="../scripts/globe.js"></script>
+	<script src="../scripts/controllers/saved.js"></script>
+	<!-- build:js({.tmp,app}) ../scripts/controllers/saved.js -->
+	<!-- endbuild -->
+</body>
+</html>
