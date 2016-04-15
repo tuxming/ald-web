@@ -21,7 +21,7 @@
 
 	
 ## quick guide
-prepare:<br/>
+prepare:
 		install grunt: 	npm install -g grunt-cli
 		install bower:  npm install -g bower
 		install yeoman: npm install -g yo
