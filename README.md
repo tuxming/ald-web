@@ -22,9 +22,9 @@
 	
 ## quick guide
 prepare:
-		install grunt: 	npm install -g grunt-cli
-		install bower:  npm install -g bower
-		install yeoman: npm install -g yo
+		install grunt: 	npm install -g grunt-cli<br/>
+		install bower:  npm install -g bower<br/>
+		install yeoman: npm install -g yo<br/>
 
 		1, npm install  
 		2, bower install
