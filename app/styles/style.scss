@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 $pageWidth: 1100px;
 $baseColor: #37A000;
 $navBackground: #ffffff;
@@ -103,13 +105,68 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 .header-container{width: $pageWidth; text-align: left; margin: 0px auto;}
 
 .sub-nav-container{width:100%; background:$normalColor;}
-.sub-nav-bar{width:$pageWidth;}
+.sub-nav-bar{width:$pageWidth; background:$normalColor;}
 .sub-nav-bar > li > a{color:#eeeeee; padding-bottom:10px; padding-top:10px;}
-.sub-nav-bar > li > a:hover, ul.sub-nav-bar > li > a:focus{color: #ffffff; background:transparent;}
+.sub-nav-bar > li > a:hover, ul.sub-nav-bar > li > a:focus{color: $white; background:transparent;}
 .sub-nav-bar .sub-nav-bar-active{color:#ffffff;}
 
 /**end navi style**/
 
+/********自定义组件*********/
+//<a class="tag">
+//	<span>Google App Engine</span>
+//	<i class="iconfont">&#xe61c;</i>
+//</a>
+.tag{
+	font-size:10px; display:inline-block; background:$unactive; 
+	margin:5px 5px; padding: 2px 7px; color:$dilutedColor;border-radius: 20px;
+}
+.tag i {font-size:12px;}
+.tag-edit:hover::after{
+	font-family:"iconfont" !important;
+	content:" \e61c";
+}
+
+//下拉选择框样子
+//<div class="dropdown ald-dropdown">
+//	<a class="dropdown-toggle ald-dropdown-toggle" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+//		<span>Newest first</span><span class="caret"></span>
+//	</a>
+//	<ul class="dropdown-menu ald-dropdown-menu">
+//		<li>Newest first</li>
+//		<li>Highest rated</li>
+//		<li>Lowest rated</li>
+//		<li>Largest projects</li>
+//	</ul>
+//</div>
+.ald-dropdown-toggle .caret{float:right; margin-right:5px; margin-top:7px;}
+.ald-dropdown-toggle{
+	padding:4px; border:2px solid $unactive; 
+	display:block;
+	width:100%;
+	zoom: 1;
+}
+.ald-dropdown-toggle:after{
+  content: "020"; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden; 
+}
+
+.ald-dropdown-toggle:hover{border-color: $baseColor;}
+.ald-dropdown-menu{ padding:0px; margin-top:-2px;}
+.ald-dropdown-menu li{padding:8px;
+	cursor: pointer;
+	border:2px $white solid;
+	border-bottom:1px solid $unactive; color:$dilutedColor;
+}
+.ald-dropdown-menu li:hover{
+	border:2px solid $baseColor;
+}
+
+
+/***********end 自定义组件***************/
 /** tab **/
 .tab-bar{
 	list-style:none; padding:0 0px 11px 0px; margin:0px 40px;
@@ -305,12 +362,114 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 /**end my-stats**/
 
 /***********my profile css***************/
+//my profile 共用模块
+.mp-title{margin-bottom:25px;}
+.mp-title > h3, .mp-title > div{display:inline-block;}
+.mp-title-text{
+	padding:0px;margin:0px; 
+	margin-bottom:20px;
+	font-size:18px;
+}
+.mp-title-hover:hover::after{
+	font-family:"iconfont" !important;
+	color:$baseColor;
+	content: " \e629";
+	font-size:18px;
+}
+.mp-list{list-style:none; padding-left:0px;}
+.mp-list > li{}
+
+
+
 .mp-user-photo{
 	padding-right: 30px;
 	display:inline-block;
 }
+.mp-box{padding:30px; margin-bottom:30px; background:$white;
+	border:1px solid $unactive;
+}
+.mp-overview > div{
+	float:left; 
+}
+.mp-user-photo{width:25%;}
+.mp-user-info1{width:75%;}
+.my-user-name-label a{font-weight:400; font-size:18px; color: $dilutedColor; }
+.mp-job-title{font-weight:600; color:$dilutedColor; font-size:15px; }
+.mp-user-base:hover a{background:#D3EAC7; color:$dilutedColor;}
 
+.mp-user-base:hover a::after, .mp-skils-container:hover::after, 
+.mp-overview-container:hover .mp-overview-label::after{
+	font-family:"iconfont" !important;
+	content:" \e608";
+	cursor:pointer; background:#D3EAC7;
+	vertical-align:top;
+}
 
+.mp-user-location{
+	color:$dilutedColor;
+}
+
+.mp-skils-container:hover > a{background:#D3EAC7;}
+.mp-skils-container > a:hover{color:$dilutedColor;} 
+
+.mp-overview-label{
+	font-size:18px; font-weight:400; color:$dilutedColor;
+	margin:20px 0px; cursor:pointer; display:inline-block; 
+}
+
+.mp-overview-text{border:none; box-shadow:none;overflow-y:hidden; 
+overflow-x:hidden; background:none;}
+
+.mp-overview-text{cursor:pointer;}
+.mp-overview-container:hover .mp-overview-label, .mp-overview-container:hover .mp-overview-text{background:#D3EAC7;}
+
+//work history
+
+.filter-selected-label{
+	width:210px;display:inline-block;
+	font-size:12px;
+}
+
+.mp-works-left{width:65%; float:left;}
+.mp-works-right{width:35%; float:left;}
+.mp-works > li{margin:20px 0px; padding-bottom:30px; border-bottom: 1px solid $unactive;}
+.mp-works-name{font-size:15px; font-weight:700; }
+.mp-works-left > a, .mp-works-left > div{
+	display:block; padding:4px 0px;
+}
+
+.mp-works-stars{font-size:12px; color:$baseColor;}
+.mp-works-score-num{display:inline-block; vertical-align:middle; }
+.mp-works-appraise{line-height:180%; font-style:oblique; color:$lightColor;}
+.mp-works-total-time{font-size:15px; font-weight:700; }
+
+.mp-works-right > div{text-align:right; padding:2px 0px;}
+.mp-work-filter-label{width:240px; }
+.mp-work-filter-options{width:240px;}
+
+//protfolio
+.mp-protfolio-filter{width:300px;}
+.mp-protfolio-filter-options{width:300px;}
+
+li.mp-pf-item{cursor:pointer; display:inline-block; 
+	margin:0px 20px; margin-bottom:20px;
+}
+.mp-pf-item:hover img{
+	opacity:0.4;
+}
+.mp-pf-item:hover .mp-pf-text{
+	background:#D3EAC7;
+}
+
+.mp-pf-thumb{position:relative; width:320px; height:200px; overflow:hidden;}
+.mp-pf-thumb img{width:320px; height:200px; background:#000; }
+.mp-pf-text{margin:10px 0px; display:inline-block; } 
+
+.mp-pf-controls{position:absolute; top:80px; left:100px;
+	background:$white; padding:10px 20px; 
+	border-radius:30px;box-shadow:0px 0px 1px rgba(110,110,110, 0.2);
+}
+.mp-pf-controls > a{ font-size:18px; margin:0px 4px; }
 
 
 
