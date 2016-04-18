@@ -113,6 +113,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 /**end navi style**/
 
 /********自定义组件*********/
+//标签样式
 //<a class="tag">
 //	<span>Google App Engine</span>
 //	<i class="iconfont">&#xe61c;</i>
@@ -127,7 +128,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 	content:" \e61c";
 }
 
-//下拉选择框样子
+//下拉选择框样式
 //<div class="dropdown ald-dropdown">
 //	<a class="dropdown-toggle ald-dropdown-toggle" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 //		<span>Newest first</span><span class="caret"></span>
@@ -165,28 +166,36 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 	border:2px solid $baseColor;
 }
 
-
+//开关按钮
 //<div class="btn-group" role="group" aria-label="radio">
-//	<button class="btn btn-radio-yes" aria-label="radio">Yes</button>
-//	<button class="btn btn-radio-no" aria-label="radio">No</button>
+//	<button class="btn btn-radio-yes btn-radio-active" aria-label="radio">Yes</button>
+//	<button class="btn btn-radio-no btn-radio-unactive" aria-label="radio">No</button>
 //</div>
 .btn-radio-active{
 	background:$baseColor;
 	color: $white;
 	border:2px solid $baseColor;
 }
+.btn-group .btn-radio-active{
+	color:$white;
+}
+
 .btn-radio-unactive{
-	backgroung:$white;
+	background:$white;
+	color:$dilutedColor;
 	border:2px solid $unactive;
+	z-inddex:3;
 }
 .btn-radio-unactive:hover{
 	border-color:$baseColor;
 	color:$baseColor;
 }
 .btn-radio-yes{
+	padding: 3px 12px;
 	border-right:none;
 }
 .btn-radio-no{
+	padding: 3px 12px;
 	border-left:none;
 }
 
@@ -497,11 +506,37 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 
 .mp-test-item-score{display:inline-block; margin-right:15px;}
 .test-sort-first{border-radius: 5px; font-size:12px; padding:3px 5px; background:#FEC324; color:$white;}
-.test-sort-top1{border-radius: 5px; font-size:12px; padding:3px 5px; bckground:#0682D1; color:$white;}
+.test-sort-top1{border-radius: 5px; font-size:12px; padding:3px 5px; background:#0682D1; color:$white;}
 .test-sort-top2{border-radius: 5px; font-size:12px; padding:3px 5px; background: #00A0E8; color: $white; }
-.test-sort-faild{border-radius: 5px; font-size:12px; padding:3px 5px; color:#EF4B0A;}
+.test-sort-failed{font-size:14px; color:#EF4B0A;}
 .test-sort-blowavg{border-radius: 5px; font-size:12px; padding:3px 5px; background:#E55414; color:$white;}
 .test-sort-normal{color: $dilutedColor;}
+
+.mp-other-item > span:first-child{
+	display:inline-block;
+	font-size: 15px; color:$dilutedColor; font-weight:700;
+	padding:0px; margin-bottom:10px;
+}
+.mp-other-item > span{
+	font-size:13px; padding:0px; line-height:150%;
+}
+.mp-other-item{border-bottom:1px solid $unactive; padding-bottom:30px;
+	margin-bottom:35px;
+	cursor:pointer;
+}
+.mp-other-item:last-child{border:none; margin-bottom:0px; padding-bottom:15px;}
+
+.mp-other:hover .mp-otner-title::after{
+	font-family:"iconfont" !important;
+	color:$baseColor;
+	content: " \e629";
+	font-size:24px;
+}
+.mp-other-item:hover > span{
+	background:#D3EAC7; 
+}
+.mp-other-edit{display:inline-block;}
+.mp-other-edit i{background:#D3EAC7;}
 
 /*********end my profile css***************/
 

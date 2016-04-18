@@ -30,8 +30,8 @@
 		
 		<!--start center-->
 		<div class="row">
-			<div class="col-xs-9">	
-				<h3 class="page-title">个人资料</h3>
+			<h3 class="page-title">个人资料</h3>
+			<div class="col-xs-9">
 				<div class="mp-box mp-overview clearfix">
 					<div class="mp-user-photo">
 						<img class="img-circle photo-100" src="../images/user.png"/>
@@ -187,13 +187,35 @@
 								</td>
 							</tr>
 							<tr>
-								<td class="col-xs-4">Upwork Readiness Test for Independent Contractors and Company Managers</td>
-								<td><span class="mp-test-item-score">5.00</span><span class="mp-test-item-sort test-sort-first">1st Place!</span></td>
-								<td>1 min</td>
+								<td class="col-xs-4">Google App Engine Test</td>
+								<td><span class="mp-test-item-score">5.00</span><span class="mp-test-item-sort test-sort-top1">Top 10%</span></td>
+								<td>17 mins</td>
 								<td>
 									<div class="btn-group" role="group" aria-label="radio">
-										<button class="btn btn-radio-yes" aria-label="radio">Yes</button>
-										<button class="btn btn-radio-no btn-radio-no-unactive" aria-label="radio">No</button>
+										<button class="btn btn-radio-yes btn-radio-unactive" aria-label="radio">Yes</button>
+										<button class="btn btn-radio-no btn-radio-active" aria-label="radio">No</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="col-xs-4">Google App Engine Test</td>
+								<td><span class="mp-test-item-score">5.00</span><span class="mp-test-item-sort test-sort-failed">Failed</span></td>
+								<td>17 mins</td>
+								<td>
+									<div class="btn-group" role="group" aria-label="radio">
+										<button class="btn btn-radio-yes btn-radio-unactive" aria-label="radio">Yes</button>
+										<button class="btn btn-radio-no btn-radio-active" aria-label="radio">No</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="col-xs-4">Google App Engine Test</td>
+								<td><span class="mp-test-item-score">5.00</span><span class="mp-test-item-sort test-sort-blowavg">Below Average</span></td>
+								<td>17 mins</td>
+								<td>
+									<div class="btn-group" role="group" aria-label="radio">
+										<button class="btn btn-radio-yes btn-radio-unactive" aria-label="radio">Yes</button>
+										<button class="btn btn-radio-no btn-radio-active" aria-label="radio">No</button>
 									</div>
 								</td>
 							</tr>
@@ -201,8 +223,54 @@
 					</table>
 				</div><!--end certifications -->
 				
+				<div class="mp-box mp-other">
+					<div class="mp-title">
+						<h3 class="mp-title-text mp-otner-title">Employment History</h3>
+					</div>
+					<ul class="mp-list mp-others">
+						<li class="mp-other-item" ng-mouseenter="isOtherEdit=true" ng-mouseleave="isOtherEdit=false" ng-repeat="i in array2">
+							<span>System Designer and Developer | HP support center</span>
+							<div ng-show="isOtherEdit" class="mp-other-edit">
+								<i class="iconfont">&#xe608;</i>
+								<i class="iconfont">&#xe604;</i>
+							</div>
+							<br/>
+							<span>June 2005 - January 2008</span><br/>
+							<span>I acted as a core developer and system analysis in my team.  Two large ERP system were done by my team.  And I  provided  the maintenance service alone for 2 years
+							</span>
+						</li><!--end item-->
+						
+					</ul>
+				</div><!--end Employment History -->
+				
+				<div class="mp-box mp-other">
+					<div class="mp-title">
+						<h3 class="mp-title-text mp-otner-title">Education</h3>
+					</div>
+					<ul class="mp-list mp-others">
+						<li class="mp-other-item" ng-mouseenter="isOtherEdit=true" ng-mouseleave="isOtherEdit=false" ng-repeat="i in array2">
+							<span>Other, HongKong | BEA training center</span>
+							<div ng-show="isOtherEdit" class="mp-other-edit">
+								<i class="iconfont">&#xe608;</i>
+								<i class="iconfont">&#xe604;</i>
+							</div>
+							<br/>
+							<span>2005 - 2008</span><br/>
+							<span>Learn the BEA platform, including Weblogic, Portal, and Integration System.
+							</span>
+						</li><!--end item-->
+					</ul>
+				</div><!--end Employment History -->
 			</div><!--end left-->
 			<div class="col-xs-3">
+				<button class="btn btn-full">Profile Settings</button>
+				<a class="link link-underline" href="javascript:;">View my profile as others see it</a>
+				<hr>
+				<div>100% Job Success</div>
+				<div class="job-percent-full">
+					<div class="job-percent"></div>
+				</div>
+				<div>TOP RATED</div>
 				
 			</div><!--end right-->
 		</div><!--end row-->
