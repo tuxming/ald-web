@@ -26,5 +26,4 @@ app.controller('myprofileController', function($scope, g){
 	
 	$scope.array1 = [0,1,2];
 	
-	
 });

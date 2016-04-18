@@ -132,17 +132,19 @@
 						</div>
 					</div>
 					<ul class="mp-list mp-protfolios">
-						<li  class="mp-pf-item" ng-mouseenter="isShowPfControls=false" ng-mouseleave="isShowPfControls=true" ng-repeat="it in array1">
-							<div class="mp-pf-thumb">
-								<img src="../images/example.png"/>
-								<div class="mp-pf-controls"  ng-hide="isShowPfControls">
-									<a href="javascript:;" class="iconfont link-underline">&#xe628;</a>
-									<a href="javascript:;" class="iconfont link-underline">&#xe608;</a>
-									<a href="javascript:;" class="iconfont link-underline">&#xe604;</a>
+						<li  class="mp-pf-item" ng-repeat="it in array1">
+							<div ng-mouseenter="isShowPfControls=true" ng-mouseleave="isShowPfControls=false">
+								<div class="mp-pf-thumb">
+									<img src="../images/example.png"/>
+									<div class="mp-pf-controls" ng-show="isShowPfControls">
+										<a href="javascript:;" class="iconfont link-underline">&#xe628;</a>
+										<a href="javascript:;" class="iconfont link-underline">&#xe608;</a>
+										<a href="javascript:;" class="iconfont link-underline">&#xe604;</a>
+									</div>
 								</div>
-							</div>
-							<div class="mp-pf-text" href="javascript:;">
-								Online shopping site
+								<div class="mp-pf-text" href="javascript:;">
+									Online shopping site
+								</div>
 							</div>
 						</li><!--end item-->
 					</ul>
@@ -175,12 +177,23 @@
 						</tbody>
 							<tr>
 								<td class="col-xs-4">Upwork Readiness Test for Independent Contractors and Company Managers</td>
-								<td><span>5.00</span><span>1st Place!</span></td>
+								<td><span class="mp-test-item-score">5.00</span><span class="mp-test-item-sort test-sort-first">1st Place!</span></td>
 								<td>1 min</td>
 								<td>
 									<div class="btn-group" role="group" aria-label="radio">
-										<button class="btn btn-primary btn-radio-yes" aria-label="radio">Yes</button>
-										<button class="btn btn-primary btn-radio-no" aria-label="radio">No</button>
+										<button class="btn btn-radio-yes btn-radio-active" aria-label="radio">Yes</button>
+										<button class="btn btn-radio-no btn-radio-unactive" aria-label="radio">No</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="col-xs-4">Upwork Readiness Test for Independent Contractors and Company Managers</td>
+								<td><span class="mp-test-item-score">5.00</span><span class="mp-test-item-sort test-sort-first">1st Place!</span></td>
+								<td>1 min</td>
+								<td>
+									<div class="btn-group" role="group" aria-label="radio">
+										<button class="btn btn-radio-yes" aria-label="radio">Yes</button>
+										<button class="btn btn-radio-no btn-radio-no-unactive" aria-label="radio">No</button>
 									</div>
 								</td>
 							</tr>
