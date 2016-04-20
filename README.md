@@ -21,7 +21,7 @@
 				gem install compass
 		
 		3) add imagemin support
-				a) add： "jpegtran-bin": "0.2.0", to package.json																																															
+				a) add： "jpegtran-bin": "0.2.0", to package.json
 				b) npm remove grunt-contrib-imagemin
 					npm install || npm install jpegtran-bin, npm install grunt-contrib-imagemin
 	
