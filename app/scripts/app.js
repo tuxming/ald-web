@@ -33,10 +33,10 @@ var app = angular.module('app', [
         controller: 'ProposalsController',
         controllerAs: 'proposals'
       })
-      .when('/mysatas', {
-        templateUrl: 'views/my-stats/my-stats.html',
+      .when('/myreport', {
+        templateUrl: 'views/mystats/mystats.html',
         controller: 'MyStatsController',
-        controllerAs: 'mystats'
+        controllerAs: 'myreport'
       })
       .when('/myprofile', {
         templateUrl: 'views/myprofile/myprofile.html',
