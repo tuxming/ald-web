@@ -2,9 +2,9 @@
 
 ## quick guide
 	prepare:
-		install grunt: 	npm install -g grunt-cli<br/>
-		install bower:  npm install -g bower<br/>
-		install yeoman: npm install -g yo<br/>
+		install grunt: 	npm install -g grunt-cli
+		install bower:  npm install -g bower
+		install yeoman: npm install -g yo
 
 		1, npm install  
 		2, bower install
@@ -21,7 +21,7 @@
 				gem install compass
 		
 		3) add imagemin support
-				a) add： "jpegtran-bin": "0.2.0", to package.json																																															
+				a) add： "jpegtran-bin": "0.2.0", to package.json
 				b) npm remove grunt-contrib-imagemin
 					npm install || npm install jpegtran-bin, npm install grunt-contrib-imagemin
 	
