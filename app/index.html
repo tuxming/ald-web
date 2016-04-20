@@ -5,175 +5,145 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+	
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
+    
+	<!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-	<link rel="stylesheet" href="styles/style.css">
+	
+	<!-- build:css(.tmp) styles/styles.css -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- endbuild -->
+
+	
   </head>
-  <body class="ald-body" ng-app="app" ng-controller="appController">
+  <body class="ald-body" ng-app="app">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-	
-	<div ng-include="'template/header.html'"></div>
-	
-	<div class="container">
-		<!--tip bar-->
-		<div class="row tip-bar" id="tip-bar">
-			
-		</div><!--end tip bar-->
-		
-		<div class="row search-job">
-			<div class="col-xs-3 ald-col-xs-3">
-				<h1 class="find-work-label">搜索工作</h1>
-			</div><!--end left-->
-			<div class="col-xs-9">
-				<form>
-					<div class="ald-form">
-						<input type="text" class="search-input ald-input" name="search-key-words" placeholder="搜索工作" value=""/>
-						<input type="submit" class="btn btn-primary ald-btn-primary " value="&nbsp;搜&nbsp;&nbsp;索&nbsp;">
-						<div class="advanced-search">
-							<a href="javascript:;" class="advanced-search-btn ald-link">高级搜索</a>
-						</div>
+	<!--start head-->
+	<div class="header">
+		<div class="header-container">
+			<nav class="navbar navbar-default mynav-bar" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+							<span class="sr-only">切换导航</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand mynavbar-brand" href="#"><img class="logo" src="images/logo.png"/></a>
+				   </div>
+					
+					<div class="collapse navbar-collapse navbar-left">
+						<ul class="nav navbar-nav nav-left-ul">
+							<li><a href="#/">找工作</a></li>
+							<li><a href="#">我的工作</a></li>
+							<li><a href="#">统筹</a></li>
+							<li><a href="#">消息</a></li>
+						</ul>
 					</div>
-				</form>
-			</div><!--end center-->
-		</div><!--end search-job-->
-		
-		<!--content-->
-		<div class="row">
-			<div class="col-xs-3 ald-col-xs-3">
-				<a class="ald-rss rss-1" href="javascript:;">
-					<i class="iconfont">&#xe623;</i>&nbsp;&nbsp;
-					<span>猜你喜欢</span>
-				</a>
-				<a class="ald-rss rss-2" href="javascript:;">
-					<i class="iconfont">&#xe623;</i>&nbsp;&nbsp;
-					<span>猜你喜欢</span>
-				</a>
-				
-				<div class="panel panel-default list-panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">我的分类</h3>
-					</div>
-					<ul class="list-group ald-list-group">
-						<li class="list-group-item"><a href="#">桌面程序开发</a></li>
-						<li class="list-group-item">
-							<a href="#">手机开发</a><br/>
-							<a href="#">网页开发</a>
-						</li>
-						<li class="list-group-item"><a href="#">修改分类</a></li>
-					</ul>
-				</div>
-			</div><!--end left-->
-			<!--start center-->
-			<div class="col-xs-6 ald-col-xs-6">
-				<h2 id="feed-header" class="feed-header">推荐工作
-					<a href="javascript:;" class="pull-right icon-link"><i class="iconfont lg-icon">&#xe623;</i></a>
-				</h2>
-				
-				<ul class="list-group">
-					<li class="list-group-item">
-						<h2 class="job-title">
-							<a class="job-title-item" href="javascript:;">Java Web开发</a>
-							<a class="pull-right glyphicon glyphicon-heart job-title-item-cert icon-link" href="javascript:;"></a>
-						</h2>
-						<div class="job-detail">
-							<span class="job-info">
-								<strong>小时</strong>
-								-<span>货币($)</span>
-								<span>开发时间：3-6月</span>,
-								<span>发布时间：7天以前</span>
-							</span>
-							<p class="job-desc">
-								这个是项目的描述，这个是项目的描述，这个是项目的描述，这个是项目的描述
-								<a href="javascript:;">更多</a>
-							</p>
-							<div>
-								<label>
-									<strong>Client: </strong>
-									<div style="display:inline-block; width:30px; height:15px; overflow:hidden; background:#E0E0E0; border-radius:5px;">
-										<div style="width:10px;height:15px; background:#7BD454; display:inline-block;">
-										</div>
-										<span>$</span>
-									</div>
-									<span>
-										<span class="icon-active glyphicon glyphicon-star"></span>
-										<span class="icon-active glyphicon glyphicon-star"></span>
-										<span class="glyphicon glyphicon-star"></span>
-										<span class="glyphicon glyphicon-star"></span>
-										<span class="glyphicon glyphicon-star"></span>
-									</span>
-								</label>
-								<label>
-									<span>技能: </span>
-									<a class="tag-item" href="javascript:;">javascript</a>
-									<a class="tag-item" href="javascript:;">javascript</a>
-									<a class="tag-item" href="javascript:;">javascript</a>
-									<a class="tag-item" href="javascript:;">javascript</a>
-								</label>
-							</div>
-						</div>
-					</li><!--end job item-->
-				</ul>
-			</div><!--end center-->
-			<div class="col-xs-3 ald-col-xs-3">
-				
-				<div class="panel panel-default list-panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">我的信息</h3>
-					</div>
-					<ul class="list-group ald-list-group">
-						<li class="list-group-item">
-							<div class="photo-sm-box">
-								<img src="images/user.png" class="photo-sm img-circle"/>
-							</div>
-							<div class="info-progress">
-								<div class="info-progress-bar"><div></div></div>
-								<span class="percentage">70%</span>
-							</div>
-							<a href="javascript:;">
-								<i class="iconfont">&#xe619;</i>
-								&nbsp;&nbsp;Take a Skill Test 
+					<ul class="nav navbar-nav navbar-right nav-right-ul">
+						<li class="nav-right-item"><a href="#"><i class="iconfont lg-icon">&#xe616;</i></a></li><!--搜索-->
+						<li class="nav-right-item"><a href="#"><i class="iconfont lg-icon">&#xe611;</i></a></li><!--帮助-->
+						<li class="nav-right-item"><a href="#"><i class="iconfont lg-icon">&#xe61d;</i></a></li><!--消息-->
+						<li>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<img class="account_img img-circle" src="images/user.png"/>
+								<span class="caret"></span>
 							</a>
+							<ul class="dropdown-menu dropdown-menu-user">
+								<li class="login-status">
+									<a class="login-option login-select" href="javascript:;">在线</a><a class="login-option login-unselect" href="javascript:;">隐身</a>
+								</li>
+								<li class="menu-item">
+									<a class="freelancer" href="#">
+										<img class="img-circle img-icon" src="images/user.png"/>
+										<div>
+											<span class="account-name">Tu Xianming</span><br/>
+											<span>自由工作者</span>
+										</div>
+									</a>
+								</li>
+								<li class="menu-item">
+									<a href="#"><i class="iconfont lg-icon" >&#xe60e;</i>&nbsp;&nbsp;设置</a>
+								</li>
+								<li class="menu-item"><a href="#"><i class="iconfont lg-icon" >&#xe603;</i>&nbsp;&nbsp;<span>注销</span><span class="pull-right">tuxmingg</span></a></li>
+							</ul>
 						</li>
-						
-						<li class="list-group-item"><a href="#">修改资料</a></li>
-					</ul>
+					</ul><!--end right menu-->
 				</div>
-				<div class="panel panel-default list-panel">
-					<div class="panel-heading">
-						<h3 class="panel-title">我的分类</h3>
-					</div>
-					<ul class="list-group ald-list-group">
-						<li class="list-group-item"><a href="#">桌面程序开发</a></li>
-						<li class="list-group-item">
-							<a href="#">手机开发</a><br/>
-							<a href="#">网页开发</a>
-						</li>
-						<li class="list-group-item"><a href="#">修改分类</a></li>
-					</ul>
-				</div>
-				
-				<a class="item-link" href="javascript:;">
-					<span class="glyphicon glyphicon-envelope" href="javascript:;"></span>&nbsp;&nbsp;
-					<span>猜你喜欢</span>
-				</a>
-				<a class="item-link" href="javascript:;">
-					<span class="glyphicon glyphicon-envelope" href="javascript:;"></span>&nbsp;&nbsp;
-					<span>猜你喜欢</span>
-				</a>
-				
-			</div><!--end right-->
+			</nav><!--end nav-->
+		</div><!--end header container-->
+		<div class="sub-nav-container">
+			<div class="header-container">
+				<ul class="nav nav-pills sub-nav-bar" role="tablist">
+					<li><a class="sub-nav-bar-active" ng-href="#/">找工作</a></li>
+					<li><a ng-href="#/saved">我的收藏</a></li>
+					<li><a ng-href="#/proposals">建议</a></li>
+					<li><a ng-href="#/myprofile">个人资料</a></li>
+					<li><a ng-href="#/mystats">My Stats</a></li>
+					<li><a ng-href="#">资质测试</a></li>
+				</ul><!--end right menu-->
+			</div><!--end header container-->
 		</div>
-	</div><!--end content container-->
+	</div>
+	<!--end header-->
 	
-	<div ng-include="'template/footer.html'"></div>
+    <div ng-view="">
+	
+	
+	</div>
+	<!--end ng-view-->
+    
+	<!--start footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-3">
+					<ul class="footer-list">
+						<li><a href="javascript:;">关于我们</a></li>
+						<li><a href="javascript:;">博客</a></li>
+						<li><a href="javascript:;">反馈</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-3">
+					<ul class="footer-list">
+						<li><a href="javascript:;">社区</a></li>
+						<li><a href="javascript:;">信任 & 安全</a></li>
+						<li><a href="javascript:;">帮助 & 支持</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-3">
+					<ul class="footer-list">
+						<li><a href="javascript:;">服务条款</a></li>
+						<li><a href="javascript:;">隐私政策</a></li>
+						<li><a href="javascript:;">Cookie Policy</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-3">
+					<ul  class="footer-list">
+						<li><a href="javascript:;">企业解决方案</a></li>
+						<li><a href="javascript:;">桌面app</a></li>
+						<li><a href="javascript:;">人才招聘</a></li>
+						<li><a href="javascript:;">Mobile</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<ul class="footer-list1">
+					<li><a href="javascript:;"><i class="iconfont llg-icon">&#xe620;</i></a><!--qq--></li>
+					<li><a href="javascript:;"><i class="iconfont llg-icon">&#xe61f;</i></a><!--朋友圈--></li>
+					<li><a href="javascript:;"><i class="iconfont llg-icon">&#xe622;</i></a><!--微信--></li>
+					<li><a href="javascript:;"><i class="iconfont llg-icon">&#xe621;</i></a><!--q-zone--></li>
+				</ul>
+				<p class="copyright">© 2016 - 2020 ALD Global Inc.</p>
+			</div>
+		</div>
+	</div>
+	<!--end footer-->
 	
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -190,11 +160,15 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-	
-	<script src="../scripts/globe.js"></script>
-	<script src="scripts/app.js"></script>
-	<!-- build:js({.tmp,app}) scripts/scripts.js -->
-	<!--<script src="scripts/app.js"></script> -->
-	<!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/saved.js"></script>
+        <script src="scripts/controllers/proposals.js"></script>
+        <script src="scripts/controllers/my-stats.js"></script>
+        <script src="scripts/controllers/myprofile.js"></script>
+		
+        <!-- endbuild -->
 </body>
 </html>

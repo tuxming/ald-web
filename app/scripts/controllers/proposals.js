@@ -2,24 +2,13 @@
 
 /**
  * @ngdoc function
- * @name aldWebApp.controller:MainCtrl
+ * @name app.controller:ProposalsController
  * @description
- * # MainCtrl
- * Controller of the aldWebApp
+ * # ProposalsController
+ * Controller of the app
  */
-var app = angular.module('app', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-	'globe'
-]);
 
-app.controller('proposalsController', function($scope, g){
+app.controller('ProposalsController', function($scope){
 	//console.log(window.g.server);
-	console.log(g.server);
+	//console.log(g.server);
 });

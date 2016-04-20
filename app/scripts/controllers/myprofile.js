@@ -2,24 +2,12 @@
 
 /**
  * @ngdoc function
- * @name aldWebApp.controller:MainCtrl
+ * @name app.controller:MyProfileController
  * @description
- * # MainCtrl
- * Controller of the aldWebApp
+ * # MyProfileController
+ * Controller of the app
  */
-var app = angular.module('app', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-	'globe'
-]);
-
-app.controller('myprofileController', function($scope, g){
+app.controller('MyProfileController', function($scope){
 	//console.log(window.g.server);
 	//console.log(g.server);
 	$scope.array = [0,1,2,3,4,5,6,7,8,9];

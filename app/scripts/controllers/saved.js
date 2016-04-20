@@ -2,24 +2,13 @@
 
 /**
  * @ngdoc function
- * @name aldWebApp.controller:MainCtrl
+ * @name app.controller:SavedController
  * @description
- * # MainCtrl
- * Controller of the aldWebApp
+ * # SavedController
+ * Controller of the app
  */
-var app = angular.module('app', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-	'globe'
-]);
 
-app.controller('savedController', function($scope, g){
+app.controller('SavedController', function($scope){
 	//console.log(window.g.server);
-	console.log(g.server);
+	//console.log(g.server);
 });

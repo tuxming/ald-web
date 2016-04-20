@@ -2,16 +2,12 @@
 
 /**
  * @ngdoc function
- * @name aldWebApp.controller:MainCtrl
+ * @name app.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the aldWebApp
+ * Controller of the app
  */
 angular.module('app')
-  .controller('appController', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function () {
+		
   });

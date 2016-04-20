@@ -2,24 +2,12 @@
 
 /**
  * @ngdoc function
- * @name aldWebApp.controller:MainCtrl
+ * @name app.controller:MystatsController
  * @description
- * # MainCtrl
- * Controller of the aldWebApp
+ * # MystatsController
+ * Controller of the app
  */
-var app = angular.module('app', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-	'globe'
-]);
 
-app.controller('mystatsController', function($scope, g){
+app.controller('MystatsController', function($scope){
 	//console.log(window.g.server);
-	console.log(g.server);
 });
