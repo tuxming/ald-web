@@ -7,7 +7,7 @@ $unactive: #E0E0E0;
 $active: $baseColor;
 
 $white: white;
-$blue: 14BFF4;
+$blue: #14BFF4;
 $dilutedColor: #494949; 
 $normalColor: #252523;	
 $lightColor: #979797;
@@ -52,6 +52,13 @@ body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-f
 .ald-btn-primary{border-radius: 3px;font-weight:600; vertical-align:top; background:$baseColor; border-color: darken($baseColor, 5%);}
 .ald-btn-primary:active, .ald-btn-primary:active:focus{background:darken($baseColor,10%);}
 .ald-btn-primary:focus, .ald-btn-primary:hover{background:darken($baseColor,5%);}
+.btn-full{width:100%; background: $baseColor; font-weight:500; 
+	padding-top:10px; padding-bottom:10px; color:$white;
+}
+.btn-full:hover, .btn-full:focus{
+	background: darken($baseColor, 5%);
+	color:$white;
+}
 .ald-body{background:#F9F9F9;}
 a, .ald-link{color:$baseColor;}
 .link-underline:focus, .link-underline:hover{
@@ -431,11 +438,13 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 .mp-user-base:hover a{background:#D3EAC7; color:$dilutedColor;}
 
 .mp-user-base:hover a::after, .mp-skils-container:hover::after, 
-.mp-overview-container:hover .mp-overview-label::after{
+.mp-overview-container:hover .mp-overview-label::after,
+.mp-availability:hover > h4::after{
 	font-family:"iconfont" !important;
 	content:" \e608";
 	cursor:pointer; background:#D3EAC7;
 	vertical-align:top;
+	font-size:16px;
 }
 
 .mp-user-location{
@@ -537,6 +546,52 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 }
 .mp-other-edit{display:inline-block;}
 .mp-other-edit i{background:#D3EAC7;}
+
+.mp-right-container > div{
+  margin-top:25px; margin-bottom:25px;
+}
+.mp-view-moreprofile{font-size:13px;}
+.mp-job-percent-full{width:100%;}
+.mp-job-percent{width:80%; background:$blue; height:4px;}
+.mp-right-item > h4{
+  font-size:13px;
+  display:inline-block;
+  font-weight: 700;
+  color:$dilutedColor;
+  margin-top:4px;
+  margin-bottom:4px;
+}
+.mp-right-item > p{
+  font-size:13px; 
+  display:inline-block;
+  color:lighten($dilutedColor, 5%);
+  line-height: 140%;
+  margin-top:2px;
+  margin-bottom:2px;
+}
+
+.mp-availability:hover h4, .mp-availability:hover p{
+	background:#D3EAC7;
+}
+.mp-copy-link{font-size:12px;}
+.mp-languages:hover > h4, .mp-languages:hover > p{
+	background: #D3EAC7;
+}
+.mp-languages:hover > h4::after{
+	font-family:"iconfont" !important;
+	content:" \e608";
+	cursor:pointer; background:#D3EAC7;
+	vertical-align:top;
+	font-size:16px;
+}
+.mp-associated > div{float:left;}
+.mp-associated-icon > i{
+	font-size:64px;
+	color:lighten($dilutedColor, 10%);
+}
+.mp-associated-label{
+  margin-left:20px; margin-top:25px; font-size: 13px;
+}
 
 /*********end my profile css***************/
 
