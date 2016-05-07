@@ -3,15 +3,16 @@ var load = require('gulp-load-plugins')();
 var openURL = require('open');
 var runSequence = require('run-sequence');
 var vfs = require('vinyl-fs');
+var fs = require('fs');
 var cheerio = require('cheerio');
 var through2 = require('through2');
 var cleanCSS = require('gulp-clean-css');
 var path = require('path');
 //var useref  = require('gulp-useref');
-
 var less = require('gulp-less');
+var inject = require('gulp-inject-xm');
 //var jshint = require('gulp-jshint');
-
+var extend = require('util')._extend;
 
 var config = {
 	app: require('./bower.json').appPath || 'app',
@@ -50,13 +51,14 @@ var paths = {
     './bower_components/bootstrap/dist/fonts/*.*'
   ],
   watched:[
-	config.app + '/**/*.*', '!'+config.app + '/**/*.less',
+	config.app + '/**/*.*', '!'+config.app + '/**/*.less',  '!'+config.app + '/**/*.html'
   ],
   karma: 'karma.conf.js',
   htmls:  [
 		config.app + '/**/*.html'
 	]
 };
+
 /**
  * ************************
  * *******公共模块*********
@@ -113,6 +115,12 @@ gulp.task('copy', function () {
 		.pipe(gulp.dest(config.dist));
 });
 
+//复制文件
+gulp.task('copy:all', function () {
+	return gulp.src([config.app+"/**/*.*", "!"+config.app+"/**/*.html"])
+		.pipe(gulp.dest(".tmp/"));
+});
+
 //打开浏览器
 gulp.task('start:client', ['start:server', 'less'], function () {
   openURL('http://localhost:9000');
@@ -121,17 +129,57 @@ gulp.task('start:client', ['start:server', 'less'], function () {
 //启动服务器
 gulp.task('start:server', function() {
   load.connect.server({
-    root: config.app,
+    //root: config.app,
+    root: ".tmp",
     livereload: true,
     // Change this to '0.0.0.0' to access the server from outside.
     port: 9000
   });
 });
 
+//处理html的回调函数
+var htmlCallback = function (info, isDebug){
+	if(info.type == "tpl"){
+		var source = fs.readFileSync(config.app+"/"+info.ref);
+		if(source)
+			return source.toString();
+		else 
+			return "";
+	}else if(info.type=='bower'){
+		var bowerjss;
+		if(isDebug){
+			bowerjss = paths.bowerjs.map(function(item, i){
+				var paths = item.split("/");
+				var jsName = paths[paths.length-1];
+				return "<script type='text/javascript' src='/scripts/public/"+jsName+"'></script>";
+			}).reduce(function(a, b){
+				return a+b; 
+			});	
+		}else{
+			bowerjss = "<script type='text/javascript' src='scripts/vender.js' ></script>";
+		}
+		
+		return bowerjss;
+		
+	}else
+		return "";
+	
+}
+
 //监听文件变化
 gulp.task('watch', function() {
 	load.watch(paths.watched)
 		.pipe(load.plumber())
+		.pipe(gulp.dest(".tmp/"))
+		.pipe(load.connect.reload());
+	
+	load.watch(config.app+'/**/*.html')
+		.pipe(load.plumber())
+		.pipe(inject({
+			isDebug : true,
+			callback: htmlCallback
+		}))
+		.pipe(gulp.dest(".tmp/"))
 		.pipe(load.connect.reload());
 	
 	gulp.watch(config.app+'/**/*.less', ['less']);
@@ -139,12 +187,31 @@ gulp.task('watch', function() {
 	//gulp.watch('bower.json', ['bower']);
 });
 
+//处理html文件到.tmp用于开发
+gulp.task('process:html:server', function() {
+	
+	gulp.src(config.app+'/**/*.html')
+		.pipe(load.plumber())
+		.pipe(inject({
+			isDebug : true,
+			callback: htmlCallback
+		}))
+		.pipe(gulp.dest(".tmp/"));
+});
+
 /**
  * ************************
  * *********任务***********
  * ************************
  **/
-gulp.task('default', ['build']);
+ gulp.task('server', function (cb) {
+  runSequence('clean:all',
+    ['bower:ref', 'lint:scripts', 'less', 'copy:all', "process:html:server"],
+    ['start:client'],
+    'watch', cb);
+});
+ 
+gulp.task('default', ['server']);
 gulp.task('build', function(cb){
 	runSequence('clean:all',
 		['bower:ref', 'less', 'copy'], 
@@ -167,16 +234,12 @@ gulp.task('process:build', function(){
 		
 	//处理html
 	var stream = gulp.src(paths.htmls)
-		.pipe(processhtml()) 
+		.pipe(processhtml({
+			isDebug : false,
+			callback: htmlCallback
+		}))
 		.pipe(gulp.dest(config.dist+'/'));
 	
-});
-
-gulp.task('server', function (cb) {
-  runSequence('clean:all',
-    ['bower:ref', 'lint:scripts', 'less'],
-    ['start:client'],
-    'watch', cb);
 });
 
 
@@ -185,7 +248,21 @@ gulp.task('server', function (cb) {
  * *******处理html*********
  * ************************
  **/
+ /*
+	options = {
+		isDebug : false,
+		callback: function(info){
+			var sourcePath = info.ref;
+			var source = fs.readFileSync(info.ref);
+			if(source)
+				return source.toString();
+			else 
+				return "";
+		}
+	}
+ */
 function processhtml(options){
+	options = extend({isDebug: false}, options)
 	return through2.obj(function (file, enc, done) {
 		
 		// 如果文件为空，不做任何操作，转入下一个操作，即下一个 .pipe()
@@ -202,12 +279,15 @@ function processhtml(options){
 		
 		var content = file.contents.toString();
 		
-		var $ = cheerio.load(content, options);
-		processHtmlForDOM($);
-		content = $.html();
+		if(!options.isDebug){
+			var $ = cheerio.load(content, options);
+			processHtmlForDOM($);
+			content = $.html();
+		}
 		
-		processHtmlForString(content, options); 
-		
+		//instead of gulp-inject-xm
+		//content = processHtmlForString(content, options); 
+				
 		file.contents = new Buffer(content);
 		this.push(file);
 		done();
@@ -291,6 +371,7 @@ function processHtmlForDOM($){
 //<script src="scripts/app.js"></script>
 //<script src="scripts/controllers/main.js"></script>
 //<!-- endbuild -->
+/*
 function processHtmlForString(content, options){
 		
 	//这里处理字符串形式的html
@@ -319,36 +400,50 @@ function processHtmlForString(content, options){
 			var head = matchElems[i].match(headerReg);
 			//console.log("2:"+head);
 			
-			var replaceText = "";
 			if(head && head.length>0){
 				//console.log("3:"+head);
 				
 				var jsonStr = head[0].match(jsonReg);
 				
 				if(jsonStr && jsonStr.length>0){
-					//console.log("4:"+jsonStr);
+					//console.log("4:"+jsonStr, "options.isDebug:"+options.isDebug);
 					
 					var info = JSON.parse(jsonStr[0]);
 					
-					if(info.type && info.ref){
-						if(info.type==='script'){
-							replaceText = '<script type="text/script" src="'+info.ref+'"/>';
-						}else if(info.type==='css')
-							replaceText = '<link type="text/css" href="'+info.ref+'"/>';
+					if(!options.isDebug){
+						var replaceText = "";
+						if(info.type){
+							if(info.type==='script'){
+								replaceText = '<script type="text/script" src="'+info.ref+'"/>';
+							}else if(info.type==='css')
+								replaceText = '<link type="text/css" href="'+info.ref+'"/>';
+							else{
+								if(options && options.callback){
+									console.log(replaceText);
+									replaceText = options.callback(info, options.isDebug)
+								}
+							}
+						}
+						content = content.replace(matchElems[i], replaceText);
 					}else{
 						if(options && options.callback){
-							replaceText = options.callback(info)
+							var replaceText = options.callback(info, options.isDebug);
+							
+							if(replaceText){
+								content = content.replace(matchElems[i], replaceText);
+							}
 						}
 					}
 					
 				}
 				
 			}
-			content = content.replace(matchElems[i], replaceText);
+			
 		}
 	}
+	return content;
 }
-
+*/
 //rename 官网例子
 /*
 gulp.src("./src/main/text/hello.txt", { base: process.cwd() })
@@ -389,3 +484,5 @@ function plugin(keepQuantity){
 
 module.exports = plugin;
 */
+
+
