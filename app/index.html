@@ -100,7 +100,7 @@
 			<div class="row">
 				<div class="col-xs-3">
 					<ul class="footer-list">
-						<li><a href="javascript:;">关于我们</a></li>
+						<li><a href="#/aboutus">关于我们</a></li>
 						<li><a href="javascript:;">博客</a></li>
 						<li><a href="javascript:;">反馈</a></li>
 					</ul>
@@ -155,13 +155,15 @@
     <script src="scripts/public/angular-touch.js"></script>
     <!-- endbuild -->
 
-	<span style="display:none;" class="buildjs" name="main.js" dist="/scripts/"></span>
-	<script class="concat" src="scripts/app.js"></script>
-	<script class="concat" src="scripts/controllers/main.js"></script>
-	<script class="concat" src="scripts/controllers/saved.js"></script>
-	<script class="concat" src="scripts/controllers/proposals.js"></script>
-	<script class="concat" src="scripts/controllers/mystats.js"></script>
-	<script class="concat" src="scripts/controllers/myprofile.js"></script>
+	<!-- build:js({.tmp,app}) scripts/scripts.js -->
+	<script src="scripts/app.js"></script>
+	<script src="scripts/controllers/main.js"></script>
+	<script src="scripts/controllers/saved.js"></script>
+	<script src="scripts/controllers/proposals.js"></script>
+	<script src="scripts/controllers/mystats.js"></script>
+	<script src="scripts/controllers/myprofile.js"></script>        
+	<script src="scripts/controllers/aboutus.js"></script>
 	
+	<!-- endbuild -->
 </body>
 </html>
