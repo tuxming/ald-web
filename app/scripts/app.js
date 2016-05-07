@@ -43,6 +43,36 @@ var app = angular.module('app', [
         controller: 'MyProfileController',
         controllerAs: 'myprofile'
       })
+      .when('/aboutus', {
+        templateUrl: 'views/about/aboutus.html',
+        controller: 'AboutUsController',
+        controllerAs: 'aboutus'
+      })
+      .when('/careers', {
+        templateUrl: 'views/about/careers.html',
+        controller: 'CareersController',
+        controllerAs: 'careers'
+      })
+      .when('/team', {
+        templateUrl: 'views/about/team.html',
+        controller: 'TeamController',
+        controllerAs: 'team'
+      })
+      .when('/board', {
+        templateUrl: 'views/about/board.html',
+        controller: 'BoardController',
+        controllerAs: 'board'
+      })
+      .when('/press', {
+        templateUrl: 'views/about/press.html',
+        controller: 'PressController',
+        controllerAs: 'press'
+      })
+      .when('/contact', {
+        templateUrl: 'views/about/contact.html',
+        controller: 'ContactController',
+        controllerAs: 'contact'
+      })       
       .otherwise({
         redirectTo: '/'
       });
