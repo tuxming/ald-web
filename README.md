@@ -8,9 +8,20 @@
 
 		1, npm install  
 		2, bower install
-		3, grunt build
-		4, grunt serve
+		3, gulp build
+		4, gulp server
 
+## warning
+```html
+	modify boostrap font path in: 
+		bower_components/bootstrap/less/variables.less
+	open: variables.less
+	change:
+		@icon-font-path:          "../fonts/"
+	to
+		@icon-font-path:          "../static/"
+```
+		
 ##questions
 		1) jit-grunt: Plugin for the "karma" task not found.
 			npm install grunt-karma --save-dev

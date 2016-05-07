@@ -1,17 +1,17 @@
 @charset "utf-8";
 
-$pageWidth: 1100px;
-$baseColor: #37A000;
-$navBackground: #ffffff;
-$unactive: #E0E0E0;
-$active: $baseColor;
+@pageWidth: 1100px;
+@baseColor: #37A000;
+@navBackground: #ffffff;
+@unactive: #E0E0E0;
+@active: @baseColor;
 
-$white: white;
-$blue: #14BFF4;
-$dilutedColor: #494949; 
-$normalColor: #252523;	
-$lightColor: #979797;
-$footerFontColor: #7d7d7d;
+@white: white;
+@blue: #14BFF4;
+@dilutedColor: #494949; 
+@normalColor: #252523;	
+@lightColor: #979797;
+@footerFontColor: #7d7d7d;
 
 body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-font-smoothing:antialiased; 
 	/*font-family:'Gotham Medium','Gotham Light','Gotham Book','sans-serif'; */ }
@@ -47,30 +47,30 @@ body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-f
 	base on bootstrap custom style 
 **/
 
-.ald-input{height:35px; padding: 6px 12px; border: 2px solid $unactive; border-radius: 2px;}
-.ald-input:focus, ald-input:hover{border-color: $active;}
-.ald-btn-primary{border-radius: 3px;font-weight:600; vertical-align:top; background:$baseColor; border-color: darken($baseColor, 5%);}
-.ald-btn-primary:active, .ald-btn-primary:active:focus{background:darken($baseColor,10%);}
-.ald-btn-primary:focus, .ald-btn-primary:hover{background:darken($baseColor,5%);}
-.btn-full{width:100%; background: $baseColor; font-weight:500; 
-	padding-top:10px; padding-bottom:10px; color:$white;
+.ald-input{height:35px; padding: 6px 12px; border: 2px solid @unactive; border-radius: 2px;}
+.ald-input:focus, ald-input:hover{border-color: @active;}
+.ald-btn-primary{border-radius: 3px;font-weight:600; vertical-align:top; background:@baseColor; border-color: darken(@baseColor, 5%);}
+.ald-btn-primary:active, .ald-btn-primary:active:focus{background:darken(@baseColor,10%);}
+.ald-btn-primary:focus, .ald-btn-primary:hover{background:darken(@baseColor,5%);}
+.btn-full{width:100%; background: @baseColor; font-weight:500; 
+	padding-top:10px; padding-bottom:10px; color:@white;
 }
 .btn-full:hover, .btn-full:focus{
-	background: darken($baseColor, 5%);
-	color:$white;
+	background: darken(@baseColor, 5%);
+	color:@white;
 }
 .ald-body{background:#F9F9F9;}
-a, .ald-link{color:$baseColor;}
+a, .ald-link{color:@baseColor;}
 .link-underline:focus, .link-underline:hover{
 	text-decoration:underline; 
 }
 
-a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%); text-decoration:none;}
-.icon-active{color: $baseColor;}
-.icon-unactive{color: $unactive;}
+a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%); text-decoration:none;}
+.icon-active{color: @baseColor;}
+.icon-unactive{color: @unactive;}
 .icon-link:hover{text-decoration:none;}
 
-.panel-title{font-size:13px; color:$lightColor;}
+.panel-title{font-size:13px; color:@lightColor;}
 .ald-list-group > li > a{font-size:12px; }
 .item-link{display:block; margin:6px; font-size:12px;}
 .item-link:hover{text-decoration:none;}
@@ -80,8 +80,8 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 
 .nothing-box{
 	padding:25px 40px; font-size:22px; font-weight:300;
-	border:1px solid $unactive; margin-top:35px; margin-bottom:35px;
-	background: $white;
+	border:1px solid @unactive; margin-top:35px; margin-bottom:35px;
+	background: @white;
 }
 .nothing-box-icon{
 	font-size:22px;
@@ -90,31 +90,31 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 /*
 	globe set
 */
-.header{background:$navBackground;}
-.container{width: $pageWidth; max-width:$pageWidth;}
+.header{background:@navBackground;}
+.container{width: @pageWidth; max-width:@pageWidth;}
 
 /**
 	navi style
 **/
-.mynav-bar{border:none; margin-bottom:0px; background: $navBackground;}
+.mynav-bar{border:none; margin-bottom:0px; background: @navBackground;}
 .mynavbar-brand{padding-top:5px; padding-bottom:15px;}
 .nav > li > a{padding-bottom:0px; padding-top:0px;}
 .nav-left-ul > li{padding-top:25px; padding-bottom:25px;}
-.nav-left-ul > li:first-child > a{color:$baseColor;}
+.nav-left-ul > li:first-child > a{color:@baseColor;}
 .nav-left-ul > li:first-child > a:hover,
-.nav-left-ul > li:first-child > a:focus{color:$baseColor;}
+.nav-left-ul > li:first-child > a:focus{color:@baseColor;}
 .navbar .nav-left-ul > li:not(:first-child) > a:hover, 
-.navbar .nav-left-ul > li:not(:first-child) > a:focus{color: darken($baseColor, 5%);}
+.navbar .nav-left-ul > li:not(:first-child) > a:focus{color: darken(@baseColor, 5%);}
 
 .nav-right-ul > li{padding-top:20px;}
 .nav-right-ul .nav-right-item{padding-top:25px;}
 .icon-nav{font-size:20px; color:#aaaaaa;}
-.header-container{width: $pageWidth; text-align: left; margin: 0px auto;}
+.header-container{width: @pageWidth; text-align: left; margin: 0px auto;}
 
-.sub-nav-container{width:100%; background:$normalColor;}
-.sub-nav-bar{width:$pageWidth; background:$normalColor;}
+.sub-nav-container{width:100%; background:@normalColor;}
+.sub-nav-bar{width:@pageWidth; background:@normalColor;}
 .sub-nav-bar > li > a{color:#eeeeee; padding-bottom:10px; padding-top:10px;}
-.sub-nav-bar > li > a:hover, ul.sub-nav-bar > li > a:focus{color: $white; background:transparent;}
+.sub-nav-bar > li > a:hover, ul.sub-nav-bar > li > a:focus{color: @white; background:transparent;}
 .sub-nav-bar .sub-nav-bar-active{color:#ffffff;}
 
 /**end navi style**/
@@ -126,8 +126,8 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 //	<i class="iconfont">&#xe61c;</i>
 //</a>
 .tag{
-	font-size:10px; display:inline-block; background:$unactive; 
-	margin:5px 5px; padding: 2px 7px; color:$dilutedColor;border-radius: 20px;
+	font-size:10px; display:inline-block; background:@unactive; 
+	margin:5px 5px; padding: 2px 7px; color:@dilutedColor;border-radius: 20px;
 }
 .tag i {font-size:12px;}
 .tag-edit:hover::after{
@@ -149,7 +149,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 //</div>
 .ald-dropdown-toggle .caret{float:right; margin-right:5px; margin-top:7px;}
 .ald-dropdown-toggle{
-	padding:4px; border:2px solid $unactive; 
+	padding:4px; border:2px solid @unactive; 
 	display:block;
 	width:100%;
 	zoom: 1;
@@ -162,15 +162,15 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
   visibility: hidden; 
 }
 
-.ald-dropdown-toggle:hover{border-color: $baseColor;}
+.ald-dropdown-toggle:hover{border-color: @baseColor;}
 .ald-dropdown-menu{ padding:0px; margin-top:-2px;}
 .ald-dropdown-menu li{padding:8px;
 	cursor: pointer;
-	border:2px $white solid;
-	border-bottom:1px solid $unactive; color:$dilutedColor;
+	border:2px @white solid;
+	border-bottom:1px solid @unactive; color:@dilutedColor;
 }
 .ald-dropdown-menu li:hover{
-	border:2px solid $baseColor;
+	border:2px solid @baseColor;
 }
 
 //开关按钮
@@ -179,23 +179,23 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 //	<button class="btn btn-radio-no btn-radio-unactive" aria-label="radio">No</button>
 //</div>
 .btn-radio-active{
-	background:$baseColor;
-	color: $white;
-	border:2px solid $baseColor;
+	background:@baseColor;
+	color: @white;
+	border:2px solid @baseColor;
 }
 .btn-group .btn-radio-active{
-	color:$white;
+	color:@white;
 }
 
 .btn-radio-unactive{
-	background:$white;
-	color:$dilutedColor;
-	border:2px solid $unactive;
+	background:@white;
+	color:@dilutedColor;
+	border:2px solid @unactive;
 	z-inddex:3;
 }
 .btn-radio-unactive:hover{
-	border-color:$baseColor;
-	color:$baseColor;
+	border-color:@baseColor;
+	color:@baseColor;
 }
 .btn-radio-yes{
 	padding: 3px 12px;
@@ -210,59 +210,59 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 /** tab **/
 .tab-bar{
 	list-style:none; padding:0 0px 11px 0px; margin:0px 40px;
-	border-bottom: 2px solid $unactive;
+	border-bottom: 2px solid @unactive;
 }
 .tab-bar li{
 	display:inline-block;
 }
 .tab-bar li a{
-	padding:10px 30px; font-size:18px; color:$lightColor;
+	padding:10px 30px; font-size:18px; color:@lightColor;
 }
 .tab-bar li a:hover{
-	color: $baseColor;
+	color: @baseColor;
 }
 .tab-bar li .active{
-	border-bottom:4px solid $baseColor; color: $baseColor; 
+	border-bottom:4px solid @baseColor; color: @baseColor; 
 }
 /**end tab**/
 
 .dropdown-menu-user .login-option{
-	border:2px solid $lightColor; color:$lightColor;
+	border:2px solid @lightColor; color:@lightColor;
 	display:inline-block !important; width:140px; text-align:center;
 	padding-bottom: 6px;
 	padding-top: 6px;
 }
 
 .dropdown-menu-user > li{padding:10px; width:300px;}
-.dropdown-menu-user .login-unselect:hover{border:2px solid $baseColor; color:$baseColor;}
-.dropdown-menu-user .login-select{background:$baseColor; color:$white; border-color:$baseColor;}
-.dropdown-menu-user .login-select:hover{background:$baseColor; color:$white; border-color:$baseColor; border:2px solid $baseColor;}
+.dropdown-menu-user .login-unselect:hover{border:2px solid @baseColor; color:@baseColor;}
+.dropdown-menu-user .login-select{background:@baseColor; color:@white; border-color:@baseColor;}
+.dropdown-menu-user .login-select:hover{background:@baseColor; color:@white; border-color:@baseColor; border:2px solid @baseColor;}
 
 .dropdown-menu-user .menu-item{
-	border-top: 1px solid $unactive;
+	border-top: 1px solid @unactive;
 }
 .dropdown-menu-user .menu-item:hover{
-	border: 2px solid $baseColor;
+	border: 2px solid @baseColor;
 }
 .dropdown-menu-user .menu-item > a{
-	padding:10px; color:$lightColor;
+	padding:10px; color:@lightColor;
 }
-.dropdown-menu-user .menu-item > a:hover{background: none; color:$baseColor;}
-.dropdown-menu-user .menu-item > a:hover .account-name{color:$baseColor;}
+.dropdown-menu-user .menu-item > a:hover{background: none; color:@baseColor;}
+.dropdown-menu-user .menu-item > a:hover .account-name{color:@baseColor;}
 
 .img-icon{width:30px; vertical-align:top;}
 .freelancer > p{
-	margin-left:12px; font-size:12px; color: $lightColor;
+	margin-left:12px; font-size:12px; color: @lightColor;
 }
 .freelancer > img, .freelancer > div {display:inline-block;}
 
 .footer{
-	background: $normalColor; color: $footerFontColor;
+	background: @normalColor; color: @footerFontColor;
 	margin-top:30px; 
 	padding-top:80px;
 	padding-bottom:80px;
 }
-.footer a{color: $footerFontColor;}	
+.footer a{color: @footerFontColor;}	
 .footer-list, .footer-list li, 
 .footer-list1, .footer-list1 li{list-style:none;}
 .footer-list > li{line-height:200%;}
@@ -284,7 +284,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 
 .account_img{height:30px;}
 
-.find-work-label{color:$normalColor; font-weight:100; font-size:26px; margin-top:10px; margin-left:10px;}
+.find-work-label{color:@normalColor; font-weight:100; font-size:26px; margin-top:10px; margin-left:10px;}
 .search-input{width:465px;}
 
 .advanced-search{margin-top:8px;}
@@ -292,15 +292,15 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 
 .tag-item{
 	display:inline-block; 
-	border-radius:6px; background:$unactive; 
+	border-radius:6px; background:@unactive; 
 	padding:3px 8px; font-size:12px;
 	font-size: 11px;
     font-weight: normal;
 	margin-left:5px;
 	margin-right:5px;
-	color: $dilutedColor;
+	color: @dilutedColor;
 }
-.tag-item:hover{text-decoration:none; background:$baseColor; color: $white;}
+.tag-item:hover{text-decoration:none; background:@baseColor; color: @white;}
 
 .rss-1, .rss-2{
 	opacity:0.85;
@@ -320,7 +320,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 	line-height:25px;
     font-size: 18px;
 	font-weight:300;
-	color:$normalColor;
+	color:@normalColor;
 }
 
 .job-title{margin:10px 0px; font-size:16px; pading:0px 20px;}
@@ -331,24 +331,24 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 .job-title-item-cert{
 	font-weight:700;
 }
-.job-detail{font-weight:400; color: $dilutedColor; font-size:11px;}
+.job-detail{font-weight:400; color: @dilutedColor; font-size:11px;}
 .job-desc{line-height:150%; margin:8px 0px; font-size:12px;}
 
 .info-progress-bar{
-	border: 1px solid $baseColor;
+	border: 1px solid @baseColor;
     display: inline-block;
     height: 16px;
     margin-bottom: 1px;
     vertical-align: bottom;
     width: 100px;
 }
-.info-progress-bar > div{height:14px; background: $baseColor; width:70px; }
-.percentage{color:$baseColor; font-size:12px;}
+.info-progress-bar > div{height:14px; background: @baseColor; width:70px; }
+.percentage{color:@baseColor; font-size:12px;}
 
 /**my-stats**/
 .mystats-box{
-	border: 1px solid $unactive;
-	background:$white;
+	border: 1px solid @unactive;
+	background:@white;
 	margin-bottom: 50px;
 }
 
@@ -361,7 +361,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 }
 
 .mystats-box-left{
-	border-right:1px solid $unactive;
+	border-right:1px solid @unactive;
 	padding:30px 0px 60px 30px;
 	width:75%;
 }
@@ -371,7 +371,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
   padding-left:35px;
 }
 
-.msc-title{margin-bottom:40px; font-weight:500px; color:$dilutedColor;
+.msc-title{margin-bottom:40px; font-weight:500px; color:@dilutedColor;
 	margin-bottom:40px; width:100%;
 }
 
@@ -381,8 +381,8 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 .mystats-box-right > p{padding-top:40px; padding-right:30px;}
 
 .msc-percent-draw{width:210px; height:210px; }
-.msc-update-client{color:$baseColor; font-weight:500; padding: 20px 0px;}
-.msc-percent-draw-example{border-radius:50%; background:$baseColor;}
+.msc-update-client{color:@baseColor; font-weight:500; padding: 20px 0px;}
+.msc-percent-draw-example{border-radius:50%; background:@baseColor;}
 
 .msc-sub-title{
 	padding-bottom:35px;
@@ -392,11 +392,11 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 	padding: 20px 0px;
 }
 .msc-chart-draw{
-	display:inline-block; border: 1px solid $baseColor;
+	display:inline-block; border: 1px solid @baseColor;
 	padding-left: 0px;
 }
 .msc-chart-draw > div {
-	width: 79%; background:$baseColor;
+	width: 79%; background:@baseColor;
 	height: 14px;
 }
 /**end my-stats**/
@@ -412,7 +412,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 }
 .mp-title-hover:hover::after{
 	font-family:"iconfont" !important;
-	color:$baseColor;
+	color:@baseColor;
 	content: " \e629";
 	font-size:18px;
 }
@@ -425,17 +425,17 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 	padding-right: 30px;
 	display:inline-block;
 }
-.mp-box{padding:30px; margin-bottom:30px; background:$white;
-	border:1px solid $unactive;
+.mp-box{padding:30px; margin-bottom:30px; background:@white;
+	border:1px solid @unactive;
 }
 .mp-overview > div{
 	float:left; 
 }
 .mp-user-photo{width:25%;}
 .mp-user-info1{width:75%;}
-.my-user-name-label a{font-weight:400; font-size:18px; color: $dilutedColor; }
-.mp-job-title{font-weight:600; color:$dilutedColor; font-size:15px; }
-.mp-user-base:hover a{background:#D3EAC7; color:$dilutedColor;}
+.my-user-name-label a{font-weight:400; font-size:18px; color: @dilutedColor; }
+.mp-job-title{font-weight:600; color:@dilutedColor; font-size:15px; }
+.mp-user-base:hover a{background:#D3EAC7; color:@dilutedColor;}
 
 .mp-user-base:hover a::after, .mp-skils-container:hover::after, 
 .mp-overview-container:hover .mp-overview-label::after,
@@ -448,14 +448,14 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken($baseColor,5%);
 }
 
 .mp-user-location{
-	color:$dilutedColor;
+	color:@dilutedColor;
 }
 
 .mp-skils-container:hover > a{background:#D3EAC7;}
-.mp-skils-container > a:hover{color:$dilutedColor;} 
+.mp-skils-container > a:hover{color:@dilutedColor;} 
 
 .mp-overview-label{
-	font-size:18px; font-weight:400; color:$dilutedColor;
+	font-size:18px; font-weight:400; color:@dilutedColor;
 	margin:20px 0px; cursor:pointer; display:inline-block; 
 }
 
@@ -474,15 +474,15 @@ overflow-x:hidden; background:none;}
 
 .mp-works-left{width:65%; float:left;}
 .mp-works-right{width:35%; float:left;}
-.mp-works > li{margin:20px 0px; padding-bottom:30px; border-bottom: 1px solid $unactive;}
+.mp-works > li{margin:20px 0px; padding-bottom:30px; border-bottom: 1px solid @unactive;}
 .mp-works-name{font-size:15px; font-weight:700; }
 .mp-works-left > a, .mp-works-left > div{
 	display:block; padding:4px 0px;
 }
 
-.mp-works-stars{font-size:12px; color:$baseColor;}
+.mp-works-stars{font-size:12px; color:@baseColor;}
 .mp-works-score-num{display:inline-block; vertical-align:middle; }
-.mp-works-appraise{line-height:180%; font-style:oblique; color:$lightColor;}
+.mp-works-appraise{line-height:180%; font-style:oblique; color:@lightColor;}
 .mp-works-total-time{font-size:15px; font-weight:700; }
 
 .mp-works-right > div{text-align:right; padding:2px 0px;}
@@ -508,28 +508,28 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 .mp-pf-text{margin:10px 0px; display:inline-block; } 
 
 .mp-pf-controls{position:absolute; top:80px; left:100px;
-	background:$white; padding:10px 20px; 
+	background:@white; padding:10px 20px; 
 	border-radius:30px;box-shadow:0px 0px 1px rgba(110,110,110, 0.2);
 }
 .mp-pf-controls > a{ font-size:18px; margin:0px 4px; }
 
 .mp-test-item-score{display:inline-block; margin-right:15px;}
-.test-sort-first{border-radius: 5px; font-size:12px; padding:3px 5px; background:#FEC324; color:$white;}
-.test-sort-top1{border-radius: 5px; font-size:12px; padding:3px 5px; background:#0682D1; color:$white;}
-.test-sort-top2{border-radius: 5px; font-size:12px; padding:3px 5px; background: #00A0E8; color: $white; }
+.test-sort-first{border-radius: 5px; font-size:12px; padding:3px 5px; background:#FEC324; color:@white;}
+.test-sort-top1{border-radius: 5px; font-size:12px; padding:3px 5px; background:#0682D1; color:@white;}
+.test-sort-top2{border-radius: 5px; font-size:12px; padding:3px 5px; background: #00A0E8; color: @white; }
 .test-sort-failed{font-size:14px; color:#EF4B0A;}
-.test-sort-blowavg{border-radius: 5px; font-size:12px; padding:3px 5px; background:#E55414; color:$white;}
-.test-sort-normal{color: $dilutedColor;}
+.test-sort-blowavg{border-radius: 5px; font-size:12px; padding:3px 5px; background:#E55414; color:@white;}
+.test-sort-normal{color: @dilutedColor;}
 
 .mp-other-item > span:first-child{
 	display:inline-block;
-	font-size: 15px; color:$dilutedColor; font-weight:700;
+	font-size: 15px; color:@dilutedColor; font-weight:700;
 	padding:0px; margin-bottom:10px;
 }
 .mp-other-item > span{
 	font-size:13px; padding:0px; line-height:150%;
 }
-.mp-other-item{border-bottom:1px solid $unactive; padding-bottom:30px;
+.mp-other-item{border-bottom:1px solid @unactive; padding-bottom:30px;
 	margin-bottom:35px;
 	cursor:pointer;
 }
@@ -537,7 +537,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 
 .mp-other:hover .mp-otner-title::after{
 	font-family:"iconfont" !important;
-	color:$baseColor;
+	color:@baseColor;
 	content: " \e629";
 	font-size:24px;
 }
@@ -552,19 +552,19 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 }
 .mp-view-moreprofile{font-size:13px;}
 .mp-job-percent-full{width:100%;}
-.mp-job-percent{width:80%; background:$blue; height:4px;}
+.mp-job-percent{width:80%; background:@blue; height:4px;}
 .mp-right-item > h4{
   font-size:13px;
   display:inline-block;
   font-weight: 700;
-  color:$dilutedColor;
+  color:@dilutedColor;
   margin-top:4px;
   margin-bottom:4px;
 }
 .mp-right-item > p{
   font-size:13px; 
   display:inline-block;
-  color:lighten($dilutedColor, 5%);
+  color:lighten(@dilutedColor, 5%);
   line-height: 140%;
   margin-top:2px;
   margin-bottom:2px;
@@ -587,7 +587,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 .mp-associated > div{float:left;}
 .mp-associated-icon > i{
 	font-size:64px;
-	color:lighten($dilutedColor, 10%);
+	color:lighten(@dilutedColor, 10%);
 }
 .mp-associated-label{
   margin-left:20px; margin-top:25px; font-size: 13px;
