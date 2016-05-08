@@ -13,6 +13,9 @@ var less = require('gulp-less');
 var inject = require('gulp-inject-xm');
 //var jshint = require('gulp-jshint');
 var extend = require('util')._extend;
+var tplProcessor = require("gulp-template-xm");
+
+var debug = false;
 
 var config = {
 	app: require('./bower.json').appPath || 'app',
@@ -55,7 +58,7 @@ var paths = {
   ],
   karma: 'karma.conf.js',
   htmls:  [
-		config.app + '/**/*.html'
+		config.app + '/**/*.html', '!'+config.app+'template/**/*.html'
 	]
 };
 
@@ -166,6 +169,15 @@ var htmlCallback = function (info, isDebug){
 	
 }
 
+//处理模板的回调函数
+var tplCallback = function(templatefile){ //inject to template {index.tpl.html}
+	//console.log(templatefile.toString())
+	return inject.processHtmlForString(templatefile.toString(), {
+		isDebug: debug,  //product, true: developer -> can't inject css, js
+		callback: htmlCallback
+	});
+}
+
 //监听文件变化
 gulp.task('watch', function() {
 	load.watch(paths.watched)
@@ -175,9 +187,15 @@ gulp.task('watch', function() {
 	
 	load.watch(config.app+'/**/*.html')
 		.pipe(load.plumber())
-		.pipe(inject({
-			isDebug : true,
+		.pipe(inject.process({
+			isDebug : debug,
 			callback: htmlCallback
+		}))
+		.pipe(tplProcessor({
+			tplProcess : tplCallback
+		}))
+		.pipe(processhtml({
+			isDebug : debug
 		}))
 		.pipe(gulp.dest(".tmp/"))
 		.pipe(load.connect.reload());
@@ -190,11 +208,19 @@ gulp.task('watch', function() {
 //处理html文件到.tmp用于开发
 gulp.task('process:html:server', function() {
 	
+	debug = true;
+	
 	gulp.src(config.app+'/**/*.html')
 		.pipe(load.plumber())
-		.pipe(inject({
-			isDebug : true,
+		.pipe(inject.process({
+			isDebug : debug,
 			callback: htmlCallback
+		}))
+		.pipe(tplProcessor({
+			tplProcess : tplCallback
+		}))
+		.pipe(processhtml({
+			isDebug : debug
 		}))
 		.pipe(gulp.dest(".tmp/"));
 });
@@ -233,10 +259,17 @@ gulp.task('process:build', function(){
 		.pipe(gulp.dest(config.dist+'/styles/'));
 		
 	//处理html
+	debug = false;
 	var stream = gulp.src(paths.htmls)
-		.pipe(processhtml({
-			isDebug : false,
+		.pipe(inject.process({
+			isDebug : debug,
 			callback: htmlCallback
+		}))
+		.pipe(tplProcessor({
+			tplProcess : tplCallback
+		}))
+		.pipe(processhtml({
+			isDebug : debug
 		}))
 		.pipe(gulp.dest(config.dist+'/'));
 	

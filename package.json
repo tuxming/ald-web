@@ -20,6 +20,7 @@
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-template-xm": "^0.1.0",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.2.4",
