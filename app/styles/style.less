@@ -595,7 +595,10 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 
 /*********end my profile css***************/
 
-/*********start aboutus css***************/
+/************start aboutnav css**************/
+.aboutus-nav li .active{
+    border-bottom:4px solid @baseColor;
+}
 .aboutus-nav{
     height:100%;
     line-height:68px;
@@ -610,6 +613,12 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 .aboutus-nav li{
     margin:0px 20px;
 }
+.aboutus-nav li a{
+    border-radius: 0px
+}
+/*************end aboutnav css***************/
+
+/*********start aboutus css***************/
 .introduction{
     margin:30px 0px;
 }
@@ -617,14 +626,14 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
     margin:30px 0px;
 }
 .banner-header{
-    color:white;
+    color:@white;
     padding-top:70px;
     height:300px;
-    background-color:#5BBC2E;
+    background-color:@baseColor;
     margin-top:-31px;
 }
 .banner-middle{
-    height:200px;background-color:#5BBC2E;
+    height:200px;background-color:@baseColor;
 }
 .middle-topic-text
 {
@@ -637,7 +646,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
     padding:30px 0px 10px;
     margin-bottom: -31px;
     height:200px;
-    background-color:#5BBC2E;
+    background-color:@baseColor;
 }
 .footer-classify ul li{
     margin:0px 12px;
@@ -653,10 +662,10 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
     margin:30px 0px;
 }
 .careers-banner-footer{
-    color:white;
+    color:@white;
     padding-top: 70px;
     height:300px;
-    background-color:#5BBC2E;
+    background-color:@baseColor;
     margin-bottom:-31px;
 }
 .careers-workers{
@@ -700,6 +709,18 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
     height:100px;
     width:100%;
 }
+.btn-looking-position{
+    background-color:@baseColor;
+    color:@white;
+    font-weight:bold;
+    border:1px solid @white;    
+    border-radius: 1px;
+    width:216px;
+}
+.btn-looking-position:hover{
+    background-color:@white;
+    color:@baseColor;  
+}
 /*********end careers css***************/
 
 /*********start team css *********/
@@ -740,10 +761,10 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
     padding:15px 15px;
 }
 .press-banner-footer{
-    color:white;
+    color:@white;
     padding-top: 70px;
     height:300px;
-    background-color:#5BBC2E;
+    background-color:@baseColor;
     margin-top:30px;
     margin-bottom:-31px;
 }
@@ -770,15 +791,15 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
   margin: 30px 0px;
 }
 .banner-header {
-  color: white;
+  color: @white;
   padding-top: 70px;
   height: 300px;
-  background-color: #5BBC2E;
+  background-color: @baseColor;
   margin-top: -31px;
 }
 .banner-middle {
   height: 200px;
-  background-color: #5BBC2E;
+  background-color: @baseColor;
 }
 .middle-topic-text {
   font-size: 72px;
@@ -790,7 +811,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
   padding: 30px 0px 10px;
   margin-bottom: -31px;
   height: 200px;
-  background-color: #5BBC2E;
+  background-color: @baseColor;
 }
 .footer-classify ul li {
   margin: 0px 12px;
@@ -806,10 +827,10 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
   margin: 30px 0px;
 }
 .careers-banner-footer {
-  color: white;
+  color: @white;
   padding-top: 70px;
   height: 300px;
-  background-color: #5BBC2E;
+  background-color: @baseColor;
   margin-bottom: -31px;
 }
 .careers-workers {
@@ -890,10 +911,10 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
   padding: 15px 15px;
 }
 .press-banner-footer {
-  color: white;
+  color: @white;
   padding-top: 70px;
   height: 300px;
-  background-color: #5BBC2E;
+  background-color: @baseColor;
   margin-top: 30px;
   margin-bottom: -31px;
 }
