@@ -7,6 +7,6 @@
  * # AboutUsController
  * Controller of the app
  */
-app.controller('BoardController', function ($scope) {
-
+app.controller('BoardCtrl', function ($scope) {
+    $scope.active = "active";
 });

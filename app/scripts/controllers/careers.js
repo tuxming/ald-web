@@ -8,5 +8,5 @@
  * Controller of the app
  */
 app.controller('CareersController', function ($scope) {
-
+    $scope.active = "active";
 });

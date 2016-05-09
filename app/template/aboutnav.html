@@ -1,23 +1,23 @@
 <div class="container text-center">
-    <div class="nav-inner-wrapper">
+    <div class="nav-inner-wrapper" ng-init="page_nav='#{page-tab}'">
         <ul class="nav nav-pills aboutus-nav">
             <li>
-                <a href="/about/aboutus.html" page="aboutus">ABOUT US</a>
+                <a href="/about/aboutus.html" class="{{page_nav=='aboutus'?'active':''}}">ABOUT US</a>
             </li>
             <li>
-                <a href="/about/careers.html" page="careers">CAREERS</a>
+                <a href="/about/careers.html" class="{{page_nav=='careers'?'active':''}}">CAREERS</a>
             </li>
             <li>
-                <a href="/about/team.html" page="team">OUR TEAM</a>
+                <a href="/about/team.html" class="{{page_nav=='team'?'active':''}}">OUR TEAM</a>
             </li>
             <li>
-                <a href="/about/board.html" page="board">BOARD OF DIRECTORS</a>
+                <a href="/about/board.html" class="{{page_nav=='board'?'active':''}}">BOARD OF DIRECTORS</a>
             </li>
             <li>
-                <a href="/about/press.html" page="press">PRESS</a>
+                <a href="/about/press.html" class="{{page_nav=='press'?'active':''}}">PRESS</a>
             </li>
             <li>
-                <a href="/about/contact.html" page="contact">CONTACT US</a>
+                <a href="/about/contact.html" class="{{page_nav=='contact'?'active':''}}">CONTACT US</a>
             </li>
         </ul>
     </div>

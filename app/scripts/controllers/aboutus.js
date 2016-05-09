@@ -7,6 +7,6 @@
  * # AboutUsController
  * Controller of the app
  */
-app.controller('AboutUsController', function($scope){	
-	
+app.controller('AboutUsCtrl', function($scope){	
+    
 });

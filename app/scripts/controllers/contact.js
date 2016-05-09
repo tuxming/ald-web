@@ -8,5 +8,5 @@
  * Controller of the app
  */
 app.controller('ContactController', function ($scope) {
-
+    $scope.active = "active";
 });
