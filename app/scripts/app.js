@@ -43,6 +43,11 @@ var app = angular.module('app', [
         controller: 'MyProfileController',
         controllerAs: 'myprofile'
       })
+      .when('/job-categories', {
+        templateUrl: 'views/categories/job-categories.html',
+        controller: 'JobCategoriesController',
+        controllerAs: 'job-categories'
+      })
       .otherwise({
         redirectTo: '/'
       });
