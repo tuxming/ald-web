@@ -1,4 +1,4 @@
-var gulp = require('gulp');
+-var gulp = require('gulp');
 var load = require('gulp-load-plugins')();
 var openURL = require('open');
 var runSequence = require('run-sequence');
@@ -26,7 +26,7 @@ var paths = {
   scripts: [config.app + '/scripts/**/*.js', '!'+config.app + '/scripts/public/**/*.js'],
   scriptsPublic:[config.app + '/scripts/public/**/*.js'],
   styles: [config.app + '/styles/**/*.less'],
-  stylesPublic: [config.app+'/styles/main.css', config.app+'/styles/style.css'], 
+  stylesPublic: [config.app+'/styles/main.css', config.app+'/styles/style.css'],
   copys: [
 	config.app +'/**/*.*',
 	'!'+config.app+'/scripts/**/*.*',
@@ -64,47 +64,47 @@ var paths = {
 
 /**
  * ************************
- * *******¹«¹²Ä£¿é*********
+ * *******å…¬å…±æ¨¡å—*********
  * ************************
  **/
-//jsÓï·¨¼ì²â
+//jsè¯­æ³•æ£€æµ‹
 gulp.task('lint:scripts', function() {
 	return gulp.src(paths.scripts)
 		.pipe(load.jshint('.jshintrc'))
 		.pipe(load.jshint.reporter('jshint-stylish'));
 });
 
-//±àÒëless
+//ç¼–è¯‘less
 gulp.task('less', function(){
 	return gulp.src(paths.styles)
 		.pipe(less(
 			{
-				paths: [ path.join(__dirname, 'less', 'includes') ]  //Õâ¸ö²ÎÊı£¬±àÒëµ½lessµÄµ±Ç°Ä¿Â¼
+				paths: [ path.join(__dirname, 'less', 'includes') ]  //è¿™ä¸ªå‚æ•°ï¼Œç¼–è¯‘åˆ°lessçš„å½“å‰ç›®å½•
 			}
 		))
         .pipe(gulp.dest(config.app+'/styles/'));
 });
 
-//½«bowerµÄ¿âÎÄ¼ş¶ÔÓ¦µ½Ö¸¶¨Î»ÖÃ
+//å°†bowerçš„åº“æ–‡ä»¶å¯¹åº”åˆ°æŒ‡å®šä½ç½®
 gulp.task('bower:ref', function(){
 	//console.log(paths.bowerjs);
 	gulp.src(paths.bowerjs)
 		.pipe(gulp.dest(config.app+'/scripts/public/'));
-		
+
 	gulp.src(paths.bowercss)
 		.pipe(gulp.dest(config.app+'/styles/public/'));
 	gulp.src(paths.bowerstatic)
 		.pipe(gulp.dest(config.app+'/static/'));
 });
 
-//É¾³ı.tmpÄ¿Â¼
+//åˆ é™¤.tmpç›®å½•
 gulp.task('clean:tmp', function (cb) {
 	//rimraf('./.tmp', cb);
 	return gulp.src('./.tmp', {read: false})
 		.pipe(load.clean());
 });
 
-//É¾³ı.tmpÄ¿Â¼ºÍdistÄ¿Â¼
+//åˆ é™¤.tmpç›®å½•å’Œdistç›®å½•
 gulp.task('clean:all', function () {
 	//rimraf('./.tmp', cb);
 	//rimraf(config.dist, cb);
@@ -112,24 +112,24 @@ gulp.task('clean:all', function () {
 		.pipe(load.clean());
 });
 
-//¸´ÖÆÎÄ¼ş
+//å¤åˆ¶æ–‡ä»¶
 gulp.task('copy', function () {
 	return gulp.src(paths.copys)
 		.pipe(gulp.dest(config.dist));
 });
 
-//¸´ÖÆÎÄ¼ş
+//å¤åˆ¶æ–‡ä»¶
 gulp.task('copy:all', function () {
 	return gulp.src([config.app+"/**/*.*", "!"+config.app+"/**/*.html"])
 		.pipe(gulp.dest(".tmp/"));
 });
 
-//´ò¿ªä¯ÀÀÆ÷
+//æ‰“å¼€æµè§ˆå™¨
 gulp.task('start:client', ['start:server', 'less'], function () {
   openURL('http://localhost:9000');
 });
 
-//Æô¶¯·şÎñÆ÷
+//å¯åŠ¨æœåŠ¡å™¨
 gulp.task('start:server', function() {
   load.connect.server({
     //root: config.app,
@@ -140,13 +140,13 @@ gulp.task('start:server', function() {
   });
 });
 
-//´¦ÀíhtmlµÄ»Øµ÷º¯Êı
+//å¤„ç†htmlçš„å›è°ƒå‡½æ•°
 var htmlCallback = function (info, isDebug){
 	if(info.type == "tpl"){
 		var source = fs.readFileSync(config.app+"/"+info.ref);
 		if(source)
 			return source.toString();
-		else 
+		else
 			return "";
 	}else if(info.type=='bower'){
 		var bowerjss;
@@ -156,20 +156,20 @@ var htmlCallback = function (info, isDebug){
 				var jsName = paths[paths.length-1];
 				return "<script type='text/javascript' src='/scripts/public/"+jsName+"'></script>";
 			}).reduce(function(a, b){
-				return a+b; 
-			});	
+				return a+b;
+			});
 		}else{
 			bowerjss = "<script type='text/javascript' src='scripts/vender.js' ></script>";
 		}
-		
+
 		return bowerjss;
-		
+
 	}else
 		return "";
-	
+
 }
 
-//´¦ÀíÄ£°åµÄ»Øµ÷º¯Êı
+//å¤„ç†æ¨¡æ¿çš„å›è°ƒå‡½æ•°
 var tplCallback = function(templatefile){ //inject to template {index.tpl.html}
 	//console.log(templatefile.toString())
 	return inject.processHtmlForString(templatefile.toString(), {
@@ -178,13 +178,13 @@ var tplCallback = function(templatefile){ //inject to template {index.tpl.html}
 	});
 }
 
-//¼àÌıÎÄ¼ş±ä»¯
+//ç›‘å¬æ–‡ä»¶å˜åŒ–
 gulp.task('watch', function() {
 	load.watch(paths.watched)
 		.pipe(load.plumber())
 		.pipe(gulp.dest(".tmp/"))
 		.pipe(load.connect.reload());
-	
+
 	load.watch(config.app+'/**/*.html')
 		.pipe(load.plumber())
 		.pipe(inject.process({
@@ -199,17 +199,17 @@ gulp.task('watch', function() {
 		}))
 		.pipe(gulp.dest(".tmp/"))
 		.pipe(load.connect.reload());
-	
+
 	gulp.watch(config.app+'/**/*.less', ['less']);
-	
+
 	//gulp.watch('bower.json', ['bower']);
 });
 
-//´¦ÀíhtmlÎÄ¼şµ½.tmpÓÃÓÚ¿ª·¢
+//å¤„ç†htmlæ–‡ä»¶åˆ°.tmpç”¨äºå¼€å‘
 gulp.task('process:html:server', function() {
-	
+
 	debug = true;
-	
+
 	gulp.src(config.app+'/**/*.html')
 		.pipe(load.plumber())
 		.pipe(inject.process({
@@ -222,12 +222,13 @@ gulp.task('process:html:server', function() {
 		.pipe(processhtml({
 			isDebug : debug
 		}))
+    .pipe
 		.pipe(gulp.dest(".tmp/"));
 });
 
 /**
  * ************************
- * *********ÈÎÎñ***********
+ * *********ä»»åŠ¡***********
  * ************************
  **/
  gulp.task('server', function (cb) {
@@ -236,14 +237,14 @@ gulp.task('process:html:server', function() {
     ['start:client'],
     'watch', cb);
 });
- 
+
 gulp.task('default', ['server']);
 gulp.task('build', function(cb){
 	runSequence('clean:all',
-		['bower:ref', 'less', 'copy'], 
-		//['bower:ref', 'copy'], 
+		['bower:ref', 'less', 'copy'],
+		//['bower:ref', 'copy'],
 		'process:build', cb);
-	
+
 });
 
 gulp.task('process:build', function(){
@@ -252,13 +253,13 @@ gulp.task('process:build', function(){
 		.pipe(load.concat("vender.js"))
 		.pipe(load.uglify())
 		.pipe(gulp.dest(config.dist+"/scripts/"));
-	
+
 	gulp.src(paths.stylesPublic)
 		.pipe(load.concat('main.css'))
 		.pipe(cleanCSS())
 		.pipe(gulp.dest(config.dist+'/styles/'));
-		
-	//´¦Àíhtml
+
+	//å¤„ç†html
 	debug = false;
 	var stream = gulp.src(paths.htmls)
 		.pipe(inject.process({
@@ -272,13 +273,13 @@ gulp.task('process:build', function(){
 			isDebug : debug
 		}))
 		.pipe(gulp.dest(config.dist+'/'));
-	
+
 });
 
 
 /**
  * ************************
- * *******´¦Àíhtml*********
+ * *******å¤„ç†html*********
  * ************************
  **/
  /*
@@ -289,7 +290,7 @@ gulp.task('process:build', function(){
 			var source = fs.readFileSync(info.ref);
 			if(source)
 				return source.toString();
-			else 
+			else
 				return "";
 		}
 	}
@@ -297,30 +298,30 @@ gulp.task('process:build', function(){
 function processhtml(options){
 	options = extend({isDebug: false}, options)
 	return through2.obj(function (file, enc, done) {
-		
-		// Èç¹ûÎÄ¼şÎª¿Õ£¬²»×öÈÎºÎ²Ù×÷£¬×ªÈëÏÂÒ»¸ö²Ù×÷£¬¼´ÏÂÒ»¸ö .pipe()
+
+		// å¦‚æœæ–‡ä»¶ä¸ºç©ºï¼Œä¸åšä»»ä½•æ“ä½œï¼Œè½¬å…¥ä¸‹ä¸€ä¸ªæ“ä½œï¼Œå³ä¸‹ä¸€ä¸ª .pipe()
 		if (file.isNull()) {
 			this.push(file);
 			return done();
 		}
-		
-		// ²å¼ş²»Ö§³Ö¶Ô Stream ¶ÔÖ±½Ó²Ù×÷£¬ÅÜ³öÒì³£
+
+		// æ’ä»¶ä¸æ”¯æŒå¯¹ Stream å¯¹ç›´æ¥æ“ä½œï¼Œè·‘å‡ºå¼‚å¸¸
 		if (file.isStream()) {
 			this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
 			return cb();
 		}
-		
+
 		var content = file.contents.toString();
-		
+
 		if(!options.isDebug){
 			var $ = cheerio.load(content, options);
 			processHtmlForDOM($);
 			content = $.html();
 		}
-		
+
 		//instead of gulp-inject-xm
-		//content = processHtmlForString(content, options); 
-				
+		//content = processHtmlForString(content, options);
+
 		file.contents = new Buffer(content);
 		this.push(file);
 		done();
@@ -332,17 +333,17 @@ function processhtml(options){
 //<span class="buildcss" name="main.css" dist="/styles/" />
 //<link type="text/css" class="concat" base="../.." href="../../style/main.css"></link>
 /**
- * ½«htmlÀïÃæ±êÓĞclass='concat'µÄjsÎÄ¼ş½øĞĞºÏ²¢
- * Ìæ»»µôhtmlÒÑ¾­ºÏ²¢µÄjsÒıÓÃ£¬Ìæ»»ÒÀ¾İÀ´×ÔÓÚhtmlÖĞ£¬class='buildjs'µÄÔªËØÖĞ
- * ½«htmlÀïÃæ±êÓĞclass='concat'µÄcssÎÄ¼ş½øĞĞºÏ²¢
- * Ìæ»»µôhtmlÒÑ¾­ºÏ²¢µÄjsÒıÓÃ£¬Ìæ»»ÒÀ¾İÀ´×ÔÓÚhtmlÖĞ£¬class='buildcss'µÄÔªËØÖĞ
+ * å°†htmlé‡Œé¢æ ‡æœ‰class='concat'çš„jsæ–‡ä»¶è¿›è¡Œåˆå¹¶
+ * æ›¿æ¢æ‰htmlå·²ç»åˆå¹¶çš„jså¼•ç”¨ï¼Œæ›¿æ¢ä¾æ®æ¥è‡ªäºhtmlä¸­ï¼Œclass='buildjs'çš„å…ƒç´ ä¸­
+ * å°†htmlé‡Œé¢æ ‡æœ‰class='concat'çš„cssæ–‡ä»¶è¿›è¡Œåˆå¹¶
+ * æ›¿æ¢æ‰htmlå·²ç»åˆå¹¶çš„jså¼•ç”¨ï¼Œæ›¿æ¢ä¾æ®æ¥è‡ªäºhtmlä¸­ï¼Œclass='buildcss'çš„å…ƒç´ ä¸­
  **/
 /**
  * $ : cheerio
  * file: stream
  */
 function processHtmlForDOM($){
-	
+
 	var files = function(){
 		return $('script.concat').map(function(i,elem){
 			var el = $(elem);
@@ -351,7 +352,7 @@ function processHtmlForDOM($){
 			return path.join(config.app,item);
 		});
 	}();
-	
+
 	if(files && files.length>0){
 		var dist = $(".buildjs").attr("dist");
 		var name = $(".buildjs").attr("name");
@@ -362,19 +363,19 @@ function processHtmlForDOM($){
 			.pipe(load.jshint.reporter('jshint-stylish'))
 			.pipe(load.uglify())
 			.pipe(gulp.dest(config.dist+dist));
-		
+
 		$('script.concat').remove();
 		$('.buildjs').remove();
 		$('body').append('<script src="'+dist+name+'"></script>');
 
 	}
-	
+
 	//process css
 	var cdist = $(".buildcss").attr("dist");
 	var cname = $(".buildcss").attr("name");
 	var cfiles = function(){
 		return $('lnik.concat').map(function(i,elem){
-			
+
 			var base = $(elem).attr("base");
 			if(base){
 				return $(elem).attr('href').replace($(elem).attr("base"),"");
@@ -384,35 +385,35 @@ function processHtmlForDOM($){
 			return path.join(config.app,item);
 		});
 	}();
-	
+
 	if(files && cfiles.length>0){
 		var stream = vfs.src(cfiles);
 		stream.pipe(load.concat(cname))
 			.pipe(cleanCSS())
-			.pipe(gulp.dest(config.dist+cdist));		
-	
+			.pipe(gulp.dest(config.dist+cdist));
+
 		$('link.concat').remove();
 		$('.buildcss').remove();
 		$('head').append('<link href="'+cdist+cname+'"></link>');
 	}
 }
 
-//´¦Àí×Ö·û´®ĞÎÊ½µÄhtml
-//ÕâÀïÖ÷Òª´¦Àí£º×¢Èë
-//Ä¬ÈÏ´¦Àí£º
+//å¤„ç†å­—ç¬¦ä¸²å½¢å¼çš„html
+//è¿™é‡Œä¸»è¦å¤„ç†ï¼šæ³¨å…¥
+//é»˜è®¤å¤„ç†ï¼š
 //<!-- build {"type": "script", "ref":"style/main.js"} -->
 //<script src="scripts/app.js"></script>
 //<script src="scripts/controllers/main.js"></script>
 //<!-- endbuild -->
 /*
 function processHtmlForString(content, options){
-		
-	//ÕâÀï´¦Àí×Ö·û´®ĞÎÊ½µÄhtml
+
+	//è¿™é‡Œå¤„ç†å­—ç¬¦ä¸²å½¢å¼çš„html
 	//<!-- build {"type": "script", "ref":"style/main.js"} -->
 	//<script src="scripts/app.js"></script>
 	//<script src="scripts/controllers/main.js"></script>
 	//<!-- endbuild -->
-	
+
 	//<!-- build {type: "css", ref:"style/main.js"} -->
 	//<link href="styles/main.css"></link>
 	//<link href="styles/default/style.css"></link>
@@ -421,28 +422,28 @@ function processHtmlForString(content, options){
 
 	//<!-- build {"type": "script", "ref":"style/main.js"} -->
 	var headerReg = /<!--.*-->/;
-	
+
 	//{"type": "script", "ref":"style/main.js"}
 	var jsonReg = /\{.*\}/;
-	
+
 	var matchElems = content.match(jsRegExp);
 	if(matchElems && matchElems.length>0){
 		//console.log("1:"+matchElems.length+", "+matchElems);
 		for(var i=0; i < matchElems.length; i++){
-			
+
 			var head = matchElems[i].match(headerReg);
 			//console.log("2:"+head);
-			
+
 			if(head && head.length>0){
 				//console.log("3:"+head);
-				
+
 				var jsonStr = head[0].match(jsonReg);
-				
+
 				if(jsonStr && jsonStr.length>0){
 					//console.log("4:"+jsonStr, "options.isDebug:"+options.isDebug);
-					
+
 					var info = JSON.parse(jsonStr[0]);
-					
+
 					if(!options.isDebug){
 						var replaceText = "";
 						if(info.type){
@@ -461,23 +462,23 @@ function processHtmlForString(content, options){
 					}else{
 						if(options && options.callback){
 							var replaceText = options.callback(info, options.isDebug);
-							
+
 							if(replaceText){
 								content = content.replace(matchElems[i], replaceText);
 							}
 						}
 					}
-					
+
 				}
-				
+
 			}
-			
+
 		}
 	}
 	return content;
 }
 */
-//rename ¹ÙÍøÀı×Ó
+//rename å®˜ç½‘ä¾‹å­
 /*
 gulp.src("./src/main/text/hello.txt", { base: process.cwd() })
   .pipe(rename({
@@ -487,13 +488,13 @@ gulp.src("./src/main/text/hello.txt", { base: process.cwd() })
     suffix: "-hola",
     extname: ".md"
   }))
-  .pipe(gulp.dest("./dist")); // ./dist/main/text/ciao/bonjour-aloha-hola.md 
+  .pipe(gulp.dest("./dist")); // ./dist/main/text/ciao/bonjour-aloha-hola.md
 */
 /*
 function plugin(keepQuantity){
     keepQuantity = parseInt(keepQuantity) || 2;
     var list = [];
-    
+
     return through.obj(function (file, enc, cb) {
         if ( new RegExp( '-[0-9a-f]{8}\\' + path.extname(file.path) + '$' ).test(file.path) ) {
             list.push({
