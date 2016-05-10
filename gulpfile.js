@@ -1,4 +1,4 @@
--var gulp = require('gulp');
+var gulp = require('gulp');
 var load = require('gulp-load-plugins')();
 var openURL = require('open');
 var runSequence = require('run-sequence');
@@ -222,7 +222,6 @@ gulp.task('process:html:server', function() {
 		.pipe(processhtml({
 			isDebug : debug
 		}))
-    .pipe
 		.pipe(gulp.dest(".tmp/"));
 });
 

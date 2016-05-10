@@ -1,17 +1,35 @@
-html�淶
+html规范
 
-1��html��ǩ��Ҫ����������ʼ�ͽ���������Ҫ����
+1，html标签需要有缩进，开始和结束缩进需要对齐
 
-2����α�ǩ��Ҫ�п�ʼ�ͽ���ע�ͣ� ��������������ע�ͣ�ע�͸�ʽ����ʼ����"start+[className|id]"����������"end+[className|id]"�� ��ʽ���£�
+2，大段标签需要有开始和结束注释， 结束处紧跟结束注释，注释格式：开始处："start+[className|id]"，结束处："end+[className|id]"， 格式如下：
 	<!-- start box-container -->
 	<div class="box-container">
 		...other tag
 	</div><!-- end box-container -->
 
-3��class������xx-xx���磺<div class="user-details"></div>
+3，class命名：xx-xx，如：<div class="user-details"></div>
 
-4��html����ʽ�ű����룬html������javascript���룬������css���롣
+4，html中样式脚本分离，html不能有javascript代码，不能有css代码。
 
-css�淶��
+5，向html文件中注入：字符串、文本、引用
 
-javascript�淶��
+<!--build {"type": "js/css/tpl/bower", ref="/script/main.js"}-->
+	...other
+<!--endbuild-->
+
+type：
+css: 将注释包围的部分替换成ref指定的css，如下：
+源：
+<!--build {"type": "css", ref="/styles/main.css"}-->
+	<link rel="stylesheet" href="./styles/styles.css"/>
+	<link rel="stylesheet" href="./styles/user.css"/>
+<!--endbuild-->
+处理后：
+<link rel="stylesheet" href="./styles/styles.css"/>
+<link rel="stylesheet" href="./styles/user.css"/>
+
+
+css规范：
+
+javascript规范：

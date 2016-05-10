@@ -33,8 +33,14 @@ body {
   font-size: 35px;
 }
 /**
-	base on bootstrap custom style 
+	base on bootstrap custom style
 **/
+.no-lf-padding {
+  padding-left: 0px;
+}
+.no-rt-padding {
+  padding-right: 0px;
+}
 .ald-input {
   height: 35px;
   padding: 6px 12px;
@@ -67,6 +73,18 @@ ald-input:hover {
   padding-top: 10px;
   padding-bottom: 10px;
   color: white;
+}
+.btn-simple {
+  color: #37A000;
+  border: 1px solid #E0E0E0;
+  background: white;
+}
+.btn-simple:active,
+.btn-simple:focus,
+.btn-simple:hover {
+  color: #256d00;
+  border: 2px solid #37A000;
+  background: white;
 }
 .btn-full:hover,
 .btn-full:focus {
@@ -819,6 +837,13 @@ li.mp-pf-item {
   background: #FEC324;
   color: white;
 }
+.test-sort-second {
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 3px 5px;
+  background: #B1C1CB;
+  color: white;
+}
 .test-sort-top1 {
   border-radius: 5px;
   font-size: 12px;
@@ -843,6 +868,12 @@ li.mp-pf-item {
   padding: 3px 5px;
   background: #E55414;
   color: white;
+}
+.test-sort-aboveavg {
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 3px 5px;
+  color: #494949;
 }
 .test-sort-normal {
   color: #494949;
@@ -949,6 +980,175 @@ li.mp-pf-item {
   font-size: 13px;
 }
 /*********end my profile css***************/
+/************start aboutnav css**************/
+.aboutus-nav li .active {
+  border-bottom: 4px solid #37A000;
+}
+.aboutus-nav {
+  height: 100%;
+  line-height: 68px;
+  font-weight: bold;
+  border-bottom: solid #D3EAC7 1px;
+  min-width: 830px;
+}
+.nav-inner-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+.aboutus-nav li {
+  margin: 0px 20px;
+}
+.aboutus-nav li a {
+  border-radius: 0px;
+}
+/*************end aboutnav css***************/
+/*********start aboutus css***************/
+.introduction {
+  margin: 30px 0px;
+}
+.about-groups {
+  margin: 30px 0px;
+}
+.banner-header {
+  color: white;
+  padding-top: 70px;
+  height: 300px;
+  background-color: #37A000;
+  margin-top: -31px;
+}
+.banner-middle {
+  height: 200px;
+  background-color: #37A000;
+}
+.middle-topic-text {
+  font-size: 72px;
+}
+.middle-topic-container div {
+  margin: 30px 0px;
+}
+.footer-classify {
+  padding: 30px 0px 10px;
+  margin-bottom: -31px;
+  height: 200px;
+  background-color: #37A000;
+}
+.footer-classify ul li {
+  margin: 0px 12px;
+}
+/*********end aboutus css***************/
+/*********start careers css***************/
+.careers-title {
+  margin: 40px 0px;
+}
+.joinus-group {
+  padding: 0px 20px;
+  margin: 30px 0px;
+}
+.careers-banner-footer {
+  color: white;
+  padding-top: 70px;
+  height: 300px;
+  background-color: #37A000;
+  margin-bottom: -31px;
+}
+.careers-workers {
+  margin-bottom: 30px;
+}
+.careers-workers img {
+  width: 100%;
+}
+.pic-main {
+  height: 530px;
+}
+.pic-right-up {
+  height: 260px;
+}
+.pic-right-down {
+  height: 260px;
+  margin-top: 10px;
+}
+.worker-rows {
+  margin: 10px 0px;
+}
+.worker-link {
+  display: block;
+}
+.worker-linkpanel {
+  position: relative;
+}
+.office-right-text {
+  position: absolute;
+  padding-right: 30px;
+  top: 400px;
+  left: 0px;
+  height: 130px;
+  width: 100%;
+}
+.worker-right-text {
+  position: absolute;
+  padding-right: 30px;
+  top: 180px;
+  left: 0px;
+  height: 100px;
+  width: 100%;
+}
+.btn-looking-position {
+  background-color: #37A000;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+  border-radius: 1px;
+  width: 216px;
+}
+.btn-looking-position:hover {
+  background-color: white;
+  color: #37A000;
+}
+/*********end careers css***************/
+/*********start team css *********/
+.team-groups {
+  margin: 30px 0px;
+  padding: 0px 50px;
+}
+.head-img {
+  width: 148px;
+  height: 148px;
+}
+.mydivider {
+  width: 20%;
+  margin: 15px auto;
+  height: 1px;
+  background-color: #E0E0E0;
+}
+.investors-list {
+  margin: 30px 0px;
+}
+.investors-list li {
+  margin: 0px 60px;
+}
+/**********end team css *********/
+/*********start contact css *********/
+.contact-title {
+  margin: 100px 0px;
+}
+/**********end contact css *********/
+/*********start press css *********/
+.press-title {
+  margin: 40px 0px;
+}
+.works-thumbnail {
+  height: 400px;
+  padding: 15px 15px;
+}
+.press-banner-footer {
+  color: white;
+  padding-top: 70px;
+  height: 300px;
+  background-color: #37A000;
+  margin-top: 30px;
+  margin-bottom: -31px;
+}
+/**********end press css *********/
 /*********start aboutus css***************/
 .aboutus-nav {
   height: 100%;
@@ -974,12 +1174,12 @@ li.mp-pf-item {
   color: white;
   padding-top: 70px;
   height: 300px;
-  background-color: #5BBC2E;
+  background-color: #37A000;
   margin-top: -31px;
 }
 .banner-middle {
   height: 200px;
-  background-color: #5BBC2E;
+  background-color: #37A000;
 }
 .middle-topic-text {
   font-size: 72px;
@@ -991,7 +1191,7 @@ li.mp-pf-item {
   padding: 30px 0px 10px;
   margin-bottom: -31px;
   height: 200px;
-  background-color: #5BBC2E;
+  background-color: #37A000;
 }
 .footer-classify ul li {
   margin: 0px 12px;
@@ -1009,7 +1209,7 @@ li.mp-pf-item {
   color: white;
   padding-top: 70px;
   height: 300px;
-  background-color: #5BBC2E;
+  background-color: #37A000;
   margin-bottom: -31px;
 }
 .careers-workers {
@@ -1093,157 +1293,38 @@ li.mp-pf-item {
   color: white;
   padding-top: 70px;
   height: 300px;
-  background-color: #5BBC2E;
+  background-color: #37A000;
   margin-top: 30px;
   margin-bottom: -31px;
 }
 /**********end press css *********/
-/*********start aboutus css***************/
-.aboutus-nav {
-  height: 100%;
-  line-height: 68px;
-  font-weight: bold;
-  border-bottom: solid #D3EAC7 1px;
-  min-width: 830px;
+/**********start job-categories css*******/
+.plain-list li {
+  line-height: 35px;
 }
-.nav-inner-wrapper {
-  width: 80%;
-  margin: 0 auto;
+.heading-section {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 48px;
+  margin: 0 0 30px;
+  color: #494949;
 }
-.aboutus-nav li {
-  margin: 0px 20px;
-}
-.introduction {
-  margin: 30px 0px;
-}
-.about-groups {
-  margin: 30px 0px;
-}
-.banner-header {
+.btn-sign-up {
+  height: 40px;
+  line-height: 40px;
+  width: 165px;
+  background-color: #37A000;
   color: white;
-  padding-top: 70px;
-  height: 300px;
-  background-color: #5BBC2E;
-  margin-top: -31px;
+  border-color: #37A000;
+  border-radius: 4px;
 }
-.banner-middle {
-  height: 200px;
-  background-color: #5BBC2E;
+.btn-sign-up:hover {
+  color: white;
 }
-.middle-topic-text {
-  font-size: 72px;
-}
-.middle-topic-container div {
-  margin: 30px 0px;
-}
-.footer-classify {
-  padding: 30px 0px 10px;
-  margin-bottom: -31px;
-  height: 200px;
-  background-color: #5BBC2E;
-}
-.footer-classify ul li {
-  margin: 0px 12px;
-}
-/*********end aboutus css***************/
-/*********start careers css***************/
-.careers-title {
+.categories-list section {
   margin: 40px 0px;
 }
-.joinus-group {
-  padding: 0px 20px;
-  margin: 30px 0px;
-}
-.careers-banner-footer {
-  color: white;
-  padding-top: 70px;
-  height: 300px;
-  background-color: #5BBC2E;
-  margin-bottom: -31px;
-}
-.careers-workers {
-  margin-bottom: 30px;
-}
-.careers-workers img {
-  width: 100%;
-}
-.pic-main {
-  height: 530px;
-}
-.pic-right-up {
-  height: 260px;
-}
-.pic-right-down {
-  height: 260px;
-  margin-top: 10px;
-}
-.worker-rows {
+.categories-title {
   margin: 10px 0px;
 }
-.worker-link {
-  display: block;
-}
-.worker-linkpanel {
-  position: relative;
-}
-.office-right-text {
-  position: absolute;
-  padding-right: 30px;
-  top: 400px;
-  left: 0px;
-  height: 130px;
-  width: 100%;
-}
-.worker-right-text {
-  position: absolute;
-  padding-right: 30px;
-  top: 180px;
-  left: 0px;
-  height: 100px;
-  width: 100%;
-}
-/*********end careers css***************/
-/*********start team css *********/
-.team-groups {
-  margin: 30px 0px;
-  padding: 0px 50px;
-}
-.head-img {
-  width: 148px;
-  height: 148px;
-}
-.mydivider {
-  width: 20%;
-  margin: 15px auto;
-  height: 1px;
-  background-color: #E0E0E0;
-}
-.investors-list {
-  margin: 30px 0px;
-}
-.investors-list li {
-  margin: 0px 60px;
-}
-/**********end team css *********/
-/*********start contact css *********/
-.contact-title {
-  margin: 100px 0px;
-}
-/**********end contact css *********/
-/*********start press css *********/
-.press-title {
-  margin: 40px 0px;
-}
-.works-thumbnail {
-  height: 400px;
-  padding: 15px 15px;
-}
-.press-banner-footer {
-  color: white;
-  padding-top: 70px;
-  height: 300px;
-  background-color: #5BBC2E;
-  margin-top: 30px;
-  margin-bottom: -31px;
-}
-/**********end press css *********/
+/**********end job-categories css*******/

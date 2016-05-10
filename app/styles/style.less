@@ -1,20 +1,11 @@
 ﻿@charset "utf-8";
 
-@pageWidth: 1100px;
-@baseColor: #37A000;
-@navBackground: #ffffff;
-@unactive: #E0E0E0;
-@active: @baseColor;
 
-@white: white;
-@blue: #14BFF4;
-@dilutedColor: #494949; 
-@normalColor: #252523;	
-@lightColor: #979797;
-@footerFontColor: #7d7d7d;
-@darkColor:#494949;
 
-body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-font-smoothing:antialiased; 
+
+@import url('variable.less');
+
+body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-font-smoothing:antialiased;
 	/*font-family:'Gotham Medium','Gotham Light','Gotham Book','sans-serif'; */ }
 
 @font-face {font-family: 'iconfont';
@@ -25,8 +16,8 @@ body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-f
     url('../images/icon/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
-.page-title{font-size:18px; 
-	margin-left:30px; 
+.page-title{font-size:18px;
+	margin-left:30px;
 	padding-bottom:15px;
 	padding-top:15px;
 }
@@ -45,17 +36,32 @@ body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-f
 .llg-icon{font-size:35px;}
 
 /**
-	base on bootstrap custom style 
+	base on bootstrap custom style
 **/
+.no-lf-padding{padding-left:0px;}
+.no-rt-padding{padding-right:0px;}
 
 .ald-input{height:35px; padding: 6px 12px; border: 2px solid @unactive; border-radius: 2px;}
 .ald-input:focus, ald-input:hover{border-color: @active;}
 .ald-btn-primary{border-radius: 3px;font-weight:600; vertical-align:top; background:@baseColor; border-color: darken(@baseColor, 5%);}
 .ald-btn-primary:active, .ald-btn-primary:active:focus{background:darken(@baseColor,10%);}
 .ald-btn-primary:focus, .ald-btn-primary:hover{background:darken(@baseColor,5%);}
-.btn-full{width:100%; background: @baseColor; font-weight:500; 
+.btn-full{width:100%; background: @baseColor; font-weight:500;
 	padding-top:10px; padding-bottom:10px; color:@white;
 }
+
+.btn-simple{
+  color: @baseColor;
+  border: 1px solid @unactive;
+  background:@white;
+}
+.btn-simple:active, .btn-simple:focus, .btn-simple:hover{
+  color: darken(@baseColor,10%);
+  border: 2px solid @baseColor;
+  background:@white;
+}
+
+
 .btn-full:hover, .btn-full:focus{
 	background: darken(@baseColor, 5%);
 	color:@white;
@@ -63,7 +69,7 @@ body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-f
 .ald-body{background:#F9F9F9;}
 a, .ald-link{color:@baseColor;}
 .link-underline:focus, .link-underline:hover{
-	text-decoration:underline; 
+	text-decoration:underline;
 }
 
 a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%); text-decoration:none;}
@@ -104,7 +110,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 .nav-left-ul > li:first-child > a{color:@baseColor;}
 .nav-left-ul > li:first-child > a:hover,
 .nav-left-ul > li:first-child > a:focus{color:@baseColor;}
-.navbar .nav-left-ul > li:not(:first-child) > a:hover, 
+.navbar .nav-left-ul > li:not(:first-child) > a:hover,
 .navbar .nav-left-ul > li:not(:first-child) > a:focus{color: darken(@baseColor, 5%);}
 
 .nav-right-ul > li{padding-top:20px;}
@@ -127,7 +133,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 //	<i class="iconfont">&#xe61c;</i>
 //</a>
 .tag{
-	font-size:10px; display:inline-block; background:@unactive; 
+	font-size:10px; display:inline-block; background:@unactive;
 	margin:5px 5px; padding: 2px 7px; color:@dilutedColor;border-radius: 20px;
 }
 .tag i {font-size:12px;}
@@ -150,17 +156,17 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 //</div>
 .ald-dropdown-toggle .caret{float:right; margin-right:5px; margin-top:7px;}
 .ald-dropdown-toggle{
-	padding:4px; border:2px solid @unactive; 
+	padding:4px; border:2px solid @unactive;
 	display:block;
 	width:100%;
 	zoom: 1;
 }
 .ald-dropdown-toggle:after{
-  content: "020"; 
-  display: block; 
-  height: 0; 
-  clear: both; 
-  visibility: hidden; 
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 .ald-dropdown-toggle:hover{border-color: @baseColor;}
@@ -223,7 +229,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 	color: @baseColor;
 }
 .tab-bar li .active{
-	border-bottom:4px solid @baseColor; color: @baseColor; 
+	border-bottom:4px solid @baseColor; color: @baseColor;
 }
 /**end tab**/
 
@@ -259,12 +265,12 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 
 .footer{
 	background: @normalColor; color: @footerFontColor;
-	margin-top:30px; 
+	margin-top:30px;
 	padding-top:80px;
 	padding-bottom:80px;
 }
-.footer a{color: @footerFontColor;}	
-.footer-list, .footer-list li, 
+.footer a{color: @footerFontColor;}
+.footer-list, .footer-list li,
 .footer-list1, .footer-list1 li{list-style:none;}
 .footer-list > li{line-height:200%;}
 .footer-list1{text-align:center; margin-top:25px; margin-bottom:25px;}
@@ -292,8 +298,8 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 .advanced-search-btn{font-size:13px;}
 
 .tag-item{
-	display:inline-block; 
-	border-radius:6px; background:@unactive; 
+	display:inline-block;
+	border-radius:6px; background:@unactive;
 	padding:3px 8px; font-size:12px;
 	font-size: 11px;
     font-weight: normal;
@@ -326,7 +332,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 
 .job-title{margin:10px 0px; font-size:16px; pading:0px 20px;}
 .job-title-item, .job-title-item-cert{
-	font-size:16px; 
+	font-size:16px;
 	vertical-align:top;
 }
 .job-title-item-cert{
@@ -358,7 +364,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 }
 
 .mystats-box-left,.mystats-box-right{
-  float:left; padding:0px; margin:0px;  
+  float:left; padding:0px; margin:0px;
 }
 
 .mystats-box-left{
@@ -407,7 +413,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 .mp-title{margin-bottom:25px;}
 .mp-title > h3, .mp-title > div{display:inline-block;}
 .mp-title-text{
-	padding:0px;margin:0px; 
+	padding:0px;margin:0px;
 	margin-bottom:20px;
 	font-size:18px;
 }
@@ -430,7 +436,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 	border:1px solid @unactive;
 }
 .mp-overview > div{
-	float:left; 
+	float:left;
 }
 .mp-user-photo{width:25%;}
 .mp-user-info1{width:75%;}
@@ -438,7 +444,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 .mp-job-title{font-weight:600; color:@dilutedColor; font-size:15px; }
 .mp-user-base:hover a{background:#D3EAC7; color:@dilutedColor;}
 
-.mp-user-base:hover a::after, .mp-skils-container:hover::after, 
+.mp-user-base:hover a::after, .mp-skils-container:hover::after,
 .mp-overview-container:hover .mp-overview-label::after,
 .mp-availability:hover > h4::after{
 	font-family:"iconfont" !important;
@@ -453,14 +459,14 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 }
 
 .mp-skils-container:hover > a{background:#D3EAC7;}
-.mp-skils-container > a:hover{color:@dilutedColor;} 
+.mp-skils-container > a:hover{color:@dilutedColor;}
 
 .mp-overview-label{
 	font-size:18px; font-weight:400; color:@dilutedColor;
-	margin:20px 0px; cursor:pointer; display:inline-block; 
+	margin:20px 0px; cursor:pointer; display:inline-block;
 }
 
-.mp-overview-text{border:none; box-shadow:none;overflow-y:hidden; 
+.mp-overview-text{border:none; box-shadow:none;overflow-y:hidden;
 overflow-x:hidden; background:none;}
 
 .mp-overview-text{cursor:pointer;}
@@ -494,7 +500,7 @@ overflow-x:hidden; background:none;}
 .mp-protfolio-filter{width:300px;}
 .mp-protfolio-filter-options{width:300px;}
 
-li.mp-pf-item{cursor:pointer; display:inline-block; 
+li.mp-pf-item{cursor:pointer; display:inline-block;
 	margin:0px 20px; margin-bottom:20px;
 }
 .mp-pf-item:hover img{
@@ -506,20 +512,22 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 
 .mp-pf-thumb{position:relative; width:320px; height:200px; overflow:hidden;}
 .mp-pf-thumb img{width:320px; height:200px; background:#000; }
-.mp-pf-text{margin:10px 0px; display:inline-block; } 
+.mp-pf-text{margin:10px 0px; display:inline-block; }
 
 .mp-pf-controls{position:absolute; top:80px; left:100px;
-	background:@white; padding:10px 20px; 
+	background:@white; padding:10px 20px;
 	border-radius:30px;box-shadow:0px 0px 1px rgba(110,110,110, 0.2);
 }
 .mp-pf-controls > a{ font-size:18px; margin:0px 4px; }
 
 .mp-test-item-score{display:inline-block; margin-right:15px;}
 .test-sort-first{border-radius: 5px; font-size:12px; padding:3px 5px; background:#FEC324; color:@white;}
+.test-sort-second{border-radius: 5px; font-size:12px; padding:3px 5px; background:#B1C1CB; color:@white;}
 .test-sort-top1{border-radius: 5px; font-size:12px; padding:3px 5px; background:#0682D1; color:@white;}
 .test-sort-top2{border-radius: 5px; font-size:12px; padding:3px 5px; background: #00A0E8; color: @white; }
 .test-sort-failed{font-size:14px; color:#EF4B0A;}
 .test-sort-blowavg{border-radius: 5px; font-size:12px; padding:3px 5px; background:#E55414; color:@white;}
+.test-sort-aboveavg{border-radius: 5px; font-size:12px; padding:3px 5px; color:@dilutedColor;}
 .test-sort-normal{color: @dilutedColor;}
 
 .mp-other-item > span:first-child{
@@ -543,7 +551,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 	font-size:24px;
 }
 .mp-other-item:hover > span{
-	background:#D3EAC7; 
+	background:#D3EAC7;
 }
 .mp-other-edit{display:inline-block;}
 .mp-other-edit i{background:#D3EAC7;}
@@ -563,7 +571,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
   margin-bottom:4px;
 }
 .mp-right-item > p{
-  font-size:13px; 
+  font-size:13px;
   display:inline-block;
   color:lighten(@dilutedColor, 5%);
   line-height: 140%;
@@ -714,13 +722,13 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
     background-color:@baseColor;
     color:@white;
     font-weight:bold;
-    border:1px solid @white;    
+    border:1px solid @white;
     border-radius: 1px;
     width:216px;
 }
 .btn-looking-position:hover{
     background-color:@white;
-    color:@baseColor;  
+    color:@baseColor;
 }
 /*********end careers css***************/
 
@@ -920,6 +928,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
   margin-bottom: -31px;
 }
 /**********end press css *********/
+
 /**********start job-categories css*******/
  .plain-list li{
    line-height:35px;
@@ -929,7 +938,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
     font-size: 22px;
     line-height: 48px;
     margin: 0 0 30px;
-    color: @darkColor;
+    color: @dilutedColor;
  }
  .btn-sign-up{
      height:40px;
@@ -950,3 +959,4 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
      margin:10px 0px;
  }
 /**********end job-categories css*******/
+

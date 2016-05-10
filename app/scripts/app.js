@@ -18,37 +18,9 @@ var app = angular.module('app', [
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/saved', {
-        templateUrl: 'views/jobs/saved.html',
-        controller: 'SavedController',
-        controllerAs: 'saved'
-      })
-      .when('/proposals', {
-        templateUrl: 'views/proposals/proposals.html',
-        controller: 'ProposalsController',
-        controllerAs: 'proposals'
-      })
-      .when('/myreport', {
-        templateUrl: 'views/mystats/mystats.html',
-        controller: 'MyStatsController',
-        controllerAs: 'myreport'
-      })
-      .when('/myprofile', {
-        templateUrl: 'views/myprofile/myprofile.html',
-        controller: 'MyProfileController',
-        controllerAs: 'myprofile'
-      })
       .when('/job-categories', {
         templateUrl: 'views/categories/job-categories.html',
         controller: 'JobCategoriesController',
         controllerAs: 'job-categories'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
   });
