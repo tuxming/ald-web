@@ -1,5 +1,98 @@
 <!-- tpl {"parent": "app/template/index.tpl.html",
-		"title": "My Jobs",
-		"css":"/styles/d/findwork.css, /styles/d/myjobs.css",
+		"title": "Contracts",
+		"css":"/styles/d/myjobs.css",
 		"js":"/scripts/app.js"
 	} -->
+
+<div class="container">
+  <div class="row">
+
+    <!--begin left-->
+    <div class="col-xs-12"><h3 class="page-title">Contracts</h3></div><!--end header-->
+
+    <div class="col-xs-12 no-lf-padding">
+      <span class="iconfont input-prev">&#xe616;</span>
+      <input type="text" class="form-control c-input" placeholder="Name, Title or Team">
+
+      <input type="checkbox"/>&nbsp;&nbsp;Ended Contracts
+      <a class="c-get-csv pull-right" href="javascript:;"><i class="iconfont" style="font-size:25px; padding-right:10px;">&#xe62d;</i>Get CSV</a>
+    </div><!--end header bar-->
+
+    <div class="col-xs-12 no-lf-padding">
+      <div class="pagination-layout">
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo; Prev</span>
+            </a>
+          </li>
+          <li><a class="active" href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">Next &raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <table class="table">
+        <thead class="c-thead">
+          <tr>
+            <th class="col-xs-5">Contract</th>
+            <th>Time Period</th>
+            <th>Terms</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="i in [0,1,2,3,4]">
+            <td class="c-title"><a class="link-underline" href="javascript;">Sandeep Patel / J2EE Web Developer</a></td>
+            <td class="c-time">May 08, 2015 - Feb 23, 2016 </td>
+            <td class="c-terms">
+              $17.78/hour<br/>
+              40 maximum hours/week
+            </td>
+            <td>
+              <a class="c-ctrl link-underline">Work Diary &gt;</a>
+            </td>
+          </tr>
+          <tr class="end-row" ng-repeat="i in [0,1,2,3,4]">
+            <td class="c-title"><a class="link-underline" href="javascript;">Sandeep Patel / J2EE Web Developer</a></td>
+            <td class="c-time">May 08, 2015 - Feb 23, 2016 </td>
+            <td class="c-terms">
+              $17.78/hour<br/>
+              40 maximum hours/week
+            </td>
+            <td>
+              <a class="c-ctrl link-underline">Work Diary &gt;</a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <div class="pagination-layout">
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo; Prev</span>
+            </a>
+          </li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">Next &raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div><!--end list-->
+  </div><!--end row-->
+</div><!--end container-->
