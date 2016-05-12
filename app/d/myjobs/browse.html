@@ -1,0 +1,121 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+   "title": "Freelance Jobs", "js":"/scripts/app.js"
+ } -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-9">
+            <div>
+                <h1 class="m-xs-top m-md-bottom">Job Search Results</h1>
+                <p class="m-xs-bottom">
+                    <strong>
+                        93,884 were found based on your criteria
+                    </strong>
+                </p>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <input type="button" class="btn btn-looking-position" value="See Open Positions" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <section>
+                <label class="control-label">Category</label>
+                <div><a href="#">All Categories</a></div>
+                <ul class="list-unstyled categoriesinfo" ng-init="categories=[{title:'Web, Mobile & Software Dev',num:'30,861'},{title:'IT & Networking',num:'3,657'}]">
+                    <li ng-repeat="c in categories">
+                        <a href="#">{{c.title}}</a><span>({{c.num}})</span>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <div class="hover">
+                    <a href="#" class="pull-right hover-show none">show all</a>
+                    <label class="control-label">Job Type</label>
+                </div>
+                <ul class="list-unstyled jobtype-list" ng-init="types=[{title:'Hourly',num:'38,135'} ,{title:'Fixed Price',num:'55,246'}]">
+                    <li ng-repeat="t in types">
+                        <a href="#">{{t.title}}</a>
+                        <span>({{t.num}})</span>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <a href="#" class="pull-right hover-show none">show all</a>
+                <label class="control-label">Client History</label>
+                <div class="">
+                    <ul class="list-unstyled s-condition-list" ng-init="records=[{checked:'true',title:'Hourly',num:'38,135'} ,{checked:'false',title:'Fixed Price',num:'55,246'}]">
+                        <li ng-repeat="r in records">
+                            <a href="" class="pull-right hover-show none">only</a>
+                            <input type="checkbox" checked="checked">
+                            <span class="">{{r.title}}</span>
+                            <span class="text-muted">({{r.num}})</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <a href="#" class="pull-right hover-show none">show all</a>
+                <label class="control-label">Project Length</label>
+                <div class="">
+                    <ul class="list-unstyled s-condition-list" ng-init="records=[{checked:'true',title:'Hourly',num:'38,135'} ,{checked:'false',title:'Fixed Price',num:'55,246'}]">
+                        <li ng-repeat="r in records">
+                            <a href="" class="pull-right hover-show none">only</a>
+                            <input type="checkbox" checked="checked">
+                            <span class="">{{r.title}}</span>
+                            <span class="text-muted">({{r.num}})</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="col-xs-9 search-result-panel">
+            <div class="row">
+                <div class="col-xs-12 order-by-panel">
+                    <label class="pull-left sort-by-text">Sort by: </label>
+                    <div class="pull-left dropdown ald-dropdown sortby-drop">
+                        <a class="dropdown-toggle ald-dropdown-toggle" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span>Relevance</span><span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu ald-dropdown-menu">
+                            <li>Newest</li>
+                            <li>Client Spending</li>
+                            <li>Client Rating</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-init="articles=[
+                     {title:'Engaging Content Writer/CopyWriter Required',digest:'Hourly - Intermediate ($$) - Est. Time: Less than 1 week, Less than 10 hrs/week - Posted 6 hours ago',
+                     content:'We\'re looking for a copywriter/content-writer able to create engaging content for our business and write sales copy that sells for landing and product pages. We need someone who excels at writing compelling, engaging sales copy. Ideally you underst',
+                     skills:['CopyWriting','Creative Writing']},
+                     {title:'Configure Google Analytics & Webmaster Tools',digest:'Fixed-Price - Intermediate ($$) - Est. Budget: $50 - Posted 6 hours ago',
+                     content:'Configure Google Analytics & Webmaster Tools for Multi-Store Magento Sites',
+                     skills:['Google Analytics']},
+                     {title:'Configure Google Analytics & Webmaster Tools',digest:'Fixed-Price - Intermediate ($$) - Est. Budget: $50 - Posted 6 hours ago',
+                     content:'Configure Google Analytics & Webmaster Tools for Multi-Store Magento Sites',
+                     skills:[]}]">
+                    <article class="job-article" ng-repeat="a in articles">
+                        <section>
+                            <h3 class="job-article-title">
+                                {{a.title}}
+                            </h3>
+                        </section>
+                        <section>
+                            <small class="job-article-digest">{{a.digest}}</small>
+                            <div>
+                                <p>{{a.content}}</p>
+                            </div>
+                            <div class="job-article-skills">
+                                <span ng-if="a.skills.length>0">Skills:</span>
+                                <span ng-repeat="skill in a.skills"><button class="btn btn-default btn-sm job-article-skill-btn">{{skill}}</button></span>
+                            </div>
+                        </section>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
