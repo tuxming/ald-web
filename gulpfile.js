@@ -10,16 +10,23 @@ var cleanCSS = require('gulp-clean-css');
 var path = require('path');
 //var useref  = require('gulp-useref');
 var less = require('gulp-less');
-var inject = require('gulp-inject-xm');
+//var inject = require('gulp-inject-xm');
+var inject = require('./mymodlues/inject.js');
 //var jshint = require('gulp-jshint');
 var extend = require('util')._extend;
-var tplProcessor = require("gulp-template-xm");
+//var tplProcessor = require("gulp-template-xm");
+var tplProcessor = require("./mymodlues/template.js");
+
+var process = require("process");
 
 var debug = false;
 
 var config = {
 	app: require('./bower.json').appPath || 'app',
-	dist: 'dist'
+	dist: 'dist',
+	base: '/ald-web',
+	pathModule: 'absolute',  //relative, absolute,
+	cwd: process.cwd()
 };
 
 var paths = {
@@ -29,14 +36,15 @@ var paths = {
   stylesPublic: [config.app+'/styles/main.css', config.app+'/styles/style.css'],
   copys: [
 	config.app +'/**/*.*',
-	'!'+config.app+'/scripts/**/*.*',
-	'!'+config.app+'/styles/**/*.?(css|less)',
+	//'!'+config.app+'/scripts/**/*.*',
+	//'!'+config.app+'/styles/**/*.?(css|less)',
+	'!'+config.app+'/styles/**/*.less',
 	'!'+config.app+'/**/*.html'
   ],
   bowerjs: [
     './bower_components/jquery/dist/jquery.js',
-	'./bower_components/angular/angular.js',
 	'./bower_components/bootstrap/dist/js/bootstrap.js',
+	'./bower_components/angular/angular.js',
     './bower_components/angular-animate/angular-animate.js',
     './bower_components/angular-aria/angular-aria.js',
 	'./bower_components/angular-cookies/angular-cookies.js',
@@ -150,7 +158,7 @@ var htmlCallback = function (info, isDebug){
 			return "";
 	}else if(info.type=='bower'){
 		var bowerjss;
-		if(isDebug){
+		//if(isDebug){
 			bowerjss = paths.bowerjs.map(function(item, i){
 				var paths = item.split("/");
 				var jsName = paths[paths.length-1];
@@ -158,9 +166,9 @@ var htmlCallback = function (info, isDebug){
 			}).reduce(function(a, b){
 				return a+b;
 			});
-		}else{
-			bowerjss = "<script type='text/javascript' src='scripts/vender.js' ></script>";
-		}
+		//}else{
+		//	bowerjss = "<script type='text/javascript' src='/scripts/vender.js'></script>";
+		//}
 
 		return bowerjss;
 
@@ -232,7 +240,7 @@ gulp.task('process:html:server', function() {
  **/
  gulp.task('server', function (cb) {
   runSequence('clean:all',
-    ['bower:ref', 'lint:scripts', 'less', 'copy:all', "process:html:server"],
+    ['bower:ref', 'less', 'lint:scripts',  'copy:all', "process:html:server"],
     ['start:client'],
     'watch', cb);
 });
@@ -250,7 +258,7 @@ gulp.task('process:build', function(){
 	//'js', 'css', 'html'
 	gulp.src(paths.scriptsPublic)
 		.pipe(load.concat("vender.js"))
-		.pipe(load.uglify())
+		//.pipe(load.uglify())
 		.pipe(gulp.dest(config.dist+"/scripts/"));
 
 	gulp.src(paths.stylesPublic)
@@ -311,10 +319,12 @@ function processhtml(options){
 		}
 
 		var content = file.contents.toString();
-
+				
 		if(!options.isDebug){
 			var $ = cheerio.load(content, options);
-			processHtmlForDOM($);
+			//processHtmlForDOM($);
+			processHtmlRefForDOM($, file.path);
+			
 			content = $.html();
 		}
 
@@ -325,6 +335,63 @@ function processhtml(options){
 		this.push(file);
 		done();
 	});
+}
+
+function processHtmlRefForDOM($, filepath){
+	
+	//filepath = filepath.replace(/\\/g, "/");
+	//filepath = filepath.substring(0, filepath.lastIndexOf("/"));
+	
+	//var apppath = path.join(config.cwd, config.app).replace(/\\/g, "/");
+	
+	filepath = filepath.substring(0, filepath.lastIndexOf("\\"));
+	
+	var apppath = path.join(config.cwd, config.app);
+	var fileRelativePath = filepath.replace(apppath, "");
+	//console.log(apppath+", "+fileRelativePath);
+	//css ref
+	$('link').each(function(i, elem){
+		var el = $(elem);
+		var ref = getPath(apppath, filepath, el.attr("href"), config.pathModule, config.base);
+		el.attr("href", ref);	
+	});
+	
+	//script ref
+	$('script').each(function(i, elem){
+		var el = $(elem);
+		var ref = getPath(apppath, filepath, el.attr("src"), config.pathModule, config.base);
+		el.attr("src", ref);
+	});
+	
+	//img ref
+	$('img').each(function(i, elem){
+		var el = $(elem);
+		var ref = getPath(apppath, filepath, el.attr("src"), config.pathModule, config.base);
+		el.attr("src", ref);
+	});
+	
+}
+
+function getPath(apppath, filepath, ref, model, webbase){
+	
+	if(!ref)
+		return null;
+	
+	ref = ref.replace(/\\/g, "/");
+	if(ref.length>0 && ref.substring(0,1) == '/'){
+		ref = path.join(apppath, ref);
+	}else{
+		ref = path.join(filepath, ref);
+	}
+	
+	if(model == 'relative'){
+		ref = path.relative(filepath, ref);
+	}else{ //absolute
+		ref = path.join(config.base, ref.replace(apppath, ""));
+	} 
+	ref = ref.replace(/\\/g, "/");
+	
+	return ref;
 }
 
 //<span class="buildjs" name="main.js" dist="/scripts/" />
@@ -373,7 +440,7 @@ function processHtmlForDOM($){
 	var cdist = $(".buildcss").attr("dist");
 	var cname = $(".buildcss").attr("name");
 	var cfiles = function(){
-		return $('lnik.concat').map(function(i,elem){
+		return $('link.concat').map(function(i,elem){
 
 			var base = $(elem).attr("base");
 			if(base){
