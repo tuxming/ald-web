@@ -48,7 +48,7 @@ body {
   border-radius: 2px;
 }
 .ald-input:focus,
-ald-input:hover {
+.ald-input:hover {
   border-color: #37A000;
 }
 .ald-btn-primary {
@@ -548,6 +548,9 @@ ul.sub-nav-bar > li > a:focus {
 .percentage {
   color: #37A000;
   font-size: 12px;
+}
+.none {
+  display: none;
 }
 /**my-stats**/
 .mystats-box {
@@ -1328,3 +1331,132 @@ li.mp-pf-item {
   margin: 10px 0px;
 }
 /**********end job-categories css*******/
+/**********start freelancer-categories css*******/
+.hero-title {
+  font-size: 60px;
+}
+.hero-input-group {
+  margin: 30px auto;
+  width: 624px;
+}
+.hero-search-panel {
+  margin-top: 30px;
+}
+.hero-search-input {
+  width: 500px;
+}
+.categorytitle {
+  font-size: 40px;
+  line-height: 50px;
+  margin: 70px 0px;
+}
+.skill-list {
+  margin-top: -5px;
+  overflow: hidden;
+}
+.skill-list .skill {
+  text-align: left;
+  height: 41px;
+  padding-left: 0;
+  white-space: nowrap;
+  font-size: 16px;
+}
+.btn-viewmore {
+  border: 2px solid #E0E0E0;
+  background-color: white;
+  color: #37A000;
+  height: 36px;
+  width: 130px;
+  font-weight: bold;
+}
+.btn-viewmore:hover {
+  border-color: #37A000;
+  background-color: white;
+  color: #37A000;
+}
+/**********end freelancer-categories css*******/
+/**********start community css*******/
+.component-icon-links-group img {
+  height: 20px;
+  width: 20px;
+}
+.component-icon-links-group {
+  margin-bottom: 38px;
+  padding-right: 28px;
+}
+.question-topic-title {
+  margin: 25px 0px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.faq-question {
+  padding-left: 15px;
+  line-height: 15px;
+}
+.faq-title {
+  line-height: 55px;
+}
+.topic-title-text {
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+.question-title {
+  font-size: 18px;
+  margin: 20px 0px;
+}
+.question-detail-list li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/**********end community css*******/
+/****** start browse css ***********/
+.categoriesinfo {
+  padding-left: 15px;
+}
+.categoriesinfo li {
+  margin: 10px 0px;
+}
+.sortby-drop {
+  margin-left: 20px;
+  width: 180px;
+}
+.jobtype-list li {
+  margin: 10px 0px;
+}
+.s-condition-list li {
+  margin: 10px 0px;
+}
+.search-result-panel {
+  background-color: white;
+  border: 1px solid #E0E0E0;
+  padding: 15px 50px;
+}
+.order-by-panel {
+  height: 35px;
+  padding-left: 0px;
+}
+.sort-by-text {
+  line-height: 35px;
+  height: 35px;
+}
+.job-article {
+  border-bottom: 1px solid #E0E0E0;
+  padding: 15px;
+}
+.job-article-title {
+  color: #37A000;
+  line-height: 40px;
+}
+.job-article-digest {
+  line-height: 50px;
+}
+.job-article-skills {
+  padding-top: 10px;
+}
+.job-article-skill-btn {
+  margin: 0px 5px;
+}
+.job-article-skill-btn:hover {
+  background-color: #37A000;
+}
+/****** end browse css ***********/

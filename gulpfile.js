@@ -11,21 +11,25 @@ var path = require('path');
 //var useref  = require('gulp-useref');
 var less = require('gulp-less');
 //var inject = require('gulp-inject-xm');
-var inject = require('./mymodlues/inject.js');
+var inject = require('./mymodules/inject.js');
 //var jshint = require('gulp-jshint');
 var extend = require('util')._extend;
 //var tplProcessor = require("gulp-template-xm");
-var tplProcessor = require("./mymodlues/template.js");
+var tplProcessor = require("./mymodules/template.js");
+var htmlref = require("./mymodules/htmlref.js");
+var getpath = require("./mymodules/getpath.js");
 
 var process = require("process");
+var crypto = require("crypto");
+var minifycss = require('gulp-minify-css');
 
 var debug = false;
 
 var config = {
 	app: require('./bower.json').appPath || 'app',
 	dist: 'dist',
-	base: '/ald-web',
-	pathModule: 'absolute',  //relative, absolute,
+	base: '/ald-web',  // ("", "/", "/ald-web")
+	model: 'absolute',  //relative, absolute,
 	cwd: process.cwd()
 };
 
@@ -35,23 +39,24 @@ var paths = {
   styles: [config.app + '/styles/**/*.less'],
   stylesPublic: [config.app+'/styles/main.css', config.app+'/styles/style.css'],
   copys: [
-	config.app +'/**/*.*',
-	//'!'+config.app+'/scripts/**/*.*',
-	//'!'+config.app+'/styles/**/*.?(css|less)',
-	'!'+config.app+'/styles/**/*.less',
-	'!'+config.app+'/**/*.html'
+    config.app +'/**/*.*',
+    '!'+config.app+'/scripts/**/*.*',
+    '!'+config.app+'/styles/**/*.?(css|less)',
+    //'!'+config.app+'/styles/**/*.less',
+    '!'+config.app+'/**/*.html'
+
   ],
   bowerjs: [
     './bower_components/jquery/dist/jquery.js',
-	'./bower_components/bootstrap/dist/js/bootstrap.js',
-	'./bower_components/angular/angular.js',
+	  './bower_components/bootstrap/dist/js/bootstrap.js',
+	  './bower_components/angular/angular.js',
     './bower_components/angular-animate/angular-animate.js',
     './bower_components/angular-aria/angular-aria.js',
-	'./bower_components/angular-cookies/angular-cookies.js',
+	  './bower_components/angular-cookies/angular-cookies.js',
     './bower_components/angular-messages/angular-messages.js',
     './bower_components/angular-resource/angular-resource.js',
-	'./bower_components/angular-touch/angular-touch.js',
-	'./bower_components/angular-route/angular-route.js',
+	  './bower_components/angular-touch/angular-touch.js',
+	  './bower_components/angular-route/angular-route.js',
     './bower_components/angular-sanitize/angular-sanitize.js'
   ],
   bowercss: [
@@ -90,7 +95,7 @@ gulp.task('less', function(){
 				paths: [ path.join(__dirname, 'less', 'includes') ]  //这个参数，编译到less的当前目录
 			}
 		))
-        .pipe(gulp.dest(config.app+'/styles/'));
+    .pipe(gulp.dest(config.app+'/styles/'));
 });
 
 //将bower的库文件对应到指定位置
@@ -122,14 +127,50 @@ gulp.task('clean:all', function () {
 
 //复制文件
 gulp.task('copy', function () {
-	return gulp.src(paths.copys)
-		.pipe(gulp.dest(config.dist));
+
+  gulp.src(paths.copys)
+    .pipe(gulp.dest(config.dist));
+
+	gulp.src(config.app+"/scripts/public/*.js")
+		.pipe(gulp.dest(config.dist+"/scripts/public/"));
 });
 
 //复制文件
 gulp.task('copy:all', function () {
 	return gulp.src([config.app+"/**/*.*", "!"+config.app+"/**/*.html"])
 		.pipe(gulp.dest(".tmp/"));
+});
+
+/**
+ * 注入webroot到appjs
+ * */
+gulp.task("injectWebPath", function(){
+  gulp.src(config.app+"/scripts/app.js")
+    .pipe(function(){
+      return through2.obj(function (file, enc, done) {
+        // 如果文件为空，不做任何操作，转入下一个操作，即下一个 .pipe()
+        if (file.isNull()) {
+          this.push(file);
+          return done();
+        }
+        // 插件不支持对 Stream 对直接操作，跑出异常
+        if (file.isStream()) {
+          this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
+          return cb();
+        }
+
+        var content =file.contents.toString();
+
+        var reg = /var\s+webroot\s*=\s*\'[\:\/\w\-]*\'\;/;
+        var webroot = "var webroot = '"+config.base+"';";
+        content = content.replace(reg, webroot);
+
+        file.contents = new Buffer(content);
+        this.push(file);
+        done();
+      });
+    }())
+    .pipe(gulp.dest(config.app+"/scripts/"));
 });
 
 //打开浏览器
@@ -149,7 +190,7 @@ gulp.task('start:server', function() {
 });
 
 //处理html的回调函数
-var htmlCallback = function (info, isDebug){
+var htmlCallback = function (info, isDebug, filepath){
 	if(info.type == "tpl"){
 		var source = fs.readFileSync(config.app+"/"+info.ref);
 		if(source)
@@ -162,7 +203,8 @@ var htmlCallback = function (info, isDebug){
 			bowerjss = paths.bowerjs.map(function(item, i){
 				var paths = item.split("/");
 				var jsName = paths[paths.length-1];
-				return "<script type='text/javascript' src='/scripts/public/"+jsName+"'></script>";
+        var jspath = '/scripts/public/'+jsName; //getpath(filepath, jspath, config)
+				return "<script type='text/javascript' src='"+jspath+"'></script>\n";
 			}).reduce(function(a, b){
 				return a+b;
 			});
@@ -170,21 +212,24 @@ var htmlCallback = function (info, isDebug){
 		//	bowerjss = "<script type='text/javascript' src='/scripts/vender.js'></script>";
 		//}
 
-		return bowerjss;
+    return bowerjss;
 
 	}else
 		return "";
 
-}
+};
 
 //处理模板的回调函数
-var tplCallback = function(templatefile){ //inject to template {index.tpl.html}
+var tplCallback = function(templatefile, filepath){ //inject to template {index.tpl.html}
 	//console.log(templatefile.toString())
-	return inject.processHtmlForString(templatefile.toString(), {
-		isDebug: debug,  //product, true: developer -> can't inject css, js
-		callback: htmlCallback
-	});
-}
+
+  var options = {
+    isDebug: debug,  //product, true: develop -> can't inject css, js
+    callback: htmlCallback
+  };
+
+	return inject.processHtmlForString(templatefile.toString(), options, filepath);
+};
 
 //监听文件变化
 gulp.task('watch', function() {
@@ -195,15 +240,9 @@ gulp.task('watch', function() {
 
 	load.watch(config.app+'/**/*.html')
 		.pipe(load.plumber())
-		.pipe(inject.process({
-			isDebug : debug,
-			callback: htmlCallback
-		}))
+		.pipe(inject.process({isDebug: debug,callback: htmlCallback}))
 		.pipe(tplProcessor({
 			tplProcess : tplCallback
-		}))
-		.pipe(processhtml({
-			isDebug : debug
 		}))
 		.pipe(gulp.dest(".tmp/"))
 		.pipe(load.connect.reload());
@@ -220,15 +259,11 @@ gulp.task('process:html:server', function() {
 
 	gulp.src(config.app+'/**/*.html')
 		.pipe(load.plumber())
-		.pipe(inject.process({
-			isDebug : debug,
-			callback: htmlCallback
-		}))
+		.pipe(inject.process(
+      {isDebug: debug,callback: htmlCallback})
+    )
 		.pipe(tplProcessor({
 			tplProcess : tplCallback
-		}))
-		.pipe(processhtml({
-			isDebug : debug
 		}))
 		.pipe(gulp.dest(".tmp/"));
 });
@@ -239,7 +274,7 @@ gulp.task('process:html:server', function() {
  * ************************
  **/
  gulp.task('server', function (cb) {
-  runSequence('clean:all',
+  runSequence('clean:all', 'injectWebPath',
     ['bower:ref', 'less', 'lint:scripts',  'copy:all', "process:html:server"],
     ['start:client'],
     'watch', cb);
@@ -247,7 +282,7 @@ gulp.task('process:html:server', function() {
 
 gulp.task('default', ['server']);
 gulp.task('build', function(cb){
-	runSequence('clean:all',
+	runSequence('clean:all', 'injectWebPath',
 		['bower:ref', 'less', 'copy'],
 		//['bower:ref', 'copy'],
 		'process:build', cb);
@@ -255,334 +290,161 @@ gulp.task('build', function(cb){
 });
 
 gulp.task('process:build', function(){
-	//'js', 'css', 'html'
+
+  //处理bower注入的js，把合并成一个vender.js
 	gulp.src(paths.scriptsPublic)
 		.pipe(load.concat("vender.js"))
-		//.pipe(load.uglify())
+		.pipe(load.uglify())
 		.pipe(gulp.dest(config.dist+"/scripts/"));
 
+  //把主要的css合并，
 	gulp.src(paths.stylesPublic)
 		.pipe(load.concat('main.css'))
-		.pipe(cleanCSS())
+		//.pipe(cleanCSS())
+    .pipe(minifycss())
 		.pipe(gulp.dest(config.dist+'/styles/'));
 
 	//处理html
 	debug = false;
 	var stream = gulp.src(paths.htmls)
-		.pipe(inject.process({
-			isDebug : debug,
-			callback: htmlCallback
-		}))
-		.pipe(tplProcessor({
-			tplProcess : tplCallback
-		}))
-		.pipe(processhtml({
-			isDebug : debug
-		}))
+    //把：<!-- build {"type": "script", "ref":"style/main.js"} -->...<!--endbuild--> 替换成指定的文件
+		.pipe(inject.process({isDebug: debug,callback: htmlCallback}))
+		.pipe(tplProcessor({tplProcess : tplCallback}))
+		.pipe(
+      htmlref(
+        extend({processCSS: cssHandler,processJS: jsHandler }, config)
+      )
+    )
 		.pipe(gulp.dest(config.dist+'/'));
-
 });
 
 
-/**
- * ************************
- * *******处理html*********
- * ************************
- **/
- /*
-	options = {
-		isDebug : false,
-		callback: function(info){
-			var sourcePath = info.ref;
-			var source = fs.readFileSync(info.ref);
-			if(source)
-				return source.toString();
-			else
-				return "";
-		}
-	}
- */
-function processhtml(options){
-	options = extend({isDebug: false}, options)
-	return through2.obj(function (file, enc, done) {
+var maps = {};
+var jsHandler = function($, filepath, options){
 
-		// 如果文件为空，不做任何操作，转入下一个操作，即下一个 .pipe()
-		if (file.isNull()) {
-			this.push(file);
-			return done();
-		}
+  //console.log($.html());
 
-		// 插件不支持对 Stream 对直接操作，跑出异常
-		if (file.isStream()) {
-			this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
-			return cb();
-		}
+  //将非public目录下面的js合并
+  var appjss = $("script")
+    .filter(function(i,element){
+      var elem = $(element);
+      var src =  elem.attr("src");
 
-		var content = file.contents.toString();
-				
-		if(!options.isDebug){
-			var $ = cheerio.load(content, options);
-			//processHtmlForDOM($);
-			processHtmlRefForDOM($, file.path);
-			
-			content = $.html();
-		}
+      if(!src)
+        return false;
+      if(src.indexOf('/public/')>=0 || src.indexOf('vender.js')>=0)
+          return false;
+      return true;
+    })
+    .map(function(i, item){
+      var src =  $(item).attr("src");
+      $(item).remove();
 
-		//instead of gulp-inject-xm
-		//content = processHtmlForString(content, options);
+      var options = extend({model:"absolute", base:"/"},config);
 
-		file.contents = new Buffer(content);
-		this.push(file);
-		done();
-	});
-}
+      // if config.base = "/ald-web", result: /ald-web/scripts/main.js
+      // if config.base = "/", result: /scripts/main.js
+      // if config.base = "", result: /scripts/main.js
+      var abspath = getpath(filepath, src, options);
+      if(config.base.length>1){
+        abspath = abspath.replace(config.base, "");
+      }
 
-function processHtmlRefForDOM($, filepath){
-	
-	//filepath = filepath.replace(/\\/g, "/");
-	//filepath = filepath.substring(0, filepath.lastIndexOf("/"));
-	
-	//var apppath = path.join(config.cwd, config.app).replace(/\\/g, "/");
-	
-	filepath = filepath.substring(0, filepath.lastIndexOf("\\"));
-	
-	var apppath = path.join(config.cwd, config.app);
-	var fileRelativePath = filepath.replace(apppath, "");
-	//console.log(apppath+", "+fileRelativePath);
-	//css ref
-	$('link').each(function(i, elem){
-		var el = $(elem);
-		var ref = getPath(apppath, filepath, el.attr("href"), config.pathModule, config.base);
-		el.attr("href", ref);	
-	});
-	
-	//script ref
-	$('script').each(function(i, elem){
-		var el = $(elem);
-		var ref = getPath(apppath, filepath, el.attr("src"), config.pathModule, config.base);
-		el.attr("src", ref);
-	});
-	
-	//img ref
-	$('img').each(function(i, elem){
-		var el = $(elem);
-		var ref = getPath(apppath, filepath, el.attr("src"), config.pathModule, config.base);
-		el.attr("src", ref);
-	});
-	
-}
+      return config.app+abspath;
+    }).toArray();
 
-function getPath(apppath, filepath, ref, model, webbase){
-	
-	if(!ref)
-		return null;
-	
-	ref = ref.replace(/\\/g, "/");
-	if(ref.length>0 && ref.substring(0,1) == '/'){
-		ref = path.join(apppath, ref);
-	}else{
-		ref = path.join(filepath, ref);
-	}
-	
-	if(model == 'relative'){
-		ref = path.relative(filepath, ref);
-	}else{ //absolute
-		ref = path.join(config.base, ref.replace(apppath, ""));
-	} 
-	ref = ref.replace(/\\/g, "/");
-	
-	return ref;
-}
+  if(appjss && appjss.length>0){
+    var temp = (new Buffer(appjss.toString())).toString("binary");
+    var ret = crypto.createHash('md5').update(temp).digest("hex");
 
-//<span class="buildjs" name="main.js" dist="/scripts/" />
-//<script type="text/script" class="concat" base="../.." src="../../script/main.js"></script>
-//<span class="buildcss" name="main.css" dist="/styles/" />
-//<link type="text/css" class="concat" base="../.." href="../../style/main.css"></link>
-/**
- * 将html里面标有class='concat'的js文件进行合并
- * 替换掉html已经合并的js引用，替换依据来自于html中，class='buildjs'的元素中
- * 将html里面标有class='concat'的css文件进行合并
- * 替换掉html已经合并的js引用，替换依据来自于html中，class='buildcss'的元素中
- **/
-/**
- * $ : cheerio
- * file: stream
- */
-function processHtmlForDOM($){
+    var fileName = "app."+ret+".js";
 
-	var files = function(){
-		return $('script.concat').map(function(i,elem){
-			var el = $(elem);
-			return el.attr('src').replace(el.attr("base"),"");
-		}).toArray().map(function(item){
-			return path.join(config.app,item);
-		});
-	}();
+    //getpath(filepath, "/scripts/"+fileName, extend({}, config))
+    $("body").append("<script type='text/javascript' src='/scripts/"+fileName+"'></script>");
 
-	if(files && files.length>0){
-		var dist = $(".buildjs").attr("dist");
-		var name = $(".buildjs").attr("name");
+    if(maps[fileName])
+      return ;
 
-		var stream = vfs.src(files);
-		stream.pipe(load.concat(name))
-			.pipe(load.jshint('.jshintrc'))
-			.pipe(load.jshint.reporter('jshint-stylish'))
-			.pipe(load.uglify())
-			.pipe(gulp.dest(config.dist+dist));
+    maps[fileName] = true;
 
-		$('script.concat').remove();
-		$('.buildjs').remove();
-		$('body').append('<script src="'+dist+name+'"></script>');
+    var stream = vfs.src(appjss)
+      .pipe(load.concat(fileName))
+      .pipe(load.jshint('.jshintrc'))
+      .pipe(load.jshint.reporter('jshint-stylish'))
+     // .pipe(load.uglify())
+      .pipe(gulp.dest(config.dist+"/scripts/"));
 
-	}
+  }
 
-	//process css
-	var cdist = $(".buildcss").attr("dist");
-	var cname = $(".buildcss").attr("name");
-	var cfiles = function(){
-		return $('link.concat').map(function(i,elem){
+};
 
-			var base = $(elem).attr("base");
-			if(base){
-				return $(elem).attr('href').replace($(elem).attr("base"),"");
-			}else
-				return $(elem).attr('href');
-		}).toArray().map(function(item){
-			return path.join(config.app,item);
-		});
-	}();
+var cssHandler = function($, filepath, options){
 
-	if(files && cfiles.length>0){
-		var stream = vfs.src(cfiles);
-		stream.pipe(load.concat(cname))
-			.pipe(cleanCSS())
-			.pipe(gulp.dest(config.dist+cdist));
+  var csss = $("link")
+    .filter(function(i,element){
+      var elem = $(element);
+      var href =  elem.attr("href");
 
-		$('link.concat').remove();
-		$('.buildcss').remove();
-		$('head').append('<link href="'+cdist+cname+'"></link>');
-	}
-}
+      if(!href)
+        return false;
+      if(href.indexOf('main.css')>=0 || href.indexOf('styles.js')>=0)
+        return false;
+      return true;
+    })
+    .map(function(i, item){
+      var href =  $(item).attr("href");
+      $(item).remove();
 
-//处理字符串形式的html
-//这里主要处理：注入
-//默认处理：
-//<!-- build {"type": "script", "ref":"style/main.js"} -->
-//<script src="scripts/app.js"></script>
-//<script src="scripts/controllers/main.js"></script>
-//<!-- endbuild -->
-/*
-function processHtmlForString(content, options){
+      var options = extend({model:"absolute", base:"/"},config);
 
-	//这里处理字符串形式的html
-	//<!-- build {"type": "script", "ref":"style/main.js"} -->
-	//<script src="scripts/app.js"></script>
-	//<script src="scripts/controllers/main.js"></script>
-	//<!-- endbuild -->
+      // if config.base = "/ald-web", result: /ald-web/scripts/main.js
+      // if config.base = "/", result: /scripts/main.js
+      // if config.base = "", result: /scripts/main.js
+      var abspath = getpath(filepath, href, options);
+      if(config.base.length>1){
+        abspath = abspath.replace(config.base, "");
+      }
 
-	//<!-- build {type: "css", ref:"style/main.js"} -->
-	//<link href="styles/main.css"></link>
-	//<link href="styles/default/style.css"></link>
-	//<!-- endbuild -->
-	var jsRegExp = /(<!--\s*build)[\s\S]*?(endbuild\s*-->)/g;
+      return config.app+abspath;
+    }).toArray();
 
-	//<!-- build {"type": "script", "ref":"style/main.js"} -->
-	var headerReg = /<!--.*-->/;
+  if(csss && csss.length>0){
+    var temp = (new Buffer(csss.toString())).toString("binary");
+    var ret = crypto.createHash('md5').update(temp).digest("hex");
 
-	//{"type": "script", "ref":"style/main.js"}
-	var jsonReg = /\{.*\}/;
+    var fileName = "app."+ret+".css";
 
-	var matchElems = content.match(jsRegExp);
-	if(matchElems && matchElems.length>0){
-		//console.log("1:"+matchElems.length+", "+matchElems);
-		for(var i=0; i < matchElems.length; i++){
+    console.log(filepath);
+    $('head').append('<link rel="stylesheet" href="/styles/'+fileName+'"/>');
 
-			var head = matchElems[i].match(headerReg);
-			//console.log("2:"+head);
+    if(maps[fileName])
+      return ;
 
-			if(head && head.length>0){
-				//console.log("3:"+head);
+    maps[fileName] = true;
 
-				var jsonStr = head[0].match(jsonReg);
+    var stream = vfs.src(csss)
+      .pipe(load.concat(fileName))
+      //.pipe(cleanCSS())
+      .pipe(minifycss())
+      .pipe(gulp.dest(config.dist+"/styles/"));
+  }
 
-				if(jsonStr && jsonStr.length>0){
-					//console.log("4:"+jsonStr, "options.isDebug:"+options.isDebug);
+};
 
-					var info = JSON.parse(jsonStr[0]);
 
-					if(!options.isDebug){
-						var replaceText = "";
-						if(info.type){
-							if(info.type==='script'){
-								replaceText = '<script type="text/script" src="'+info.ref+'"/>';
-							}else if(info.type==='css')
-								replaceText = '<link type="text/css" href="'+info.ref+'"/>';
-							else{
-								if(options && options.callback){
-									console.log(replaceText);
-									replaceText = options.callback(info, options.isDebug)
-								}
-							}
-						}
-						content = content.replace(matchElems[i], replaceText);
-					}else{
-						if(options && options.callback){
-							var replaceText = options.callback(info, options.isDebug);
 
-							if(replaceText){
-								content = content.replace(matchElems[i], replaceText);
-							}
-						}
-					}
 
-				}
 
-			}
 
-		}
-	}
-	return content;
-}
-*/
-//rename 官网例子
-/*
-gulp.src("./src/main/text/hello.txt", { base: process.cwd() })
-  .pipe(rename({
-    dirname: "main/text/ciao",
-    basename: "aloha",
-    prefix: "bonjour-",
-    suffix: "-hola",
-    extname: ".md"
-  }))
-  .pipe(gulp.dest("./dist")); // ./dist/main/text/ciao/bonjour-aloha-hola.md
-*/
-/*
-function plugin(keepQuantity){
-    keepQuantity = parseInt(keepQuantity) || 2;
-    var list = [];
 
-    return through.obj(function (file, enc, cb) {
-        if ( new RegExp( '-[0-9a-f]{8}\\' + path.extname(file.path) + '$' ).test(file.path) ) {
-            list.push({
-                file: file,
-                time: file.stat.ctime.getTime()
-            });
-        }
-        cb();
-    }, function (cb) {
-        list.sort(function(a, b){
-            return b.time - a.time;
-        })
-        .slice(keepQuantity)
-        .forEach(function(f){
-            this.push(f.file);
-        }, this);
 
-        cb();
-    });
-}
 
-module.exports = plugin;
-*/
+
+
+
+
+
+
+
 
 

@@ -148,13 +148,26 @@
 .row-margin {
   margin: 30px 0px;
 }
-.wk-info-bar {
-  background: #fefefe;
-  border: 1px solid #E0E0E0;
-  border-radius: 4px;
-  padding: 10px 6px;
-}
 .time-zone-container {
   width: 120px;
+}
+.ald-dropdown-toggle {
+  padding: 15px 10px;
+}
+.wd-info-bar {
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  background: #F5F5F5;
+}
+.wd-info-bar > li {
   display: inline-block;
+  line-height: 100%;
+  vertical-align: middle;
+  padding: 15px 8px;
+}
+.info-bar-item > li {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  line-height: 100%;
 }

@@ -7,31 +7,31 @@ app.controller('MainCtrl', function () {
 }).config(function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: '/d/findwork/findwork.html',
+      templateUrl: webroot+'/d/findwork/findwork.html',
       controller: 'MainCtrl',
       controllerAs: 'main'
     })
     .when('/saved', {
-      templateUrl: '/d/findwork/saved.html',
+      templateUrl: webroot+'/d/findwork/saved.html',
       controller: 'SavedController',
       controllerAs: 'saved'
     })
     .when('/proposals', {
-      templateUrl: '/d/findwork/proposals.html',
+      templateUrl: webroot+'/d/findwork/proposals.html',
       controller: 'ProposalsController',
       controllerAs: 'proposals'
     })
     .when('/myreport', {
-      templateUrl: '/d/findwork/mystats.html',
+      templateUrl: webroot+'/d/findwork/mystats.html',
       controller: 'MyStatsController',
       controllerAs: 'myreport'
     })
     .when('/myprofile', {
-      templateUrl: '/d/findwork/myprofile.html',
+      templateUrl: webroot+'/d/findwork/myprofile.html',
       controller: 'MyProfileController',
       controllerAs: 'myprofile'
     }).when('/tests', {
-      templateUrl: '/d/findwork/tests.html',
+      templateUrl: webroot+'/d/findwork/tests.html',
       controller: 'TestsCtrl',
       controllerAs: 'tests'
     });

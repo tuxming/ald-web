@@ -8,6 +8,8 @@
  *
  * Main module of the application.
  */
+
+var webroot = '/ald-web';
 var app = angular.module('app', [
     'ngAnimate',
     'ngCookies',
@@ -19,7 +21,7 @@ var app = angular.module('app', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/job-categories', {
-        templateUrl: 'views/categories/job-categories.html',
+        templateUrl: webroot+'views/categories/job-categories.html',
         controller: 'JobCategoriesController',
         controllerAs: 'job-categories'
       });
