@@ -14,21 +14,116 @@ html规范
 
 5，向html文件中注入：字符串、文本、引用
 
-<!--build {"type": "js/css/tpl/bower", ref="/script/main.js"}-->
-	...other
-<!--endbuild-->
 
-type：
-css: 将注释包围的部分替换成ref指定的css，如下：
-源：
-<!--build {"type": "css", ref="/styles/main.css"}-->
-	<link rel="stylesheet" href="./styles/styles.css"/>
-	<link rel="stylesheet" href="./styles/user.css"/>
-<!--endbuild-->
-处理后：
-<link rel="stylesheet" href="./styles/styles.css"/>
-<link rel="stylesheet" href="./styles/user.css"/>
+web-root                      --> 项目目录
+  |
+  ├-app/                      --> web目录
+  | |
+  | ├- scripts/               --> js文件存放目录
+  | |   |
+  | |   └-public/             --> 公共js存放目录
+  | |
+  | └- app.js                 --> 项目基本配置文件
+  |
+  ├-bower_components/         --> bower依赖的文件
+  |
+  ├-doc/                      --> 项目一些说明
+  |
+  ├-dist/                     --> 打包生成的目录，可以直接将该目录下面的文件放到web容器下面
+  |
+  ├-mymodules                 --> 自定义的gulp插件
+  |
+  ├-node_modules              --> nodejs的依赖包
+  |
+  ├-gulpfile.js               --> gulp文件
+  |
+  └-package.json              --> 项目配置文件
 
+gulpfile配置文件说明
+var config = {
+	app: require('./bower.json').appPath || 'app',
+	dist: 'dist',
+	base: '/ald-web',  // ("", "/", "/ald-web")
+	model: 'absolute',  //relative, absolute,
+	cwd: process.cwd()
+};
+
+==============================================================================
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "My Job Feed",
+		"css":["/styles/d/findwork.css"],
+		"js":["/scripts/app.js", "/scripts/d/findwork/main.js", "/scripts/d/findwork/controllers/tests.js",
+		  "/scripts/d/findwork/controllers/myprofile.js", "/scripts/d/findwork/controllers/mystats.js",
+		  "/scripts/d/findwork/controllers/proposals.js", "/scripts/d/findwork/controllers/saved.js"]
+	} -->
+
+参考页面：/template/index.tpl.html
+这个是用来指定的一个父级模版：
+tpl: 模板路径， 以web目录为根目录, 例：app/template/index.tpl.html， 将会把当前文件堆换到tpl的#{content}
+title: html的名字， 替换：${title}
+css: 当前html文件所用的css，以数组形式表现, 把所有css注入到#{css}
+js: 当前html文件所用的js，以数组形式表现, 把所有css注入到#{js}
+以上参数为必须的：
+还可以自定义变量：
+
+page.html --> name是自定义变量
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "My Job Feed",
+		"css":["/styles/d/findwork.css"],
+		"js":["/scripts/app.js", "/scripts/d/findwork/main.js", "/scripts/d/findwork/controllers/tests.js"]
+		"name":"tuxming"
+	} -->
+<h3>this home page!</h3>
+
+index.tpl.html
+<html>
+  <head>
+    <title>#{title}</title>
+    #{css}
+  </head>
+  <body>
+    #{content}
+    <p>#{name}</p>
+    #{js}
+  </body>
+</html>
+
+result page
+<html>
+  <head>
+    <title>My Job Feed</title>
+    <link rel='stylesheet' href='/styles/d/findwork.css'/>
+  </head>
+  <body>
+
+    <p>tuxming</p>
+    <h3>this home page!</h3>
+    <script src='/scripts/d/findwork/main.js'></script>
+    <script src='/scripts/d/findwork/controllers/tests.js'></script>
+  </body>
+</html>
+
+==============================================================================
+<!-- build {"type":"css", "ref":"/styles/main.css"} -->
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/style.css">
+<!-- endbuild -->
+替换成：<link rel='stylesheet' href='/styles/main.css' />
+
+
+<!--build {"type":"tpl", "ref":"/template/header.html"}-->
+<!--endbuild-->
+替换成：header.html里面的内容
+
+<!--build {"type":"tpl", "ref":"/template/footer.html"}-->
+<!--endbuild-->
+替换成：footer.html里面的内容
+
+<!-- build {"type":"bower" }-->
+<!-- endbuild -->
+将gulpfile.js 里面的 paths.bowerjs 指定的文件引入这个注释里面
+
+==============================================================================
 
 css规范：
 

@@ -27,6 +27,7 @@
     "jshint-stylish": "^1.0.0",
     "lazypipe": "^0.2.4",
     "less": "^2.6.1",
+    "minimist": "^1.2.0",
     "open": "0.0.5",
     "path": "^0.12.7",
     "run-sequence": "^1.1.1",

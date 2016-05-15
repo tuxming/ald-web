@@ -23,12 +23,21 @@ var process = require("process");
 var crypto = require("crypto");
 var minifycss = require('gulp-minify-css');
 
+var args = require('minimist'); //传参数
+
 var debug = false;
+
+var knownArgs = {
+  string: 'webroot',
+  default: { arg: process.env.NODE_ENV || '' }
+};
+var params = args(process.argv.slice(2), knownArgs);
+
 
 var config = {
 	app: require('./bower.json').appPath || 'app',
 	dist: 'dist',
-	base: '/ald-web',  // ("", "/", "/ald-web")
+	base: '',  // ("", "/", "/ald-web")
 	model: 'absolute',  //relative, absolute,
 	cwd: process.cwd()
 };
@@ -282,6 +291,17 @@ gulp.task('process:html:server', function() {
 
 gulp.task('default', ['server']);
 gulp.task('build', function(cb){
+
+  console.log(params.webroot);
+
+  if(params.webroot && params.webroot.length>0){
+    config.base = params.webroot;
+    config.model = 'absolute';
+  }else{
+    config.base = '';
+    config.model = 'relative';
+  }
+
 	runSequence('clean:all', 'injectWebPath',
 		['bower:ref', 'less', 'copy'],
 		//['bower:ref', 'copy'],
@@ -414,7 +434,7 @@ var cssHandler = function($, filepath, options){
 
     var fileName = "app."+ret+".css";
 
-    console.log(filepath);
+    //console.log(filepath);
     $('head').append('<link rel="stylesheet" href="/styles/'+fileName+'"/>');
 
     if(maps[fileName])

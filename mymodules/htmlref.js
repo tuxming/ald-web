@@ -33,7 +33,6 @@ module.exports = function(options){
 };
 
 function processHtmlRefForDOM(content, filepath, options){
-  //console.log(filepath);
   var $ = cheerio.load(content);
 
   //filepath = filepath.substring(0, filepath.lastIndexOf("\\"));
@@ -47,7 +46,6 @@ function processHtmlRefForDOM(content, filepath, options){
   if(options.processJS){
     options.processJS($, filepath, options);
   }
-
   //css ref
   $('link').each(function(i, elem){
     var el = $(elem);

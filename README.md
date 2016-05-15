@@ -8,7 +8,9 @@
 
 		1, npm install  
 		2, bower install
-		3, gulp build
+		3-1, gulp build                       //http://domain.com:9000/   will use relative path in html
+		3-2, gulp build --webroot /ald-web    //http://domain.com:9000/ald-web
+		3-3, gulp build --webroot /           //http://domain.com:9000/
 		4, gulp server
 
 ## warning
