@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-var webroot = '/ald-web';
+var webroot = '';
 var app = angular.module('app', [
     'ngAnimate',
     'ngCookies',

@@ -38,7 +38,7 @@ var config = {
 	app: require('./bower.json').appPath || 'app',
 	dist: 'dist',
 	base: '',  // ("", "/", "/ald-web")
-	model: 'absolute',  //relative, absolute,
+	model: 'relative',  //relative, absolute,
 	cwd: process.cwd()
 };
 
