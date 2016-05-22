@@ -2,7 +2,7 @@
 
 ## quick guide
 	prepare:
-		install grunt: 	npm install -g grunt-cli
+		install gulp: 	npm install -g gulp
 		install bower:  npm install -g bower
 		install yeoman: npm install -g yo
 
