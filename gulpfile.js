@@ -6,7 +6,6 @@ var vfs = require('vinyl-fs');
 var fs = require('fs');
 var cheerio = require('cheerio');
 var through2 = require('through2');
-var cleanCSS = require('gulp-clean-css');
 var path = require('path');
 //var useref  = require('gulp-useref');
 var less = require('gulp-less');

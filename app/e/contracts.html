@@ -1,0 +1,140 @@
+<div class="container">
+  <div class="row">
+      <div class="col-xs-12">
+        <h3 class="page-title">Open Jobs <a href="" class="btn btn-primary ald-btn-primary pull-right">Post Job</a></h3>
+      </div><!--end page head -->
+      <table class="table c-list1 col-xs-12">
+        <tr ng-repeat="i in [0,1,2]">
+          <td class="col-xs-4">
+            <a href="javascript:;" class="c-item-title link-underline">Need a great designer NOW</a>
+            <div class="c-item-label">Fiexed-Price - Posted 1 day ago by you</div>
+            <a href="javascript:;" class="c-item-view link-underline">View Suggested Freelancers</a>
+          </td>
+          <td>
+            <a href="javascript:;" class="link-underline c-view">5<span class="bold">(5 new)</span></a>
+            <div class="c-item-label">Applicants</div>
+          </td>
+          <td>
+            <div>-</div>
+            <div class="c-item-label">Messaged</div>
+          </td>
+          <td>
+            <div>-</div>
+            <div class="c-item-label">Offers/Hires</div>
+          </td>
+          <td>PUBLIC</td>
+          <td>
+            <div class="dropdown mp-work-filter">
+              <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                <span class="filter-selected-label">Actions</span>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu ald-dropdown-menu mp-work-filter-options">
+                <li class="filter-selected-actived">View Applicants</li>
+                <li>Make Private</li>
+                <li>View Job Posting</li>
+                <li>Edit Posting</li>
+                <li>Duplicate Posting</li>
+                <li>Remove Posting</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!--begin list footer-->
+    <div class="col-xs-12 clearfix">
+      <div class="pull-left">
+        <a href="javascript:;" class="link-underline">View all job postings</a>
+        <span class="c-item-label">(including filled and closed jobs)</span>
+      </div>
+      <div>
+        <div class="pagination-layout">
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo; Prev</span>
+              </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a>....</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">Next &raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div><!--end pagination-->
+    </div><!--end xs-12 -->
+  </div><!--end row-->
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="page-title clearfix">
+        <span style="vertical-align: middle;">Open Jobs</span>
+        <span class="iconfont prefix-pre">&#xe616;</span>
+        <input type="text" placeholder="Search contracts" class="form-control prefix-input"/>
+
+        <div class="pull-right open-jobs-total">
+          <span>So far this week</span>
+          <a href="javascript:;" class="link-underline bold">$1200.00</a>
+        </div>
+      </h3>
+    </div><!--end page head -->
+
+    <div class="tab-panel">
+      <ul class="nav nav-tabs">
+        <li ng-class="tab.active" class="c-nav-tab" ng-repeat="tab in tabNames">
+          <a ng-click="showTabContent($index)" href="javascript:;" class="link-underline">{{tab.label}}</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <table class="table c-list2">
+          <tr ng-repeat="i in [0,1,2,3,4,5,6,7]">
+            <td class="col-xs-4 no-lf-padding c-item-user clearfix">
+              <a href="javascript:;" class="c-item-title c-item-user-title">JAVA Developer</a>
+              <div class="c-item-user-img img-circle">
+                <img src="/images/user.png"/>
+              </div>
+              <div class="c-item-user-info">
+                <a href="javascript:;" class="link-underline">tuxming</a>
+                <div class="c-item-label">Sun 9:11 PM in China</div>
+              </div>
+            </td>
+            <td class="col-xs-6">
+              <a href="javascript:;" class="c-view">33:40, $2000 this week</a><br/>
+              <a href="javascript:;" class="c-view">Working now: in </a>
+              <span class="c-item-label">if you click "view all" in the messages...</span>
+            </td>
+            <td class="col-xs-2">
+              <div class="dropdown mp-work-filter">
+                <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                  <span class="filter-selected-label">Actions</span>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu ald-dropdown-menu mp-work-filter-options">
+                  <li class="filter-selected-actived">View Applicants</li>
+                  <li>Make Private</li>
+                  <li>View Job Posting</li>
+                  <li>Edit Posting</li>
+                  <li>Duplicate Posting</li>
+                  <li>Remove Posting</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+    <!--end tab-->
+
+  </div><!--end row-->
+
+</div><!--end contrainer-->

@@ -1,8 +1,5 @@
 ﻿@charset "utf-8";
 
-
-
-
 @import url('variable.less');
 
 body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-font-smoothing:antialiased;
@@ -16,7 +13,7 @@ body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-f
     url('../images/icon/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
-.page-title{font-size:18px;
+.page-title{font-size:@xxlSize;
 	margin-left:30px;
 	padding-bottom:15px;
 	padding-top:15px;
@@ -24,14 +21,14 @@ body{font-family:'Gotham Book', 'microsoft yahei'; font-weight:normal; -webkit-f
 
 .iconfont{
     font-family:"iconfont" !important;
-    font-size:16px;font-style:normal;
+    font-size:@xlSize;font-style:normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
 }
 
 .lg-icon{
-	font-size:20px;
+	font-size: (@bigSize - 2);
 }
 .llg-icon{font-size:35px;}
 
@@ -77,21 +74,21 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 .icon-unactive{color: @unactive;}
 .icon-link:hover{text-decoration:none;}
 
-.panel-title{font-size:13px; color:@lightColor;}
-.ald-list-group > li > a{font-size:12px; }
-.item-link{display:block; margin:6px; font-size:12px;}
+.panel-title{font-size:(@lSize - 1); color:@lightColor;}
+.ald-list-group > li > a{font-size:@mSize; }
+.item-link{display:block; margin:6px; font-size:@mSize;}
 .item-link:hover{text-decoration:none;}
 
 .ald-col-xs-3{width:20%; padding-left:10px; padding-right:10px;}
 .ald-col-xs-6{width:60%; padding-left:10px; padding-right:10px;}
 
 .nothing-box{
-	padding:25px 40px; font-size:22px; font-weight:300;
+	padding:25px 40px; font-size: @bigSize; font-weight:300;
 	border:1px solid @unactive; margin-top:35px; margin-bottom:35px;
 	background: @white;
 }
 .nothing-box-icon{
-	font-size:22px;
+	font-size: @bigSize;
 }
 
 /*
@@ -115,7 +112,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 
 .nav-right-ul > li{padding-top:20px;}
 .nav-right-ul .nav-right-item{padding-top:25px;}
-.icon-nav{font-size:20px; color:#aaaaaa;}
+.icon-nav{font-size: (@bigSize - 2); color:#aaaaaa;}
 .header-container{width: @pageWidth; text-align: left; margin: 0px auto;}
 
 .sub-nav-container{width:100%; background:@normalColor;}
@@ -126,6 +123,23 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 
 /**end navi style**/
 
+/*分页重写*/
+.pagination-layout{text-align:right;}
+.pagination-layout li a{
+  color: @baseColor;
+}
+
+.pagination{
+  margin:0px; padding:0px;
+}
+.pagination-layout li a:hover, .pagination-layout li .active{
+  background: @white;
+  color: @baseColor;
+  border:2px solid @baseColor;
+}
+/* end 分页重写*/
+
+
 /********自定义组件*********/
 //标签样式
 //<a class="tag">
@@ -133,10 +147,10 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 //	<i class="iconfont">&#xe61c;</i>
 //</a>
 .tag{
-	font-size:10px; display:inline-block; background:@unactive;
+	font-size: @smSize; display:inline-block; background:@unactive;
 	margin:5px 5px; padding: 2px 7px; color:@dilutedColor;border-radius: 20px;
 }
-.tag i {font-size:12px;}
+.tag i {font-size: @mSize;}
 .tag-edit:hover::after{
 	font-family:"iconfont" !important;
 	content:" \e61c";
@@ -213,6 +227,20 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 	border-left:none;
 }
 
+//在前面input框加一个前缀
+.prefix-input{
+  padding-left:30px; width:300px; display:inline-block; margin-right:25px;
+  border: 2px solid @unactive;
+}
+.prefix-input:hover, .prefix-input:focus{
+  box-shadow:none;
+  border: 2px solid @baseColor;
+}
+
+.prefix-pre{
+  position:relative; left:30px; color:@baseColor;
+}
+
 /***********end 自定义组件***************/
 /** tab **/
 .tab-bar{
@@ -223,7 +251,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 	display:inline-block;
 }
 .tab-bar li a{
-	padding:10px 30px; font-size:18px; color:@lightColor;
+	padding:10px 30px; font-size: @xxlSize; color:@lightColor;
 }
 .tab-bar li a:hover{
 	color: @baseColor;
@@ -259,7 +287,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 
 .img-icon{width:30px; vertical-align:top;}
 .freelancer > p{
-	margin-left:12px; font-size:12px; color: @lightColor;
+	margin-left:12px; font-size: @mSize; color: @lightColor;
 }
 .freelancer > img, .freelancer > div {display:inline-block;}
 
@@ -291,18 +319,18 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 
 .account_img{height:30px;}
 
-.find-work-label{color:@normalColor; font-weight:100; font-size:26px; margin-top:10px; margin-left:10px;}
+.find-work-label{color:@normalColor; font-weight:100; font-size:@bigerSize; margin-top:10px; margin-left:10px;}
 .search-input{width:465px;}
 
 .advanced-search{margin-top:8px;}
-.advanced-search-btn{font-size:13px;}
+.advanced-search-btn{font-size:@mSize;}
 
 .tag-item{
 	display:inline-block;
 	border-radius:6px; background:@unactive;
-	padding:3px 8px; font-size:12px;
-	font-size: 11px;
-    font-weight: normal;
+	padding:3px 8px; font-size:@mSize;
+	font-size: @smSize;
+  font-weight: normal;
 	margin-left:5px;
 	margin-right:5px;
 	color: @dilutedColor;
@@ -312,11 +340,11 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 .rss-1, .rss-2{
 	opacity:0.85;
 	border-radius: 4px;
-    display: block;
-    margin-bottom: 10px;
-    opacity: 0.85;
-    padding: 10px 0;
-    text-align: center;
+  display: block;
+  margin-bottom: 10px;
+  opacity: 0.85;
+  padding: 10px 0;
+  text-align: center;
 }
 .rss-1:hover{opactiy:1; background:#F2F2F0; text-decoration:none;}
 
@@ -325,21 +353,21 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 
 .feed-header{
 	line-height:25px;
-    font-size: 18px;
+    font-size: @xxlSize;
 	font-weight:300;
 	color:@normalColor;
 }
 
-.job-title{margin:10px 0px; font-size:16px; pading:0px 20px;}
+.job-title{margin:10px 0px; font-size:@xlSize; pading:0px 20px;}
 .job-title-item, .job-title-item-cert{
-	font-size:16px;
+  font-size: @xlSize;
 	vertical-align:top;
 }
 .job-title-item-cert{
 	font-weight:700;
 }
-.job-detail{font-weight:400; color: @dilutedColor; font-size:11px;}
-.job-desc{line-height:150%; margin:8px 0px; font-size:12px;}
+.job-detail{font-weight:400; color: @dilutedColor; font-size:@smSize;}
+.job-desc{line-height:150%; margin:8px 0px; font-size: @mSize;}
 
 .info-progress-bar{
 	border: 1px solid @baseColor;
@@ -350,7 +378,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
     width: 100px;
 }
 .info-progress-bar > div{height:14px; background: @baseColor; width:70px; }
-.percentage{color:@baseColor; font-size:12px;}
+.percentage{color:@baseColor; font-size:@mSize;}
 .none { display:none;}
 
 /**my-stats**/
@@ -416,13 +444,13 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 .mp-title-text{
 	padding:0px;margin:0px;
 	margin-bottom:20px;
-	font-size:18px;
+	font-size: @xxlSize;
 }
 .mp-title-hover:hover::after{
 	font-family:"iconfont" !important;
 	color:@baseColor;
 	content: " \e629";
-	font-size:18px;
+	font-size: @xxlSize;
 }
 .mp-list{list-style:none; padding-left:0px;}
 .mp-list > li{}
@@ -441,8 +469,8 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 }
 .mp-user-photo{width:25%;}
 .mp-user-info1{width:75%;}
-.my-user-name-label a{font-weight:400; font-size:18px; color: @dilutedColor; }
-.mp-job-title{font-weight:600; color:@dilutedColor; font-size:15px; }
+.my-user-name-label a{font-weight:400; font-size:@xxlSize; color: @dilutedColor; }
+.mp-job-title{font-weight:600; color:@dilutedColor; font-size: @xlSize; }
 .mp-user-base:hover a{background:#D3EAC7; color:@dilutedColor;}
 
 .mp-user-base:hover a::after, .mp-skils-container:hover::after,
@@ -452,7 +480,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 	content:" \e608";
 	cursor:pointer; background:#D3EAC7;
 	vertical-align:top;
-	font-size:16px;
+	font-size:@xlSize;
 }
 
 .mp-user-location{
@@ -463,7 +491,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus{color: darken(@baseColor,5%);
 .mp-skils-container > a:hover{color:@dilutedColor;}
 
 .mp-overview-label{
-	font-size:18px; font-weight:400; color:@dilutedColor;
+	font-size:@xxlSize; font-weight:400; color:@dilutedColor;
 	margin:20px 0px; cursor:pointer; display:inline-block;
 }
 
@@ -477,21 +505,21 @@ overflow-x:hidden; background:none;}
 
 .filter-selected-label{
 	width:210px;display:inline-block;
-	font-size:12px;
+	font-size:@mSize;
 }
 
 .mp-works-left{width:65%; float:left;}
 .mp-works-right{width:35%; float:left;}
 .mp-works > li{margin:20px 0px; padding-bottom:30px; border-bottom: 1px solid @unactive;}
-.mp-works-name{font-size:15px; font-weight:700; }
+.mp-works-name{font-size:(@xlSize - 1); font-weight:700; }
 .mp-works-left > a, .mp-works-left > div{
 	display:block; padding:4px 0px;
 }
 
-.mp-works-stars{font-size:12px; color:@baseColor;}
+.mp-works-stars{font-size:@mSize; color:@baseColor;}
 .mp-works-score-num{display:inline-block; vertical-align:middle; }
 .mp-works-appraise{line-height:180%; font-style:oblique; color:@lightColor;}
-.mp-works-total-time{font-size:15px; font-weight:700; }
+.mp-works-total-time{font-size:(@xlSize - 1); font-weight:700; }
 
 .mp-works-right > div{text-align:right; padding:2px 0px;}
 .mp-work-filter-label{width:240px; }
@@ -519,25 +547,25 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 	background:@white; padding:10px 20px;
 	border-radius:30px;box-shadow:0px 0px 1px rgba(110,110,110, 0.2);
 }
-.mp-pf-controls > a{ font-size:18px; margin:0px 4px; }
+.mp-pf-controls > a{ font-size:@xxlSize; margin:0px 4px; }
 
 .mp-test-item-score{display:inline-block; margin-right:15px;}
-.test-sort-first{border-radius: 5px; font-size:12px; padding:3px 5px; background:#FEC324; color:@white;}
-.test-sort-second{border-radius: 5px; font-size:12px; padding:3px 5px; background:#B1C1CB; color:@white;}
-.test-sort-top1{border-radius: 5px; font-size:12px; padding:3px 5px; background:#0682D1; color:@white;}
-.test-sort-top2{border-radius: 5px; font-size:12px; padding:3px 5px; background: #00A0E8; color: @white; }
-.test-sort-failed{font-size:14px; color:#EF4B0A;}
-.test-sort-blowavg{border-radius: 5px; font-size:12px; padding:3px 5px; background:#E55414; color:@white;}
-.test-sort-aboveavg{border-radius: 5px; font-size:12px; padding:3px 5px; color:@dilutedColor;}
+.test-sort-first{border-radius: 5px; font-size:@mSize; padding:3px 5px; background:#FEC324; color:@white;}
+.test-sort-second{border-radius: 5px; font-size:@mSize; padding:3px 5px; background:#B1C1CB; color:@white;}
+.test-sort-top1{border-radius: 5px; font-size:@mSize; padding:3px 5px; background:#0682D1; color:@white;}
+.test-sort-top2{border-radius: 5px; font-size:@mSize; padding:3px 5px; background: #00A0E8; color: @white; }
+.test-sort-failed{font-size:@lSize; color:#EF4B0A;}
+.test-sort-blowavg{border-radius: 5px; font-size:@mSize; padding:3px 5px; background:#E55414; color:@white;}
+.test-sort-aboveavg{border-radius: 5px; font-size:@mSize; padding:3px 5px; color:@dilutedColor;}
 .test-sort-normal{color: @dilutedColor;}
 
 .mp-other-item > span:first-child{
 	display:inline-block;
-	font-size: 15px; color:@dilutedColor; font-weight:700;
+	font-size:(@xlSize - 1); color:@dilutedColor; font-weight:700;
 	padding:0px; margin-bottom:10px;
 }
 .mp-other-item > span{
-	font-size:13px; padding:0px; line-height:150%;
+	font-size:(@lSize - 1); padding:0px; line-height:150%;
 }
 .mp-other-item{border-bottom:1px solid @unactive; padding-bottom:30px;
 	margin-bottom:35px;
@@ -549,7 +577,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 	font-family:"iconfont" !important;
 	color:@baseColor;
 	content: " \e629";
-	font-size:24px;
+	font-size:  @bigerSize;;
 }
 .mp-other-item:hover > span{
 	background:#D3EAC7;
@@ -560,11 +588,11 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 .mp-right-container > div{
   margin-top:25px; margin-bottom:25px;
 }
-.mp-view-moreprofile{font-size:13px;}
+.mp-view-moreprofile{font-size:(@lSize - 1);}
 .mp-job-percent-full{width:100%;}
 .mp-job-percent{width:80%; background:@blue; height:4px;}
 .mp-right-item > h4{
-  font-size:13px;
+  font-size:(@lSize - 1);
   display:inline-block;
   font-weight: 700;
   color:@dilutedColor;
@@ -572,7 +600,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
   margin-bottom:4px;
 }
 .mp-right-item > p{
-  font-size:13px;
+  font-size:(@lSize - 1);
   display:inline-block;
   color:lighten(@dilutedColor, 5%);
   line-height: 140%;
@@ -583,7 +611,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 .mp-availability:hover h4, .mp-availability:hover p{
 	background:#D3EAC7;
 }
-.mp-copy-link{font-size:12px;}
+.mp-copy-link{font-size:@mSize;}
 .mp-languages:hover > h4, .mp-languages:hover > p{
 	background: #D3EAC7;
 }
@@ -592,7 +620,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 	content:" \e608";
 	cursor:pointer; background:#D3EAC7;
 	vertical-align:top;
-	font-size:16px;
+	font-size:@xlSize
 }
 .mp-associated > div{float:left;}
 .mp-associated-icon > i{
@@ -600,7 +628,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 	color:lighten(@dilutedColor, 10%);
 }
 .mp-associated-label{
-  margin-left:20px; margin-top:25px; font-size: 13px;
+  margin-left:20px; margin-top:25px; font-size:(@lSize - 1);
 }
 
 /*********end my profile css***************/
@@ -936,7 +964,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
  }
  .heading-section{
     font-weight: 600;
-    font-size: 22px;
+    font-size: @bigSize;
     line-height: 48px;
     margin: 0 0 30px;
     color: @dilutedColor;
@@ -995,7 +1023,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
     height: 41px;
     padding-left: 0;
     white-space: nowrap;
-    font-size: 16px;
+    font-size:@xlSize
 }
 
 .btn-viewmore {
@@ -1027,7 +1055,7 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
 .question-topic-title{
     margin:25px 0px;
     font-weight:bold;
-    font-size:20px;
+    font-size: (@bigSize - 2);
 }
 .faq-question{
     padding-left:15px;
@@ -1037,11 +1065,11 @@ li.mp-pf-item{cursor:pointer; display:inline-block;
     line-height:55px;
 }
 .topic-title-text{
-    font-size:26px;
+    font-size:  (@bigestSize - 2);
     margin-bottom:40px;
 }
 .question-title{
-    font-size:18px;
+    font-size:@xxlSize;
     margin:20px 0px;
 }
 .question-detail-list li{
