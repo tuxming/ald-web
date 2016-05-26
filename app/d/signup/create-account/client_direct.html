@@ -1,0 +1,160 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+   "title": "Create an Account", "js":["/scripts/app.js"]
+ } -->
+<div class="container">
+    <form id="signupForm" novalidate="novalidate" class="ng-scope">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="o-h2-bold m-md-bottom m-xs-top create-account-title">
+                    <span>Create a Free Client Account</span>
+                </h1>
+                <p class="signup-as-freelancer">
+                    Looking for work?
+                    <br class="visible-xs">
+                    <a href="#">Sign up as a freelancer</a>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 signup-linkedin" ng-init="socialConnect.increaseLinkedIn=true">
+                <div class="text-center">
+                    <span>
+                        <a href="#" class="btn btn-md eo-btn-linkedin">
+                            <i class="glyphicon air-icon-social-linkedin"></i> Sign up with LinkedIn
+                        </a>
+                    </span>
+                </div>
+                <div class="text-center">
+                    <div class="o-or-divider-horizontal">OR</div>
+                </div>
+                <div class="text-center" ng-show="socialConnect.increaseLinkedIn">
+                    <span>
+                        <a href="#" class="btn btn-md eo-btn-email" ng-click="socialConnect.increaseLinkedIn=false">
+                            <i class="glyphicon air-icon-social-linkedin"></i> Sign up with LinkedIn
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="eo-tabset" ng-class="{hidden: (socialConnect.increaseLinkedIn && !socialConnect.provider)}">
+            <ul class="nav nav-tabs nav-justified email-sign-type-tab">
+                <li ng-class="{active:(tab == 'company')}" class="active">
+                    <a href="#" ng-click="tab = 'company'">
+                        Company <span class="hidden-xs">Sign Up</span>
+                    </a>
+                </li>
+                <li ng-class="{active:(tab == 'individual')}" class="">
+                    <a href="#" ng-click="tab = 'individual'">
+                        Individual <span class="hidden-xs">Sign Up</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content o-signup-form o-signup-form-client signup-tab-content" ng-init="tab='company'">
+                <div class="o-signup-form-fields">
+                    <div class="form-group ng-scope" ng-if="!socialConnect.profile.first_name || !socialConnect.profile.last_name">
+                        <input type="text" name="firstName" id="firstName_22939" class="form-control has-form-message  ng-isolate-scope ng-pristine ng-scope ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-server-error ng-touched" placeholder="First Name" ng-model="userAccount.firstName" eo-server-error="" ng-blur="processName('firstName')" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-pattern="/^(([a-zA-Z- ']+)|(Fn-[0-9]{12}))$/i" required="required">
+                        <span ng-show="(signup.form.firstName.$modelValue || signup.form.firstName.$dirty) &amp;&amp; signup.form.firstName.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                            <span ng-messages="signup.form.firstName.$error" class="ng-active">
+                                <label ng-message="required" class="form-message form-error ng-binding ng-scope">
+                                    First Name is required
+                                </label>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group ng-scope" ng-if="!socialConnect.profile.first_name || !socialConnect.profile.last_name">
+                        <input type="text" name="lastName" id="lastName_3311" class="form-control has-form-message  ng-isolate-scope ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-server-error" placeholder="Last Name" ng-model="userAccount.lastName" eo-server-error="" ng-blur="processName('lastName')" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-pattern="/^(([a-zA-Z- ']+)|(Ln-[0-9]{12}))$/i" required="required">
+                        <span ng-show="(signup.form.lastName.$modelValue || signup.form.lastName.$dirty) &amp;&amp; signup.form.lastName.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                            <span ng-messages="signup.form.lastName.$error" class="ng-active">
+                                <label ng-message="required" class="form-message form-error ng-binding ng-scope">
+                                    Last Name is required
+                                </label>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group ng-scope" ng-if="tab == 'company'">
+                        <input type="text" name="companyName" id="companyName_9440" class="form-control has-form-message  ng-isolate-scope ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength ng-valid-server-error" placeholder="Company Name" ng-model="userAccount.companyName" eo-server-error="" ng-required="true" ng-maxlength="100" required="required">
+                        <span ng-show="(signup.form.companyName.$modelValue || signup.form.companyName.$dirty) &amp;&amp; signup.form.companyName.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                            <span ng-messages="signup.form.companyName.$error" class="ng-active">
+                                <label ng-message="required" class="form-message form-error ng-binding ng-scope">
+                                    Company Name is required
+                                </label>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <div class="dropdown ald-dropdown country-drop">
+                            <a class="dropdown-toggle ald-dropdown-toggle country-selected" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span>China</span><span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu ald-dropdown-menu country-drop-item">
+                                <li>Select Country</li>
+                                <li>China</li>
+                                <li>Angola</li>
+                            </ul>
+                        </div>
+                        <span ng-show="(signup.form.country.$modelValue || signup.form.country.$dirty) &amp;&amp; signup.form.country.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                            <span ng-messages="signup.form.country.$error" class="ng-inactive">
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group ng-scope" ng-class="{true: 'has-feedback'}[signup.form.email.$pending &amp;&amp; signup.form.email.$pending.alreadyInUse]" ng-if="!socialConnect.profile.email">
+                        <input type="text" name="email" id="email_35264" class="form-control has-form-message eo-email-ptc sessioncamexclude ng-isolate-scope ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-server-error" placeholder="Email" ng-model="userAccount.email" eo-server-error="" eo-email="" eo-api-params="webapiEmailParams" ng-required="true" ng-minlength="6" ng-maxlength="100" ng-pattern="/^(([a-z\d+_\-][a-z\d+\._\-]*[a-z\d+_\-])|([a-z\d+_\-]{1,2}))@((([a-z\d][a-z\d\-]{0,62}[a-z\d])|([a-z\d]))\.)+[a-z]{2,}$/i" required="required"><!-- ngIf: ptc -->
+                        <span ng-show="(signup.form.email.$modelValue || signup.form.email.$dirty) &amp;&amp; signup.form.email.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                            <span ng-messages="signup.form.email.$error" class="ng-active">
+                                <label ng-message="required" class="form-message form-error ng-binding ng-scope">
+                                    Email is required
+                                </label>
+
+                            </span>
+                        </span>
+                        <span class="glyphicon o-icon-spinner-small form-control-feedback"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password_39901" class="form-control has-form-message sessioncamexclude ng-isolate-scope ng-untouched ng-scope ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-server-error ng-dirty ng-valid-parse ng-valid ng-valid-required" placeholder="Password" ng-model="userAccount.password" eo-server-error="" ng-required="true" ng-minlength="8" ng-maxlength="100" ng-pattern="/^((?=.*\d)|(?=.*[&quot;!#$%&amp;'()*+,\-:;.<=>?@{|}~^_`\[\]\\]))(?=.*[a-zA-Z]).+$/i" required="required">
+                        <span ng-show="(signup.form.password.$modelValue || signup.form.password.$dirty) &amp;&amp; signup.form.password.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                            <span ng-messages="signup.form.password.$error" class="ng-inactive">
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="m-lg-top"></div>
+            <div class="form-group m-0-bottom" id="oSignupFormCheckboxSmall" ng-hide="removeEmailOptInEnabled &amp;&amp; userAccount.country == 'United States'">
+                <div class="checkbox m-xs-bottom">
+                    <label for="promotionalEmailOptIn">
+                        <input type="checkbox" id="promotionalEmailOptIn" name="promotionalEmailOptIn" ng-model="userAccount.promotionalEmailOptIn" class="ng-untouched ng-valid ng-dirty"><span class="checkbox-replacement-helper"></span>
+                        <small>
+                            Yes! Send me genuinely useful emails every now and then to help me get the most out of Upwork.
+                        </small>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group m-0-bottom" id="oSignupFormCheckboxSmall">
+                <div class="checkbox m-xs-bottom">
+                    <label for="termsAccepted">
+                        <input type="checkbox" id="termsAccepted" name="termsAccepted" ng-model="userAccount.termsAccepted" eo-server-error="" class="ng-isolate-scope ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-required ng-valid-server-error" ng-required="true" required="required"><span class="checkbox-replacement-helper"></span>
+                        <small>
+                            Yes, I understand and agree to the <a href="https://www.upwork.com/info/terms/" target="_blank">Upwork Terms of Service</a>, including the
+                            <a href="https://www.upwork.com/info/terms/" target="_blank">User Agreement</a> and
+                            <a href="https://www.upwork.com/info/terms/privacy/" target="_blank">Privacy Policy</a>.
+                        </small>
+                    </label>
+                </div>
+                <span ng-show="(signup.form.termsAccepted.$modelValue || signup.form.termsAccepted.$dirty) &amp;&amp; signup.form.termsAccepted.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                    <span ng-messages="signup.form.termsAccepted.$error" class="ng-active">
+                        <label ng-message="required" class="form-message form-error ng-binding ng-scope">
+                            Please accept the Upwork Terms of Service before continuing
+                        </label>
+                    </span>
+                </span>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-md btn-primary m-lg-top-bottom m-xs-left-right o-signup-submit" ng-disabled="signup.form.$pending || loading || disableSubmit">
+                    <i class="glyphicon-md air-icon-loading ng-hide" ng-show="signup.form.$pending || loading"></i>
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
