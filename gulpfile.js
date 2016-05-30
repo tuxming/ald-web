@@ -41,6 +41,11 @@ var config = {
 	cwd: process.cwd()
 };
 
+var url_mappings = [
+  {"/views/": "/"},
+  {"/views/home": "/"}
+];
+
 var paths = {
   scripts: [config.app + '/scripts/**/*.js', '!'+config.app + '/scripts/public/**/*.js'],
   scriptsPublic:[config.app + '/scripts/public/**/*.js'],
@@ -248,7 +253,7 @@ gulp.task('watch', function() {
 
 	load.watch(config.app+'/**/*.html')
 		.pipe(load.plumber())
-		.pipe(inject.process({isDebug: debug,callback: htmlCallback}))
+		.pipe(inject.process({isDebug: debug,callback: htmlCallback, cwd: config.cwd}))
 		.pipe(tplProcessor({
 			tplProcess : tplCallback
 		}))
