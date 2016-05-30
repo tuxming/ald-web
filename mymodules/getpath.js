@@ -49,7 +49,16 @@ module.exports = function(filepath, ref, options){
   if(options.model == 'relative'){
     ref = path.relative(filepath, ref);  // ../scripts.js
   }else{ //absolute
-    ref = path.join(options.base, ref.replace(apppath, ""));   // /web/scripts/main.js| /scripts/main.js
+    //console.log(options.base+", "+ref+", "+apppath);
+    if(options.base.indexOf("http://")>=0 ||options.base.indexOf("https://")>=0 ){
+      var mybase = options.base;
+      if(mybase.lastIndexOf("/") != mybase.length-1){
+        mybase = mybase+"/";
+      }
+      ref = options.base+ref.replace(apppath, "");
+    }else{
+      ref = path.join(options.base, ref.replace(apppath, ""));   // /web/scripts/main.js| /scripts/main.js
+    }
   }
   ref = ref.replace(/\\/g, "/");
 

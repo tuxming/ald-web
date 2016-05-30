@@ -1,7 +1,31 @@
 <!-- tpl {"parent": "app/template/index.tpl.html",
 		"title": "Report",
 		"css":["/styles/d/findwork.css"],
-		"js":["/scripts/app.js", "/scripts/d/findwork/main.js", "/scripts/d/findwork/controllers/tests.js",
-		  "/scripts/d/findwork/controllers/myprofile.js", "/scripts/d/findwork/controllers/mystats.js",
-		  "/scripts/d/findwork/controllers/proposals.js", "/scripts/d/findwork/controllers/saved.js"]
+		"js":["/scripts/app.js", "/scripts/d/controllers/report.js"]
 	} -->
+<div class="container">
+  <div class="row">
+    <div class="tab-panel">
+      <ul class="nav nav-tabs">
+        <li ng-class="tab.active" class="c-nav-tab" ng-repeat="tab in tabNames">
+          <a ng-click="showTabContent($index)" href="javascript:;" class="link-underline">{{tab.label}}</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <table class="table">
+          <tr ng-repeat="i in [0,1,2,3]">
+            <td class="col-xs-4 no-lf-padding c-item-user clearfix">
+                <a href="javascript:;" class="link-underline">tuxming</a>
+            </td>
+            <td class="col-xs-6">
+              <a href="javascript:;" class="c-view">01:40</a><br/>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    </div> <!--end tab-->
+
+  </div><!--end row-->
+</div><!--end container-->

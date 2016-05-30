@@ -11,6 +11,7 @@ angular.module('app')
   .controller('MainCtrl', function () {
 
   })
+  /*
   .config(function ($routeProvider) {
   $routeProvider
     .when('/', {
@@ -47,5 +48,7 @@ angular.module('app')
   //  .otherwise({
   //   redirectTo: '/'
   //  });
-});
 
+})
+*/
+;
