@@ -77,7 +77,14 @@ body {
 }
 
 .ald-btn-primary:focus, .ald-btn-primary:hover {
-    background: darken(@baseColor,5%);
+  background: darken(@baseColor, 5%);
+}
+
+.btn-simple-unactive{
+  border: 2px solid @unactive;
+  font-weight: 600;
+  color: @lightColor;
+  padding: 10px 20px;
 }
 
 .btn-full {
@@ -2038,12 +2045,12 @@ button, html input[type=button], input[type=reset], input[type=submit] {
     text-align: left;
     border-top: 2px solid @lightGrayColor;
     padding-left: 0 !important;
-    padding-right: 0 !important;    
+    padding-right: 0 !important;
 }
 .email-sign-type-tab li:active{
     border-top: 3px solid @baseColor;
 }
-.email-sign-type-tab .active{    
+.email-sign-type-tab .active{
     border-top: 3px solid @baseColor;
 }
 

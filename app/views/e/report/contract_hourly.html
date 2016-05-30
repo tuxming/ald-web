@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <ul class="nav nav-stacked nav-report">
+        <li role="presentation" class="active"><a href="#"><i class="iconfont">&#xe62f;</i>Weekly Summary</a></li>
+        <li class="line-separator"></li>
+        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Budgets</a></li>
+        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Transactions</a></li>
+        <li class="line-separator"></li>
+        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Timesheet</a></li>
+        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Time By Freelancer</a></li>
+        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Tyime by Activity</a></li>
+        <li class="line-separator"></li>
+        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Work Diary</a></li>
+        <li class="line-separator"></li>
+        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Custom Export</a></li>
+      </ul>
+    </div><!--end left navi-->
+    <div class="col-xs-9">
+      <!--begin top-->
+      <div class="clearfix">
+        <div class="rp-date-box pull-left">
+          <a href="javascript:;" class="iconfont">&#xe60f;</a>
+          <div>
+            <a href="javascript:;" class="rp-date-selector">
+              <span class="rp-date-text">May 23 - 29 2016</span>
+              <span class="iconfont">&#xe633;</span>
+            </a>
+            <div class="rp-date-label">Current Week, In Progress</div>
+          </div>
+          <a href="javascript:;" class="iconfont unactive">&#xe615; </a>
+        </div>
+        <div class="pull-right rp-text">
+          <div>Last updated 2:20 AM. </div>
+          <div>All dates and times are based on UTC &nbsp;&nbsp;<i class="iconfont">&#xe611;</i></div>
+        </div>
+      </div> <!--end top-->
+
+
+      <div class="rp-piechart-box clearfix">
+        <div class="col-xs-5 rp-piechart-left">
+          <div class="label1 clearfix">
+            <div>Timeshheet <a href="javascript:;">66:00 hrs</a>
+              <a class="pull-right" href="javascript:;">$900.00</a>
+            </div>
+            <div class="info">6:00 hrs Manual Time</div>
+
+          </div>
+
+          <div class="label2">
+            <span>Fixed-Price and Other Payments:</span>
+            <a class="pull-right" href="javascript:;">$0.00</a>
+          </div>
+          <div class="line-separator"></div>
+          <div class="label3">
+            <div class="total">$900.00</div>
+            <div class="">as of today</div>
+          </div>
+        </div><!--end pie chart left-->
+
+        <div class="col-xs-7">
+            <div class="pie-chart-1">Contracts</div>
+            <div style="width:20px;display:table-cell;">&nbsp;</div>
+            <div class="pie-chart-2">Activities</div>
+        </div><!--end pie chart right-->
+
+        <div class="pull-right info">
+          Timesheet will be automatically charged to your primary payment method Monday afternoon (UTC).
+        </div>
+
+      </div>
+      <!--end  pie chart -->
+
+      <!--begin timesheet-->
+      <div class="clearfix ts-head">
+        <h3 class="page-title pull-left fixed-price-title">Timeesheet</h3>
+        <a class="c-get-csv pull-right" href="javascript:;"><i class="iconfont" style="font-size:20px; padding-right:10px;">&#xe62d;</i>Get CSV</a>
+      </div><!--end header-->
+
+      <table class="table ts-table">
+        <thead class="ts-thead">
+          <tr>
+            <th>Contract</th>
+            <th>Mon<br/>5/23</th>
+            <th>Tue<br/>5/23</th>
+            <th>Wed<br/>5/23</th>
+            <th>Thu<br/>5/23</th>
+            <th>Fri<br/>5/23</th>
+            <th>Sat<br/>5/23</th>
+            <th>Sun<br/>5/23</th>
+            <th>Hours</th>
+            <th>Pending<i class="iconfont">&nbsp;&#xe611;</i></th>
+          </tr>
+        </thead>
+        <tbody class="ts-tbody">
+          <tr ng-repeat="i in [0,1,2,3]">
+            <td class="no-lf-padding c-item-user clearfix">
+              <div class="c-item-user-img img-circle">
+                <img src="/images/user.png"/>
+              </div>
+              <div class="c-item-user-info">
+                <a href="javascript:;" class="fp-item-title">BOCHIS, HORIA</a>
+                <div class="fp-item-label">Social Media Manager/VA</div>
+              </div>
+            </td>
+            <td><a class="link-underline" href="javascript:;">1:30</a></td>
+            <td><a class="link-underline" href="javascript:;">1:30</a></td>
+            <td><a class="link-underline" href="javascript:;">1:30</a></td>
+            <td><a class="link-underline" href="javascript:;">1:30</a></td>
+            <td><a class="link-underline" href="javascript:;">1:30</a></td>
+            <td><a class="link-underline" href="javascript:;">1:30</a></td>
+            <td><a class="link-underline" href="javascript:;">1:30</a></td>
+            <td>10:30</td>
+            <td>$100.00</td>
+          </tr>
+        </tbody>
+        <tfoot class="ts-tfoot">
+          <tr>
+            <td colspan="10">
+              <b>$1000.00</b>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <!--end tiimesheet-->
+
+    </div><!--end right box-->
+  </div>
+</div>

@@ -268,7 +268,7 @@ gulp.task('process:html:server', function() {
 	gulp.src(config.app+'/**/*.html')
 		.pipe(load.plumber())
 		.pipe(inject.process(
-      {isDebug: debug,callback: htmlCallback})
+      {isDebug: debug,callback: htmlCallback, cwd: config.cwd})
     )
 		.pipe(tplProcessor({
 			tplProcess : tplCallback
@@ -327,7 +327,7 @@ gulp.task('process:build', function(){
 	debug = false;
 	var stream = gulp.src(paths.htmls)
     //把：<!-- build {"type": "script", "ref":"style/main.js"} -->...<!--endbuild--> 替换成指定的文件
-		.pipe(inject.process({isDebug: debug,callback: htmlCallback}))
+		.pipe(inject.process({isDebug: debug,callback: htmlCallback, cwd: config.cwd}))
 		.pipe(tplProcessor({tplProcess : tplCallback}))
 		.pipe(
       htmlref(
@@ -359,16 +359,22 @@ var jsHandler = function($, filepath, options){
       var src =  $(item).attr("src");
       $(item).remove();
 
-      var options = extend({model:"absolute", base:"/"},config);
+      var options = extend({}, config);
+      options.model = "absolute";
+      options.base ="/";
 
       // if config.base = "/ald-web", result: /ald-web/scripts/main.js
       // if config.base = "/", result: /scripts/main.js
       // if config.base = "", result: /scripts/main.js
       var abspath = getpath(filepath, src, options);
+      //console.log(abspath+", "+filepath+", "+src);
       if(config.base.length>1){
         abspath = abspath.replace(config.base, "");
       }
 
+      if(abspath.indexOf("/") != 0){
+        abspath = "/"+abspath;
+      }
       return config.app+abspath;
     }).toArray();
 
@@ -414,7 +420,9 @@ var cssHandler = function($, filepath, options){
       var href =  $(item).attr("href");
       $(item).remove();
 
-      var options = extend({model:"absolute", base:"/"},config);
+      var options = extend({}, config);
+      options.model = "absolute";
+      options.base ="/";
 
       // if config.base = "/ald-web", result: /ald-web/scripts/main.js
       // if config.base = "/", result: /scripts/main.js

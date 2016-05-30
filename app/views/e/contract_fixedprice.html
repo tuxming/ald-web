@@ -1,0 +1,53 @@
+<div class="container small-container">
+  <div class="row">
+
+    <!--begin left-->
+    <div class="clearfix">
+    <h3 class="page-title pull-left fixed-price-title">Fixed-Price and Other Payments</h3>
+    <a class="c-get-csv pull-right" href="javascript:;"><i class="iconfont" style="font-size:22px; padding-right:10px;">&#xe62d;</i>Get CSV</a>
+  </div><!--end header-->
+
+    <table class="table fp-table">
+      <thead class="c-thead">
+        <tr>
+          <th class="col-xs-4">Contract</th>
+          <th>Date</th>
+          <th class="col-xs-4">Description</th>
+          <th>Charge</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="i in [0,1,2,3,4,5,6,7]">
+          <td class="col-xs-5 no-lf-padding c-item-user clearfix">
+            <div class="c-item-user-img img-circle">
+              <img src="/images/user.png"/>
+            </div>
+            <div class="c-item-user-info">
+              <a href="javascript:;" class="fp-item-title">BOCHIS, HORIA</a>
+              <div class="fp-item-label">Social Media Manager/VA</div>
+            </div>
+          </td>
+          <td class="col-xs-1">
+            <span class="fp-item-label">May 18</span>
+          </td>
+          <td class="col-xs-4">
+            <div class="fp-item-title">Fixed Price Deposit</div>
+            <span class="fp-item-label"> if you click "view all" in the messages...</span>
+          </td>
+          <td class="col-xs-2">
+            <span class="fp-item-label">$600</span>
+          </td>
+        </tr>
+
+      </tbody>
+      <tfoot class="fp-tfoot">
+        <tr>
+          <td colspan="4">
+              <b>$1000.00</b>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+  </div><!--end row-->
+</div><!--end container-->

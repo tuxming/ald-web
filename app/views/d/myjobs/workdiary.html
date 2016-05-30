@@ -51,31 +51,31 @@
         </ul>
       </li><!--end left-->
       <li class="col-xs-6 wd-info-bar-center">
-        <ul class="info-bar-item list-unstyled">
-          <li class="iconfont">
+        <ul class="info-bar-item list-unstyled text-center">
+          <li class="iconfont prev">
               <a href="javascript:;">
                 &#xe60f;
               </a>
           </li>
           <li>
-            <a href="javascript:;">
+            <a class="date-text" href="javascript:;">
               <span>Mon, May 9,2016</span>
               <i class="iconfont">&#xe633;</i>
             </a>
           </li>
-          <li class="iconfont">
+          <li class="iconfont next">
             <a href="javascript:;">
               &#xe615;
             </a>
           </li>
-          <li class="iconfont">
+          <li class="iconfont today">
             <a href="javascript:;" class="link-underline">Today</a>
           </li>
         </ul>
       </li><!--end center-->
       <li class="col-xs-3 wd-info-bar-right">
         <div class="pull-right">
-          <div class="btn-group" role="group" aria-label="radio">
+          <div class="btn-group show-model" role="group" aria-label="radio">
             <button class="btn btn-radio-yes btn-radio-active iconfont" aria-label="radio">&#xe636;</button>
             <button class="btn btn-radio-no btn-radio-unactive iconfont" aria-label="radio">&#xe635;</button>
           </div>
@@ -83,6 +83,80 @@
         </div>
       </li><!--end right-->
     </ul><!--info bar-->
+
+    <ul class="col-xs-12 wd-info-bar wd-info-bar1 list-unstyled clearfix">
+      <li>Total Time Logged: <b>06:00</b></li>
+      <li><a href="javascript:;" class="iconfont">&#xe60d;</a></li>
+      <li class="mylabel">
+        <div>&nbsp;</div>
+        <span>Auto-tracked: 06:00</span>
+        <i class="iconfont">&#xe611;</i>
+      </li>
+      <li class="mylabel">
+        <div>&nbsp;</div>
+        <span>AManual time: 00:00</span>
+        <i class="iconfont">&#xe611;</i>
+      </li>
+      <li class="pull-right"><span>Selcted: &nbsp;&nbsp;</span><b>00:00 min</b></li>
+    </ul><!--end  info bar-->
+
+    <div class="clearfix">
+      <div class="pull-right">
+        <button class="btn-simple-unactive">Edit Memo</button>
+        <button class="btn-simple-unactive">Delete</button>
+        <button class="btn-simple-unactive">Deselect All</button>
+      </div>
+    </div>
+
+
+    <div class="views">
+      <div class="view-hour" ng-repeat="h in [1,2,3,4,8,15]">
+        <div class="hour-text">
+          <div>{{h}}</div>
+          <div>am</div>
+          <div><input type="checkbox"/></div>
+        </div>
+
+        <div class="c-row" style="width:100%;">
+          <div class="v-header">
+            <div ng-if="h==1 || h==4" class="nothing"></div>
+            <div ng-if="h==1" class="snapshots-left"></div>
+            <div class="snapshots-full"></div>
+            <div ng-if="h==3" class="snapshots-pixes"></div>
+            <div ng-if="h==4" class="snapshots-right"></div>
+          </div><!--end header-->
+
+          <div class="nothing">
+            <div class="no-screenshot"></div>
+            <div class="no-total"></div>
+          </div><!--end item box-->
+
+          <div class="normal">
+            <div class="screenshot">
+              <img src="/images/pic1.jpg">
+            </div>
+            <div class="total">
+              <input type="checkbox"/>
+              <span class="timestamp">7:23pm</span>
+              <div class="percent">
+                <div class="active"></div>
+                <div class="active"></div>
+                <div class="active"></div>
+                <div class="active"></div>
+                <div class="active"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div><!--end item box-->
+        </div>
+
+      </div>
+
+    </div><!--end views-->
 
   </div><!--end row-->
 </div><!--end container -->

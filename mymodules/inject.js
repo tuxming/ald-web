@@ -21,6 +21,22 @@ inject.process = function(options){
 
     var content = file.contents.toString();
 
+    //这里去掉views目录
+    //if(file.path.indexOf("/views/")>=0)
+    //  file.path =  file.path.replace();
+    console.log("1=++++"+file.path+", "+options.cwd);
+    var mypath = file.path.replace(options.cwd+"\\app\\", "");
+    console.log(file.path + ", "+mypath+"," +mypath.indexOf("views"));
+    if(mypath.indexOf("views") == 0){
+      mypath = mypath.replace("views", "");
+    }else{
+      mypath = "\\"+mypath;
+    }
+
+    file.path = options.cwd+"\\app"+mypath;
+
+    console.log(file.path);
+
     content = inject.processHtmlForString(content, options, file.path);
 
     file.contents = new Buffer(content);
