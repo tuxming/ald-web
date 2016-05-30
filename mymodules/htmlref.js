@@ -70,7 +70,14 @@ function processHtmlRefForDOM(content, filepath, options){
     el.attr("src", ref);
   });
 
+  //a tag ref
+  $('a').each(function(i, elem){
+    var el = $(elem);
+    var ref = getpath(filepath, el.attr("href"),  options);
+    el.attr("href", ref);
+  });
+
   return $.html();
 
-};
+}
 
