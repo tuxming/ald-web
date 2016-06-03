@@ -3,27 +3,101 @@
 		"css":["/styles/d/findwork.css"],
 		"js":["/scripts/app.js", "/scripts/d/controllers/report.js"]
 	} -->
-<div class="container">
+<div class="container" ng-controller="ReportController">
   <div class="row">
     <div class="tab-panel">
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs rp-tab">
         <li ng-class="tab.active" class="c-nav-tab" ng-repeat="tab in tabNames">
-          <a ng-click="showTabContent($index)" href="javascript:;" class="link-underline">{{tab.label}}</a>
+          <a ng-click="showTabContent($index)" href="javascript:;" class="link-underline">
+            <span>{{tab.label}}</span>
+            <i class="iconfont">&#xe611;</i><br/>
+            <span class="rp-tab-total">{{tab.total}}</span><br/>
+          </a>
+        </li>
+        <li class="c-nav-tab more-report-li">
+          <a href="javascript:;">
+            <i class="more-report-icon iconfont">&#xe638;</i>
+            <br/>
+            <span class="more-report">More Reports</span>
+          </a>
         </li>
       </ul>
-
       <div class="tab-content">
-        <table class="table">
-          <tr ng-repeat="i in [0,1,2,3]">
-            <td class="col-xs-4 no-lf-padding c-item-user clearfix">
-                <a href="javascript:;" class="link-underline">tuxming</a>
-            </td>
-            <td class="col-xs-6">
-              <a href="javascript:;" class="c-view">01:40</a><br/>
-            </td>
-          </tr>
-        </table>
-      </div>
+
+        <div class="clearfix">
+          <a class="pull-right rp-tips link-underline rp-inprocess-tips" href="javascript:;">
+            <i class="iconfont">&#xe637;</i>
+            <span>When will I get paid?</span>
+          </a>
+
+          <div class="rp-title">
+            <div claas="rp-title-text1">Timesheet for May 30 - Jun 5 (This Week) </div>
+            <div claas="rp-vr"></div>
+            <div claas="rp-title-text2">In Progress</div>
+          </div>
+
+          <div class="rp-tips-1 pull-right">
+            <span>This timessheet includes</span>
+            <b>00:00 hrs</b>
+            <span>manual time</span>
+            <i class="iconfont">&#xe611;</i>
+          </div>
+
+          <table class="table inprocess-table">
+            <thead>
+              <tr>
+                <th>Job</th>
+                <th>Mon<br/>May 30</th>
+                <th>Tue<br/>May 31</th>
+                <th class="current">Wed<br/>Jun 1</th>
+                <th class="unactive">Thu<br/>Jun 2</th>
+                <th class="unactive">Fri<br/>Jun 3</th>
+                <th class="unactive">Sat<br/>Jun 4</th>
+                <th class="unactive">Sun<br/>Jun 5</th>
+                <th>Hours</th>
+                <th>Rate</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="i in [0,1,2]">
+                <td><a class="link-underline" href="javascript:;">J2ee Web Developer</a></td>
+                <td><a class="link-underline" href="javascript">08:00</a></td>
+                <td><a class="link-underline" href="javascript">08:00</a></td>
+                <td class="current"><a class="link-underline" href="javascript">08:00</a></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>08:00</td>
+                <td>$22.00/hr</td>
+                <td>$166.65</td>
+              </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>07:30</td>
+              <td>$20.00</td>
+              <td>$160.00</td>
+            </tr>
+            </tfoot>
+          </table>
+
+          <br/><br/>
+          <span class="rp-tips">
+            Note: This report is updated every hour.
+          </span>
+          <br/><br/>
+        </div>
+      </div><!--end tab content -->
 
     </div> <!--end tab-->
 

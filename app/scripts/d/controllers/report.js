@@ -13,15 +13,16 @@ app.controller('ReportController', function($scope){
     {label: "Work In Process", "total": "$40.00", active: "active"},
     {label: "In Review", "total": "$2,001.00", active: ""},
     {label: "Pending", "total": "$2,001.00", active: ""},
-    {label: "Available)", "total": "$0.00", active: ""}
+    {label: "Available", "total": "$0.00", active: ""}
   ];
 
   $scope.showTabContent = function(index){
     $scope.tabNames.forEach(function(item, i){
-      if(i==index)
+      if(i==index){
         item.active = "active";
-      else
+      }else{
         item.active = "";
+      }
     });
   };
 });

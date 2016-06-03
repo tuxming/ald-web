@@ -174,7 +174,7 @@ gulp.task("injectWebPath", function(){
 
         var content =file.contents.toString();
 
-        var reg = /var\s+webroot\s*=\s*\'[\:\/\w\-]*\'\;/;
+        var reg = /var\s+webroot\s*=\s*\'[\.\:\/\w\-]*\'\;/;
         var webroot = "var webroot = '"+config.base+"';";
         content = content.replace(reg, webroot);
 
