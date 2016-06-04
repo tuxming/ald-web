@@ -282,6 +282,47 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus {
     color: #ffffff;
 }
 
+.nologin-nav{
+  display:block;
+  li{
+    display:inline-block;
+
+    a{
+      font-size: @mSize;
+      font-weight: bold;
+      padding: 8px;
+      background:none;
+      color:@lightColor;
+
+      i{
+        font-size:16px;
+      }
+
+      &:hover{
+        color:@baseColor;
+        background:none;
+      }
+    }
+
+    margin-top:15px;
+
+  }
+}
+
+.become-a-freelancer a{
+  border:2px solid @unactive;
+}
+
+.nologin-nav-left{
+  float:left;
+}
+
+.nologin-nav-right{
+  float:right;
+
+}
+
+
 /**end navi style**/
 
 /*分页重写*/
@@ -427,20 +468,26 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus {
 input.prefix-input {
     padding-left: 30px !important;
     width: 300px;
-    display: inline-block;
-    margin-right: 25px;
+    margin-left: -30px;
+    border-radius: 0px;
+    display: inline-block !important;
     border: 2px solid @unactive;
 }
 
-.prefix-input:hover, .prefix-input:focus {
+input.prefix-input:hover{
+  box-shadow: none;
+  border: 2px solid lighten(@baseColor, 10%);
+}
+
+input.prefix-input:focus {
     box-shadow: none;
     border: 2px solid @baseColor;
 }
 
 .prefix-pre {
-    position: relative;
-    left: 30px;
-    color: @baseColor;
+  position:relative;
+  z-index:1;
+  color: @baseColor;
 }
 
 /***********end 自定义组件***************/
@@ -587,8 +634,12 @@ input.prefix-input {
     text-align: center;
 }
 
+.header-logo{height:65px;
+  img{margin-top:5px; height: 55px;}
+}
+
 .logo {
-    height: 60px;
+    height: 65px;
 }
 
 .photo-sm-box {
@@ -2095,6 +2146,7 @@ button, html input[type=button], input[type=reset], input[type=submit] {
     line-height: 32px;
     padding-left: 12px;
 }
+/*
 input.form-control:hover, textarea.form-control:hover {
     border-color: @baseColor;
 }
@@ -2111,6 +2163,7 @@ input.form-control, textarea.form-control {
     font-size: 14px;
     line-height: 14px;
 }
+*/
 .o-signup-form-labels #oSignupFormCheckboxSmall .checkbox-replacement-helper {
     width: 15px;
     height: 15px;
