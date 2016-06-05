@@ -36,20 +36,8 @@
         </div>
     </div>
     <div class="eo-tabset" ng-class="{hidden: (socialConnect.increaseLinkedIn && !socialConnect.provider)}">
-        <ul class="nav nav-tabs nav-justified email-sign-type-tab">
-            <li ng-class="{active:(tab == 'company')}" class="active">
-                <a href="#" ng-click="tab = 'company'">
-                    Company <span class="hidden-xs">Sign Up</span>
-                </a>
-            </li>
-            <li ng-class="{active:(tab == 'individual')}" class="">
-                <a href="#" ng-click="tab = 'individual'">
-                    Individual <span class="hidden-xs">Sign Up</span>
-                </a>
-            </li>
-        </ul>
         <form id="signupForm" novalidate="novalidate" class="ng-scope">
-            <div class="tab-content o-signup-form o-signup-form-client signup-tab-content" ng-init="tab='company'">
+            <div class="tab-content o-signup-form o-signup-form-client signup-tab-content">
                 <div class="o-signup-form-fields">
                     <div class="form-group ng-scope" ng-if="!socialConnect.profile.first_name || !socialConnect.profile.last_name">
                         <input type="text" name="firstName" class="form-control has-form-message  ng-isolate-scope ng-pristine ng-scope ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-server-error ng-touched" placeholder="First Name" ng-model="userAccount.firstName" eo-server-error="" ng-blur="processName('firstName')" ng-required="true" ng-minlength="1" ng-maxlength="100" ng-pattern="/^(([a-zA-Z- ']+)|(Fn-[0-9]{12}))$/i" required="required">
@@ -81,6 +69,18 @@
                             </span>
                         </span>
                     </div>
+                    <div class="form-group ng-scope" ng-class="{true: 'has-feedback'}[signup.form.email.$pending &amp;&amp; signup.form.email.$pending.alreadyInUse]" ng-if="!socialConnect.profile.email">
+                        <input type="text" name="email" class="form-control has-form-message eo-email-ptc sessioncamexclude ng-isolate-scope ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-server-error" placeholder="Email" ng-model="userAccount.email" eo-server-error="" eo-email="" eo-api-params="webapiEmailParams" ng-required="true" ng-minlength="6" ng-maxlength="100" ng-pattern="/^(([a-z\d+_\-][a-z\d+\._\-]*[a-z\d+_\-])|([a-z\d+_\-]{1,2}))@((([a-z\d][a-z\d\-]{0,62}[a-z\d])|([a-z\d]))\.)+[a-z]{2,}$/i" required="required"><!-- ngIf: ptc -->
+                        <span ng-show="(signup.form.email.$modelValue || signup.form.email.$dirty) &amp;&amp; signup.form.email.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                            <span ng-messages="signup.form.email.$error" class="ng-active">
+                                <label ng-message="required" class="form-message form-error ng-binding ng-scope">
+                                    Email is required
+                                </label>
+
+                            </span>
+                        </span>
+                        <span class="glyphicon o-icon-spinner-small form-control-feedback"></span>
+                    </div>
                     <div class="form-group">
                         <div class="dropdown ald-dropdown country-drop">
                             <a class="dropdown-toggle ald-dropdown-toggle country-selected" style="border:1px solid #E0E0E0" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -97,17 +97,12 @@
                             </span>
                         </span>
                     </div>
-                    <div class="form-group ng-scope" ng-class="{true: 'has-feedback'}[signup.form.email.$pending &amp;&amp; signup.form.email.$pending.alreadyInUse]" ng-if="!socialConnect.profile.email">
-                        <input type="text" name="email" class="form-control has-form-message eo-email-ptc sessioncamexclude ng-isolate-scope ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-required ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-server-error" placeholder="Email" ng-model="userAccount.email" eo-server-error="" eo-email="" eo-api-params="webapiEmailParams" ng-required="true" ng-minlength="6" ng-maxlength="100" ng-pattern="/^(([a-z\d+_\-][a-z\d+\._\-]*[a-z\d+_\-])|([a-z\d+_\-]{1,2}))@((([a-z\d][a-z\d\-]{0,62}[a-z\d])|([a-z\d]))\.)+[a-z]{2,}$/i" required="required"><!-- ngIf: ptc -->
-                        <span ng-show="(signup.form.email.$modelValue || signup.form.email.$dirty) &amp;&amp; signup.form.email.$invalid" class="o-signup-form-errors  ng-hide text-left">
-                            <span ng-messages="signup.form.email.$error" class="ng-active">
-                                <label ng-message="required" class="form-message form-error ng-binding ng-scope">
-                                    Email is required
-                                </label>
-
+                    <div class="form-group">
+                        <input name="username" class="form-control has-form-message sessioncamexclude ng-isolate-scope ng-untouched ng-scope ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-server-error ng-dirty ng-valid-parse ng-valid ng-valid-required" placeholder="Username" ng-model="userAccount.username" eo-server-error="" ng-required="true" ng-minlength="8" ng-maxlength="100" ng-pattern="/^((?=.*\d)|(?=.*[&quot;!#$%&amp;'()*+,\-:;.<=>?@{|}~^_`\[\]\\]))(?=.*[a-zA-Z]).+$/i" required="required">
+                        <span ng-show="(signup.form.username.$modelValue || signup.form.username.$dirty) &amp;&amp; signup.form.username.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                            <span ng-messages="signup.form.username.$error" class="ng-inactive">
                             </span>
                         </span>
-                        <span class="glyphicon o-icon-spinner-small form-control-feedback"></span>
                     </div>
                     <div class="form-group">
                         <input type="password" name="password" class="form-control has-form-message sessioncamexclude ng-isolate-scope ng-untouched ng-scope ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-server-error ng-dirty ng-valid-parse ng-valid ng-valid-required" placeholder="Password" ng-model="userAccount.password" eo-server-error="" ng-required="true" ng-minlength="8" ng-maxlength="100" ng-pattern="/^((?=.*\d)|(?=.*[&quot;!#$%&amp;'()*+,\-:;.<=>?@{|}~^_`\[\]\\]))(?=.*[a-zA-Z]).+$/i" required="required">
@@ -116,13 +111,39 @@
                             </span>
                         </span>
                     </div>
+                    <div class="form-group">
+                        <div class="dropdown ald-dropdown country-drop">
+                            <a class="dropdown-toggle ald-dropdown-toggle country-selected" style="border:1px solid #E0E0E0" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span>How did you hear about Upwork?</span><span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu ald-dropdown-menu country-drop-item">
+                                <li>How did you hear about Upwork?</li>
+                                <li>Search Engine Ad</li>
+                                <li>Search Engine Results</li>
+                            </ul>
+                        </div>
+                        <span ng-show="(signup.form.country.$modelValue || signup.form.country.$dirty) &amp;&amp; signup.form.country.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                            <span ng-messages="signup.form.country.$error" class="ng-inactive">
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input name="vcode" class="form-control has-form-message sessioncamexclude ng-isolate-scope ng-untouched ng-scope ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-server-error ng-dirty ng-valid-parse ng-valid ng-valid-required" placeholder="Type the letters below" ng-model="userAccount.vcode" eo-server-error="" ng-required="true" ng-minlength="8" ng-maxlength="100" ng-pattern="/^((?=.*\d)|(?=.*[&quot;!#$%&amp;'()*+,\-:;.<=>?@{|}~^_`\[\]\\]))(?=.*[a-zA-Z]).+$/i" required="required">
+                        <span ng-show="(signup.form.vcode.$modelValue || signup.form.vcode.$dirty) &amp;&amp; signup.form.vcode.$invalid" class="o-signup-form-errors  ng-hide text-left">
+                            <span ng-messages="signup.form.vcode.$error" class="ng-inactive">
+                            </span>
+                        </span>
+                        <div class="text-center">
+                            <img class="sign-up-v-code" src="/images/v_code.jpg">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="m-lg-top"></div>
             <div class="form-group m-0-bottom" id="oSignupFormCheckboxSmall" ng-hide="removeEmailOptInEnabled &amp;&amp; userAccount.country == 'United States'">
                 <div class="checkbox m-xs-bottom">
                     <label for="promotionalEmailOptIn">
-                        <input type="checkbox" id="promotionalEmailOptIn" checked="checked" name="promotionalEmailOptIn" ng-model="userAccount.promotionalEmailOptIn" class="ng-untouched ng-valid ng-dirty"><span class="checkbox-replacement-helper"></span>
+                        <input type="checkbox" id="promotionalEmailOptIn" name="promotionalEmailOptIn" ng-model="userAccount.promotionalEmailOptIn" class="ng-untouched ng-valid ng-dirty ng-not-empty"><span class="checkbox-replacement-helper"></span>
                         <small>
                             Yes! Send me genuinely useful emails every now and then to help me get the most out of Upwork.
                         </small>

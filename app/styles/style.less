@@ -53,6 +53,20 @@ body {
     padding-right: 0px;
 }
 
+.m-xs-top-bottom {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.m-lg-bottom{
+    margin-bottom: 50px;
+}
+.m-lg-top{
+    margin-top: 50px;
+}
+.fs-sm{
+    font-size: 12px;
+}
+
 .ald-input {
     height: 35px;
     padding: 6px 12px;
@@ -1898,6 +1912,9 @@ li.mp-pf-item {
     background: @baseColor;
     margin-left: auto;
     margin-right: auto;
+    height:180px;
+    vertical-align:middle;
+    padding-top:70px;
 }
 
 .article-main-wrap {
@@ -1998,7 +2015,7 @@ button, html input[type=button], input[type=reset], input[type=submit] {
 }
 /****** end articleview css ******/
 
-/******* start client_direct css *********/
+/******* start client_direct freelancer_direct css *********/
 .signup-as-freelancer {
     line-height: 50px;
 }
@@ -2071,11 +2088,12 @@ button, html input[type=button], input[type=reset], input[type=submit] {
 
 .email-sign-type-tab {
     border-top-right-radius: 2px;
-    border-left: 2px solid @lightGrayColor;
-    border-right: 2px solid @lightGrayColor;
+    border-left: 1px solid lighten(@lightGrayColor,3%);
+    border-right: 1px solid lighten(@lightGrayColor,3%);
     height:42px;
     line-height:42px;
     color:@baseColor;
+    margin-bottom:1px;
 }
 .email-sign-type-tab>li>a{
     height:40px;
@@ -2094,7 +2112,7 @@ button, html input[type=button], input[type=reset], input[type=submit] {
     float: left;
     min-height: 20px;
     text-align: left;
-    border-top: 2px solid @lightGrayColor;
+    border-top: 1px solid @lightGrayColor;
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
@@ -2122,7 +2140,7 @@ button, html input[type=button], input[type=reset], input[type=submit] {
     border-top: none;
 }
 
-.form-group {
+.signup-tab-content .form-group {
     vertical-align: top !important;
 }
 
@@ -2146,24 +2164,22 @@ button, html input[type=button], input[type=reset], input[type=submit] {
     line-height: 32px;
     padding-left: 12px;
 }
-/*
-input.form-control:hover, textarea.form-control:hover {
+.signup-tab-content input.form-control:hover,.signup-tab-content textarea.form-control:hover {
     border-color: @baseColor;
 }
-input.form-control:focus, input.form-control:hover, textarea.form-control:focus, textarea.form-control:hover {
+.signup-tab-content input.form-control:focus,.signup-tab-content input.form-control:hover,.signup-tab-content textarea.form-control:focus,.signup-tab-content textarea.form-control:hover {
     box-shadow: none;
 }
-input.form-control, textarea.form-control {
+.signup-tab-content input.form-control,.signup-tab-content textarea.form-control {
     min-height: 42px;
     padding: 12px;
-    border: 2px solid lighten(@lightGrayColor,5%);
+    border: 1px solid lighten(@lightGrayColor,5%);
     border-radius: 2px;
     box-shadow: none;
     color: lighten(@black,5%);
     font-size: 14px;
     line-height: 14px;
 }
-*/
 .o-signup-form-labels #oSignupFormCheckboxSmall .checkbox-replacement-helper {
     width: 15px;
     height: 15px;
@@ -2187,8 +2203,59 @@ input.form-control, textarea.form-control {
     color:white;
     margin:40px 0px;
 }
-.o-signup-submit:hover{
+.o-signup-submit:hover,.o-signup-submit:active{
     background-color:darken(@baseColor,5%);
     color:white;
 }
-/******* end client_direct css *********/
+.sign-up-v-code{
+    margin:30px auto;
+    width:280px;
+    height:96px;
+}
+/******* end client_direct freelancer_direct css *********/
+
+/********** start signup_index css**********/
+.sign-index-title h2{
+    font-family:Arial;
+    color:lighten(@black,45%);
+    font-weight:normal;
+}
+.o-user-type-selection {
+    font-size: 18pt;
+    padding: 30px 0;
+    color:lighten(@black,53%);
+}
+.o-or-divider {
+    color: lighten(@black,50%);
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 115px;
+}
+.o-or-divider:before {
+    top: -10px;
+}
+.o-or-divider:after {
+    top: 155px;
+    padding-top: 70px;
+}
+.o-or-divider:after, .o-or-divider:before {
+    position: absolute;
+    content: "";
+    display: block;
+    padding: 55px 0;
+    border-left: 1px solid #7d7d7d;
+    border-right: 1px solid #e0e0e0;
+    left: 89px;
+}
+.sign-up-type-link{
+    color:@white;
+    background-color:@baseColor;
+    width:120px;
+    height:40px;
+    line-height: 25px;
+}
+.sign-up-type-link:hover,.sign-up-type-link:active{
+    color:@white;
+    background-color:darken(@baseColor,10%);
+}
+/********** end signup_index css**********/
