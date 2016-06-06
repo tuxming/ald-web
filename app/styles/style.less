@@ -116,12 +116,14 @@ body {
     background: @white;
 }
 
-.btn-simple:active, .btn-simple:focus, .btn-simple:hover {
+.btn-simple:active, .btn-simple:focus, .btn-simple:hover{
     color: darken(@baseColor,10%);
     border: 2px solid @baseColor;
     background: @white;
 }
-
+.btn-simple:active:focus{
+  background: darken(@baseColor, 10%);
+}
 
 .btn-full:hover, .btn-full:focus {
     background: darken(@baseColor, 5%);
@@ -223,6 +225,8 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus {
     background: @navBackground;
 }
 
+.navbar-header{height:75px;}
+
 .mynavbar-brand {
     padding-top: 5px;
     padding-bottom: 15px;
@@ -238,7 +242,7 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus {
     padding-bottom: 25px;
 }
 
-.nav-left-ul > li:first-child > a {
+.nav-left-ul > li > a.active {
     color: @baseColor;
 }
 

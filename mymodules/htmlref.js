@@ -33,7 +33,7 @@ module.exports = function(options){
 };
 
 function processHtmlRefForDOM(content, filepath, options){
-  var $ = cheerio.load(content);
+  var $ = cheerio.load(content, {decodeEntities: false});
 
   //filepath = filepath.substring(0, filepath.lastIndexOf("\\"));
 
@@ -73,8 +73,14 @@ function processHtmlRefForDOM(content, filepath, options){
   //a tag ref
   $('a').each(function(i, elem){
     var el = $(elem);
-    var ref = getpath(filepath, el.attr("href"),  options);
-    el.attr("href", ref);
+    var href = el.attr("href") || "";
+    //console.log(href);
+    if(href.indexOf("javascript:;")>=0 || href.indexOf("void(0)")>=0 || href=="#" ||  href=="##" || href=="###"){
+
+    }else{
+      var ref = getpath(filepath, el.attr("href"),  options);
+      el.attr("href", ref);
+    }
   });
 
   return $.html();

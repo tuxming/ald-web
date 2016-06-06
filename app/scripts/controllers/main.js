@@ -8,47 +8,23 @@
  * Controller of the app
  */
 angular.module('app')
-  .controller('MainCtrl', function () {
+  .controller('indexCtrl', function ($scope, store, $window) {
+
+
+    $scope.goto = function(type, url){
+
+      if(type=='d'){
+        var mymenu = menu.login.freelancer;
+        mymenu.findwork.active = true;
+        store.set("menu", mymenu);
+      }else if('e'){
+        var mymenu = menu.login.client;
+        mymenu.jobs.active = true;
+        store.set("menu", mymenu);
+      }
+      $window.location.href = webroot + url;
+
+    }
 
   })
-  /*
-  .config(function ($routeProvider) {
-  $routeProvider
-    .when('/', {
-      templateUrl: 'views/main.html',
-      controller: 'MainCtrl',
-      controllerAs: 'main'
-    })
-    .when('/saved', {
-      templateUrl: 'views/jobs/saved.html',
-      controller: 'SavedController',
-      controllerAs: 'saved'
-    })
-    .when('/proposals', {
-      templateUrl: 'views/proposals/proposals.html',
-      controller: 'ProposalsController',
-      controllerAs: 'proposals'
-    })
-    .when('/myreport', {
-      templateUrl: 'views/mystats/mystats.html',
-      controller: 'MyStatsController',
-      controllerAs: 'myreport'
-    })
-    .when('/myprofile', {
-      templateUrl: 'views/myprofile/myprofile.html',
-      controller: 'MyProfileController',
-      controllerAs: 'myprofile'
-    })
-    .when('/aboutus', {
-      templateUrl: 'views/about/aboutus.html',
-      controller: 'AboutUsController',
-      controllerAs: 'aboutus'
-    });
-
-  //  .otherwise({
-  //   redirectTo: '/'
-  //  });
-
-})
-*/
 ;

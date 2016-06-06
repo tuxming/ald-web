@@ -8,7 +8,7 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-	<!-- build {"type":"css", "ref":"/styles/main.css"} -->
+	  <!-- build {"type":"css", "ref":"/styles/main.css"} -->
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/style.css">
     <!-- endbuild -->
@@ -16,23 +16,23 @@
 	#{css}
 
   </head>
-  <body class="ald-body">
+  <body class="ald-body" ng-controller="parentCtrl">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-	<!--build {"type":"tpl", "ref":"/template/header.html"}-->
-	<!--endbuild-->
+    <!--build {"type":"tpl", "ref":"/template/header.html"}-->
+    <!--endbuild-->
 
     #{content}
 
-	<!--build {"type":"tpl", "ref":"/template/footer.html"}-->
-	<!--endbuild-->
+    <!--build {"type":"tpl", "ref":"/template/footer.html"}-->
+    <!--endbuild-->
 
-  <!-- build {"type":"bower" }-->
-  <!-- endbuild -->
+    <!-- build {"type":"bower" }-->
+    <!-- endbuild -->
 
-	#{js}
+	  #{js}
 
 </body>
 </html>

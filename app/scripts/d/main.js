@@ -1,9 +1,12 @@
 /**
  * Created by tuxming on 2016-05-09.
  */
-'use strict'
-app.controller('MainCtrl', function () {
+'use strict';
+app.controller('MainCtrl', function ($scope, store, $window) {
 
+  $scope.searchGoto = function(){
+    $window.location.href = webroot+"/d/findwork/browse.html";
+  }
 }).config(function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {

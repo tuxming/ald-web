@@ -1,4 +1,4 @@
-<!-- tpl {"parent": "app/template/index.tpl.html",
+<!-- tpl {"parent": "app/template/nologin.tpl.html",
    "title": "Create an Account", "js":["/scripts/app.js"]
  } -->
 <div class="container">
@@ -170,7 +170,7 @@
                 </span>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-md btn-primary m-lg-top-bottom m-xs-left-right o-signup-submit" ng-disabled="signup.form.$pending || loading || disableSubmit">
+                <button type="button" ng-click="goto('d','/d/')" class="btn btn-md btn-primary m-lg-top-bottom m-xs-left-right o-signup-submit" ng-disabled="signup.form.$pending || loading || disableSubmit">
                     <i class="glyphicon-md air-icon-loading ng-hide" ng-show="signup.form.$pending || loading"></i>
                     Get Started
                 </button>

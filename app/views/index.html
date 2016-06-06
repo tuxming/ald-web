@@ -1,127 +1,142 @@
 ﻿<!doctype html>
 <html ng-app="app">
-  <head>
-    <meta charset="utf-8">
-    <title>home</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+<head>
+  <meta charset="utf-8">
+  <title>home</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-	<!-- build {"type":"css", "ref":"styles/main.css"} -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <!-- endbuild -->
+  <!-- build {"type":"css", "ref":"styles/main.css"} -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <!-- endbuild -->
 
-  </head>
-  <body class="ald-body">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-	<!--start head-->
-	<div class="header">
-		<div class="header-container">
-			<nav class="navbar navbar-default mynav-bar" role="navigation">
-				<div class="container-fluid">
-          <div class="navbar-header header-logo clearfix">
-            <a class="navbar-brand mynavbar-brand" href="#"><img class="logo" src="/images/logo.png"/></a>
-          </div>
-          <ul class="nav nologin-nav nologin-nav-left">
-            <li>
-              <span class="iconfont prefix-pre">&#xe616;</span>
-              <input type="text" class="form-control prefix-input" placeholder="Find Freelancers">
-            </li>
-            <li><a href="#">BROWSE</a></li>
-            <li><a href="#">HOW IT WORKS</a></li>
-          </ul>
-          <ul class="nav nologin-nav nologin-nav-right">
-            <li class=""><a href="#"><i class="iconfont lg-icon">&#xe608;&nbsp;&nbsp;</i>SIGN UP</a></li>
-            <li class=""><a href="#"><i class="iconfont lg-icon">&#xe603;&nbsp;&nbsp;</i>LOGIN</a></li>
-            <li class="become-a-freelancer">
-              <a class="btn btn-primary btn-simple" href="javascript:;">Become a Freelancer</a>
-            </li>
-          </ul>
+</head>
+<body class="ald-body" ng-controller="indexCtrl">
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<!--start head-->
+<div class="header">
+  <div class="header-container">
+    <nav class="navbar navbar-default mynav-bar" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header header-logo clearfix">
+          <a class="navbar-brand mynavbar-brand" href="#"><img class="logo" src="/images/logo.png"/></a>
         </div>
-			</nav><!--end nav-->
-		</div><!--end header container-->
-	</div>
-	<!--end header-->
+        <ul class="nav nologin-nav nologin-nav-left">
+          <li>
+            <span class="iconfont prefix-pre">&#xe616;</span>
+            <input type="text" class="form-control prefix-input" placeholder="Find Freelancers">
+          </li>
+          <li><a href="#">BROWSE</a></li>
+          <li><a href="#">HOW IT WORKS</a></li>
+        </ul>
+        <ul class="nav nologin-nav nologin-nav-right">
+          <li class=""><a href="#"><i class="iconfont">&#xe608;&nbsp;&nbsp;</i>SIGN UP</a></li>
+          <li class=""><a href="#"><i class="iconfont">&#xe603;&nbsp;&nbsp;</i>LOGIN</a></li>
+          <li class="become-a-freelancer">
+            <a class="btn btn-primary btn-simple" href="javascript:;">Become a Freelancer</a>
+          </li>
+        </ul>
+      </div>
+    </nav><!--end nav-->
+  </div><!--end header container-->
+</div>
+<!--end header-->
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default list-panel col-xs-4 no-lf-padding no-rt-padding">
+      <div class="panel-heading">
+        <h3 class="panel-title">导航</h3>
+      </div>
+      <ul class="list-group ald-list-group">
+        <li class="list-group-item"><a href="/about/aboutus.html">关于我们</a></li>
+        <li class="list-group-item"><a href="/help/articleview.html">帮助</a></li>
+        <li class="list-group-item"><a href="/home/communityhelp.html">社区</a></li>
+        <li class="list-group-item"><a href="/home/freelancer-categories.html">找工作者</a></li>
+        <li class="list-group-item"><a href="/home/job-categories.html">找工作</a></li>
+      </ul>
+    </div>
+    <div class="panel panel-default list-panel col-xs-4 no-lf-padding no-rt-padding" style="margin-left:10px;">
+      <div class="panel-heading">
+        <h3 class="panel-title">导航</h3>
+      </div>
+      <ul class="list-group ald-list-group">
+        <li class="list-group-item"><a href="/d/signup/index.html">注册</a></li>
+        <li class="list-group-item"><a href="/d/signup/create-account/freelancer_direct.html">注册自由工作者</a></li>
+        <li class="list-group-item"><a href="/d/signup/create-account/client_direct.htmll">注册雇主</a></li>
+        <li class="list-group-item"><a href="javascript:;"></a></li>
+      </ul>
+    </div>
+
+    <div class="panel panel-default list-panel col-xs-3 no-lf-padding no-rt-padding" style="margin-left:10px;">
+      <div class="panel-heading">
+        <h3 class="panel-title">导航</h3>
+      </div>
+      <ul class="list-group ald-list-group">
+        <li class="list-group-item"><a ng-click="goto('d', '/d/')" href="javascript:;">自由工作者</a></li>
+        <li class="list-group-item"><a ng-click="goto('e', '/e/')" href="javascript:;">雇主</a></li>
+      </ul>
+    </div>
+  </div><!--end row-->
+</div>
+
+<!--start footer-->
+<div class="footer">
   <div class="container">
     <div class="row">
-      <div class="panel panel-default list-panel">
-        <div class="panel-heading">
-          <h3 class="panel-title">导航</h3>
-        </div>
-        <ul class="list-group ald-list-group">
-          <li class="list-group-item"><a href="javascript:;">登录</a></li>
-          <li class="list-group-item"></li>
+      <div class="col-xs-3">
+        <ul class="footer-list">
+          <li><a href="/about/aboutus.html">关于我们</a></li>
+          <li><a href="javascript:;">博客</a></li>
+          <li><a href="javascript:;">反馈</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-3">
+        <ul class="footer-list">
+          <li><a href="javascript:;">社区</a></li>
+          <li><a href="javascript:;">信任 & 安全</a></li>
+          <li><a href="javascript:;">帮助 & 支持</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-3">
+        <ul class="footer-list">
+          <li><a href="javascript:;">服务条款</a></li>
+          <li><a href="javascript:;">隐私政策</a></li>
+          <li><a href="javascript:;">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-3">
+        <ul  class="footer-list">
+          <li><a href="javascript:;">企业解决方案</a></li>
+          <li><a href="javascript:;">桌面app</a></li>
+          <li><a href="javascript:;">人才招聘</a></li>
+          <li><a href="javascript:;">Mobile</a></li>
         </ul>
       </div>
     </div>
+    <div class="row">
+      <ul class="footer-list1">
+        <li><a href="javascript:;"><i class="iconfont llg-icon">&#xe620;</i></a><!--qq--></li>
+        <li><a href="javascript:;"><i class="iconfont llg-icon">&#xe61f;</i></a><!--朋友圈--></li>
+        <li><a href="javascript:;"><i class="iconfont llg-icon">&#xe622;</i></a><!--微信--></li>
+        <li><a href="javascript:;"><i class="iconfont llg-icon">&#xe621;</i></a><!--q-zone--></li>
+      </ul>
+      <p class="copyright">© 2016 - 2020 ALD Global Inc.</p>
+    </div>
   </div>
-	<!--end ng-view-->
+</div>
+<!--end footer-->
 
-	<!--start footer-->
-	<div class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-3">
-					<ul class="footer-list">
-						<li><a href="/about/aboutus.html">关于我们</a></li>
-						<li><a href="javascript:;">博客</a></li>
-						<li><a href="javascript:;">反馈</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-3">
-					<ul class="footer-list">
-						<li><a href="javascript:;">社区</a></li>
-						<li><a href="javascript:;">信任 & 安全</a></li>
-						<li><a href="javascript:;">帮助 & 支持</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-3">
-					<ul class="footer-list">
-						<li><a href="javascript:;">服务条款</a></li>
-						<li><a href="javascript:;">隐私政策</a></li>
-						<li><a href="javascript:;">Cookie Policy</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-3">
-					<ul  class="footer-list">
-						<li><a href="javascript:;">企业解决方案</a></li>
-						<li><a href="javascript:;">桌面app</a></li>
-						<li><a href="javascript:;">人才招聘</a></li>
-						<li><a href="javascript:;">Mobile</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="row">
-				<ul class="footer-list1">
-					<li><a href="javascript:;"><i class="iconfont llg-icon">&#xe620;</i></a><!--qq--></li>
-					<li><a href="javascript:;"><i class="iconfont llg-icon">&#xe61f;</i></a><!--朋友圈--></li>
-					<li><a href="javascript:;"><i class="iconfont llg-icon">&#xe622;</i></a><!--微信--></li>
-					<li><a href="javascript:;"><i class="iconfont llg-icon">&#xe621;</i></a><!--q-zone--></li>
-				</ul>
-				<p class="copyright">© 2016 - 2020 ALD Global Inc.</p>
-			</div>
-		</div>
-	</div>
-	<!--end footer-->
+<!-- build {"type":"bower" }-->
+<!-- endbuild -->
 
-  <!-- build {"type":"bower" }-->
-  <!-- endbuild -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
 
-	<script src="scripts/app.js"></script>
-	<script src="scripts/controllers/main.js"></script>
-
-  <script src="scripts/controllers/job-categories.js"></script>
-  <script src="scripts/controllers/freelancer-categories.js"></script>
-
-	<script src="scripts/d/controllers/saved.js"></script>
-	<script src="scripts/d/controllers/proposals.js"></script>
-	<script src="scripts/d/controllers/mystats.js"></script>
-	<script src="scripts/d/controllers/myprofile.js"></script>
-
-	<!-- endbuild -->
+<!-- endbuild -->
 </body>
 </html>
