@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-var webroot = 'http://xm2013.com/ald-web';
+var webroot = '';
 
 var menu = {
   unloign:{

@@ -207,16 +207,20 @@
 
 }
 
+@hourTextWidth: 25px;
+.views{
+  margin-top: 20px;
+}
 .view-hour{
 
   > * {
-    display:inline-block;
+    display: table-cell;
     height: 145px;
   }
 
   .hour-text{
     display: table-cell;
-    width:25px; background: lighten(@unactive,6%);
+    width:@hourTextWidth; background: lighten(@unactive,6%);
     vertical-align: middle;
     font-size: @mSize;
   }
@@ -228,8 +232,101 @@
 }
 
 
-.c-row {
-  img{width: 150px; height:100px; }
+.diary-view-row {
+  width: @pageWidth - @hourTextWidth;
+
+  .snap-nothing{
+    display:inline-block;
+  }
+
+  .no-total{
+    height: 17px;
+  }
+
+  .no-screenshot{
+    border: 1px dashed @unactive;
+    width: 173px; height: 110px;
+    margin: 0px 2px;
+  }
+
+  img{width: 174px; height:110px; }
+
+  .v-header{
+    height: 20px;
+    cursor: pointer;
+    width: @pageWidth - @hourTextWidth - 5;
+    margin-top: 5px;
+
+    .snapshots-left{
+      background: lighten(@baseColor, 5%);
+      border-top-left-radius:12px;
+      border-bottom-left-radius: 12px;
+      height: 20px;
+    }
+
+    .snapshots-full{
+      background: lighten(@baseColor, 5%);
+      border-radius: 12px;
+      height: 20px;
+    }
+
+    .snapshots-right{
+      background: lighten(@baseColor, 5%);
+      border-top-right-radius: 12px;
+      border-bottom-right-radius: 12px;
+      height: 20px;
+    }
+
+    .snapshots-pixes{
+      background: lighten(@baseColor, 5%);
+      height: 20px;
+    }
+
+    .nothing{
+      height: 20px;
+    }
+
+    .snapshots-6{width:100%;}
+    .snapshots-5{width: 100% * (5 / 6); float:left;}
+    .snapshots-4{width: 100% * (4 / 6); float:left;}
+    .snapshots-3{width: 100% * (3 / 6); float:left;}
+    .snapshots-2{width: 100% * (2 / 6); float:left;}
+    .snapshots-1{width: 100% * (1 / 6); float:left;}
+
+  }
+  .normal{
+    display: inline-block;
+    margin: 2px;
+  }
+}
+
+.diary-view-row .total{
+  > * {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size:12px;
+  }
+
+  input{
+    margin: 0px;
+    vertical-align: middle;
+  }
+
+}
+
+.percent{
+  cursor: pointer;
+  > *{
+    background: @unactive;
+    padding: 0px;
+    height: 12px;
+    width: 6px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+  .active{
+    background: @baseColor;
+  }
 }
 
 /*******start report*******/
