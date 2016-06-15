@@ -1,0 +1,224 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>Messages</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build {"type":"css", "ref":"/styles/main.css"} -->
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="/styles/messages.css">
+
+</head>
+<body class="ald-body" ng-controller="parentCtrl">
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!--build {"type":"tpl", "ref":"/template/header.html"}-->
+<!--endbuild-->
+
+<div class="container-fluid msg-container">
+  <div class="row-fluid clearfix">
+    <!--end start user list -->
+    <div class="user-list">
+      <div class="topbar-left clearfix">
+
+        <div class="message-setting">
+          <div class="dropdown">
+            <a aria-expanded="false" aria-haspopup="true"
+               role="button" data-toggle="dropdown"
+               data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+              <i class="icon-link">&#xe60e;</i>
+            </a>
+            <ul class="dropdown-menu ald-dropdown-menu mp-work-filter-options">
+              <li class="filter-selected-actived">
+                Messages Settings
+              </li>
+              <li>Help & Tips</li>
+              <li>Shortcut Keys</li>
+              <li>Configure Integrations</li>
+            </ul>
+          </div>
+
+        </div><!--end message setting-->
+
+        <div class="btn-group show-model show-type" role="group" aria-label="radio">
+          <button class="btn btn-radio-yes btn-radio-active iconfont"
+                  aria-label="radio">&#xe63e;</button>
+          <button class="btn btn-radio-no btn-radio-unactive iconfont"
+                  aria-label="radio">&#xe642;</button>
+        </div>
+
+        <a href="javascript:;" class="iconfont pull-right add-room">&#xe619;</a>
+      </div><!--end topbar-left-->
+
+      <div class="recent-list">
+        <div class="user-filter-warpper">
+          <span class="iconfont prefix-pre">&#xe616;</span>
+          <input type="text" class="form-control prefix-input user-fileter" placeholder="Search">
+        </div>
+
+        <div class="dropdown recent-dropdown">
+          <a aria-expanded="false" aria-haspopup="true"
+             role="button" data-toggle="dropdown"
+             data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+            <span class="filter-selected-label">RECENT<i class="iconfont">&#xe614;</i></span>
+          </a>
+          <ul class="dropdown-menu ald-dropdown-menu">
+            <li class="filter-selected-actived">
+              RECENT
+            </li>
+            <li>UNREAD</li>
+          </ul>
+        </div>
+
+        <div class="room-list-wrapper">
+          <ul class="room-list list-unstyled">
+            <li class="room clearfix" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+              <div class="charicon"><i class="iconfont">&#xe640;</i></div>
+              <div class="room-info">
+                <div>
+                  <span class="chart-user-name eclipse">Robert Kkkkkk</span>
+                  <span class="last-msg-date">1:23pm</span>
+                </div>
+                <div>
+                  <span class="chart-msg-position eclipse">Senior Java/Web Dev</span>
+                  <div class="dropdown room-item-operate pull-right">
+                    <a aria-expanded="false" aria-haspopup="true"
+                       role="button" data-toggle="dropdown"
+                       data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                      <span class="iconfont">&#xe63c;</span>
+                    </a>
+                    <ul class="dropdown-menu ald-dropdown-menu">
+                      <li>HIDEN</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="chart-msg-last eclipse">u mean by loading corresp</div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="room-page">
+            <li class="page-label">1 - 20 of 45</li>
+            <li class="page-ctrl page-prev icon-link unactive">&#xe60f;</li>
+            <li class="page-ctrl page-prev icon-link">&#xe615;</li>
+          </ul>
+        </div><!--end room-list-wrapper-->
+
+      </div><!--end recent-->
+
+
+    </div><!--end user list-->
+
+    <!-- start message list-->
+    <div class="message-list">
+      <div class="topbar-right clearfix">
+        <div class="msg-title">
+          <div class="msg-title-name">Angela Lastie<i class="iconfont">&#xe60a;</i></div>
+          <div class="msg-title-label">Back End Developer</div>
+        </div>
+
+        <ul class="pull-right list-unstyled bar-tool">
+          <li class="active"><i class="icon-link">&#xe641;</i></li>
+          <li class="hr">&nbsp;</li>
+          <li><i class="icon-link">&#xe643;</i></li>
+          <li><i class="icon-link">&#xe63f;</i></li>
+          <li><i class="icon-link">&#xe63c;</i></li>
+        </ul>
+
+      </div><!--end topbar-right-->
+
+      <div class="msgs-wrapper">
+        <div class="msgs-group">
+          <div class="before-time">
+            Friday
+          </div>
+          <ul class="msgs list-unstyled">
+            <li class="msg-item clearfix" ng-repeat = "i in  [1,2,3,4,5,6,7]">
+              <div class="msg-user-icon">
+                <img src="/images/user.png" />
+                <div class="msg-online">&nbsp;</div>
+              </div>
+              <div class="msg-content">
+                <div class="msg-user-name">RAD Clon</div>
+                <div class="msg-text-wrapper clearfix">
+                  <span class="icon-link msg-text-fav">&#xe60a;</span>
+                  <div class="msg-item-text">
+                    <p>asssssssssssssssssssssssssssssssdasdasdasdasdasasdasdasdasdasfsdfsdfklasjfklasdjfklasdjfleifasdklfjeiflasdfjaeifalefjiaflkajfieaflkjeifalkdfjaldfjieglad</p>
+                    <span class="msg-item-qout">
+                      <a href="javascript:;" class="qout-link">
+                        Go to the Proposal
+                      </a>
+                    </span>
+                  </div>
+                  <span class="msg-send-time">
+                    <span class="icon-link msg-item-setting">&#xe63b;</span>
+                    <span class="msg-item-time">3:40PM</span>
+                  </span>
+                </div>
+              </div>
+            </li><!--end msg-item-->
+            <li class="msg-item clearfix">
+              <div class="msg-user-icon">
+                <img src="/images/user.png" />
+                <div class="msg-offline">&nbsp;</div>
+              </div>
+              <div class="msg-content">
+                <div class="msg-user-name">RAD Clon</div>
+                <div class="msg-text-wrapper clearfix">
+                  <span class="icon-link msg-text-fav">&#xe60a;</span>
+                  <div class="msg-item-text">
+                    <p>asssssssssssssssssssssssssssssssdasdasdasdasdasasdasdasdasdasfsdfsdfklasjfklasdjfklasdjfleifasdklfjeiflasdfjaeifalefjiaflkajfieaflkjeifalkdfjaldfjieglad</p>
+                    <span class="msg-item-qout">
+                      <a href="javascript:;" class="qout-link">
+                        Go to the Proposal
+                      </a>
+                    </span>
+                  </div>
+                  <span class="msg-send-time">
+                    <span class="icon-link msg-item-setting">&#xe60e;</span>
+                    <span class="msg-item-time">3:40PM</span>
+                  </span>
+                </div>
+              </div>
+            </li><!--end msg-item-->
+          </ul><!--end msgs-->
+        </div><!--end msgs-group-->
+
+
+        <div class="send-msg-wrapper">
+          <div class="msg-input-wrapper">
+            <textarea name="" rows="1"></textarea>
+            <ul class="list-unstyled send-msg-tools">
+              <li><a href="javascript;" class="icon-link">&#xe60e;</a></li>
+              <li><a href="javascript;" class="icon-link">&#xe609;</a></li>
+              <li><a href="javascript;" class="icon-link">&#xe63d;</a></li>
+            </ul>
+          </div>
+          <a class="btn btn-primary send-btn-active">Send</a>
+        </div>
+        <!--end send msg -->
+
+      </div><!--end messages-->
+
+    </div><!--end message list-->
+  </div><!--end row-fluid-->
+</div><!--end container-->
+
+<!-- build {"type":"bower" }-->
+<!-- endbuild -->
+
+<script type="text/javascript" src="/scripts/app.js"></script>
+<script type="text/javascript" src="/scripts/controllers/messages.js"></script>
+
+</body>
+</html>
+
+

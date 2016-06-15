@@ -45,7 +45,7 @@ var menu = {
       },
       messages:{
         label: "消息",
-        url: ""
+        url: webroot+"/usual/messages.html"
       }
     },
     client:{
@@ -78,7 +78,7 @@ var menu = {
       },
       messages:{
         label: "消息",
-        url: ""
+        url: webroot+"/usual/messages.html"
       }
     }
   }
@@ -129,7 +129,7 @@ app.directive("loginNav", function(){
       var mymenu = store.get("menu");  //menu.login
       if(!mymenu){
         $scope.menu = menu.login.freelancer;
-        $scope.menu.findwork.active = true;
+        //$scope.menu.findwork.active = true;
 
       }else{
         $scope.menu = mymenu;
@@ -170,16 +170,11 @@ app.directive("loginNav", function(){
           i++;
         }
 
-        console.log(inKey);
-
         $scope.menu[inKey].active = true;
 
         store.set("menu", $scope.menu);
 
-        //if(currItem.method && currItem.method=='load'){
-        //}
-        //else
-          $window.location.href = url;
+        $window.location.href = url;
 
       };
 

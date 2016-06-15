@@ -34,6 +34,16 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-link{
+  .iconfont;
+  cursor: pointer;
+  color: @unactive;
+}
+.icon-link:hover, .icon-link:active{
+  color: @baseColor;
+}
+
+
 .lg-icon {
     font-size: (@bigSize - 2);
 }
@@ -202,6 +212,17 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus {
 
 .nothing-box-icon {
     font-size: @bigSize;
+}
+
+.eclipse{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &:after{
+    content:"...";
+  }
+
 }
 
 /*
