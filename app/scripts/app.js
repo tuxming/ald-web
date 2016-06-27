@@ -91,7 +91,8 @@ var app = angular.module('app', [
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'angular-storage'
+    'angular-storage',
+    'ui.bootstrap'
   ]);
 
 app.config(function(storeProvider){
@@ -117,7 +118,6 @@ app.controller("parentCtrl", function($scope, store, $window){
   }
 
 });
-
 
 //重构菜单
 app.directive("loginNav", function(){

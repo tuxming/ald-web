@@ -61,19 +61,38 @@ var paths = {
   ],
   bowerjs: [
     './bower_components/jquery/dist/jquery.js',
-	  './bower_components/bootstrap/dist/js/bootstrap.js',
-	  './bower_components/angular/angular.js',
+    './bower_components/bootstrap/dist/js/bootstrap.js',
+    './bower_components/angular/angular.js',
     './bower_components/angular-animate/angular-animate.js',
     './bower_components/angular-aria/angular-aria.js',
-	  './bower_components/angular-cookies/angular-cookies.js',
+    './bower_components/angular-cookies/angular-cookies.js',
     './bower_components/angular-messages/angular-messages.js',
     './bower_components/angular-resource/angular-resource.js',
-	  './bower_components/angular-touch/angular-touch.js',
-	  './bower_components/angular-route/angular-route.js',
+    './bower_components/angular-touch/angular-touch.js',
+    './bower_components/angular-route/angular-route.js',
     './bower_components/angular-sanitize/angular-sanitize.js',
+    './bower_components/angular-bootstrap/ui-bootstrap.js',
+    './bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
     './bower_components/a0-angular-storage/dist/angular-storage.js'
   ],
+  bowerMinjs: [
+    './bower_components/jquery/dist/jquery.min.js',
+    './bower_components/bootstrap/dist/js/bootstrap.min.js',
+    './bower_components/angular/angular.min.js',
+    './bower_components/angular-animate/angular-animate.min.js',
+    './bower_components/angular-aria/angular-aria.min.js',
+    './bower_components/angular-cookies/angular-cookies.min.js',
+    './bower_components/angular-messages/angular-messages.min.js',
+    './bower_components/angular-resource/angular-resource.min.js',
+    './bower_components/angular-touch/angular-touch.min.js',
+    './bower_components/angular-route/angular-route.min.js',
+    './bower_components/angular-sanitize/angular-sanitize.min.js',
+    './bower_components/angular-bootstrap/ui-bootstrap.min.js',
+    './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+    './bower_components/a0-angular-storage/dist/angular-storage.min.js'
+  ],
   bowercss: [
+    './bower_components/angular-bootstrap/ui-bootstrap-csp.css'
    // './bower_components/bootstrap/dist/css/bootstrap.css',
    // './bower_components/bootstrap/dist/css/bootstrap-theme.css'
   ],
@@ -124,6 +143,17 @@ gulp.task('bower:ref', function(){
 		.pipe(gulp.dest(config.app+'/static/'));
 });
 
+gulp.task('bower:min:ref', function(){
+	//console.log(paths.bowerjs);
+	gulp.src(paths.bowerMinjs)
+		.pipe(gulp.dest(config.app+'/scripts/public/'));
+
+	gulp.src(paths.bowercss)
+		.pipe(gulp.dest(config.app+'/styles/public/'));
+	gulp.src(paths.bowerstatic)
+		.pipe(gulp.dest(config.app+'/static/'));
+});
+
 //删除.tmp目录
 gulp.task('clean:tmp', function (cb) {
 	//rimraf('./.tmp', cb);
@@ -145,7 +175,7 @@ gulp.task('copy', function () {
   gulp.src(paths.copys)
     .pipe(gulp.dest(config.dist));
 
-	gulp.src(config.app+"/scripts/public/*.js")
+	gulp.src(config.app+"/scripts/public/*.min.js")
 		.pipe(gulp.dest(config.dist+"/scripts/public/"));
 });
 
@@ -213,20 +243,28 @@ var htmlCallback = function (info, isDebug, filepath){
 			return "";
 	}else if(info.type=='bower'){
 		var bowerjss;
-		//if(isDebug){
+		if(isDebug){
 			bowerjss = paths.bowerjs.map(function(item, i){
 				var paths = item.split("/");
 				var jsName = paths[paths.length-1];
-        var jspath = '/scripts/public/'+jsName; //getpath(filepath, jspath, config)
+				var jspath = '/scripts/public/'+jsName; //getpath(filepath, jspath, config)
 				return "<script type='text/javascript' src='"+jspath+"'></script>\n";
 			}).reduce(function(a, b){
 				return a+b;
 			});
-		//}else{
-		//	bowerjss = "<script type='text/javascript' src='/scripts/vender.js'></script>";
-		//}
+		}else{
+			bowerjss = paths.bowerMinjs.map(function(item, i){
+				var paths = item.split("/");
+				var jsName = paths[paths.length-1];
+				var jspath = '/scripts/public/'+jsName; //getpath(filepath, jspath, config)
+				return "<script type='text/javascript' src='"+jspath+"'></script>\n";
+			}).reduce(function(a, b){
+				return a+b;
+			});
+			//bowerjss = "<script type='text/javascript' src='/scripts/vender.js'></script>";
+		}
 
-    return bowerjss;
+		return bowerjss;
 
 	}else
 		return "";
@@ -274,9 +312,8 @@ gulp.task('process:html:server', function() {
 	gulp.src(config.app+'/**/*.html')
 		.pipe(load.plumber())
 		.pipe(inject.process(
-      {isDebug: debug,callback: htmlCallback, cwd: config.cwd})
-    )
-		.pipe(tplProcessor({
+			{isDebug: debug,callback: htmlCallback, cwd: config.cwd})
+		).pipe(tplProcessor({
 			tplProcess : tplCallback
 		}))
 		.pipe(gulp.dest(".tmp/"));
@@ -289,7 +326,7 @@ gulp.task('process:html:server', function() {
  **/
  gulp.task('server', function (cb) {
   runSequence('clean:all', 'injectWebPath',
-    ['bower:ref', 'less', 'lint:scripts',  'copy:all', "process:html:server"],
+    'bower:ref', 'less', 'lint:scripts',  'copy:all', "process:html:server",
     ['start:client'],
     'watch', cb);
 });
@@ -308,7 +345,7 @@ gulp.task('build', function(cb){
   }
 
 	runSequence('clean:all', 'injectWebPath',
-		['bower:ref', 'less', 'copy'],
+		['bower:min:ref', 'less'], 'copy',
 		//['bower:ref', 'copy'],
 		'process:build', cb);
 
@@ -331,15 +368,15 @@ gulp.task('process:build', function(){
 
 	//处理html
 	debug = false;
+	//把：<!-- build {"type": "script", "ref":"style/main.js"} -->...<!--endbuild--> 替换成指定的文件
 	var stream = gulp.src(paths.htmls)
-    //把：<!-- build {"type": "script", "ref":"style/main.js"} -->...<!--endbuild--> 替换成指定的文件
 		.pipe(inject.process({isDebug: debug,callback: htmlCallback, cwd: config.cwd}))
 		.pipe(tplProcessor({tplProcess : tplCallback}))
 		.pipe(
-      htmlref(
-        extend({processCSS: cssHandler,processJS: jsHandler }, config)
-      )
-    )
+		  htmlref(
+			extend({processCSS: cssHandler,processJS: jsHandler }, config)
+		  )
+		)
 		.pipe(gulp.dest(config.dist+'/'));
 });
 

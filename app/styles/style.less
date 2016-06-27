@@ -493,15 +493,20 @@ a:hover, a:focus, .ald-link:hover, .ald-link:focus {
     color: @baseColor;
 }
 
-.btn-radio-yes {
+.btn-radio-group{
+  > *{
     padding: 3px 12px;
-    border-right: none;
+  }
+
+  .btn:first-child{
+    border-right:none;
+  }
+
+  .btn:last-child{
+    border-left:none;
+  }
 }
 
-.btn-radio-no {
-    padding: 3px 12px;
-    border-left: none;
-}
 
 //在前面input框加一个前缀
 input.prefix-input {
