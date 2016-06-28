@@ -1,0 +1,95 @@
+﻿<!-- tpl {"parent": "app/template/index.tpl.html",
+   "title": "Qualification Tests",
+   "css":["/styles/d/tests.css"],
+   "js":["/scripts/app.js"]
+ } -->
+<div class="container">
+    <div class="row m-lg-bottom">
+
+        <div class="col-xs-12"><h3 class="tests-page-title">Skill Tests</h3></div>
+
+        <div class="col-xs-12 no-lf-padding">
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="dropdown ald-dropdown drop-testcategory">
+                        <a class="dropdown-toggle ald-dropdown-toggle drop-testcategory-current" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span>All Categories</span><span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu ald-dropdown-menu">
+                            <li>All Categories</li>
+                            <li>Databases</li>
+                            <li>Demo Tests</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control prefix-input" placeholder="Name, Title or Team" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default test-category-search">Search</button>
+                </div>
+            </div>
+        </div><!--end header bar-->
+
+        <div class="col-xs-12 no-lf-padding">
+            <div class="pagination-layout">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo; Prev</span>
+                        </a>
+                    </li>
+                    <li><a class="active" href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">Next &raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <table class="table" ng-controller="test-list">
+                <thead class="c-thead">
+                    <tr>
+                        <th class="col-xs-6">Title</th>
+                        <th>Category</th>
+                        <th>Qualified Freelancers</th>
+                        <th>Tests Taken</th>
+                    </tr>
+                </thead>
+                <tbody ng-init="clist=[{title:'U.S. English Basic Skills Test',category:'English Language',qulify:'746,576',taken:'1,190,147'},{title:'U.S. English Basic Skills Test',category:'English Language',qulify:'746,576',taken:'1,190,147'}]">
+                    <tr ng-repeat="item in clist">
+                        <td><a class="link-underline" href="javascript;">{{item.title}}</a></td>
+                        <td>{{item.category}}</td>
+                        <td>
+                            <a class="link-underline">{{item.qulify}}</a>
+                        </td>
+                        <td>{{item.taken}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination-layout">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo; Prev</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">Next &raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!--end list-->
+    </div><!--end row-->
+</div><!--end container-->

@@ -1,0 +1,158 @@
+﻿<!-- tpl {"parent": "app/template/index.tpl.html",
+   "title": "Qualification Tests",
+   "css":["/styles/d/proposals.css"],
+   "js":["/scripts/app.js"],
+   "page-tab":"archived"
+ } -->
+<div class="container">
+    <div class="row m-normal-bottom">
+        <div class="col-xs-12"><h3 class="archived-page-title">My Proposals</h3></div>
+
+        <div class="col-xs-12">
+            <!--build {"type":"tpl", "ref":"/template/proposalsnav.html"}-->
+            <!--endbuild-->
+        </div>
+
+    </div>
+    <div class="row archived-proposals m-normal-bottom m-0-top">
+        <div class="col-xs-12">
+            <h4 class="archived-content-title">1110 Archived Proposals</h4>
+        </div>
+        <div class="col-xs-12">
+            <div class="pagination-layout">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo; Prev</span>
+                        </a>
+                    </li>
+                    <li><a class="active" href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">Next &raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <table class="table archived-list" ng-controller="test-list">
+                <thead class="c-thead">
+                    <tr>
+                        <th class="col-xs-2">Received</th>
+                        <th class="col-xs-8">Job</th>
+                        <th class="col-xs-2">Reason</th>
+                    </tr>
+                </thead>
+                <tbody ng-init="clist=[{receive:'Jun 21, 2016',timespan:'7 days ago',jobtitle:'Java Developer',reason:'Expired'},{receive:'Jun 21, 2016',timespan:'7 days ago',jobtitle:'English Language',reason:'746,576'}]">
+                    <tr ng-repeat="item in clist">
+                        <td>{{item.receive}}<br />{{item.timespan}}</td>
+                        <td><a class="link-underline" href="javascript;">{{item.jobtitle}}</a></td>
+                        <td>
+                            {{item.reason}}
+                        </td>
+                    </tr>
+                    <tr ng-repeat="item in clist">
+                        <td>{{item.receive}}<br />{{item.timespan}}</td>
+                        <td><a class="link-underline" href="javascript;">{{item.jobtitle}}</a></td>
+                        <td>
+                            {{item.reason}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination-layout">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo; Prev</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">Next &raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row archived-interviews">
+        <div class="col-xs-12">
+            <h4 class="archived-content-title">190 Archived Interviews</h4>
+        </div>
+        <div class="col-xs-12">
+            <div class="pagination-layout">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo; Prev</span>
+                        </a>
+                    </li>
+                    <li><a class="active" href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">Next &raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <table class="table archived-list" ng-controller="test-list">
+                <thead class="c-thead">
+                    <tr>
+                        <th class="col-xs-2">Received</th>
+                        <th class="col-xs-8">Job</th>
+                        <th class="col-xs-2">Reason</th>
+                    </tr>
+                </thead>
+                <tbody ng-init="clist=[{receive:'Jun 21, 2016',timespan:'7 days ago',jobtitle:'Java Developer',reason:'Expired'},{receive:'Jun 21, 2016',timespan:'7 days ago',jobtitle:'English Language',reason:'746,576'}]">
+                    <tr ng-repeat="item in clist">
+                        <td>{{item.receive}}<br />{{item.timespan}}</td>
+                        <td><a class="link-underline" href="javascript;">{{item.jobtitle}}</a></td>
+                        <td>
+                            {{item.reason}}
+                        </td>
+                    </tr>
+                    <tr ng-repeat="item in clist">
+                        <td>{{item.receive}}<br />{{item.timespan}}</td>
+                        <td><a class="link-underline" href="javascript;">{{item.jobtitle}}</a></td>
+                        <td>
+                            {{item.reason}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination-layout">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo; Prev</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">Next &raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-right m-normal-top"><a href="/jobs/">Search for jobs</a> | <a href="/profile/">Manage your profile</a></div>
+</div><!--end container-->
