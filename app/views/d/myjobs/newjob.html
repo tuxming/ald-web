@@ -1,0 +1,256 @@
+﻿<!-- tpl {"parent": "app/template/index.tpl.html",
+   "title": "Myjobs - New",
+   "css":["/styles/d/myjobs.css"],
+   "js":["/scripts/app.js"]
+ } -->
+<div class="container">
+    <form name="createjob" novalidate="novalidate">
+        <div class="row m-lg-bottom m-lg-top">
+            <div class="col-xs-12"><h3 class="newjob-page-title">Post a Job</h3></div>
+        </div>
+        <div class="row new-job-panel new-job-first-panel m-0-bottom">
+            <div class="col-xs-12">
+                <h4>Reuse previous job</h4>
+            </div>
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="dropdown ald-dropdown">
+                            <a class="dropdown-toggle ald-dropdown-toggle" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span>Select previous job</span><span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu ald-dropdown-menu dropdown-previous-ul">
+                                <li>Select previous job</li>
+                                <li>Simple Mobile App Design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 m-lg-top">
+                <h4>Choose a category and subcategory</h4>
+            </div>
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="dropdown ald-dropdown">
+                            <a class="dropdown-toggle ald-dropdown-toggle" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span>Please select</span><span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu ald-dropdown-menu  dropsown-jobcategory-ul">
+                                <li>Please select</li>
+                                <li>Web,Mobile&Software Dev</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row new-job-panel m-0-bottom">
+            <div class="col-xs-12 m-normal-bottom m-normal-top">
+                <h3>Describe the Job</h3>
+            </div>
+            <div class="col-xs-12 m-normal-bottom">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <h4>Name your job posting</h4>
+                        <input class="form-control" placeholder="EXAMPLE: Need Help Developing a Powerpoint Presentation for a Family Reunion" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <h4>
+                            Describe the work to be done
+                            <small class="text-muted pull-right m-xs-top-bottom">
+                                5000 characters left
+                            </small>
+                        </h4>
+                        <textarea class="form-control" rows="10" placeholder="EXAMPLE: I need someone to help me develop a power point presentation for a family reunion. I need the presentation to be very entertaining, complete with music. The presentation will be presented on a projector in front of 150 people. I will need to verbally describe my ideas to the freelancer so you must have good communication skills in English and be OK with some ambiguity at the beginning of the project."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 m-normal-bottom m-normal-top">
+                <label class="job-attachment">
+                    <i class="iconfont llg-icon">&#xe64d;</i>Attach file
+                    <input type="file" class="job-attachment-file">
+                </label>
+                <div>
+                    <small class="text-muted">The file can be up to 5 Mb in size.</small>
+                </div>
+            </div>
+            <div class="col-xs-12 m-normal-top m-normal-bottom">
+                <h4>What type of project do you have?</h4>
+                <div>
+                    <div class="radio"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>One-time project</label></div>
+                    <div class="radio"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Ongoing project</label></div>
+                    <div class="radio"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>I am not sure</label></div>
+                </div>
+            </div>
+            <div class="col-xs-12 m-normal-top m-normal-bottom">
+                <h4>How many freelancers do you need to hire for this job?</h4>
+                <div>
+                    <div class="radio"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>I want to hire one freelancer</label></div>
+                    <div class="radio"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>I need to hire more than one freelancer</label></div>
+                </div>
+            </div>
+            <div class="col-xs-12  m-normal-top m-normal-bottom">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <h4>Enter skills needed</h4>
+                        <input class="form-control" placeholder="Type Here" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row new-job-panel">
+            <div class="col-xs-12 m-normal-bottom m-normal-top">
+                <h3>Rate and Availability</h3>
+            </div>
+            <div class="col-xs-12 m-0-bottom">
+                <h4>Desired Experience Level?</h4>
+            </div>
+            <div class="col-xs-12 m-normal-bottom">
+                <div class="row" ng-init="paytype_hour=true;paytype_fixed=false;">
+                    <div class="col-xs-3 no-rt-padding">
+                        <div class="text-center panel-option first-panel-option pay-type p-normal-bottom p-normal-top" ng-class="paytype_hour?'active':''"
+                             ng-click="paytype_hour=true;paytype_fixed=false;">
+                            <i class="iconfont llg-icon">&#xe648;</i>
+                            <p class="paytype-o-p">Pay by the hour</p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                    <div class="col-xs-3 no-lf-padding">
+                        <div class="text-center panel-option pay-type p-normal-bottom p-normal-top" ng-class="paytype_fixed?'active':''"
+                             ng-click="paytype_hour=false;paytype_fixed=true;">
+                            <i class="iconfont llg-icon">&#xe649;</i>
+                            <p class="paytype-o-p">Pay a fixed price</p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 m-0-bottom">
+                <h4>Desired Experience Level?</h4>
+            </div>
+            <div class="col-xs-12 m-normal-bottom">
+                <div class="row">
+                    <div class="col-xs-3 no-rt-padding" ng-init="levelentry=false">
+                        <div class="text-center panel-option first-panel-option p-normal-bottom p-normal-top"
+                             ng-class="levelentry?'active':''" ng-mouseover="levelentry=true;" ng-mouseleave="levelentry=false;">
+                            <i class="iconfont llg-icon">&#xe64b;</i>
+                            <p class="paytype-o-p">Entry Level</p>
+                            <p><small>I am looking for freelancers with the lowest rates</small></p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                    <div class="col-xs-3 no-lf-padding no-rt-padding" ng-init="levelintermediate=false">
+                        <div class="text-center panel-option p-normal-bottom p-normal-top"
+                             ng-class="levelintermediate?'active':''" ng-mouseover="levelintermediate=true;" ng-mouseleave="levelintermediate=false;">
+                            <i class="iconfont llg-icon">&#xe64b;&#xe64b;</i>
+                            <p class="paytype-o-p">Intermediate</p>
+                            <p><small>I am looking for a mix of experience and value</small></p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                    <div class="col-xs-3 no-lf-padding" ng-init="levelexpert=false">
+                        <div class="text-center panel-option p-normal-bottom p-normal-top"
+                             ng-class="levelexpert?'active':''" ng-mouseover="levelexpert=true;" ng-mouseleave="levelexpert=false;">
+                            <i class="iconfont llg-icon">&#xe64b;&#xe64b;&#xe64b;</i>
+                            <p class="paytype-o-p">Expert</p>
+                            <p><small>I am willing to pay higher rates for the most experienced freelancers</small></p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 m-0-bottom">
+                <h4>How long do you expect this job to last?</h4>
+            </div>
+            <div class="col-xs-12 m-normal-bottom">
+                <div class="row">
+                    <div class="col-xs-2 no-rt-padding" ng-init="timespansixmore=false">
+                        <div class="text-center panel-option first-panel-option p-normal-bottom p-normal-top"
+                             ng-class="timespansixmore?'active':''" ng-mouseover="timespansixmore=true;" ng-mouseleave="timespansixmore=false;">
+                            <i class="iconfont llg-icon">&#xe64c;</i>
+                            <p class="paytype-o-p">More than 6 months</p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                    <div class="col-xs-2 no-lf-padding no-rt-padding" ng-init="timespansixless=false">
+                        <div class="text-center panel-option p-normal-bottom p-normal-top"
+                             ng-class="timespansixless?'active':''" ng-mouseover="timespansixless=true;" ng-mouseleave="timespansixless=false;">
+                            <i class="iconfont llg-icon">&#xe64c;</i>
+                            <p class="paytype-o-p">3 to 6 months</p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                    <div class="col-xs-2 no-lf-padding no-rt-padding" ng-init="timespanonemore=false">
+                        <div class="text-center panel-option p-normal-bottom p-normal-top"
+                             ng-class="timespanonemore?'active':''" ng-mouseover="timespanonemore=true;" ng-mouseleave="timespanonemore=false;">
+                            <i class="iconfont llg-icon">&#xe64c;</i>
+                            <p class="paytype-o-p">1 to 3 months</p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                    <div class="col-xs-2 no-lf-padding no-rt-padding" ng-init="timespanoneless=false">
+                        <div class="text-center panel-option p-normal-bottom p-normal-top"
+                             ng-class="timespanoneless?'active':''" ng-mouseover="timespanoneless=true;" ng-mouseleave="timespanoneless=false;">
+                            <i class="iconfont llg-icon">&#xe64c;</i>
+                            <p class="paytype-o-p">Less than 1 month</p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                    <div class="col-xs-2 no-lf-padding" ng-init="timespanoneweek=false">
+                        <div class="text-center panel-option p-normal-bottom p-normal-top"
+                             ng-class="timespanoneweek?'active':''" ng-mouseover="timespanoneweek=true;" ng-mouseleave="timespanoneweek=false;">
+                            <i class="iconfont llg-icon">&#xe64c;</i>
+                            <p class="paytype-o-p">Less than 1 week</p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 m-0-bottom">
+                <h4>What time commitment is required for this job?</h4>
+            </div>
+            <div class="col-xs-12 m-normal-bottom">
+                <div class="row">
+                    <div class="col-xs-3 no-rt-padding" ng-init="levelentry=false">
+                        <div class="text-center panel-option first-panel-option pay-type p-normal-bottom p-normal-top"
+                             ng-class="levelentry?'active':''" ng-mouseover="levelentry=true;" ng-mouseleave="levelentry=false;">
+                            <i class="iconfont llg-icon">&#xe64f;</i>
+                            <p class="paytype-o-p">More than 30 hrs/week</p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                    <div class="col-xs-3 no-lf-padding no-rt-padding" ng-init="levelintermediate=false">
+                        <div class="text-center panel-option pay-type p-normal-bottom p-normal-top"
+                             ng-class="levelintermediate?'active':''" ng-mouseover="levelintermediate=true;" ng-mouseleave="levelintermediate=false;">
+                            <i class="iconfont llg-icon">&#xe64e;</i>
+                            <p class="paytype-o-p">Less than 30 hrs/week</p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                    <div class="col-xs-3 no-lf-padding" ng-init="levelexpert=false">
+                        <div class="text-center panel-option pay-type p-normal-bottom p-normal-top"
+                             ng-class="levelexpert?'active':''" ng-mouseover="levelexpert=true;" ng-mouseleave="levelexpert=false;">
+                            <i class="iconfont llg-icon">&#xe650;</i>
+                            <p class="paytype-o-p">I don't know yet</p>
+                            <input type="radio" class="none" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row new-job-panel">
+            <div class="col-xs-12">
+                <h4><i class="iconfont lg-icon">&#xe651;</i><span class=""> Freelancer Preferences</span></h4>
+            </div>
+        </div>
+        <div class="row new-job-panel">
+            <div class="col-xs-12"><button class="btn btn-default btn-submitnewjob" >Post Job</button><button class="btn btn-link btn-newjobpreview">Preview</button></a></div>
+        </div>
+    </form>
+</div><!--end container-->
