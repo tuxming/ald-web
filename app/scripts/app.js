@@ -201,3 +201,28 @@ app.directive("loginNav", function(){
     }
   };
 });
+
+
+
+/***
+ * var plugin = angular.module('app',[]);
+ * <a href='javascript:;' ctxmenu='[]'/>
+ * [
+ *  {type: 'html', 'html':"<i class='iconfont'>&#xe60e;</i><a href='#' ng-click='cccc'>dfa</a"},
+ *  {text: 'Add', funcName: "funcName"},
+ *  {text: 'Remove', funcName: "funcName"}
+ * ]
+ */
+/*
+plugin.directive('ctxmenu', [],
+  function(){
+    return {
+
+
+
+    }
+  }
+);
+*/
+
+
