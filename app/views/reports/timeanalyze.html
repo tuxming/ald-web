@@ -1,0 +1,106 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "Time Analyze",
+		"css":["/styles/reports.css"],
+		"js":["/scripts/app.js", "/scripts/reports/timeanalyze.js"]
+	} -->
+
+<div class="container" ng-controller="timeanalyzeCtrl">
+  <div class="row">
+
+    <div class="col-xs-12 rp-title clearfix">
+      <a href="javascript:;" class="toast-nav"><i class="iconfont">&#xe60f;</i>Back To Reports</a><br/>
+      <h3>Time Analyze</h3>
+      <div class="pull-right">
+        All dates and times are based on UTC
+        <i class="iconfont">&#xe611;</i>
+      </div>
+    </div><!--end title-->
+    <div class="col-xs-12 search-form clearfix">
+      <div class="form-row">
+        <div class="form-inline">
+
+          <div class="form-group">
+            <label>From</label>
+
+            <span class="input-group">
+              <input type="text" class="form-control" ng-focus="open1()" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>To</label>
+            <span class="input-group">
+              <input type="text" class="form-control" ng-focus="open2()" uib-datepicker-popup ng-model="dt1" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </span>
+          </div>
+
+          <select class="select">
+            <option value="0">in Days</option>
+            <option value="1">in Weeks</option>
+            <option value="2">in Months</option>
+          </select>
+          <button class="btn btn-simple bcolor abtn">View</button>or
+          <button class="btn btn-simple bcolor abtn">Download CSV</button>
+
+        </div>
+      </div><!--end left-->
+
+      <div class="form-row clearfix">
+        <div class="pull-left">
+          <a href="javascript:;" class="link-underline size13">
+            Show/Hide Columns
+          </a>
+          <a href="javascript:;" class="icon-link bcolor size18">&#xe611;</a>
+        </div>
+        <div class="pull-right size13">
+          Empth Days: <b>Show</b>
+          |
+          <a href="javascript:;" class="size13 link-underline">Hide</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          Display:
+          <a href="javascript:;" class="size13 link-underline">Hours</a>
+          <b>Estimated Charges</b>&nbsp;
+          <i class="iconfont cursor">&#xe611;</i>
+        </div>
+      </div>
+
+
+    </div><!--end search form-->
+
+    <div class="col-xs-12 table-wrapper">
+      <table class="table rp-nohead-table">
+        <thead>
+          <tr class="sort-head">
+            <th><a href="javascript:;">Client <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">Freelancer <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">Contract <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">06/20/16 <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">06/21/16 <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">06/22/16 <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">06/23/16 <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">06/24/16 <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">06/25/16 <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">06/26/16 <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">Total Billed <span>↓</span><span>↑</span></th>
+            <th><a href="javascript:;">% Offline <span>↓</span><span>↑</span></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="no-data">
+          <td colspan="12">No matching records found</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-12">
+      <p class="rp-note">Note: This report is updated every hour.</p>
+    </div>
+  </div><!--end row-->
+
+</div><!--end container-->
+

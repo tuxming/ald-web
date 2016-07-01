@@ -1,0 +1,61 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "Timelogs",
+		"css":["/styles/reports.css"],
+		"js":["/scripts/app.js", "/scripts/reports/timelogs.js"]
+	} -->
+
+
+<div class="container" ng-controller="timelogsCtrl">
+  <div class="row">
+
+      <div class="col-xs-12 rp-title clearfix">
+        <a href="javascript:;" class="toast-nav"><i class="iconfont">&#xe60f;</i>Back To Reports</a><br/>
+        <h3>Timelogs</h3>
+        <div class="pull-right">
+          All dates and times are based on UTC
+          <i class="iconfont">&#xe611;</i>
+        </div>
+      </div><!--end title-->
+      <div class="col-xs-12 search-form clearfix">
+        <div class="pull-left">
+          <div class="form-inline">
+              <label>My Agency Contractors Week of:</label>
+              <a href="javascript:;"><i class="icon-link">&#xe60f;</i></a>
+              <span class="input-group">
+                <input type="text" class="form-control" ng-focus="open1()" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </span>
+              <a href="javascript:;"><i class="icon-link">&#xe615;</i></a>
+              <a class="link-underline" href="javascript">Current</a>
+          </div>
+        </div><!--end left-->
+        <div class="pull-right">
+          <a class="link-underline" href="javascript:;">Print this page</a>
+        </div>
+      </div><!--end search form-->
+
+      <div class="col-xs-12 table-wrapper">
+        <table class="table rp-nohead-table">
+          <thead>
+          <tr>
+            <th>Freelancer</th>
+            <th>Client</th>
+            <th>Contract Title</th>
+            <th>Type</th>
+            <th>Amount Billed</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr class="no-data">
+              <td colspan="5">No activity in this period.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-xs-12">
+        <p class="rp-note">Note: This report is updated every hour.</p>
+      </div>
+  </div><!--end row-->
+</div><!--end container-->
