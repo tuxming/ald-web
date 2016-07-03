@@ -1,9 +1,9 @@
 ﻿<!-- tpl {"parent": "app/template/index.tpl.html",
    "title": "Myjobs - New",
    "css":["/styles/d/myjobs.css"],
-   "js":["/scripts/app.js"]
+   "js":["/scripts/app.js","/scripts/d/controllers/newjob.js"]
  } -->
-<div class="container">
+<div class="container" ng-controller="newjob">
     <form name="createjob" novalidate="novalidate">
         <div class="row m-lg-bottom m-lg-top">
             <div class="col-xs-12"><h3 class="newjob-page-title">Post a Job</h3></div>
@@ -246,11 +246,11 @@
         </div>
         <div class="row new-job-panel">
             <div class="col-xs-12">
-                <h4><i class="iconfont lg-icon">&#xe651;</i><span class=""> Freelancer Preferences</span></h4>
+                <h4><i class="iconfont lg-icon icon-link">&#xe655;</i><span class=""> Freelancer Preferences</span></h4>
             </div>
         </div>
         <div class="row new-job-panel">
-            <div class="col-xs-12"><button class="btn btn-default btn-submitnewjob" >Post Job</button><button class="btn btn-link btn-newjobpreview">Preview</button></a></div>
+            <div class="col-xs-12"><button class="btn btn-default btn-submitnewjob">Post Job</button><button class="btn btn-link btn-newjobpreview">Preview</button></a></div>
         </div>
     </form>
 </div><!--end container-->
