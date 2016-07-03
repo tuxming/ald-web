@@ -1,8 +1,8 @@
 ﻿<!-- tpl {"parent": "app/template/nologin.tpl.html",
-        "title": "My Freelancers - Hired",
+        "title": "My Freelancers - Past Hires",
         "css":["/styles/e/myfreelancers.css"],
         "js":["/scripts/app.js"],
-        "page-tab":"hired"
+        "page-tab":"past"
 } -->
 <div class="container">
     <div class="row m-lg-bottom">
@@ -21,8 +21,24 @@
              jobs:[{url:'#',title:'Want a company for our web project (Hourly)'},{url:'#',title:'Want a company for our web project (Ended 2 months ago)'}]},
              {name:'Inder Lal Patel',description:'It\'s Sun 8:49 AM in udaipur',iconurl:'/images/pic3.jpg',
              jobs:[{url:'#',title:'Need a IT ADMIN to setup a tomcat server/mysql ASAP (Hourly)'}]}]">
-                <div class="m-sm-bottom">
-                    <a href="#">Send message to Team</a>
+                <div class="pagination-layout pull-right">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo; Prev</span>
+                            </a>
+                        </li>
+                        <li><a class="active" href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">Next &raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <article class="pull-left freelancerinfo-panel p-sm-bottom p-sm-top m-0-bottom" ng-repeat="item in freelancers">
                     <div class="freelancerinfo pull-left">
@@ -31,12 +47,15 @@
                         </div>
                         <div class="personinfo pull-left">
                             <div class="pull-right">
-                                <button class="btn btn-link ">Send a message...</button>
+                                <button class="btn btn-link freelancers-tools-btn rehire-btn">Rehire</button>
                                 <div class="p-tools-panel" ng-init="showmenu=false">
                                     <button class="btn btn-link freelancers-tools-btn menu-btn" ng-click="showmenu=!showmenu"><i class="iconfont lg-icon">&#xe614;</i></button>
-                                    <menu class="p-tools-menu-list" style="display: block; top: 77px; left: 799.5px;" ng-show="showmenu">
+                                    <menu class="p-tools-menu-list" style="display: block; top: 92px; left: 799.5px;" ng-show="showmenu">
                                         <li>
                                             <a href="#">View profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Send a message...</a>
                                         </li>
                                     </menu>
                                 </div>
@@ -52,6 +71,25 @@
                         </div>
                     </div>
                 </article>
+                <div class="pull-right pagination-layout m-normal-top">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo; Prev</span>
+                            </a>
+                        </li>
+                        <li><a class="active" href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">Next &raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

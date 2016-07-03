@@ -30,24 +30,17 @@
     width: 12.5%;
 }
 
-.lancer-head-img {
-    margin: 0 20px auto auto;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-}
-
 .personinfo {
     width: 87.5%;
     padding: 0px 15px;
 }
 
-.sendmsg-to-freelancers-btn {
+.freelancers-tools-btn {
     border: 2px solid @lightGrayColor;
     color: @baseColor;
 }
 
-.sendmsg-to-freelancers-btn:hover {
+.freelancers-tools-btn:hover {
     border-color: @baseColor;
     text-decoration: none;
     color: @baseColor;
@@ -56,9 +49,12 @@
 .p-tools-panel {
     display: inline-block;
 }
-.menu-btn{
-    height:36px;
+
+.menu-btn {
+    height: 36px;
+    line-height: 100%;
 }
+
 .p-tools-menu-list {
     min-width: 250px;
     padding: 0;
@@ -72,13 +68,56 @@
     position: absolute;
     z-index: 1000;
     background-color: @white;
-    height:35px;
 }
-.p-tools-menu-list li{    
+
+.p-tools-menu-list li {
     line-height: 35px;
+    border: 1px solid @lightGrayColor;
 }
+
+.p-tools-menu-list li:hover {
+    border: 2px solid @baseColor;
+}
+
 .p-tools-menu-list li a {
-    padding-left:20px;
+    display: inline-block;
+    padding-left: 20px;
     line-height: 100%;
 }
 /********** hired.html end********/
+/**** past.html start*****/
+.rehire-btn {
+    color: @white;
+    background-color: @baseColor;
+}
+
+.rehire-btn:hover {
+    color: @white;
+    background-color: darken(@baseColor,5%);
+}
+/**** past.html end*****/
+/**** saved.html start*****/
+.saved-lancer-head-img {
+    margin: 0 5px auto auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.saved-personinfo {
+    width: 94%;
+    padding: 0px 15px;
+}
+.saved-personicon{
+    width:6%;
+}
+.lancer-saved-info,.lancer-base-info{
+    display:inline-block;
+}
+.lancer-saved-info{
+    margin-left:50px;
+}
+.edit-link{
+    color:@baseColor;
+}
+/**** saved.html end*****/

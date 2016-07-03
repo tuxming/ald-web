@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1467387813'); /* IE9*/
-  src: url('iconfont.eot?t=1467387813#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1467387813') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1467387813') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1467387813#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1467541323'); /* IE9*/
+  src: url('iconfont.eot?t=1467541323#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1467541323') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1467541323') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1467541323#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -37,6 +37,7 @@
 .icon-my:before { content: "\e60c"; }
 .icon-refresh:before { content: "\e60d"; }
 .icon-sitting:before { content: "\e60e"; }
+.icon-add:before { content: "\e619"; }
 .icon-calendar:before { content: "\e64c"; }
 .icon-fileo:before { content: "\e643"; }
 .icon-iconfontwangyi:before { content: "\e62c"; }
@@ -50,7 +51,6 @@
 .icon-search:before { content: "\e616"; }
 .icon-warning:before { content: "\e617"; }
 .icon-wrong:before { content: "\e618"; }
-.icon-add:before { content: "\e619"; }
 .icon-star:before { content: "\e627"; }
 .icon-lishi:before { content: "\e652"; }
 .icon-smile:before { content: "\e63a"; }
@@ -70,17 +70,21 @@
 .icon-wbdiconsoftxls:before { content: "\e62d"; }
 .icon-clock256:before { content: "\e64f"; }
 .icon-list2:before { content: "\e636"; }
+.icon-baoxiang:before { content: "\e657"; }
 .icon-remind:before { content: "\e61d"; }
+.icon-user:before { content: "\e65a"; }
 .icon-add1:before { content: "\e629"; }
 .icon-shouqi:before { content: "\e651"; }
 .icon-wangyi:before { content: "\e62e"; }
 .icon-zhankai:before { content: "\e655"; }
 .icon-tuichu:before { content: "\e61e"; }
 .icon-jiagebiaoqian:before { content: "\e649"; }
+.icon-upload:before { content: "\e658"; }
 .icon-yonghuzu:before { content: "\e63f"; }
 .icon-calendar1:before { content: "\e633"; }
 .icon-report1:before { content: "\e62f"; }
 .icon-yonghudianping:before { content: "\e640"; }
+.icon-huahuabitongxuexi:before { content: "\e659"; }
 .icon-csvgeshi:before { content: "\e630"; }
 .icon-sina:before { content: "\e631"; }
 .icon-video:before { content: "\e641"; }
@@ -99,5 +103,6 @@
 .icon-word-copy:before { content: "\e632"; }
 .icon-dollarcoin:before { content: "\e64b"; }
 .icon-yduidingwei:before { content: "\e626"; }
+.icon-pdf:before { content: "\e656"; }
 .icon-yinyong:before { content: "\e63b"; }
 .icon-clock1:before { content: "\e650"; }
