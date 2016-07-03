@@ -2319,3 +2319,25 @@ button, html input[type=button], input[type=reset], input[type=submit] {
     background-color:darken(@baseColor,10%);
 }
 /********** end signup_index css**********/
+
+/******* myfreelancersnav.html start ***********/
+.myfreelancer-nav li a{
+    border-radius: 2px;
+    padding: 10px 15px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: flex;
+    color: @baseColor;
+    font-family: "Gotham Book",sans-serif;
+    font-weight: 600;
+    vertical-align:middle;
+    line-height:100%;
+}
+.myfreelancer-nav li a:hover{
+    background-color:transparent;
+}
+.myfreelancer-nav li a.active{
+   border-left:4px solid @baseColor;
+   background-color:lighten(@lightGrayColor,6%);
+}
+/******* myfreelancersnav.html end ***********/

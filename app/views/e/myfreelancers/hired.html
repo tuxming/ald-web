@@ -1,0 +1,59 @@
+﻿<!-- tpl {"parent": "app/template/nologin.tpl.html",
+        "title": "My Freelancers - Hired",
+        "css":["/styles/e/myfreelancers.css"],
+        "js":["/scripts/app.js"],
+        "page-tab":"hired"
+} -->
+<div class="container">
+    <div class="row m-lg-bottom">
+        <div class="col-xs-12">
+            <div class="myfreelancers-side-bar pull-left no-lf-padding">
+                <div class="col-xs-12">
+                    <span class="iconfont prefix-pre">&#xe616;</span>
+                    <input type="text" class="form-control c-input prefix-input" style="width:100%" placeholder="Search for freelancer…" />
+                </div>
+                <div class="col-xs-12 no-lf-padding">
+                    <!--build {"type":"tpl", "ref":"/template/myfreelancersnav.html"}-->
+                    <!--endbuild-->
+                </div>
+            </div>
+            <div class="freelancers-list-panel pull-left" ng-init="freelancers=[{name:'Barindra Nath',description:'It\'s Sun 3:19 AM in Minsk',iconurl:'/images/pic3.jpg',
+             jobs:[{url:'#',title:'Want a company for our web project (Hourly)'},{url:'#',title:'Want a company for our web project (Ended 2 months ago)'}]},
+             {name:'Inder Lal Patel',description:'It\'s Sun 8:49 AM in udaipur',iconurl:'/images/pic3.jpg',
+             jobs:[{url:'#',title:'Need a IT ADMIN to setup a tomcat server/mysql ASAP (Hourly)'}]}]">
+                <div class="m-sm-bottom">
+                    <a href="#">Send message to Team</a>
+                </div>
+                <article class="pull-left freelancerinfo-panel p-sm-bottom p-sm-top m-0-bottom" ng-repeat="item in freelancers">
+                    <div class="freelancerinfo pull-left">
+                        <div class="personicon pull-left">
+                            <img class="lancer-head-img" src="{{item.iconurl}}" />
+                        </div>
+                        <div class="personinfo pull-left">
+                            <div class="pull-right">
+                                <button class="btn btn-link sendmsg-to-freelancers-btn">Send a message...</button>
+                                <div class="p-tools-panel" ng-init="showmenu=false">
+                                    <button class="btn btn-link sendmsg-to-freelancers-btn menu-btn" ng-click="showmenu=!showmenu"><i class="iconfont lg-icon">&#xe614;</i></button>
+
+                                    <menu class="p-tools-menu-list" style="display: block; top: 85px; left: 799.5px;" ng-show="showmenu">
+                                        <li>
+                                            <a href="#">View profile</a>
+                                        </li>
+                                    </menu>
+                                </div>
+                            </div>
+                            <div>{{item.name}}</div>
+                            <div><small>{{item.description}}</small></div>
+                            <hr />
+                            <ul class="list-unstyled">
+                                <li ng-repeat="job in item.jobs">
+                                    <a href="{{job.url}}">{{job.title}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
