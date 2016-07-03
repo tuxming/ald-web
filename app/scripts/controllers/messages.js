@@ -7,21 +7,23 @@
  * # MessageCtrl
  * Controller of the app
  */
-app.controller('MessageCtrl', function ($scope) {
+app.controller('MessageCtrl', function ($scope, $uibModal) {
 
+  //left bar switch
   $scope.radioCheck = true;
   $scope.radioSwitch = function(obj){
     $scope.radioCheck = obj;
   };
 
+  //right top bar switch
   $scope.sideFileByDate = false;
   $scope.sideFileByDateSwitch = function(obj){
     $scope.sideFileByDate = !obj;
   };
 
-  $scope.isMsgMaxWidth = false;
+  $scope.isMsgMaxWidth = true;
   $scope.isShowFiles = false;
-  $scope.isShowPeoples = true;
+  $scope.isShowPeoples = false;
   $scope.showFiles = function(obj){
 
     $scope.isShowFiles = !obj;
@@ -45,5 +47,44 @@ app.controller('MessageCtrl', function ($scope) {
     }
 
   };
+
+
+  //add people dialog show
+  var msgScope = $scope;
+
+  $scope.showAddppDlg = function(){
+    var modalInstance = $uibModal.open({
+      animation: true,
+      templateUrl: 'AddppDlg.html',
+      controller: function($scope){
+
+        msgScope.xx = '1';
+
+      },
+      size: "",
+      resolve: {
+       // items: function () {
+       //   return $scope.items;
+       // }
+      }
+    })
+  };
+
+  //meessagelist or room list switch
+  $scope.isShowRoomList = true;
+
+  $scope.roomsTabs = [true, false, false, false];
+  $scope.switchRoomsTab = function(index){
+    $scope.roomsTabs = [false, false, false, false];
+    $scope.roomsTabs[index] = true;
+  };
+
+  $scope.showMessageList = function(){
+    $scope.isShowRoomList = true;
+  }
+
+  $scope.showRoomsList = function(){
+    $scope.isShowRoomList = false;
+  }
 
 });

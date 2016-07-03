@@ -1,28 +1,8 @@
-<!doctype html>
-<html ng-app="app">
-<head>
-  <meta charset="utf-8">
-  <title>Messages</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-  <!-- build {"type":"css", "ref":"/styles/main.css"} -->
-  <link rel="stylesheet" href="/styles/main.css">
-  <link rel="stylesheet" href="/styles/style.css">
-  <!-- endbuild -->
-  <link rel="stylesheet" href="/styles/messages.css">
-
-</head>
-<body class="ald-body" ng-controller="parentCtrl">
-<!--[if lte IE 8]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-
-<!--build {"type":"tpl", "ref":"/template/header.html"}-->
-<!--endbuild-->
-
+<!-- tpl {"parent": "app/template/index.nofooter.tpl.html",
+		"title": "Messages",
+		"css":["/styles/messages.css"],
+		"js":["/scripts/app.js", "/scripts/controllers/messages.js"]
+	} -->
 <div class="container-fluid msg-container" ng-controller="MessageCtrl">
   <div class="row-fluid clearfix">
     <!--end start user list -->
@@ -82,7 +62,7 @@
 
         <div class="room-list-wrapper">
           <ul class="room-list list-unstyled">
-            <li class="room clearfix" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+            <li class="room clearfix" ng-click="showMessageList(true)" ng-click="showMessageList(true)" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
               <div class="chat-icon"><i class="iconfont">&#xe640;</i></div>
               <div class="room-info">
                 <div>
@@ -118,7 +98,8 @@
 
       <!--start people-list -->
       <div class="people-list clearfix"  ng-show="!radioCheck">
-        <a href="javascript:;" class="all-room-link"><i class="icon-link">&#xe642;</i>&nbsp;&nbsp;All People & Rooms</a>
+        <a href="javascript:;" ng-click="showRoomsList()" class="all-room-link">
+          <i class="icon-link">&#xe642;</i>&nbsp;&nbsp;All People & Rooms</a>
 
         <div class="item-group ig-mark-msgs">
           <div href="javascript:;" class="ig-title">FAVOURITES</div>
@@ -130,7 +111,7 @@
           <a href="javascript:;" class="ig-title ig-interviews-link">INTERVIEWS</a>
 
           <ul class="room-list list-unstyled">
-            <li class="room clearfix" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
+            <li class="room clearfix" ng-click="showMessageList(true)" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
               <div class="chat-icon"><i class="iconfont">&#xe640;</i></div>
               <div class="room-info">
                 <div>
@@ -161,7 +142,7 @@
           <a href="javascript:;" class="ig-title ig-rooms-link">ROOMS</a>
 
           <ul class="room-list list-unstyled">
-            <li class="room clearfix" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
+            <li class="room clearfix" ng-click="showMessageList(true)" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
               <div class="chat-icon"><i class="iconfont">&#xe640;</i></div>
               <div class="room-info">
                 <div>
@@ -192,7 +173,7 @@
           <a href="javascript:;" class="ig-title ig-people-link">PEOPLE</a>
 
           <ul class="room-list list-unstyled">
-            <li class="room clearfix" ng-repeat="i in [0,1]">
+            <li class="room clearfix" ng-click="showMessageList(true)" ng-repeat="i in [0,1]">
               <div class="chat-icon">
                 <img src="/images/user.png" />
                 <div class="msg-online">&nbsp;</div>
@@ -218,7 +199,7 @@
                 <div class="chart-msg-last eclipse">u mean by loading corresp</div>
               </div>
             </li>
-            <li class="room clearfix">
+            <li class="room clearfix" ng-click="showMessageList(true)">
               <div class="chat-icon">
                 <img src="/images/user.png" />
                 <div class="msg-offline">&nbsp;</div>
@@ -253,276 +234,523 @@
     </div><!--end user list-->
 
     <!-- start message list-->
-    <div class="message-list">
-      <div class="topbar-right clearfix">
-        <div class="msg-title">
-          <div class="msg-title-name">Angela Lastie<i class="iconfont">&#xe60a;</i></div>
-          <div class="msg-title-label">Back End Developer</div>
-        </div>
+    <div class="right-main">
+      <div class="message-list-wrapper"  ng-show="isShowRoomList" >
+        <div class="topbar-right clearfix">
+          <div class="msg-title">
+            <div class="msg-title-name">Angela Lastie<i class="iconfont">&#xe60a;</i></div>
+            <div class="msg-title-label">Back End Developer</div>
+          </div>
 
-        <ul class="pull-right list-unstyled bar-tool">
-          <li class="active"><i class="icon-link">&#xe641;</i></li>
-          <li class="hr">&nbsp;</li>
-          <li><i class="icon-link" ng-click="showFiles(isShowFiles)">&#xe643;</i></li>
-          <li><i class="icon-link" ng-click="showPeoples(isShowPeoples)">&#xe63f;</i></li>
-          <li><i class="icon-link">&#xe63c;</i></li>
-        </ul>
+          <ul class="pull-right list-unstyled bar-tool">
+            <li class="active"><i class="icon-link">&#xe641;</i></li>
+            <li class="hr">&nbsp;</li>
+            <li><i class="icon-link" ng-click="showFiles(isShowFiles)">&#xe643;</i></li>
+            <li><i class="icon-link" ng-click="showPeoples(isShowPeoples)">&#xe63f;</i></li>
+            <li><i class="icon-link">&#xe63c;</i></li>
+          </ul>
 
-      </div><!--end topbar-right-->
-      <div class="main-body clearfix">
-        <div class="msgs-wrapper" ng-class="{true: 'msgs-wrapper', false: 'msgs-wrapper-min'}[isMsgMaxWidth]">
-          <div class="msgs-group">
-            <div class="before-time">
-              Friday
-            </div>
-            <ul class="msgs list-unstyled">
-              <li class="msg-item clearfix" ng-repeat = "i in  [1,2,3,4,5,6,7]">
-                <div class="msg-user-icon">
-                  <img src="/images/user.png" />
-                  <div class="msg-online">&nbsp;</div>
-                </div>
-                <div class="msg-content">
-                  <div class="msg-user-name">RAD Clon</div>
-                  <div class="msg-text-wrapper clearfix">
-                    <span class="icon-link msg-text-fav">&#xe60a;</span>
-                    <div class="msg-item-text">
-                      <p>asssssssssssssssssssssssssssssssdasdasdasdasdasasdasdasdasdasfsdfsdfklasjfklasdjfklasdjfleifasdklfjeiflasdfjaeifalefjiaflkajfieaflkjeifalkdfjaldfjieglad</p>
+        </div><!--end topbar-right-->
+        <div class="main-body clearfix">
+          <div class="msgs-wrapper" ng-class="{true: 'msgs-wrapper', false: 'msgs-wrapper-min'}[isMsgMaxWidth]">
+            <div class="msgs-group">
+              <div class="before-time">
+                Friday
+              </div>
+              <ul class="msgs list-unstyled">
+                <li class="msg-item clearfix" ng-repeat = "i in  [1,2,3,4,5,6,7]">
+                  <div class="msg-user-icon">
+                    <img src="/images/user.png" />
+                    <div class="msg-online">&nbsp;</div>
+                  </div>
+                  <div class="msg-content">
+                    <div class="msg-user-name">RAD Clon</div>
+                    <div class="msg-text-wrapper clearfix">
+                      <span class="icon-link msg-text-fav">&#xe60a;</span>
+                      <div class="msg-item-text">
+                        <p>asssssssssssssssssssssssssssssssdasdasdasdasdasasdasdasdasdasfsdfsdfklasjfklasdjfklasdjfleifasdklfjeiflasdfjaeifalefjiaflkajfieaflkjeifalkdfjaldfjieglad</p>
                     <span class="msg-item-qout">
                       <a href="javascript:;" class="qout-link">
                         Go to the Proposal
                       </a>
                     </span>
-                    </div>
+                      </div>
                   <span class="msg-send-time">
                     <span class="icon-link msg-item-setting">&#xe63b;</span>
                     <span class="msg-item-time">3:40PM</span>
                   </span>
+                    </div>
                   </div>
-                </div>
-              </li><!--end msg-item-->
-              <li class="msg-item clearfix">
-                <div class="msg-user-icon">
-                  <img src="/images/user.png" />
-                  <div class="msg-offline">&nbsp;</div>
-                </div>
-                <div class="msg-content">
-                  <div class="msg-user-name">RAD Clon</div>
-                  <div class="msg-text-wrapper clearfix">
-                    <span class="icon-link msg-text-fav">&#xe60a;</span>
-                    <div class="msg-item-text">
-                      <p>asssssssssssssssssssssssssssssssdasdasdasdasdasasdasdasdasdasfsdfsdfklasjfklasdjfklasdjfleifasdklfjeiflasdfjaeifalefjiaflkajfieaflkjeifalkdfjaldfjieglad</p>
+                </li><!--end msg-item-->
+                <li class="msg-item clearfix">
+                  <div class="msg-user-icon">
+                    <img src="/images/user.png" />
+                    <div class="msg-offline">&nbsp;</div>
+                  </div>
+                  <div class="msg-content">
+                    <div class="msg-user-name">RAD Clon</div>
+                    <div class="msg-text-wrapper clearfix">
+                      <span class="icon-link msg-text-fav">&#xe60a;</span>
+                      <div class="msg-item-text">
+                        <p>asssssssssssssssssssssssssssssssdasdasdasdasdasasdasdasdasdasfsdfsdfklasjfklasdjfklasdjfleifasdklfjeiflasdfjaeifalefjiaflkajfieaflkjeifalkdfjaldfjieglad</p>
                     <span class="msg-item-qout">
                       <a href="javascript:;" class="qout-link">
                         Go to the Proposal
                       </a>
                     </span>
-                    </div>
+                      </div>
                   <span class="msg-send-time">
                     <span class="icon-link msg-item-setting">&#xe60e;</span>
                     <span class="msg-item-time">3:40PM</span>
                   </span>
+                    </div>
                   </div>
-                </div>
-              </li><!--end msg-item-->
-            </ul><!--end msgs-->
-          </div><!--end msgs-group-->
+                </li><!--end msg-item-->
+              </ul><!--end msgs-->
+            </div><!--end msgs-group-->
 
 
-          <div class="send-msg-wrapper">
-            <div class="msg-input-wrapper">
-              <textarea name="" rows="1"></textarea>
-              <ul class="list-unstyled send-msg-tools">
-                <li><a href="javascript:;" class="icon-link">&#xe60e;</a></li>
-                <li><a href="javascript:;" class="icon-link">&#xe609;</a></li>
-                <li><a href="javascript:;" class="icon-link">&#xe63d;</a></li>
-              </ul>
+            <div class="send-msg-wrapper">
+              <div class="msg-input-wrapper">
+                <textarea name="" rows="1"></textarea>
+                <ul class="list-unstyled send-msg-tools">
+                  <li><a href="javascript:;" class="icon-link">&#xe60e;</a></li>
+                  <li><a href="javascript:;" class="icon-link">&#xe609;</a></li>
+                  <li><a href="javascript:;" class="icon-link">&#xe63d;</a></li>
+                </ul>
+              </div>
+              <a class="btn btn-primary send-btn-active">Send</a>
             </div>
-            <a class="btn btn-primary send-btn-active">Send</a>
-          </div>
-          <!--end send msg -->
-        </div><!--end messages / msgs-wrapper -->
+            <!--end send msg -->
+          </div><!--end messages / msgs-wrapper -->
 
-        <div class="side-panel" ng-show="isShowFiles || isShowPeoples">
-          <div class="file-list" ng-show="isShowFiles">
-            <ul class="list-inline side-title clearfix">
-              <li class="pull-left">
-                <div class="dropdown">
-                  <a  class="dropdown-toggle ald-dropdown-toggle side-title-text"
-                    aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#">
+          <div class="side-panel" ng-show="isShowFiles || isShowPeoples">
+            <div class="file-list" ng-show="isShowFiles">
+              <ul class="list-inline side-title clearfix">
+                <li class="pull-left">
+                  <div class="dropdown">
+                    <a  class="dropdown-toggle ald-dropdown-toggle side-title-text"
+                        aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#">
                       Files & Links
                       <i class="icon-link">&#xe614;</i>
+                    </a>
+                    <ul class="dropdown-menu ald-dropdown-menu">
+                      <li>Files & Links </li>
+                      <li>Files</li>
+                      <li>Links</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="pull-right">Date
+                  <i class="icon-link" ng-show="sideFileByDate" ng-click="sideFileByDateSwitch(sideFileByDate)">&#xe613;</i>
+                  <i class="icon-link" ng-show="!sideFileByDate" ng-click="sideFileByDateSwitch(sideFileByDate)">&#xe614;</i>
+                </li>
+              </ul><!--end side-title-->
+              <ul class="list-unstyled side-items">
+                <li class="side-item clearfix" ng-repeat="i in [0,1]">
+                  <div class="side-item-icon">
+                    <i class="icon-link">&#xe643;</i>
+                  </div>
+                  <div class="side-item-title-warpper">
+                    <div class="side-item-title clearfix">
+                      <a class="side-item-text link-underline eclipse" href="javascript:;">IDFLAGJ-LIST-1.PDF</a>
+                      <a class="icon-link pull-right side-file-url">&#xe63d;</a>
+                    </div>
+                    <div class="side-label clearfix">
+                      <a class="pull-left side-file-author link-underline" href="javascript:;">tuxming</a>
+                      <span class="pull-right side-file-date">04/25/16</span>
+                    </div>
+                  </div>
+                </li>
+                <li class="side-item side-item-url clearfix" ng-repeat="i in [0,1]">
+                  <div class="side-item-title-warpper">
+                    <div class="side-item-title clearfix">
+                      <a class="side-title-text link-underline eclipse" href="javascript:;">
+                        http://hypefly.zapbuild.com
+                      </a>
+                      <a class="icon-link pull-right side-file-url">&#xe63d;</a>
+                    </div>
+                    <div class="side-label clearfix">
+                      <a class="pull-left side-file-author link-underline" href="javascript:;">tuxming</a>
+                      <span class="pull-right side-file-date">04/25/16</span>
+                    </div>
+                  </div>
+                </li>
+              </ul><!--end side-items-->
+
+              <div class="no-files none">
+                No files & links have been posted to this room.
+              </div><!--end no-files-->
+            </div><!--end filelist-->
+
+            <div class="side-people" ng-show="isShowPeoples">
+              <ul class="list-inline side-title clearfix">
+                <li>
+                  <span class="side-title-text">People</span>
+                </li>
+              </ul><!--end side-title-->
+              <ul class="list-unstyled side-items">
+                <li class="side-item side-add-people-wrapper clearfix">
+                  <a href="javascript:;" class="side-add-people" ng-click="showAddppDlg()">
+                    <i class="iconfont">&#xe619;</i>&nbsp;&nbsp;&nbsp;
+                    Add People
                   </a>
-                  <ul class="dropdown-menu ald-dropdown-menu">
-                    <li>Files & Links </li>
-                    <li>Files</li>
-                    <li>Links</li>
-                  </ul>
-                </div>
-              </li>
-              <li class="pull-right">Date
-                <i class="icon-link" ng-show="sideFileByDate" ng-click="sideFileByDateSwitch(sideFileByDate)">&#xe613;</i>
-                <i class="icon-link" ng-show="!sideFileByDate" ng-click="sideFileByDateSwitch(sideFileByDate)">&#xe614;</i>
-              </li>
-            </ul><!--end side-title-->
-            <ul class="list-unstyled side-items">
-              <li class="side-item clearfix" ng-repeat="i in [0,1]">
-                <div class="side-item-icon">
-                  <i class="icon-link">&#xe643;</i>
-                </div>
-                <div class="side-item-title-warpper">
-                  <div class="side-item-title clearfix">
-                    <a class="side-item-text link-underline eclipse" href="javascript:;">IDFLAGJ-LIST-1.PDF</a>
-                    <a class="icon-link pull-right side-file-url">&#xe63d;</a>
+                </li>
+                <li class="side-item clearfix">
+                  <div class="chat-icon side-item-icon">
+                    <img src="/images/user.png" />
+                    <div class="msg-online">&nbsp;</div>
                   </div>
-                  <div class="side-label clearfix">
-                    <a class="pull-left side-file-author link-underline" href="javascript:;">tuxming</a>
-                    <span class="pull-right side-file-date">04/25/16</span>
-                  </div>
-                </div>
-              </li>
-              <li class="side-item side-item-url clearfix" ng-repeat="i in [0,1]">
-                <div class="side-item-title-warpper">
-                  <div class="side-item-title clearfix">
-                    <a class="side-title-text link-underline eclipse" href="javascript:;">
-                      http://hypefly.zapbuild.com
-                    </a>
-                    <a class="icon-link pull-right side-file-url">&#xe63d;</a>
-                  </div>
-                  <div class="side-label clearfix">
-                    <a class="pull-left side-file-author link-underline" href="javascript:;">tuxming</a>
-                    <span class="pull-right side-file-date">04/25/16</span>
-                  </div>
-                </div>
-              </li>
-            </ul><!--end side-items-->
-
-            <div class="no-files none">
-              No files & links have been posted to this room.
-            </div><!--end no-files-->
-          </div><!--end filelist-->
-
-          <div class="side-people" ng-show="isShowPeoples">
-            <ul class="list-inline side-title clearfix">
-              <li>
-                <span class="side-title-text">People</span>
-              </li>
-            </ul><!--end side-title-->
-            <ul class="list-unstyled side-items">
-              <li class="side-item side-add-people-wrapper clearfix">
-                <a href="javascript:;" class="side-add-people">
-                  <i class="iconfont">&#xe619;</i>&nbsp;&nbsp;&nbsp;
-                  Add People
-                </a>
-              </li>
-              <li class="side-item clearfix">
-                <div class="chat-icon side-item-icon">
-                  <img src="/images/user.png" />
-                  <div class="msg-online">&nbsp;</div>
-                </div>
-                <div class="side-item-title-warpper">
-                  <div class="dropdown">
-                    <a class="dropdown-toggle ald-dropdown-toggle link-underline side-p-user"
-                      aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#">
-                      Tuxianming
-                    </a>
-                    <ul class="dropdown-menu ald-dropdown-menu" style="width: 240px; left:-54px;">
-                      <li class="side-userinfo-li">
-                        <div class="side-userinfo-wrapper">
-                          <div class="side-userinfo clearfix">
-                            <div class="chat-icon side-item-icon">
-                              <img src="/images/user.png" />
-                              <div class="msg-online">&nbsp;</div>
-                            </div>
-                            <div>
-                              <div>
-                                <span class="pop-user-name eclipse" style="font-size:14px; display:inline-block; width: 85px; color:#979797; font-weight:bold; ">Tuxianming</span>&nbsp;&nbsp;
-                                <span class="pop-user-role" style=" color:#979797; display:inline-block; vertical-align: top; font-weight:bold; font-size:12px;">6:59 pm CST</span>
+                  <div class="side-item-title-warpper">
+                    <div class="dropdown">
+                      <a class="dropdown-toggle ald-dropdown-toggle link-underline side-p-user"
+                         aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#">
+                        Tuxianming
+                      </a>
+                      <ul class="dropdown-menu ald-dropdown-menu" style="width: 240px; left:-54px;">
+                        <li class="side-userinfo-li">
+                          <div class="side-userinfo-wrapper">
+                            <div class="side-userinfo clearfix">
+                              <div class="chat-icon side-item-icon">
+                                <img src="/images/user.png" />
+                                <div class="msg-online">&nbsp;</div>
                               </div>
-                              <div>Client</div>
-                            </div>
-                          </div>
-                          <div class="side-p-user-pos">
-                            <i class="iconfont">&#xe626;</i>
-                            Changsha, China
-                          </div>
-                        </div><!--end side-user-sim-info-->
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="side-p-who">(You)</div>
-                  <div class="side-p-role">Owner</div>
-                </div>
-              </li><!--end item-->
-              <li class="side-item clearfix">
-                <div class="chat-icon side-item-icon">
-                  <img src="/images/user.png" />
-                  <div class="msg-offline">&nbsp;</div>
-                </div>
-                <div class="side-item-title-warpper">
-                  <div class="dropdown">
-                    <a class="dropdown-toggle ald-dropdown-toggle link-underline side-p-user"
-                       aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#">
-                      Tuxianming
-                    </a>
-                    <ul class="dropdown-menu ald-dropdown-menu" style="width: 265px; left:-54px;">
-                      <li class="side-userinfo-li">
-                        <div class="side-userinfo-wrapper">
-                          <div class="side-userinfo clearfix">
-                            <div class="chat-icon side-item-icon">
-                              <img src="/images/user.png" />
-                              <div class="msg-online">&nbsp;</div>
-                            </div>
-                            <div>
                               <div>
-                                <span class="pop-user-name eclipse" style="font-size:14px; display:inline-block; width: 85px; color:#979797; font-weight:bold; ">Tuxianming</span>&nbsp;&nbsp;
-                                <span class="pop-user-role" style=" color:#979797; display:inline-block; vertical-align: top; font-weight:bold; font-size:12px;">6:59 pm CST</span>
+                                <div>
+                                  <span class="pop-user-name eclipse" style="font-size:14px; display:inline-block; width: 85px; color:#979797; font-weight:bold; ">Tuxianming</span>&nbsp;&nbsp;
+                                  <span class="pop-user-role" style=" color:#979797; display:inline-block; vertical-align: top; font-weight:bold; font-size:12px;">6:59 pm CST</span>
+                                </div>
+                                <div>Client</div>
                               </div>
-                              <div>Client</div>
                             </div>
-                          </div>
-                          <div class="side-p-user-pos">
-                            <i class="iconfont">&#xe626;</i>
-                            Changsha, China
-                          </div>
-                        </div><!--end side-user-sim-info-->
-                      </li>
-                      <li><a href="javascript:;">Viwe profile</a></li>
-                      <li><a href="javascript:;">Go To 1:1 Room</a></li>
-                      <li><a href="javascript:;">Add to Group Room</a></li>
-                      <li><a href="javascript:;">Other</a></li>
-                    </ul>
+                            <div class="side-p-user-pos">
+                              <i class="iconfont">&#xe626;</i>
+                              Changsha, China
+                            </div>
+                          </div><!--end side-user-sim-info-->
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="side-p-who">(You)</div>
+                    <div class="side-p-role">Owner</div>
                   </div>
-                  <div class="side-p-role">Owner</div>
-                </div>
-              </li><!--end item-->
-            </ul><!--end side-items-->
-          </div><!--end filelist-->
+                </li><!--end item-->
+                <li class="side-item clearfix">
+                  <div class="chat-icon side-item-icon">
+                    <img src="/images/user.png" />
+                    <div class="msg-offline">&nbsp;</div>
+                  </div>
+                  <div class="side-item-title-warpper">
+                    <div class="dropdown">
+                      <a class="dropdown-toggle ald-dropdown-toggle link-underline side-p-user"
+                         aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#">
+                        Tuxianming
+                      </a>
+                      <ul class="dropdown-menu ald-dropdown-menu" style="width: 265px; left:-54px;">
+                        <li class="side-userinfo-li">
+                          <div class="side-userinfo-wrapper">
+                            <div class="side-userinfo clearfix">
+                              <div class="chat-icon side-item-icon">
+                                <img src="/images/user.png" />
+                                <div class="msg-online">&nbsp;</div>
+                              </div>
+                              <div>
+                                <div>
+                                  <span class="pop-user-name eclipse" style="font-size:14px; display:inline-block; width: 85px; color:#979797; font-weight:bold; ">Tuxianming</span>&nbsp;&nbsp;
+                                  <span class="pop-user-role" style=" color:#979797; display:inline-block; vertical-align: top; font-weight:bold; font-size:12px;">6:59 pm CST</span>
+                                </div>
+                                <div>Client</div>
+                              </div>
+                            </div>
+                            <div class="side-p-user-pos">
+                              <i class="iconfont">&#xe626;</i>
+                              Changsha, China
+                            </div>
+                          </div><!--end side-user-sim-info-->
+                        </li>
+                        <li><a href="javascript:;">Viwe profile</a></li>
+                        <li><a href="javascript:;">Go To 1:1 Room</a></li>
+                        <li><a href="javascript:;">Add to Group Room</a></li>
+                        <li><a href="javascript:;">Other</a></li>
+                      </ul>
+                    </div>
+                    <div class="side-p-role">Owner</div>
+                  </div>
+                </li><!--end item-->
+              </ul><!--end side-items-->
+            </div><!--end filelist-->
 
-        </div><!--end side-panel-->
+          </div><!--end side-panel-->
 
-      </div><!--end main-body-->
+        </div><!--end main-body-->
 
-    </div><!--end message list-->
+      </div><!--end message list-wrapper-->
+
+      <div class="all-rooms" ng-show="!isShowRoomList">
+        <div class="head">
+          <h3 >All People & Rooms</h3>
+          <div class="clearfix">
+            <div class="btn-group btn-radio-group show-model show-type" role="group" aria-label="radio">
+              <button ng-class="{true: 'btn-radio-active', false: 'btn-radio-unactive'}[roomsTabs[0]]"
+                      ng-click="switchRoomsTab(0)"
+                      class="btn btn-radio-active" aria-label="radio">All</button>
+              <button ng-class="{true: 'btn-radio-active', false: 'btn-radio-unactive'}[roomsTabs[1]]"
+                      ng-click="switchRoomsTab(1)"
+                      class="btn btn-radio-unactive" aria-label="radio">Interviews</button>
+              <button ng-class="{true: 'btn-radio-active', false: 'btn-radio-unactive'}[roomsTabs[2]]"
+                      ng-click="switchRoomsTab(2)"
+                      class="btn btn-radio-unactive" aria-label="radio">Rooms</button>
+              <button ng-class="{true: 'btn-radio-active', false: 'btn-radio-unactive'}[roomsTabs[3]]"
+                      ng-click="switchRoomsTab(3)"
+                      class="btn btn-radio-unactive" aria-label="radio">People</button>
+            </div>
+            <div class="ar-filter">
+              <span class="iconfont prefix-pre">&#xe616;</span>
+              <input type="text" class="form-control prefix-input" placeholder="Filter"/>
+            </div>
+          </div>
+        </div>
+        <div class="ar-list-wrapper">
+          <div class="ar-list ar-list-1" ng-show="roomsTabs[0]">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th></th>
+                <th></th>
+                <th>Last Active <i class="iconfont">&#xe614;</i></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+                <td class="icon">
+                  <i class="iconfont">&#xe640;</i>
+                </td>
+                <td class="name">
+                  <div>Robert Kkkkkk</div>
+                  <div>u mean by loading corresp</div>
+                </td>
+                <td class="data">
+                  2 people
+                </td>
+                <td class="activity">
+                  9 hours ago
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="pagination-layout">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo; Prev</span>
+                  </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">Next &raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div><!--end ar-list-->
+
+          <div class="ar-list ar-list-2" ng-show="roomsTabs[1]">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th></th>
+                <th></th>
+                <th>Last Active <i class="iconfont">&#xe614;</i></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+                <td class="icon">
+                  <i class="iconfont">&#xe640;</i>
+                </td>
+                <td class="name">
+                  <div>Robert Kkkkkk</div>
+                  <div>u mean by loading corresp</div>
+                </td>
+                <td class="data">
+                  2 people
+                </td>
+                <td class="activity">
+                  9 hours ago
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="pagination-layout">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo; Prev</span>
+                  </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">Next &raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div><!--end ar-list-->
+
+          <div class="ar-list ar-list-3" ng-show="roomsTabs[2]">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th></th>
+                <th></th>
+                <th>Last Active <i class="iconfont">&#xe614;</i></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+                <td class="icon">
+                  <i class="iconfont">&#xe640;</i>
+                </td>
+                <td class="name">
+                  <div>Robert Kkkkkk</div>
+                  <div>u mean by loading corresp</div>
+                </td>
+                <td class="data">
+                  2 people
+                </td>
+                <td class="activity">
+                  9 hours ago
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="pagination-layout">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo; Prev</span>
+                  </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">Next &raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div><!--end ar-list-->
+
+          <div class="ar-list ar-list-4" ng-show="roomsTabs[3]">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th></th>
+                <th></th>
+                <th>Last Active <i class="iconfont">&#xe614;</i></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+                <td class="icon">
+                  <i class="iconfont">&#xe640;</i>
+                </td>
+                <td class="name">
+                  <div>Robert Kkkkkk</div>
+                  <div>u mean by loading corresp</div>
+                </td>
+                <td class="data">
+                  2 people
+                </td>
+                <td class="activity">
+                  9 hours ago
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="pagination-layout">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo; Prev</span>
+                  </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">Next &raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div><!--end ar-list-->
+        </div><!--end ar-list-wrapper-->
+      </div><!--end all-rooms -->
+
+    </div><!--end right-main-->
   </div><!--end row-fluid-->
 </div><!--end container-->
 
 
 <!--dialog html-->
-<div class="add-pp-dlg none">
-
-
-</div><!--end add-pp-dlg-->
-
-<!--end dialog html-->
-
-
-<!-- build {"type":"bower" }-->
-<!-- endbuild -->
-
-<script type="text/javascript" src="/scripts/app.js"></script>
-<script type="text/javascript" src="/scripts/controllers/messages.js"></script>
-
-</body>
-</html>
+<script type="text/ng-template" id="AddppDlg.html">
+  <div class="add-pp-dlg">
+    <div class="add-pp-dlg-header clearfix">
+      <div class="pull-left">Add People to Velox Media</div>
+      <a href="javascript:;" class="pull-right icon-link">&#xe61b;</a>
+    </div>
+    <div class="add-pp-dlg-content">
+      <input type="text" class="ald-input">
+      <p>Invite as</p>
+      <div class="add-pp-dlg-radio clearfix">
+        <div>
+          <i class="icon-link">&#xe646;</i>
+          <input type="radio" value="admins"/>
+        </div>
+        <div class="radio-label">
+          <div>Admins</div>
+          <div>They can invite & remove members</div>
+        </div>
+      </div>
+      <div class="add-pp-dlg-radio clearfix">
+        <div>
+          <i class="icon-link">&#xe646;</i>
+          <input type="radio" value="Members"/>
+        </div>
+        <div class="radio-label">
+          <div>Admins</div>
+          <div>They can read & post messages</div>
+        </div>
+      </div>
+    </div>
+    <div class="add-pp-dlg-ctrl">
+      <a href="javascript:;" class="btn btn-primary ald-btn-primary">Add</a>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="javascript:;" class="link ald-link">Cancel</a>
+    </div>
+  </div><!--end add-pp-dlg-->
+</script>
 
 
