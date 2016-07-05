@@ -1,0 +1,71 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "Agency Timesheet Details",
+		"css":["/styles/reports.css"],
+		"js":["/scripts/app.js", "/scripts/reports/timelog-detail.js"]
+	} -->
+
+<div class="container" ng-controller="timelogDetailCtrl">
+  <div class="row">
+
+    <div class="col-xs-12 rp-title clearfix">
+      <a href="javascript:;" class="toast-nav"><i class="iconfont">&#xe60f;</i>Back To Reports</a><br/>
+      <h3>Agency Timesheet Details</h3>
+      <div class="pull-right">
+        All dates and times are based on UTC
+        <i class="iconfont">&#xe611;</i>
+      </div>
+    </div><!--end title-->
+    <div class="col-xs-12 search-form clearfix">
+      <div class="pull-left">
+        <div class="form-inline">
+          <select class="select" disabled="">
+            <option value="cantorfan">Cantor Fan</option>
+          </select>
+          <select style="display: inline-block;" class="select">
+            <option value="2-plan">2-plan GmbH</option>
+            <option value="skeva">ABLSoft Inc.</option>
+            <option value="ackdevinc">AckDev Inc.</option>
+            <option value="uniquep">Ad Interim, LLC</option>
+            <option value="aesist">Aesis</option>
+          </select>
+          <div class="form-group">
+            <label>From</label>
+
+            <span class="input-group">
+              <input type="text" class="form-control" ng-focus="open1()" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>To</label>
+            <span class="input-group">
+              <input type="text" class="form-control" ng-focus="open2()" uib-datepicker-popup ng-model="dt1" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </span>
+          </div>
+          <button class="btn btn-simple abtn">Go</button>
+        </div>
+      </div><!--end left-->
+    </div><!--end search form-->
+
+    <div class="col-xs-12 table-wrapper">
+      <table class="table rp-nohead-table">
+        <tbody>
+          <tr class="no-data">
+            <td colspan="7">No Transactions meet your selected criteria</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-12">
+      <p class="rp-note">Note: This report is updated every hour.</p>
+    </div>
+  </div><!--end row-->
+
+</div><!--end container-->
+

@@ -1,0 +1,72 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "Weekly Agency Timesheet By Freelancer",
+		"css":["/styles/reports.css"],
+		"js":["/scripts/app.js", "/scripts/reports/provider-week.js"]
+	} -->
+
+
+<div class="container" ng-controller="providerWeekCtrl">
+  <div class="row">
+
+    <div class="col-xs-12 rp-title clearfix">
+      <a href="javascript:;" class="toast-nav"><i class="iconfont">&#xe60f;</i>Back To Reports</a><br/>
+      <h3>Weekly Agency Timesheet By Freelancer</h3>
+      <div class="pull-right">
+        All dates and times are based on UTC
+        <i class="iconfont">&#xe611;</i>
+      </div>
+    </div><!--end title-->
+    <div class="col-xs-12 search-form clearfix">
+      <div class="pull-left">
+        <div class="form-inline">
+          <label>Week of:</label>
+          <a href="javascript:;"><i class="icon-link">&#xe60f;</i></a>
+          <span class="input-group">
+            <input type="text" class="form-control" ng-focus="open1()" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </span>
+          <a href="javascript:;"><i class="icon-link">&#xe615;</i></a>
+        </div>
+      </div><!--end left-->
+    </div><!--end search form-->
+
+    <div class="col-xs-12 sub-title">
+      Summary Timesheet
+    </div>
+
+    <div class="col-xs-12 table-wrapper">
+      <table class="table rp-nohead-table">
+        <thead>
+        <tr>
+          <th>Freelancer</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+          <th>Sun</th>
+          <th>Total Hours</th>
+          <th>Total Billed</th>
+        </tr>
+        </thead>
+          <tbody>
+            <tr class="no-data">
+              <td colspan="10">No matching records found</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+
+    <div class="col-xs-12 sub-title">
+      Freelancer Timesheets by Client
+    </div>
+
+    <div class="col-xs-12">
+      <p class="rp-note">Note: This report is updated every hour.</p>
+    </div>
+  </div><!--end row-->
+
+</div><!--end container-->

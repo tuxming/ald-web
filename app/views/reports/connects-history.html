@@ -1,0 +1,109 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "Connects History",
+		"css":["/styles/reports.css"],
+		"js":["/scripts/app.js", "/scripts/reports/connects-history.js"]
+	} -->
+
+<div class="container" ng-controller="connectsHistoryCtrl">
+  <div class="row">
+
+    <div class="col-xs-12 rp-title clearfix">
+      <h3>Connects History</h3>
+    </div><!--end title-->
+    <div class="col-xs-12 search-form clearfix">
+      <div class="form-inline">
+        <div class="dropdown rp-dropdown">
+          <a aria-expanded="false" aria-haspopup="true"
+             role="button" data-toggle="dropdown"
+             data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                Last 30 days
+                <i class="iconfont">&#xe614;</i>
+          </a>
+          <ul class="dropdown-menu ald-dropdown-menu">
+            <li>Last 30 days</li>
+            <li>Last 60 days</li>
+            <li>Last 90 days</li>
+          </ul>
+        </div>
+        <div class="dropdown rp-dropdown">
+          <a aria-expanded="false" aria-haspopup="true"
+             role="button" data-toggle="dropdown"
+             data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                Monthly Renewal
+                <i class="iconfont">&#xe614;</i>
+          </a>
+          <ul class="dropdown-menu ald-dropdown-menu">
+            <li>Monthly Renewal</li>
+            <li>Job Application</li>
+            <li>Job Cancellation</li>
+            <li>Membership Downgrade</li>
+            <li>Membership Upgrade</li>
+            <li>Monthly Renewal</li>
+            <li>Purchased</li>
+            <li>Rollover</li>
+            <li>Other</li>
+            <li>Other Refund</li>
+          </ul>
+        </div>
+        <button class="btn btn-primary ald-btn-primary apbtn">Go</button>
+      </div>
+    </div><!--end search form-->
+
+    <div class="col-xs-12 table-wrapper cctable-wrapper">
+      <table class="table rp-noborder-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th style="width: 250px;">Description</th>
+            <th>Client</th>
+            <th>Aplication</th>
+            <th>Conectes Type</th>
+            <th class="text-center">Amount</th>
+            <th class="text-center">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="no-data none">
+            <td colspan="7">No Transactions meet your selected criteria</td>
+          </tr>
+          <tr ng-repeat="i in [0,1,2,3,4]">
+            <td>2016/06/09</td>
+            <td><div>Job Application Cancellation</div>
+              <a href="javascript:;">Need Selenium Web Driver Automation Tester</a>
+            </td>
+            <td>Divya Mehta</td>
+            <td> - </td>
+            <td>Job Cancellation</td>
+            <td class="text-center">2</td>
+            <td class="text-center">62</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination-layout">
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo; Prev</span>
+            </a>
+          </li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">Next &raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <br/>
+      <br/>
+      <a href="main.html" class="btn btn-primary ald-btn-primary apbtn">Back To Reports</a>
+    </div>
+
+  </div><!--end row-->
+</div><!--end container-->

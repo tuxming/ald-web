@@ -135,23 +135,23 @@ gulp.task('less', function(){
 gulp.task('bower:ref', function(){
 	//console.log(paths.bowerjs);
 	gulp.src(paths.bowerjs)
-		.pipe(gulp.dest(config.app+'/scripts/public/'));
+		.pipe(gulp.dest(config.dest+'/scripts/public/'));
 
 	gulp.src(paths.bowercss)
-		.pipe(gulp.dest(config.app+'/styles/public/'));
+		.pipe(gulp.dest(config.dest+'/styles/public/'));
 	gulp.src(paths.bowerstatic)
-		.pipe(gulp.dest(config.app+'/static/'));
+		.pipe(gulp.dest(config.dest+'/static/'));
 });
 
 gulp.task('bower:min:ref', function(){
 	//console.log(paths.bowerjs);
 	gulp.src(paths.bowerMinjs)
-		.pipe(gulp.dest(config.app+'/scripts/public/'));
+		.pipe(gulp.dest('.tmp/scripts/public/'));
 
 	gulp.src(paths.bowercss)
-		.pipe(gulp.dest(config.app+'/styles/public/'));
+		.pipe(gulp.dest('.tmp/styles/public/'));
 	gulp.src(paths.bowerstatic)
-		.pipe(gulp.dest(config.app+'/static/'));
+		.pipe(gulp.dest('.tmp/static/'));
 });
 
 //删除.tmp目录

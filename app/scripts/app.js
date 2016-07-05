@@ -80,6 +80,16 @@ var menu = {
         label: "消息",
         url: webroot+"/usual/messages.html"
       }
+    },
+    agency:{
+      reports:{
+        label: "报表",
+        url: webroot+"/reports/main.html"
+      },
+      messages:{
+        label: "消息",
+        url: webroot+"/usual/messages.html"
+      }
     }
   }
 };
@@ -108,9 +118,12 @@ app.controller("parentCtrl", function($scope, store, $window){
       var mymenu = menu.login.freelancer;
       mymenu.findwork.active = true;
       store.set("menu", mymenu);
-    }else if('e'){
+    }else if(type=='e'){
       var mymenu = menu.login.client;
       mymenu.jobs.active = true;
+      store.set("menu", mymenu);
+    }else if(type=='a'){
+      var mymenu = menu.login.agency;
       store.set("menu", mymenu);
     }
     $window.location.href = webroot + url;
@@ -127,13 +140,16 @@ app.directive("loginNav", function(){
     templateUrl: webroot+"/directive/header.div.html",
     controller: function($scope, $element, $attrs, $transclude, store, $window, $location){
       var mymenu = store.get("menu");  //menu.login
-      if(!mymenu){
-        $scope.menu = menu.login.freelancer;
+      console.log(mymenu);
+      //if(!mymenu){
+      //  $scope.menu = menu.login.freelancer;
         //$scope.menu.findwork.active = true;
 
-      }else{
-        $scope.menu = mymenu;
-      }
+      //}else{
+      //  $scope.menu = mymenu;
+      //}
+
+      $scope.menu = mymenu;
 
       //$scope.menu = menu.login.freelancer;
       //$scope.menu.findwork.active = true;
@@ -191,6 +207,12 @@ app.directive("loginNav", function(){
         mymenu.jobs.active = true;
         store.set("menu", mymenu);
         $window.location.href = mymenu.jobs.url;
+      };
+
+      $scope.switchToAgency = function(){
+        var mymenu = menu.login.agency;
+        store.set("menu", mymenu);
+        $window.location.href = mymenu.reports.url;
       };
 
       $scope.logout = function(){

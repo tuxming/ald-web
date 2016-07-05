@@ -1,0 +1,130 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "Transaction History",
+		"css":["/styles/reports.css"],
+		"js":["/scripts/app.js", "/scripts/reports/earnings-history.js"]
+	} -->
+
+<div class="container" ng-controller="EarningsHistoryCtrl">
+  <div class="row">
+
+    <div class="col-xs-12 rp-title clearfix">
+      <h3>Tracsaction History</h3>
+      <select class="select">
+        <option>Current Activity</option>
+        <option>Jump to...</option>
+        <option>Last week</option>
+        <option>Two weeks ago</option>
+        <option>This month</option>
+        <option>Statement - Jun 2016 </option>
+        <option>Statement - May 2016 </option>
+        <option>Statement - Apr 2016 </option>
+      </select>
+      <div class="pull-right">
+        <b>Balance:</b>
+        <span>$0.00</span>
+      </div>
+    </div><!--end title-->
+    <div class="col-xs-12 search-form clearfix">
+      <div class="pull-left">
+        <div class="form-inline">
+          <div class="form-group">
+            <label>My Agency Contractors Week of: </label>
+            <span class="input-group">
+              <input type="text" class="form-control" ng-focus="open1()" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>To</label>
+            <span class="input-group">
+              <input type="text" class="form-control" ng-focus="open2()" uib-datepicker-popup ng-model="dt1" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="select-group">
+          <select name="trxTypes" class="select">
+            <option value="ALL" label="All Transactions" selected="selected">All Transactions</option>
+            <option value="DEBIT" label="Debits">Debits</option>
+            <option value="CRED" label="Credits">Credits</option>
+            <option value="HOURLY" label="Hourly">Hourly</option>
+            <option value="FIXED" label="Fixed-price">Fixed-price</option>
+            <option value="BONUS" label="Bonuses">Bonuses</option>
+            <option value="ADJUST" label="Adjustments">Adjustments</option>
+            <option value="DEPOSIT" label="Deposits">Deposits</option>
+            <option value="WITHDRAW" label="Withdrawals">Withdrawals</option>
+            <option value="EXPENSE" label="Expense">Expense</option>
+          </select>
+          <select name="contractors"  class="select">
+            <option value="ALL" label="All Freelancers" selected="selected">All Freelancers</option>
+          </select>
+          <select name="employers"  class="select">
+            <option value="ALL" label="All Clients" selected="selected">All Clients</option>
+          </select>
+          <button class="btn btn-simple abtn">Go</button>
+
+        </div>
+      </div><!--end left-->
+      <div class="pull-right">
+        <a href="javascript:;"><i class="iconfont">&#xe656;</i>Get PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;"><i class="iconfont">&#xe630;</i>Get CSV</a>
+      </div>
+    </div><!--end search form-->
+
+    <div class="col-xs-12 table-wrapper">
+      <table class="table rp-nohead-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Freelancer</th>
+            <th>Client</th>
+            <th>Amount / <br/> Balance</th>
+            <th>Ref ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="no-data">
+            <td colspan="7">No Transactions meet your selected criteria</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-12 pull-right rp-total-wrapper">
+      <div class="total-caption">
+        <b>Statement Period</b><br/>
+        2016/06/02 - 2016/07/02
+      </div>
+      <table class="table">
+        <tr class="rp-total-row">
+          <td><b>Begining Balance</b></td>
+          <td>$0.00</td>
+        </tr>
+        <tr class="rp-total-row">
+          <td>Total Debits</td>
+          <td>$0.00</td>
+        </tr>
+        <tr class="rp-total-row">
+          <td>Total Credits</td>
+          <td>$0.00</td>
+        </tr>
+        <tr class="rp-total-row">
+          <td>Total Change</td>
+          <td>$0.00</td>
+        </tr>
+        <tr class="rp-total-row">
+          <td>Ending Balance</td>
+          <td>$0.00</td>
+        </tr>
+      </table>
+    </div>
+  </div><!--end row-->
+
+</div><!--end container-->
+

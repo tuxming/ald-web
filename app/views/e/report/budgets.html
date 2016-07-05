@@ -1,0 +1,43 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "Budgets",
+		"css":["/styles/e/default.css"],
+		"js":["/scripts/app.js"],
+		"active":"budgets"
+	} -->
+
+
+<div class="container">
+  <div class="row">
+    <!--build {"type":"tpl", "ref":"/views/e/report/left-bar.html"}-->
+    <!--endbuild-->
+    <div class="col-xs-9">
+      <!--begin top-->
+      <div class="rp-title clearfix">
+        <h3>Budgets</h3>
+        <a class="btn btn-simple bcolor pull-right" href="javascript:;">Manage Activity Codes</a>
+      </div> <!--end top-->
+
+      <table class="table ts-table">
+        <tbody class="ts-tbody">
+          <tr ng-repeat="i in [0,1,2,3]">
+            <td style="width:83%;" class="budget-td1">
+              <a href="javascript:;" class="link-underline">
+                Want a company for out web project
+                <img class="" src="/images/user.png"/>
+              </a>
+              <div class="process-bar">
+                <div class="processing" style="width:60%;">&nbsp;&nbsp;$580.00</div>
+              </div>
+            </td>
+            <td class="budget-td2">
+              of $200.00
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!--end timesheet-->
+
+    </div><!--end right box-->
+  </div>
+</div>

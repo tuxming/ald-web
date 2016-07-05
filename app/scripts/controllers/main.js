@@ -17,9 +17,12 @@ angular.module('app')
         var mymenu = menu.login.freelancer;
         mymenu.findwork.active = true;
         store.set("menu", mymenu);
-      }else if('e'){
+      }else if(type=='e'){
         var mymenu = menu.login.client;
         mymenu.jobs.active = true;
+        store.set("menu", mymenu);
+      }else if(type=='a'){
+        var mymenu = menu.login.agency;
         store.set("menu", mymenu);
       }
       $window.location.href = webroot + url;

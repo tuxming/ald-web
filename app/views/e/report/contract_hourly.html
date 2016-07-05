@@ -1,28 +1,15 @@
 <!-- tpl {"parent": "app/template/index.tpl.html",
-		"title": "Client",
+		"title": "Weekly Summary",
 		"css":["/styles/e/default.css"],
-		"js":["/scripts/app.js"]
+		"js":["/scripts/app.js"],
+		"active":"contract-hourly"
 	} -->
 
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-3">
-      <ul class="nav nav-stacked nav-report">
-        <li role="presentation" class="active"><a href="#"><i class="iconfont">&#xe62f;</i>Weekly Summary</a></li>
-        <li class="line-separator"></li>
-        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Budgets</a></li>
-        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Transactions</a></li>
-        <li class="line-separator"></li>
-        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Timesheet</a></li>
-        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Time By Freelancer</a></li>
-        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Tyime by Activity</a></li>
-        <li class="line-separator"></li>
-        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Work Diary</a></li>
-        <li class="line-separator"></li>
-        <li role="presentation"><a href="#"><i class="iconfont">&#xe62f;</i>Custom Export</a></li>
-      </ul>
-    </div><!--end left navi-->
+    <!--build {"type":"tpl", "ref":"/views/e/report/left-bar.html"}-->
+    <!--endbuild-->
     <div class="col-xs-9">
       <!--begin top-->
       <div class="clearfix">

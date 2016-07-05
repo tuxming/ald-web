@@ -1,0 +1,194 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "Tracsaction History",
+		"css":["/styles/e/default.css"],
+		"js":["/scripts/app.js", "/scripts/e/controllers/billing-history.js"],
+		"active":"transactions"
+	} -->
+
+<div class="container" ng-controller="billingHistoryCtrl">
+  <div class="row">
+    <!--build {"type":"tpl", "ref":"/views/e/report/left-bar.html"}-->
+    <!--endbuild-->
+    <div class="col-xs-9">
+      <div class="col-xs-12 rp-title clearfix">
+        <h3>Tracsaction History</h3>
+        <div class="pull-right">
+          <div class="txright size16">
+            <b class="color6">Balance:</b>
+            <span class="color9">$0.00</span>
+          </div>
+          <div class="txright size12">
+            <span class="color9">Fixed Price Deposits (not included in balance):</span>
+            <a href="javascript:;">$0.00</a>
+          </div>
+        </div>
+      </div><!--end title-->
+      <div class="col-xs-12 search-form">
+
+        <div class="rp-form-row bh-form-row clearfix">
+          <div class="pull-left">
+            <div class="dropdown bh-dropdown" style="width:220px;">
+              <a aria-expanded="false" aria-haspopup="true"
+                 role="button" data-toggle="dropdown"
+                 data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                    <span class="bh-dw-toggle-text">Jun 4, 2016 - Jul 3, 2016</span>
+                    <i class="icon-link">&#xe64c;</i>
+              </a>
+              <ul class="dropdown-menu ald-dropdown-menu">
+                <li class="bh-dd-date">
+                  <div>
+                    <input type="text" class="form-control" ng-focus="open1()"
+                           uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened"
+                           datepicker-options="dateOptions" ng-required="true" close-text="Close"
+                           alt-input-formats="altInputFormats" />
+                    <i class="bh-start icon-link">&#xe64c;</i>
+                  </div>
+                  <div>
+                    <input type="text" class="form-control" ng-focus="open2()"
+                           uib-datepicker-popup ng-model="dt1" is-open="popup2.opened"
+                           datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <i class="bh-end icon-link">&#xe64c;</i>
+                  </div>
+
+                  <button class="btn btn-simple abtn">Go</button>
+                </li>
+                <li>Current Activity</li>
+                <li>This Week</li>
+                <li>Last Week</li>
+                <li>This month - Jul 2016</li>
+                <li>Statement - Jun 2016</li>
+                <li>Statement - May 2016</li>
+                <li>Statement - Apr 2016</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pull-right">
+            <a href="javascript:;" class="link-underline"><i class="iconfont">&#xe656;</i>Get PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="javascript:;" class="link-underline"><i class="iconfont">&#xe630;</i>Get CSV</a>
+          </div>
+        </div>
+
+        <div class="select-row clearfix">
+          <div class="dropdown filter-selector">
+            <a aria-expanded="false" aria-haspopup="true"
+               role="button" data-toggle="dropdown"
+               data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+              <span class="bh-dw-toggle-text">All Transactions</span>
+              <i class="icon-link">&#xe614;</i>
+            </a>
+            <div class="dropdown-menu ald-dropdown-menu">
+              <div class="dd-head">
+                <input type="text" class="form-control"/>
+                <i class="iconfont">&#xe616;</i>
+              </div>
+              <ul class="dd-list">
+                <li>All Transactions</li>
+                <li>Debits</li>
+                <li>Credits</li>
+                <li>Hourly</li>
+                <li>Fixed-price</li>
+                <li>Bonuses</li>
+                <li>Adjustments</li>
+                <li>Deposits</li>
+                <li>Withdrawals</li>
+                <li>Expense</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown filter-selector">
+            <a aria-expanded="false" aria-haspopup="true"
+               role="button" data-toggle="dropdown"
+               data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+              <span class="bh-dw-toggle-text">All Transactions</span>
+              <i class="icon-link">&#xe614;</i>
+            </a>
+            <div class="dropdown-menu ald-dropdown-menu">
+              <div class="dd-head">
+                <input type="text" class="form-control"/>
+                <i class="iconfont">&#xe616;</i>
+              </div>
+              <ul class="dd-list">
+                <li>All Transactions</li>
+                <li>Debits</li>
+                <li>Credits</li>
+                <li>Hourly</li>
+                <li>Fixed-price</li>
+                <li>Bonuses</li>
+                <li>Adjustments</li>
+                <li>Deposits</li>
+                <li>Withdrawals</li>
+                <li>Expense</li>
+              </ul>
+            </div>
+          </div>
+          <button class="btn btn-simple abtn">Go</button>
+        </div>
+      </div><!--end search form-->
+
+      <div class="col-xs-12 table-wrapper">
+        <table class="table rp-nohead-table">
+          <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Freelancer</th>
+            <th>Amount / <br/> Balance</th>
+            <th>Ref ID</th>
+          </tr>
+          </thead>
+          <tbody class="size13 color7 bgf">
+            <tr class="no-data none">
+              <td colspan="7">No Transactions meet your selected criteria</td>
+            </tr>
+            <tr ng-repeat="c in [0,1,2,3,4]">
+              <td style="width:120px;">Jun 29, 2016</td>
+              <td>Processing Fee</td>
+              <td>Payment processing fee for Ref ID 91600540</td>
+              <td>Qiumei Chen </td>
+              <td>
+                <span>($105.00)</span>
+                <span class="size12">($788.33)</span
+              </td>
+              <td>
+                <a href="javascript:;" class="link-underline">91221304</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-xs-5 pull-right rp-total-wrapper size13">
+        <div class="total-caption">
+          <b>Statement Period</b><br/>
+          2016/06/02 - 2016/07/02
+        </div>
+        <br/>
+        <br/>
+        <table class="table">
+          <tr class="rp-total-row">
+            <td class="txright"><b>Begining Balance</b></td>
+            <td>$0.00</td>
+          </tr>
+          <tr class="rp-total-row">
+            <td class="txright">Total Debits</td>
+            <td>$0.00</td>
+          </tr>
+          <tr class="rp-total-row">
+            <td class="txright">Total Credits</td>
+            <td>$0.00</td>
+          </tr>
+          <tr class="rp-total-row">
+            <td class="txright">Total Change</td>
+            <td>$0.00</td>
+          </tr>
+          <tr class="rp-total-row">
+            <td class="txright fweight">Ending Balance</td>
+            <td>$0.00</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div><!--end row-->
+
+</div><!--end container-->
+
