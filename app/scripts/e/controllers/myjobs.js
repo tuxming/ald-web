@@ -12,12 +12,12 @@
  */
 app.controller('MyJobsCtrl', function($scope){
   $scope.tabNames = [
-    {label: "Active (5)", active: "active"},
-    {label: "Hourly (4)", active: ""},
-    {label: "Awaiting funding (1)", active: ""},
-    {label: "Milestones in progres (0)", active: ""},
-    {label: "Payment request (0)", active: ""},
-    {label: "Completed/ended (18)", active: ""}
+    {label: "进行中 (5)", active: "active"},
+    {label: "小时制 (4)", active: ""},
+    {label: "等待预备金 (1)", active: ""},
+    {label: "里程碑 (0)", active: ""},
+    {label: "待付款 (0)", active: ""},
+    {label: "已结束 (18)", active: ""}
   ];
 
 

@@ -10,10 +10,10 @@
 
 app.controller('ReportController', function($scope){
   $scope.tabNames = [
-    {label: "Work In Process", "total": "$40.00", active: "active"},
-    {label: "In Review", "total": "$2,001.00", active: ""},
-    {label: "Pending", "total": "$2,001.00", active: ""},
-    {label: "Available", "total": "$0.00", active: ""}
+    {label: "工作中", "total": "￥400.00", active: "active"},
+    {label: "审核中", "total": "￥450.00", active: ""},
+    {label: "待到账", "total": "￥600.00", active: ""},
+    {label: "可用余额", "total": "￥308.00", active: ""}
   ];
 
   $scope.showTabContent = function(index){

@@ -135,23 +135,23 @@ gulp.task('less', function(){
 gulp.task('bower:ref', function(){
 	//console.log(paths.bowerjs);
 	gulp.src(paths.bowerjs)
-		.pipe(gulp.dest(config.dest+'/scripts/public/'));
-
-	gulp.src(paths.bowercss)
-		.pipe(gulp.dest(config.dest+'/styles/public/'));
-	gulp.src(paths.bowerstatic)
-		.pipe(gulp.dest(config.dest+'/static/'));
-});
-
-gulp.task('bower:min:ref', function(){
-	//console.log(paths.bowerjs);
-	gulp.src(paths.bowerMinjs)
 		.pipe(gulp.dest('.tmp/scripts/public/'));
 
 	gulp.src(paths.bowercss)
 		.pipe(gulp.dest('.tmp/styles/public/'));
 	gulp.src(paths.bowerstatic)
 		.pipe(gulp.dest('.tmp/static/'));
+});
+
+gulp.task('bower:min:ref', function(){
+	//console.log(paths.bowerjs);
+	gulp.src(paths.bowerMinjs)
+		.pipe(gulp.dest(config.dist+'/scripts/public/'));
+
+	gulp.src(paths.bowercss)
+		.pipe(gulp.dest(config.dist+'/styles/public/'));
+	gulp.src(paths.bowerstatic)
+		.pipe(gulp.dest(config.dist+'/static/'));
 });
 
 //删除.tmp目录
@@ -345,9 +345,9 @@ gulp.task('build', function(cb){
   }
 
 	runSequence('clean:all', 'injectWebPath',
-		['bower:min:ref', 'less'], 'copy',
+		['less'], 'copy',
 		//['bower:ref', 'copy'],
-		'process:build', cb);
+		'process:build', 'bower:min:ref', cb);
 
 });
 

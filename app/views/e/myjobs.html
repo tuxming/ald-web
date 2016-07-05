@@ -1,32 +1,104 @@
 <div class="container">
   <div class="row">
       <div class="col-xs-12">
-        <h3 class="page-title">Open Jobs <a href="" class="btn btn-primary ald-btn-primary pull-right">Post Job</a></h3>
+        <h3 class="page-title">已发布的工作<a href="/d/myjobs/new.html" class="btn btn-primary ald-btn-primary pull-right">发布工作</a></h3>
       </div><!--end page head -->
       <table class="table c-list1 col-xs-12">
-        <tr ng-repeat="i in [0,1,2]">
+        <tr>
           <td class="col-xs-4">
-            <a href="javascript:;" class="c-item-title link-underline">Need a great designer NOW</a>
-            <div class="c-item-label">Fiexed-Price - Posted 1 day ago by you</div>
-            <a href="javascript:;" class="c-item-view link-underline">View Suggested Freelancers</a>
+            <a href="javascript:;" class="c-item-title link-underline">java web开发</a>
+            <div class="c-item-label">小时 - 7小时以前</div>
+            <a href="javascript:;" class="c-item-view link-underline">推荐的工作者</a>
           </td>
           <td>
-            <a href="javascript:;" class="link-underline c-view">5<span class="bold">(5 new)</span></a>
-            <div class="c-item-label">Applicants</div>
-          </td>
-          <td>
-            <div>-</div>
-            <div class="c-item-label">Messaged</div>
+            <a href="javascript:;" class="link-underline c-view">5<span class="bold">(5 未读)</span></a>
+            <div class="c-item-label">投标</div>
           </td>
           <td>
             <div>-</div>
-            <div class="c-item-label">Offers/Hires</div>
+            <div class="c-item-label">面试</div>
           </td>
-          <td>PUBLIC</td>
+          <td>
+            <div>-</div>
+            <div class="c-item-label">雇佣</div>
+          </td>
+          <td>公开项目</td>
           <td>
             <div class="dropdown mp-work-filter">
               <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
-                <span class="filter-selected-label">Actions</span>
+                <span class="filter-selected-label">操作</span>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu ald-dropdown-menu mp-work-filter-options">
+                <li class="filter-selected-actived">View Applicants</li>
+                <li>Make Private</li>
+                <li>View Job Posting</li>
+                <li>Edit Posting</li>
+                <li>Duplicate Posting</li>
+                <li>Remove Posting</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="col-xs-4">
+            <a href="javascript:;" class="c-item-title link-underline">微信应用开发</a>
+            <div class="c-item-label">小时 - 2天以前</div>
+            <a href="javascript:;" class="c-item-view link-underline">推荐的工作者</a>
+          </td>
+          <td>
+            <a href="javascript:;" class="link-underline c-view">20<span class="bold">(8 未读)</span></a>
+            <div class="c-item-label">投标</div>
+          </td>
+          <td>
+            <div>3</div>
+            <div class="c-item-label">面试</div>
+          </td>
+          <td>
+            <div>1</div>
+            <div class="c-item-label">雇佣</div>
+          </td>
+          <td>公开项目</td>
+          <td>
+            <div class="dropdown mp-work-filter">
+              <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                <span class="filter-selected-label">操作</span>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu ald-dropdown-menu mp-work-filter-options">
+                <li class="filter-selected-actived">View Applicants</li>
+                <li>Make Private</li>
+                <li>View Job Posting</li>
+                <li>Edit Posting</li>
+                <li>Duplicate Posting</li>
+                <li>Remove Posting</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="col-xs-4">
+            <a href="javascript:;" class="c-item-title link-underline">OA 系统集成</a>
+            <div class="c-item-label">小时 - 5天以前</div>
+            <a href="javascript:;" class="c-item-view link-underline">推荐的工作者</a>
+          </td>
+          <td>
+            <a href="javascript:;" class="link-underline c-view">1<span class="bold">(15 未读)</span></a>
+            <div class="c-item-label">投标</div>
+          </td>
+          <td>
+            <div>10</div>
+            <div class="c-item-label">面试</div>
+          </td>
+          <td>
+            <div>1</div>
+            <div class="c-item-label">雇佣</div>
+          </td>
+          <td>公开项目</td>
+          <td>
+            <div class="dropdown mp-work-filter">
+              <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                <span class="filter-selected-label">操作</span>
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu ald-dropdown-menu mp-work-filter-options">
@@ -45,15 +117,15 @@
       <!--begin list footer-->
     <div class="col-xs-12 clearfix">
       <div class="pull-left">
-        <a href="javascript:;" class="link-underline">View all job postings</a>
-        <span class="c-item-label">(including filled and closed jobs)</span>
+        <a href="javascript:;" class="link-underline">查看所有的发布的工作</a>
+        <span class="c-item-label">(包含已经雇佣和结束的)</span>
       </div>
       <div>
         <div class="pagination-layout">
           <ul class="pagination">
             <li>
               <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo; Prev</span>
+                <span aria-hidden="true">&laquo; 上页</span>
               </a>
             </li>
             <li><a href="#">1</a></li>
@@ -64,7 +136,7 @@
             <li><a>....</a></li>
             <li>
               <a href="#" aria-label="Next">
-                <span aria-hidden="true">Next &raquo;</span>
+                <span aria-hidden="true">下页 &raquo;</span>
               </a>
             </li>
           </ul>
@@ -76,13 +148,13 @@
   <div class="row">
     <div class="col-xs-12">
       <h3 class="page-title clearfix">
-        <span style="vertical-align: middle;">Open Jobs</span>
+        <span style="vertical-align: middle;">进行中的工作</span>&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="iconfont prefix-pre">&#xe616;</span>
-        <input type="text" placeholder="Search contracts" class="form-control prefix-input"/>
+        <input type="text" placeholder="搜索 工作" class="form-control prefix-input"/>
 
         <div class="pull-right open-jobs-total">
-          <span>So far this week</span>
-          <a href="javascript:;" class="link-underline bold">$1200.00</a>
+          <span>本周到目前为止</span>
+          <a href="javascript:;" class="link-underline bold">￥1200.00</a>
         </div>
       </h3>
     </div><!--end page head -->
@@ -96,26 +168,61 @@
 
       <div class="tab-content">
         <table class="table c-list2">
-          <tr ng-repeat="i in [0,1,2,3,4,5,6,7]">
+          <tr>
             <td class="col-xs-4 no-lf-padding c-item-user clearfix">
-              <a href="javascript:;" class="c-item-title c-item-user-title">JAVA Developer</a>
+              <a href="javascript:;" class="c-item-title c-item-user-title">JAVA开发员</a>
               <div class="c-item-user-img img-circle">
-                <img src="/images/user.png"/>
+                <img src="/images/pic2.jpg"/>
               </div>
               <div class="c-item-user-info">
-                <a href="javascript:;" class="link-underline">tuxming</a>
-                <div class="c-item-label">Sun 9:11 PM in China</div>
+                <a href="javascript:;" class="link-underline">张三</a>
+                <div class="c-item-label">2016-06-02 周五</div>
               </div>
             </td>
             <td class="col-xs-6">
-              <a href="javascript:;" class="c-view">33:40, $2000 this week</a><br/>
-              <a href="javascript:;" class="c-view">Working now: in </a>
-              <span class="c-item-label">if you click "view all" in the messages...</span>
+              <a href="javascript:;" class="c-view">20:00, ￥850.00本周</a><br/>
+              <a href="javascript:;" class="c-view">正在工作 </a>
+              <!--<span class="c-item-label">if you click "view all" in the messages...</span>
+              -->
             </td>
             <td class="col-xs-2">
               <div class="dropdown mp-work-filter">
                 <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
-                  <span class="filter-selected-label">Actions</span>
+                  <span class="filter-selected-label">操作</span>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu ald-dropdown-menu mp-work-filter-options">
+                  <li class="filter-selected-actived">View Applicants</li>
+                  <li>Make Private</li>
+                  <li>View Job Posting</li>
+                  <li>Edit Posting</li>
+                  <li>Duplicate Posting</li>
+                  <li>Remove Posting</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-xs-4 no-lf-padding c-item-user clearfix">
+              <a href="javascript:;" class="c-item-title c-item-user-title">微信开发员</a>
+              <div class="c-item-user-img img-circle">
+                <img src="/images/pic1.jpg"/>
+              </div>
+              <div class="c-item-user-info">
+                <a href="javascript:;" class="link-underline">李四</a>
+                <div class="c-item-label">2016-06-02 周五</div>
+              </div>
+            </td>
+            <td class="col-xs-6">
+              <a href="javascript:;" class="c-view">5:00, ￥350.00本周</a><br/>
+              <a href="javascript:;" class="c-view">正在工作 </a>
+              <!--<span class="c-item-label">if you click "view all" in the messages...</span>
+              -->
+            </td>
+            <td class="col-xs-2">
+              <div class="dropdown mp-work-filter">
+                <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                  <span class="filter-selected-label">操作</span>
                   <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu ald-dropdown-menu mp-work-filter-options">
