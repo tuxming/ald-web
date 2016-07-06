@@ -1,0 +1,181 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "Time by Activity",
+		"css":["/styles/e/default.css"],
+		"js":["/scripts/app.js", "/scripts/e/controllers/time-by-activity.js"],
+		"active":"activity"
+	} -->
+
+<div class="container" ng-controller="timeByActivityCtrl">
+  <div class="row">
+    <!--build {"type":"tpl", "ref":"/views/e/report/left-bar.html"}-->
+    <!--endbuild-->
+    <div class="col-xs-9">
+      <div class="col-xs-12 rp-title tbf-title clearfix">
+        <h3>Tracsaction History</h3>
+      </div><!--end title-->
+      <div class="col-xs-12 search-form">
+
+        <div class="rp-form-row tbf-form-row clearfix">
+          <a href="javascript:;" class="icon-link prev-week">&#xe60f;</a>
+          <div class="dropdown bh-dropdown" style="width:220px;">
+            <a aria-expanded="false" aria-haspopup="true"
+               role="button" data-toggle="dropdown"
+               data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                  <span class="bh-dw-toggle-text">Jun 4, 2016 - Jul 3, 2016</span>
+                  <i class="icon-link">&#xe64c;</i>
+            </a>
+            <ul class="dropdown-menu ald-dropdown-menu">
+              <li class="bh-dd-date">
+                <div>
+                  <input type="text" class="form-control" ng-focus="open1()"
+                         uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened"
+                         datepicker-options="dateOptions" ng-required="true" close-text="Close"
+                         alt-input-formats="altInputFormats" />
+                  <i class="bh-start icon-link">&#xe64c;</i>
+                </div>
+                <div>
+                  <input type="text" class="form-control" ng-focus="open2()"
+                         uib-datepicker-popup ng-model="dt1" is-open="popup2.opened"
+                         datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                  <i class="bh-end icon-link">&#xe64c;</i>
+                </div>
+
+                <button class="btn btn-simple abtn">Go</button>
+              </li>
+              <li>All Freelancers</li>
+              <li>This Week</li>
+              <li>Last Week</li>
+              <li>Last 30 days</li>
+              <li>Last 60 days</li>
+              <li>Last 90 days</li>
+              <li>Month to date</li>
+              <li>Year to date</li>
+            </ul>
+          </div>
+          <a href="javascript:;" class="icon-link next-week">&#xe615;</a>
+          <div class="dropdown filter-selector tbf-selector">
+            <a aria-expanded="false" aria-haspopup="true"
+               role="button" data-toggle="dropdown"
+               data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+              <span class="bh-dw-toggle-text">All Activities</span>
+              <i class="icon-link">&#xe614;</i>
+            </a>
+            <div class="dropdown-menu ald-dropdown-menu">
+              <div class="dd-head">
+                <input type="text" class="form-control"/>
+                <i class="iconfont">&#xe616;</i>
+              </div>
+              <ul class="dd-list">
+                <li>All Activities</li>
+                <li>unassigned</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown filter-selector tbf-selector">
+            <a aria-expanded="false" aria-haspopup="true"
+               role="button" data-toggle="dropdown"
+               data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+              <span class="bh-dw-toggle-text">All Activities</span>
+              <i class="icon-link">&#xe614;</i>
+            </a>
+            <div class="dropdown-menu ald-dropdown-menu">
+              <div class="dd-head">
+                <input type="text" class="form-control"/>
+                <i class="iconfont">&#xe616;</i>
+              </div>
+              <ul class="dd-list">
+                <li>All Transactions</li>
+                <li>Debits</li>
+                <li>Credits</li>
+                <li>Hourly</li>
+                <li>Fixed-price</li>
+                <li>Bonuses</li>
+                <li>Adjustments</li>
+                <li>Deposits</li>
+                <li>Withdrawals</li>
+                <li>Expense</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div><!--end search form-->
+
+      <div class="col-xs-12 table-wrapper">
+        <table class="table rp-nohead-table">
+          <thead>
+          <tr>
+            <th>Freelancer</th>
+            <th class="col-xs-7">Memo</th>
+            <th>Hours</th>
+            <th>Amount</th>
+          </tr>
+          </thead>
+          <tbody class="size13 color7 bgf">
+            <tr class="no-data none">
+              <td colspan="7">No Transactions meet your selected criteria</td>
+            </tr>
+
+            <tr class="table-row">
+              <td rowspan="4">
+                <b class="color6">unassigned</b>
+              </td>
+              <td class="color6">
+                <img src="/images/user.png" />
+                Barindar Nath
+              </td>
+              <td>
+                17:50
+              </td>
+              <td>
+                $100.00
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="color6">
+                <img src="/images/user.png" />
+                Barindar Nath
+              </td>
+              <td>
+                17:50
+              </td>
+              <td>
+                $100.00
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="color6">
+                <img src="/images/user.png" />
+                Barindar Nath
+              </td>
+              <td>
+                17:50
+              </td>
+              <td>
+                $100.00
+              </td>
+            </tr>
+            <tr class="table-row table-row-total">
+              <td>
+                Total for unassigned
+              </td>
+              <td class="fweight color4">
+                62:00
+              </td>
+              <td class="fweight color4">
+                $620.00
+              </td>
+            </tr>
+            <tr class="color4">
+              <td>Total:</td>
+              <td></td>
+              <td class="fweight" >26:00</td>
+              <td class="fweight">$500.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div><!--end row-->
+
+</div><!--end container-->

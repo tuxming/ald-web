@@ -1,0 +1,79 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+		"title": "Custom Export",
+		"css":["/styles/e/default.css"],
+		"js":["/scripts/app.js"],
+		"active":"custom-export"
+	} -->
+
+<div class="container">
+  <div class="row">
+    <!--build {"type":"tpl", "ref":"/views/e/report/left-bar.html"}-->
+    <!--endbuild-->
+    <div class="col-xs-9">
+      <div class="col-xs-12 rp-title clearfix">
+        <h3>Custom Export</h3>
+      </div><!--end title-->
+
+      <div class="col-xs-5 no-lf-padding">
+        <table class="table table-none size13">
+          <thead>
+            <tr>
+              <th>Data to Export</th>
+              <th>Timesheet Data (CSV)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fweight">Range</td>
+              <td>
+                <select name="trxTypes" class="select">
+                  <option selected="selected" value="07-04-2016" class="jsWeek">Week to Date</option>
+                  <option value="07-01-2016" class="jsMonth"> Month to Date</option>
+                  <option value="01-01-2016" class="jsYear">Year to Date</option>
+                  <option value="06-30-2016" class="jsWeek">Last 7 days</option>
+                  <option value="06-07-2016" class="jsMonth">Last 30 days</option>
+                  <option value="04-08-2016" class="jsYear">Last 90 days </option>
+                  <option value="rangeDate">Custom…</option>
+                </select>
+                <div style="margin-top:15px;">
+                  <p>
+                    <input type="radio" name="type" value="1" /><span class="size12"> In Days </span><br/>
+                  </p>
+                  <p>
+                    <input type="radio" name="type" value="2" /><span class="size12"> In Weeks </span><br/>
+                  </p>
+                  <p>
+                    <input type="radio" name="type" value="3" /><span class="size12"> In Months</span><br/>
+                  </p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="fweight">Optional</td>
+              <td><input type="checkbox" /> Activity</td>
+            </tr>
+            <tr>
+              <td class="fweight">Columns <i class="icon-link" style="font-weight:normal;">&#xe611;</i></td>
+              <td><input type="checkbox" /> Memo</td>
+            </tr>
+            <tr>
+              <td colspan="2" class="txright">
+                <button class="btn btn-primary ald-btn-primary">Export Data</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-xs-2"></div>
+      <div class="col-xs-5">
+        <ul class="list-group">
+          <li class="list-group-item color8 fweight">Recently Created</li>
+          <li class="list-group-item color8 size12">Files are removed after 30 days</li>
+        </ul>
+      </div>
+
+    </div><!--end right-->
+  </div><!--end row-->
+
+</div><!--end container-->
+

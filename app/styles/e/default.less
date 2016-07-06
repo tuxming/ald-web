@@ -310,6 +310,8 @@ table.c-list2{
   color:#999;
   font-size: 20px;
 }
+
+/**billing-history | transaction-history **/
 .bh-form-row{
   background: #ddd;
   padding: 20px;
@@ -399,3 +401,37 @@ table.c-list2{
   height: 200px;
   overflow-y: auto;
 }
+
+/**time by freelancer**/
+.tbf-form-row{
+  background: #eee;
+  padding: 20px;
+  display: table;
+  width:100%;
+  border-radius:8px;
+  margin-top: 25px;
+  margin-bottom:30px;
+}
+
+.tbf-form-row > *{
+  display:table-cell;
+  vertical-align: middle;
+
+}
+.tbf-form-row > *:not(a){
+  background: white;
+}
+
+.table-row td img{
+  width:25px;
+  border-radius: 50%;
+}
+.table-row td{
+  vertical-align: middle;
+}
+.table .table-row-total td:first-child{
+  border-left: 1px solid #ddd;
+}
+
+/*end by freelancer*/
+.table.table-none td, .table.table-none th{border:none;}
