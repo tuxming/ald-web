@@ -36,7 +36,7 @@ app.controller("ContractHourlyCtrl", function($scope){
 });
 
 app.controller("ByoCtrl", function ($scope) {
-
+    $scope.firstName = '';
 });
 
 app.controller("NewjobCtrl", function ($scope) {

@@ -1,12 +1,163 @@
-﻿<div class="container" ng-controller="newjob">
-    <form name="createjob" novalidate="novalidate">
-        <div class="row m-lg-bottom m-lg-top">
+﻿<div class="container" ng-controller="ByoCtrl">
+    <form name="byoForm" novalidate="novalidate" id="byoFormPanel">
+        <div class="row m-normal-bottom">
             <div class="col-xs-12"><h3 class="byo-page-title">Bring Your Own Freelancer</h3></div>
         </div>
-        <div class="row m-lg-bottom m-lg-top">
-            <div class="col-xs-12"><h3 class="byo-page-title">Already working with a freelancer outside of Upwork? Make your life easier by inviting them to join and use our collaboration, time tracking, and payment tools.
-                Prefer to work with freelancers already on Upwork? <a href="#">Search or post a job.</a></h3></div>
+        <div class="row m-lg-bottom m-normal-top">
+            <div class="col-xs-12">
+                <p>
+                    lready working with a freelancer outside of Upwork? Make your life easier by inviting them to join and use our collaboration, time tracking, and payment tools.<br />
+                    Prefer to work with freelancers already on Upwork? <a href="#">Search or post a job.</a>
+                </p>
+            </div>
         </div>
-       
+        <div class="row new-job-panel new-job-first-panel m-0-bottom">
+            <div class="col-xs-12 m-lg-bottom">
+                <h4>Freelancer Info</h4>
+            </div>
+            <div class="col-xs-12 m-normal-bottom">
+                <div class="row m-normal-bottom">
+                    <div class="col-xs-5">
+                        <h4>First Name</h4>
+                        <input class="form-control" placeholder="" ng-model="firstName" />
+                    </div>
+                    <div class="col-xs-5 p-lg-top">
+                        <span><small class="color-red"><i class="iconfont">&#xe612;</i>&nbsp;&nbsp;Please enter the Freelancer's first name</small></span>
+                    </div>
+                </div>
+                <div class="row m-normal-bottom m-normal-top">
+                    <div class="col-xs-5">
+                        <h4>Last Name</h4>
+                        <input class="form-control" placeholder="" />
+                    </div>
+                    <div class="col-xs-5 p-lg-top">
+                        <span ng-show=""><small class="color-red"><i class="iconfont">&#xe612;</i>&nbsp;&nbsp;Please enter a contract title</small></span>
+                    </div>
+                </div>
+                <div class="row m-normal-bottom m-normal-top">
+                    <div class="col-xs-5">
+                        <h4>Email</h4>
+                        <input class="form-control" placeholder="" />
+                    </div>
+                    <div class="col-xs-5 p-lg-top">
+                        <span ng-show=""><small class="color-red"><i class="iconfont">&#xe612;</i>&nbsp;&nbsp;Please enter a contract title</small></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row new-job-panel m-0-bottom">
+            <div class="col-xs-12 m-lg-bottom">
+                <h4>Contract Info</h4>
+                <p>Once the freelancer accepts your offer, they’re ready to start working as a member of your Upwork team.</p>
+            </div>
+            <div class="col-xs-12 m-normal-bottom">
+                <div class="row m-normal-bottom">
+                    <div class="col-xs-5">
+                        <h4>Contract Name</h4>
+                        <input class="form-control m-sm-bottom" placeholder="" />
+                        <a href="#">Copy previous contract</a>
+                    </div>
+                    <div class="col-xs-5 p-lg-top">
+                        <span ng-show=""><small class="color-red"><i class="iconfont">&#xe612;</i>&nbsp;&nbsp;Please enter a contract title</small></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 m-normal-bottom">
+                <div class="row m-normal-bottom">
+                    <div class="col-xs-5">
+                        <h4>Contract Name</h4>
+                        <textarea class="form-control m-sm-bottom" placeholder="" rows="8"></textarea>
+                        <div class="text-right"><small>5000</small></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 m-normal-bottom">
+                <div class="row m-normal-bottom">
+                    <div class="col-xs-12">
+                        <h4>Type of work</h4>
+                        <div class="col-xs-3 no-lf-padding">
+                            <div class="dropdown ald-dropdown">
+                                <a class="dropdown-toggle ald-dropdown-toggle" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span>请选择</span><span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu ald-dropdown-menu  dropsown-jobcategory-ul">
+                                    <li>Please select</li>
+                                    <li>Web,Mobile&Software Dev</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="dropdown ald-dropdown">
+                                <a class="dropdown-toggle ald-dropdown-toggle" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span>请选择</span><span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu ald-dropdown-menu  dropsown-jobcategory-ul">
+                                    <li>Please select</li>
+                                    <li>Web,Mobile&Software Dev</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row new-job-panel m-0-bottom">
+            <div class="col-xs-12 m-normal-bottom">
+                <h4>Work Arrangement - Hourly</h4>
+            </div>
+            <div class="col-xs-12">
+                <div class="row m-normal-bottom">
+                    <div class="col-xs-5">
+                        <h4>Hourly Rate</h4>
+                        <input class="form-control m-sm-bottom" placeholder="0.00" />
+                        <a href="#">Switch to Fixed Price</a>
+                    </div>
+                    <div class="col-xs-3 p-lg-top">
+                        <p>/ hour</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>Hourly Rate</h4>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="dropdown ald-dropdown">
+                            <a class="dropdown-toggle ald-dropdown-toggle" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span>No limit</span><span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu ald-dropdown-menu  dropsown-jobcategory-ul">
+                                <li>Please select</li>
+                                <li>Web,Mobile&Software Dev</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <p>= $- max / week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row new-job-panel m-0-bottom">
+            <div class="col-xs-12 m-normal-bottom">
+                <h4>Personalized Message</h4>
+            </div>
+            <div class="col-xs-5">
+                <h4>Message</h4>
+                <textarea class="form-control m-sm-bottom" placeholder="" rows="8"></textarea>
+                <div class="text-right"><small>900</small></div>
+            </div>
+        </div>
+        <div class="row new-job-panel m-0-bottom">
+            <div class="col-xs-12 m-normal-bottom">
+                <h4>Important</h4>
+            </div>
+            <div class="col-xs-12">
+                <h4>Agree to Terms</h4>
+                <div class="radio agree-terms"><label><input type="radio" name="project_type"><span class="checkbox-helper"></span>I have read, understand and agree to the Upwork Terms of Service, including the User Agreement and Privacy Policy.</label></div>
+            </div>
+        </div>
+        <div class="row m-normal-top m-normal-left m-lg-bottom">
+            <div class="col-xs-12"><button class="btn btn-default btn-sendbyo">Send</button><button class="btn btn-link btn-sendbyo-cancel">Cancel</button></a></div>
+        </div>
     </form>
 </div><!--end container-->

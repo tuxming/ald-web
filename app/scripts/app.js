@@ -61,11 +61,12 @@ var menu = {
       },
       freelancers:{
         label: "自由工作者",
-        url: "",
+        url: webroot + "/e/#/my-contractors",
+        method: "load",
         submenu:[
-          {label:"我的员工", url: ""},
+          {label:"我的员工", url: "/e/#/my-contractors" },
           {label:"找员工", url: ""},
-          {label:"邀请员工", url: ""}
+          {label:"邀请员工", url: "/e/#/byo" }
         ]
       },
       reports:{
