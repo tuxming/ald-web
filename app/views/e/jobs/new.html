@@ -1,9 +1,4 @@
-﻿<!-- tpl {"parent": "app/template/index.tpl.html",
-   "title": "Myjobs - New",
-   "css":["/styles/d/myjobs.css"],
-   "js":["/scripts/app.js","/scripts/d/controllers/newjob.js"]
- } -->
-<div class="container" ng-controller="newjob">
+﻿<div class="container" ng-controller="NewjobCtrl">
     <form name="createjob" novalidate="novalidate">
         <div class="row m-lg-bottom m-lg-top">
             <div class="col-xs-12"><h3 class="newjob-page-title">发布工作</h3></div>
@@ -67,7 +62,8 @@
                                 5000 characters left
                             </small>
                         </h4>
-                        <textarea class="form-control" rows="10" >例如：建立一个宾馆预订系统，要求能够网上支付，用户能注册，查询，预定，绑定微信号，可以用支付宝等流行方式付款。
+                        <textarea class="form-control" rows="10">
+                            例如：建立一个宾馆预订系统，要求能够网上支付，用户能注册，查询，预定，绑定微信号，可以用支付宝等流行方式付款。
                         </textarea>
                     </div>
                 </div>
@@ -245,9 +241,100 @@
                 </div>
             </div>
         </div>
-        <div class="row new-job-panel">
-            <div class="col-xs-12">
-                <h4><i class="iconfont lg-icon icon-link">&#xe655;</i><span class=""> Freelancer Preferences</span></h4>
+        <div class="row new-job-panel" ng-init="showPreferences=false">
+            <div class="col-xs-12" ng-click="showPreferences=!showPreferences">
+                <a href="javascript:void(0)"><h4><i class="iconfont lg-icon" ng-show="!showPreferences">&#xe655;</i><i class="iconfont lg-icon" ng-show="showPreferences">&#xe651;</i>&nbsp;&nbsp;<span class="">Freelancer Preferences</span></h4></a>
+            </div>
+            <div class="col-xs-12" ng-show="showPreferences">
+                <div class="row">
+                    <div class="col-xs-12 m-normal-top m-normal-bottom">
+                        <span class="iconfont llg-icon pull-left m-lg-right">&#xe616;</span>
+                        <div class="pull-left">
+                            <h4>How many freelancers do you need to hire for this job?</h4>
+                            <div>
+                                <div class="radio"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>I want to hire one freelancer</label></div>
+                                <div class="radio"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>I need to hire more than one freelancer</label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12  m-normal-top m-normal-bottom">
+                        <span class="iconfont llg-icon pull-left m-lg-right">&#xe639;</span>
+                        <div class="pull-left">
+                            <h4>Do you have freelancers in mind that you would like to invite?</h4>
+                            <input class="form-control" placeholder="Select freelancers" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12  m-normal-top m-normal-bottom">
+                        <span class="iconfont llg-icon pull-left m-lg-right">&#xe640;</span>
+                        <div class="pull-left col-xs-11 no-lf-padding">
+                            <h4>Preferred Qualifications</h4>
+                            <p class="m-normal-bottom m-normal-top">
+                                Specify the qualifications you're looking for in a successful application. Freelancers may still apply if they do not meet your preferences, but they will be clearly notified that they are at a disadvantage.
+                            </p>
+                            <button class="btn btn-add-qualification m-normal-bottom" ng-init="showqualification=false" ng-click="showqualification=!showqualification;">{{showqualification?"Hide Qualifications":"Show Qualifications"}}</button>
+                            <div ng-show="showqualification">
+                                <div class="row m-sm-bottom">
+                                    <div class="col-xs-4"><h4>Freelancer Type</h4></div>
+                                    <div class="col-xs-6">
+                                        <div class="dropdown ald-dropdown">
+                                            <a class="dropdown-toggle ald-dropdown-toggle dropdown-n-full-hign-a" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span>No Preference</span><span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu ald-dropdown-menu  dropdown-full-hign-ul">
+                                                <li>No Preference</li>
+                                                <li>Indent</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-sm-bottom">
+                                    <div class="col-xs-4"><h4>Job Success Score<a href="#"><i class="iconfont">&#xe60b;</i></a></h4></div>
+                                    <div class="col-xs-6">
+                                        <div class="dropdown ald-dropdown">
+                                            <a class="dropdown-toggle ald-dropdown-toggle dropdown-n-full-hign-a" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span>90% Job Success & up</span><span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu ald-dropdown-menu dropdown-full-hign-ul">
+                                                <li>90% Job Success & up</li>
+                                                <li>Indent</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 m-normal-top m-normal-bottom">
+                        <span class="iconfont llg-icon pull-left m-lg-right">&#xe640;</span>
+                        <div class="pull-left col-xs-11">
+                            <h4>Screening Questions</h4>
+                            <textarea class="form-control" placeholder="" rows="3"></textarea>
+                            <div class="text-right">256 characters left</div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <div class="dropdown ald-dropdown">
+                                        <a class="dropdown-toggle ald-dropdown-toggle dropdown-n-full-hign-a" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <span>Add Anotheir Question</span><span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ald-dropdown-menu dropdown-full-hign-ul">
+                                            <li>Add Anotheir Question</li>
+                                            <li>Create my own Question</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 m-normal-top m-normal-bottom">
+                        <span class="iconfont llg-icon pull-left m-lg-right">&#xe608;</span>
+                        <div class="pull-left">
+                            <h4>Cover Letter</h4>
+                            <p class="m-normal-bottom m-normal-top">
+                                If you don't add any screening questions, we'll require a cover letter to allow freelancers to introduce themselves.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row new-job-panel">
