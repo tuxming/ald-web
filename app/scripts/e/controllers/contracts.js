@@ -5,11 +5,11 @@
 
 /**
  * @ngdoc function
- * @name app.controller:billingHistoryCtrl
+ * @name app.controller:contractCtrl
  * @description
- * # MyProfileController
+ * # contractCtrl
  * Controller of the app
  */
-app.controller('billingHistoryCtrl', function($scope){
+app.controller('contractCtrl', function($scope){
 
 });

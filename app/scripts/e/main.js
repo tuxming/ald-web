@@ -6,12 +6,12 @@ app.config(function($routeProvider, $locationProvider){
   $routeProvider
     .when('/',{
       templateUrl: webroot+'/e/myjobs.html',
-      controller: 'MyJobsCtrl',
+      controller: 'myJobsCtrl',
       controllerAs: 'myjobs'
     })
     .when('/contracts', {
       templateUrl: webroot+'/e/contracts.html',
-      controller: 'ContractCtrl',
+      controller: 'contractCtrl',
       controllerAs: 'contracts'
     });
 });
