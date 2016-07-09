@@ -19,6 +19,16 @@ app.config(function($routeProvider, $locationProvider){
         controller: 'HiredCtrl',
         controllerAs: 'hired'
     })
+    .when('/my-contractors/past', {
+        templateUrl: webroot + '/e/freelancers/past.html',
+        controller: 'PastHiresCtrl',
+        controllerAs: 'past'
+    })
+    .when('/my-contractors/saved', {
+        templateUrl: webroot + '/e/freelancers/saved.html',
+        controller: 'HiresSavedCtrl',
+        controllerAs: 'saved'
+    })
     .when('/byo', {
         templateUrl: webroot + '/e/freelancers/byo.html',
         controller: 'ByoCtrl',
@@ -35,10 +45,4 @@ app.controller("ContractHourlyCtrl", function($scope){
 
 });
 
-app.controller("ByoCtrl", function ($scope) {
-    $scope.firstName = '';
-});
 
-app.controller("NewjobCtrl", function ($scope) {
-
-});

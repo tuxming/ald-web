@@ -7,8 +7,11 @@
  * # newjobCtrl
  * Controller of the app
  */
-app.controller('newjobCtrl', function ($scope) {
+app.controller('myJobsCtrl', function ($scope) {
     $scope.previousjob = '';
     $scope.message = '';
+});
 
+app.controller("NewjobCtrl", function ($scope, $rootScope) {
+    $rootScope.title = 'New';
 });
