@@ -24,6 +24,11 @@ app.controller('MainCtrl', function ($scope, store, $window) {
       controller: 'ProposalsController',
       controllerAs: 'proposals'
     })
+    .when('/proposals/archived', {
+        templateUrl: webroot + '/d/findwork/archived.html',
+        controller: 'ProposalsArchivedController',
+        controllerAs: 'archived'
+    })
     .when('/myreport', {
       templateUrl: webroot+'/d/findwork/mystats.html',
       controller: 'MyStatsController',
