@@ -22,3 +22,7 @@ app.controller("HiresSavedCtrl", function ($scope, $rootScope) {
 app.controller("FindFreelancersCtrl", function ($scope, $rootScope) {
     $rootScope.title = "Freelancers - Brwose";
 });
+
+app.controller("FreelancersWorkdiaryCtrl", function ($scope, $rootScope, $uibModal) {
+    $rootScope.title = "Freelancers - Workdiary";
+});

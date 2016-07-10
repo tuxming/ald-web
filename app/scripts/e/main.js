@@ -43,6 +43,11 @@ app.config(function($routeProvider, $locationProvider){
         templateUrl: webroot + '/e/jobs/new.html',
         controller: 'NewjobCtrl',
         controllerAs: 'newjob'
+    })
+    .when('/freelancers/workdiary', {
+        templateUrl: webroot + '/e/freelancers/workdiary.html',
+        controller: 'FreelancersWorkdiaryCtrl',
+        controllerAs: 'freelancersworkdiary'
     });
 });
 

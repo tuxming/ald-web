@@ -1,0 +1,363 @@
+﻿<div class="container">
+    <div class="row m-lg-bottom">
+        <div class="col-xs-12"><h3 class="page-title">Work Diary</h3></div><!--end header-->
+
+        <div class="col-xs-4 m-lg-bottom">
+            <a href="javascript:void(0)" ng-click="showAllDeveloper()" class="workdiary-developers-info pull-left">
+                <div class="pull-left m-sm-right m-sm-top">
+                    <img class="workdiary-developers-head-img" src="/images/pic2.jpg" />
+                </div>
+                <div class="pull-left m-sm-left">
+                    <div><h4>Barindra Nath<i class="iconfont">&#xe65c;</i></h4></div>
+                    <div>Want a company for our web project</div>
+                </div>
+            </a>
+        </div><!--end filter-->
+        
+        <ul class="col-xs-12 wd-info-bar list-unstyled clearfix">
+            <li class="col-xs-3 wd-info-bar-left">
+                <ul class="info-bar-item list-unstyled">
+                    <li>Time Zone:</li>
+                    <li class="time-zone-container">
+                        <div class="dropdown mp-work-filter">
+                            <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" data-target="#" class="dropdown-toggle ald-dropdown-toggle ">
+                                <span class="filter-selected-label">UTC</span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu ald-dropdown-menu mp-work-filter-options">
+                                <li class="filter-selected-actived">UTC</li>
+                                <li>Mine（UTC+08:00）</li>
+                            </ul>
+                        </div>
+                    </li><!--end utc-select-->
+                </ul>
+            </li><!--end left-->
+            <li class="col-xs-6 wd-info-bar-center">
+                <ul class="info-bar-item list-unstyled text-center">
+                    <li class="iconfont prev">
+                        <a href="javascript:;">
+                            &#xe60f;
+                        </a>
+                    </li>
+                    <li>
+                        <a class="date-text" href="javascript:;">
+                            <span>Mon, May 9,2016</span>
+                            <i class="iconfont">&#xe633;</i>
+                        </a>
+                    </li>
+                    <li class="iconfont next">
+                        <a href="javascript:;">
+                            &#xe615;
+                        </a>
+                    </li>
+                    <li class="iconfont today">
+                        <a href="javascript:;" class="link-underline">Today</a>
+                    </li>
+                </ul>
+            </li><!--end center-->
+            <li class="col-xs-3 wd-info-bar-right">
+                <div class="pull-right">
+                    <div class="btn-group btn-radio-group show-model" role="group" aria-label="radio">
+                        <button class="btn btn-radio-active iconfont" aria-label="radio">&#xe636;</button>
+                        <button class="btn btn-radio-unactive iconfont" aria-label="radio">&#xe635;</button>
+                    </div>
+                    <a href="javascript:;" class="link-underline">Prefs</a>
+                </div>
+            </li><!--end right-->
+        </ul><!--info bar-->
+
+        <ul class="col-xs-12 wd-info-bar wd-info-bar1 list-unstyled clearfix">
+            <li>Total Time Logged: <b>06:00</b></li>
+            <li><a href="javascript:;" class="iconfont">&#xe60d;</a></li>
+            <li class="mylabel">
+                <div>&nbsp;</div>
+                <span>Auto-tracked: 06:00</span>
+                <i class="iconfont">&#xe611;</i>
+            </li>
+            <li class="mylabel">
+                <div>&nbsp;</div>
+                <span>AManual time: 00:00</span>
+                <i class="iconfont">&#xe611;</i>
+            </li>
+            <li class="pull-right"><span>Selcted: &nbsp;&nbsp;</span><b>00:00 min</b></li>
+        </ul><!--end  info bar-->
+
+        <div class="clearfix">
+            <div class="pull-right">
+                <button class="btn-simple-unactive">Edit Memo</button>
+                <button class="btn-simple-unactive">Delete</button>
+                <button class="btn-simple-unactive">Deselect All</button>
+            </div>
+        </div>
+
+        <div class="views">
+            <div class="view-hour">
+                <div class="hour-text">
+                    <div>5</div>
+                    <div>am</div>
+                    <div><input type="checkbox" /></div>
+                </div>
+
+                <div class="diary-view-row">
+                    <div class="v-header">
+                        <div class="snapshots-4 nothing"></div>
+                        <div class="snapshots-2 snapshots-left">&nbsp;&nbsp;&nbsp;code view</div>
+                    </div><!--end header-->
+
+                    <div class="snap-nothing" ng-repeat="v in [0,1,2,3]">
+                        <div class="no-screenshot"></div>
+                        <div class="no-total"></div>
+                    </div>
+
+                    <div class="normal" ng-repeat="item in [1,2]">
+                        <div class="screenshot">
+                            <img src="/images/pic1.jpg">
+                        </div>
+                        <div class="total">
+                            <input type="checkbox" />
+                            <span class="timestamp">20:23pm</span>
+                            <div class="percent">
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div><!--end item box-->
+                </div>
+
+            </div><!--end view hour-->
+            <div class="view-hour">
+                <div class="hour-text">
+                    <div>5</div>
+                    <div>am</div>
+                    <div><input type="checkbox" /></div>
+                </div>
+
+                <div class="diary-view-row">
+                    <div class="v-header clearfix">
+                        <div class="snapshots-2 snapshots-right">&nbsp;&nbsp;&nbsp;code view</div>
+                        <div class="snapshots-2 nothing"></div>
+                        <div class="snapshots-2 snapshots-full"></div>
+                    </div><!--end header-->
+
+                    <div class="normal" ng-repeat="item in [1,2]">
+                        <div class="screenshot">
+                            <img src="/images/pic1.jpg">
+                        </div>
+                        <div class="total">
+                            <input type="checkbox" />
+                            <span class="timestamp">20:23pm</span>
+                            <div class="percent">
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div><!--end item box-->
+                    <div class="snap-nothing" ng-repeat="v in [0,1]">
+                        <div class="no-screenshot"></div>
+                        <div class="no-total"></div>
+                    </div>
+                    <div class="normal" ng-repeat="item in [1,2]">
+                        <div class="screenshot">
+                            <img src="/images/pic1.jpg">
+                        </div>
+                        <div class="total">
+                            <input type="checkbox" />
+                            <span class="timestamp">20:23pm</span>
+                            <div class="percent">
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div><!--end item box-->
+
+                </div><!--end view hour-->
+            </div>
+            <div class="view-hour">
+                <div class="hour-text">
+                    <div>5</div>
+                    <div>am</div>
+                    <div><input type="checkbox" /></div>
+                </div>
+
+                <div class="diary-view-row">
+                    <div class="v-header clearfix">
+                        <div class="snapshots-6 snapshots-left"></div>
+                    </div><!--end header-->
+
+                    <div class="normal" ng-repeat="item in [1,2,3,4,5,6]">
+                        <div class="screenshot">
+                            <img src="/images/pic1.jpg">
+                        </div>
+                        <div class="total">
+                            <input type="checkbox" />
+                            <span class="timestamp">20:23pm</span>
+                            <div class="percent">
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div><!--end item box-->
+                </div>
+
+            </div><!--end view hour-->
+            <div class="view-hour">
+                <div class="hour-text">
+                    <div>5</div>
+                    <div>am</div>
+                    <div><input type="checkbox" /></div>
+                </div>
+
+                <div class="diary-view-row">
+                    <div class="v-header clearfix">
+                        <div class="snapshots-6 snapshots-pixes"></div>
+                    </div><!--end header-->
+
+                    <div class="normal" ng-repeat="item in [1,2,3,4,5,6]">
+                        <div class="screenshot">
+                            <img src="/images/pic1.jpg">
+                        </div>
+                        <div class="total">
+                            <input type="checkbox" />
+                            <span class="timestamp">20:23pm</span>
+                            <div class="percent">
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div><!--end item box-->
+
+                </div><!--end view hour-->
+            </div>
+            <div class="view-hour">
+                <div class="hour-text">
+                    <div>5</div>
+                    <div>am</div>
+                    <div><input type="checkbox" /></div>
+                </div>
+
+                <div class="diary-view-row">
+                    <div class="v-header clearfix">
+                        <div class="snapshots-3 snapshots-right"></div>
+                        <div class="snapshots-3 nothing"></div>
+                    </div><!--end header-->
+
+                    <div class="normal" ng-repeat="item in [1,2,3]">
+                        <div class="screenshot">
+                            <img src="/images/pic1.jpg">
+                        </div>
+                        <div class="total">
+                            <input type="checkbox" />
+                            <span class="timestamp">20:23pm</span>
+                            <div class="percent">
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div><!--end item box-->
+
+                    <div class="snap-nothing" ng-repeat="v in [0,1,2]">
+                        <div class="no-screenshot"></div>
+                        <div class="no-total"></div>
+                    </div>
+
+                </div>
+
+            </div><!--end view hour-->
+            <div class="view-hour">
+                <div class="hour-text">
+                    <div>5</div>
+                    <div>am</div>
+                    <div><input type="checkbox" /></div>
+                </div>
+
+                <div class="diary-view-row">
+                    <div class="v-header clearfix">
+                        <div class="snapshots-1 nothing"></div>
+                        <div class="snapshots-1 snapshots-left"></div>
+                        <div class="snapshots-1 snapshots-pixes"></div>
+                        <div class="snapshots-1 snapshots-pixes"></div>
+                        <div class="snapshots-1 snapshots-right"></div>
+                        <div class="snapshots-1 snapshots-full"></div>
+                    </div><!--end header-->
+
+                    <div class="snap-nothing">
+                        <div class="no-screenshot"></div>
+                        <div class="no-total"></div>
+                    </div>
+
+                    <div class="normal" ng-repeat="item in [1,2,3,4,5]">
+                        <div class="screenshot">
+                            <img src="/images/pic1.jpg">
+                        </div>
+                        <div class="total">
+                            <input type="checkbox" />
+                            <span class="timestamp">20:23pm</span>
+                            <div class="percent">
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div class="active"></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div><!--end item box-->
+                </div>
+            </div><!--end view hour-->
+        </div><!--end views-->
+    </div><!--end row-->
+</div><!--end container -->
+<!--dialog html-->
+
