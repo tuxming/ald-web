@@ -38,10 +38,16 @@ app.controller('MainCtrl', function ($scope, store, $window) {
       templateUrl: webroot+'/d/findwork/myprofile.html',
       controller: 'MyProfileController',
       controllerAs: 'myprofile'
-    }).when('/tests', {
+    })
+    .when('/tests', {
       templateUrl: webroot+'/d/findwork/tests.html',
       controller: 'TestsCtrl',
       controllerAs: 'tests'
+    })
+    .when('/tests/more', {
+        templateUrl: webroot + '/d/findwork/testsmore.html',
+        controller: 'TestsMoreCtrl',
+        controllerAs: 'testsmore'
     });
 /*
   $locationProvider.html5Mode({
