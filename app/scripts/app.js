@@ -65,7 +65,7 @@ var menu = {
         method: "load",
         submenu:[
           {label:"我的员工", url: "/e/#/my-contractors" },
-          {label:"找员工", url: ""},
+          {label: "找员工", url: "/e/#/freelancers/find" },
           {label:"邀请员工", url: "/e/#/byo" }
         ]
       },

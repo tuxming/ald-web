@@ -29,6 +29,11 @@ app.config(function($routeProvider, $locationProvider){
         controller: 'HiresSavedCtrl',
         controllerAs: 'saved'
     })
+    .when('/freelancers/find', {
+        templateUrl: webroot + '/e/freelancers/find.html',
+        controller: 'FindFreelancersCtrl',
+        controllerAs: 'find'
+    })
     .when('/byo', {
         templateUrl: webroot + '/e/freelancers/byo.html',
         controller: 'ByoCtrl',

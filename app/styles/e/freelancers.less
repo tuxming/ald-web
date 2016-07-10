@@ -108,21 +108,25 @@
     width: 94%;
     padding: 0px 15px;
 }
-.saved-personicon{
-    width:6%;
+
+.saved-personicon {
+    width: 6%;
 }
-.lancer-saved-info,.lancer-base-info{
-    display:inline-block;
+
+.lancer-saved-info, .lancer-base-info {
+    display: inline-block;
 }
-.lancer-saved-info{
-    margin-left:50px;
+
+.lancer-saved-info {
+    margin-left: 50px;
 }
-.edit-link{
-    color:@baseColor;
+
+.edit-link {
+    color: @baseColor;
 }
 /**** saved.html end*****/
 /******* byo.html start ******/
-#byoFormPanel .form-control{
+#byoFormPanel .form-control {
     min-height: 42px;
     padding: 12px;
     border: 2px solid @lightGrayColor;
@@ -132,35 +136,72 @@
     font-size: 14px;
     line-height: 14px;
 }
-#byoFormPanel .form-control:hover,#byoFormPanel .form-control:focus{
+
+#byoFormPanel .form-control:hover, #byoFormPanel .form-control:focus {
+    border: 2px solid @baseColor;
+    border-radius: 0px;
+}
+
+.btn-sendbyo {
+    background-color: @baseColor;
+    color: @white;
+    width: 125px;
+    height: 42px;
+}
+
+.btn-sendbyo:hover, .btn-submitnewjob:active {
+    background-color: darken(@baseColor,5%);
+    color: @white;
+}
+
+.btn-sendbyo-cancel {
+    color: @baseColor;
+    padding-left: 45px;
+}
+
+.agree-terms {
+    display: inline-block;
+    line-height: 100%;
+    height: 35px;
+    padding-top: 6px;
+}
+
+.agree-terms:hover, .agree-terms label:hover {
+    background-color: lighten(@lightGrayColor,5%);
+}
+
+.price-hourly-txt {
+    display: inline-block;
+    width: 95px;
+}
+/******* byo.html end ******/
+/*******find.html start */
+.findlancers-brwose-page-title {
+    font-weight: 400;
+    font-size: 26px;
+}
+
+.freelancers-brwose-search-panel {
+    border: 2px solid @lightGrayColor;
+    background-color: @white;
+}
+
+.freelancers-brwose-search-panel .txt-f-search {
+    height: 42px;
+    width: 80%;
+}
+
+.freelancers-brwose-search-panel .btn-f-b-search {
+    width: 130px;
+    height: 42px;
+    color: @baseColor;
+    background-color: @white;
+    border-radius: 2px;
+    border: 2px solid @lightGrayColor;
+}
+
+.freelancers-brwose-search-panel .btn-f-b-search:hover,.freelancers-brwose-search-panel .btn-f-b-search:active{
     border:2px solid @baseColor;
     border-radius: 0px;
 }
-.btn-sendbyo{
-    background-color:@baseColor;
-    color:@white;
-    width:125px;
-    height:42px;
-}
-.btn-sendbyo:hover,.btn-submitnewjob:active{
-    background-color:darken(@baseColor,5%);
-    color:@white;
-}
-.btn-sendbyo-cancel{
-    color:@baseColor;
-    padding-left:45px;
-}
-.agree-terms{
-    display:inline-block;
-    line-height:100%;
-    height:35px;
-    padding-top:6px;
-}
-.agree-terms:hover,.agree-terms label:hover{
-    background-color:lighten(@lightGrayColor,5%);
-}
-.price-hourly-txt{
-    display:inline-block;
-    width:95px;
-}
-/******* byo.html end ******/
+/*******find.html end */

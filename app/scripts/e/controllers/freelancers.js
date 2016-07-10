@@ -18,3 +18,7 @@ app.controller("HiresSavedCtrl", function ($scope, $rootScope) {
     $rootScope.title = "My Freelancers - Saved";
     $rootScope.page_nav = 'saved';
 });
+
+app.controller("FindFreelancersCtrl", function ($scope, $rootScope) {
+    $rootScope.title = "Freelancers - Brwose";
+});
