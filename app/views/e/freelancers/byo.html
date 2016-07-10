@@ -101,24 +101,29 @@
                 </div>
             </div>
         </div>
-        <div class="row new-job-panel m-0-bottom">
+        <div class="row new-job-panel m-0-bottom" ng-init="price_type='hourly'" ng-show="price_type=='hourly'">
             <div class="col-xs-12 m-normal-bottom">
                 <h4>Work Arrangement - Hourly</h4>
             </div>
             <div class="col-xs-12">
                 <div class="row m-normal-bottom">
-                    <div class="col-xs-5">
+                    <div class="col-xs-2">
                         <h4>Hourly Rate</h4>
-                        <input class="form-control m-sm-bottom" placeholder="0.00" />
-                        <a href="#">Switch to Fixed Price</a>
+                        <div>
+                            <span class="iconfont lg-icon color-base">&#xe65b;</span>
+                            <input class="form-control m-sm-bottom price-hourly-txt" placeholder="0.00" />
+                        </div>
                     </div>
-                    <div class="col-xs-3 p-lg-top">
+                    <div class="col-xs-3 p-lg-top" ng-show="price_type=='hourly'">
                         <p>/ hour</p>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-xs-12">
-                        <h4>Hourly Rate</h4>
+                        <a href="javascript:void(0)" class="m-normal-left" ng-click="price_type='fixed'">Switch to Fixed Price</a>
+                    </div>
+                </div>
+                <div class="row" ng-show="price_type=='hourly'">
+                    <div class="col-xs-12">
+                        <h4>Limit</h4>
                     </div>
                     <div class="col-xs-3">
                         <div class="dropdown ald-dropdown">
@@ -133,6 +138,37 @@
                     </div>
                     <div class="col-xs-3">
                         <p>= $- max / week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row new-job-panel m-0-bottom" ng-show="price_type=='fixed'">
+            <div class="col-xs-12 m-normal-bottom">
+                <h4>Work Arrangement - Fixed Price</h4>
+            </div>
+            <div class="col-xs-12">
+                <div class="row m-normal-bottom">
+                    <div class="col-xs-2">
+                        <h4>Budget</h4>
+                        <div>
+                            <span class="iconfont lg-icon color-base">&#xe65b;</span>
+                            <input class="form-control m-sm-bottom price-hourly-txt" placeholder="0.00" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 m-normal-left">
+                        <small>This is the total amount you'll be charged.</small>
+                        <div>
+                            <a href="javascript:void(0)" ng-click="price_type='hourly'">Switch to Hourly</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>Escrow</h4>
+                        <div>
+                            <div class="radio"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Deposit $- to the whole project</label></div>
+                            <div class="radio"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Deposit the amount of the first milestone</label></div>
+                        </div>
                     </div>
                 </div>
             </div>

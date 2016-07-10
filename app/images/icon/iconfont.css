@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1467718697'); /* IE9*/
-  src: url('iconfont.eot?t=1467718697#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1467718697') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1467718697') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1467718697#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1468110557'); /* IE9*/
+  src: url('iconfont.eot?t=1468110557#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1468110557') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1468110557') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1468110557#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -65,6 +65,7 @@
 .icon-androidattach:before { content: "\e64d"; }
 .icon-rss:before { content: "\e623"; }
 .icon-shizhong:before { content: "\e64e"; }
+.icon-dollar:before { content: "\e65b"; }
 .icon-attachment-line:before { content: "\e63d"; }
 .icon-message1:before { content: "\e63e"; }
 .icon-wbdiconsoftxls:before { content: "\e62d"; }
