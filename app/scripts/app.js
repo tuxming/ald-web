@@ -55,7 +55,7 @@ var menu = {
         active: true,
         submenu:[
           {label:"我的工作", url: webroot+"/e"},
-          {label:"我的合同", url: webroot+"/e/#/contracts"},
+          {label:"我的合同", url: webroot+"/e/contract"},
           {label:"发布工作", url: webroot + "/e/#/jobs/new"}
         ]
       },

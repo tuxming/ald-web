@@ -1,0 +1,382 @@
+
+<div class="container">
+  <div class="row">
+    <div class="d-head">
+      <a href="/e/contract" class="link-underline"><i class="iconfont">&#xe60f;</i>Back to contracts</a>
+      <h3>Want a company for out web project</h3>
+    </div><!--end d-head-->
+
+    <div class="col-md-9 no-lf-padding">
+      <div class="d-wrapper d-milestones">
+        <div class="d-subtitle">
+          <h4>Milestones</h4>
+        </div>
+        <table class="table dms-table1">
+          <thead>
+            <tr>
+              <th>Budget</th>
+              <th>Paid</th>
+              <th>Remaining</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>$600.00</td>
+            <td>$600.00</td>
+            <td>$0.00</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <table class="table dms-table2">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Due Date</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="i in [0,1,2]">
+              <td>1</td>
+              <td style="width:200px; "><a href="javascript:;" class="eclipse link-underline">Contract Translate</a></td>
+              <td>$100.00</td>
+              <td>&nbsp;</td>
+              <td>Paid</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <a href="javascript:;" class="btn btn-simple add-milestone">Add Milestone</a>
+
+      </div><!--end mildstones-->
+
+      <div class="d-wrapper d-timesheet clearfix">
+        <div class="col-md-6 dts-thumb-wrapper">
+          <a href="javascript:;"><img src="/images/pic1.jpg" alt=""/></a>
+        </div>
+        <div class="col-md-6 dts-wrapper2">
+          <div class="font13">3 days ago</div>
+          <div class="font15 fweight">Today job sql</div>
+          <div class="font13"><a href="javascript:;" class="link-underline">View work diary</a></div>
+        </div>
+        <div class="col-md-6 font13 dts-wrapper3">
+          <div class="font15 color3">SO FAR THIS WEEK</div>
+          <div class="color4">0:00 hrs </div>
+          <div class="color4">$0.00 </div>
+          <div class="color9"> You will be charged for this week on Monday.
+            <a href="javascript:;" class="link-underline">Learn more</a>
+          </div>
+        </div>
+        <div class="col-md-6 font13 dts-wrapper4">
+          <div class="font15 color3">LAST WEEK</div>
+          <div class="color4">0:00 hrs <a href="javascript:;" class="btn btn-simple link-underline dts-dispute">Dispute</a></div>
+          <div class="color4">$0.00 </div>
+          <div class="color9"> You will be charged for this week on Monday.
+            <a href="javascript:;" class="link-underline">Learn more</a>
+          </div>
+        </div>
+        <div class="col-md-12 text-right"><a href="javascript:;" class="link-underline color12">All timesheets</a></div>
+      </div><!--end timesheet-->
+
+      <div class="d-wrapper d-end">
+        <div class="d-subtitle color-red">
+          <h4>Completed Jun 30</h4>
+        </div>
+        <div class="clearfix d-end-content">
+          <div class="col-md-4">Total Spent</div>
+          <div class="col-md-4 fweight">$20.00</div>
+          <div class="col-md-4"><a href="javascript:;" class="link-underline">Transaction history </a></div>
+          <div class="col-md-4">Your feedback to freelancer</div>
+          <div class="col-md-6">
+            <span>No Feedback Given </span><br/>
+            <button class="btn btn-primary ald-btn-primary de-give-feedback">
+              Give Feedback
+            </button>
+          </div>
+          <div class="col-md-4">Freelancer's feedback to you </div>
+          <div class="col-md-6"> Freelancer's feedback is hidden until you provide feedback
+          </div>
+        </div>
+      </div><!--end contract-->
+
+      <div class="d-wrapper d-history">
+        <div class="d-subtitle clearfix">
+          <h4>Terms & Settings</h4>
+          <div class="pull-right">Paid to Date &nbsp;&nbsp;&nbsp;&nbsp;<span class="fweight">$2,900.00</span></div>
+        </div>
+        <table class="table dms-table2">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="c in [0,1,2]">
+              <td>Jun 13</td>
+              <td>You changed quanself quanself's limit to 30 hours per week. </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-history-view-more">
+          <a href="javascript:;" class="btn btn-simple">Load More</a>
+          <a href="javascript:;" class="link-underline">All payments, bonuses and adjustments </a>
+        </div>
+      </div><!--end history-->
+
+      <div class="d-wrapper d-settings">
+        <div class="d-subtitle clearfix">
+          <h4>Terms & Settings</h4>
+        </div>
+
+        <div class="d-setting-item clearfix">
+          <div class="d-setting-label">Rate</div>
+          <div class="d-setting-right">
+            <div class="ds-text">$10.00/hr</div>
+            <a href="javascript:;" ng-click="showEditIncreaseRateDlg()" class="link-underline ds-text-edit"><i class="iconfont">&#xe608;</i>Edit</a>
+          </div>
+        </div>
+        <div class="d-setting-item clearfix">
+          <div class="d-setting-label">Limit</div>
+          <div class="d-setting-right">
+            <div class="ds-text">
+              <b>20:00 hrs/week </b>
+              <span>Manual time allowed</span>
+            </div>
+            <a href="javascript:;" class="link-underline ds-text-edit" ng-click="showChangeWeeklyLimitDlg()"><i class="iconfont">&#xe608;</i>Edit</a>
+          </div>
+        </div>
+        <div class="d-setting-item clearfix">
+          <div class="d-setting-label">Activities</div>
+          <div class="d-setting-right">
+            <div class="ds-text">
+              <p><span class="tag">aaa</span><a href="javascript:;" class="link-underline">Add activities</a> so Inder Lal Patel can bill hours according to project, product or customer. </p>
+            </div>
+            <a href="javascript:;" class="link-underline ds-text-edit"  ng-click="showActivitiesEditDlg()"><i class="iconfont">&#xe608;</i>Edit</a>
+        </div>
+        </div>
+        <div class="d-setting-item clearfix">
+          <div class="d-setting-label">Original job opening </div>
+          <div class="d-setting-right">
+            <div class="ds-text">
+              <a href="javascript:;" class="fweight link-underline"> Need a IT ADMIN to setup a tomcat server/mysql ASAP</a>
+            </div>
+          </div>
+        </div>
+        <div class="d-setting-item clearfix">
+          <div class="d-setting-label">Offer information</div>
+          <div class="d-setting-right">
+            <div class="ds-text">
+              Thanks, let's have  go
+            </div>
+          </div>
+        </div>
+        <div class="d-setting-item clearfix">
+          <div class="d-setting-label">Additional Terms </div>
+          <div class="d-setting-right">
+            <div class="ds-text">
+              <a href="javascript:;" class="fweight link-underline">Escrow Instructions</a>
+            </div>
+          </div>
+        </div>
+        <div class="d-setting-item clearfix">
+          <div class="d-setting-label">Company contact </div>
+          <div class="d-setting-right">
+            <div class="ds-text">
+              Cantor Fan
+            </div>
+            <a href="javascript:;" class="link-underline ds-text-edit" ng-click="showCompanyContactEditDlg()"><i class="iconfont">&#xe608;</i>Edit</a>
+          </div>
+        </div>
+        <div class="d-setting-item clearfix">
+          <div class="d-setting-label">Contract ID </div>
+          <div class="d-setting-right">
+            <div class="ds-text">
+              16340214
+            </div>
+          </div>
+        </div>
+      </div><!--end settings-->
+    </div><!--end left-->
+    <div class="col-md-3">
+      <div class="msg-user-icon">
+        <img src="/images/user.png" />
+        <div class="msg-online">&nbsp;</div>
+      </div>
+      <div class="d-user-info">
+        <a href="javascript:;" class="d-user-name link-underline">
+          Tu Xianming
+        </a>
+        <div class="last-login">Tue 1:57pm</div>
+        <ul class="list-unstyled d-ctrl">
+          <li><a class="btn btn-primary ald-btn-primary">Rehire</a></li>
+          <li><a class="btn btn-simple">Mesage</a></li>
+          <li><a class="btn btn-simple">Give Bonus</a></li>
+          <li><a class="btn btn-simple">Switch To Hourly</a></li>
+          <li><a class="btn btn-simple">Give Feedback</a></li>
+          <li><a class="btn btn-simple">Pause</a></li>
+          <li><a class="btn btn-simple">Restart</a></li>
+          <li><a class="btn btn-simple">End Contract</a></li>
+        </ul>
+      </div>
+    </div><!--end right-->
+  </div><!--end row-->
+</div><!--end container-->
+
+<!--begin dialog-->
+<script type="text/ng-template" id="increase-rate-dlg.html">
+<div class="increase-rate-dlg">
+  <div class="dlg-header clearfix">
+    <div class="pull-left">Increase Rate</div>
+    <a href="javascript:;" class="pull-right icon-link">&#xe61b;</a>
+  </div>
+  <div class="dlg-content">
+    <div class="dlg-label size13">
+      You can increase Inder Lal's rate by changing the amount below.
+    </div>
+    <div class="dlg-label increase-rate-edit">
+      <span class="size20 color-base">$</span>
+      <input class="form-control dlg-input increase-rate-input" type="text" />/hr
+    </div>
+    <div class="dlg-label size13 color8">
+      This is the rate you'll be charged.
+    </div>
+    <div class="dlg-label dlg-btn-wrapper">
+      <button class="btn btn-simple">Save Changes</button>
+      <a href="javascript:;" class="link-underline">Cancel</a>
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="text/ng-template" id="change-weekly-limit.html">
+<div class="change-weekly-limit">
+  <div class="dlg-header clearfix">
+    <div class="pull-left">Change Weekly Limit</div>
+    <a href="javascript:;" class="pull-right icon-link">&#xe61b;</a>
+  </div>
+  <div class="dlg-content">
+    <div class="dlg-label size13">
+      Set or change the number of hours Inder Lal Patel can work per week. You will not be billed for hours logged above this limit.
+      <a href="javascript:;" class="link-underline size13">Learn more</a>
+    </div>
+    <div class="dlg-label">
+      <p class="fweight">Weekly Limit</p>
+      <div class="dlg-raido-wrapper">
+        <i class="icon-link color-base">&#xe639;</i>
+        Limit to: <input type="text" class="form-control dlg-input weekly-limit-input" value="20" /> hours per week
+      </div>
+      <div class="dlg-raido-wrapper">
+        <i class="icon-link color-base">&#xe646;</i>
+        do not limit hours
+      </div>
+    </div>
+    <div class="dlg-label">
+      <p class="fweight color13">When will these changes take place?</p>
+      <ul>
+        <li class="size12">Decreases will take effect on Jul 18. </li>
+        <li class="size12">Increases will take effect immediately and is retroactive to Jul 11. All hours logged after this date will be applied to the new limit. </li>
+      </ul>
+    </div>
+    <div class="dlg-label">
+      <p class="fweight">Manual Time</p>
+      <div class="dlg-checkbox-wrapper">
+        <i class="icon-link color-base">&#xe645;</i>
+        Allow freelancer to log time manually if needed.
+        <a href="javascript:;" class="link-underline fweight">What's this?</a>
+      </div>
+    </div>
+    <div class="dlg-label dlg-btn-wrapper">
+      <button class="btn btn-simple">Save Changes</button>
+      <a href="javascript:;" class="link-underline">Cancel</a>
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="text/ng-template" id="activities-edit-dlg.html">
+<div class="activities-edit-dlg">
+  <div class="dlg-header clearfix">
+    <div class="pull-left">Add or Remove Activities</div>
+    <a href="javascript:;" class="pull-right icon-link">&#xe61b;</a>
+  </div>
+  <div class="dlg-content">
+    <div class="dlg-label search-acti-wrapper">
+      <span class="iconfont prefix-pre">&#xe616;</span>
+      <input type="text" class="form-control prefix-input search-acti" placeholder="Search activities">
+    </div>
+    <div class="dlg-label acti-select-wrapper">
+      <a href="javascript:;" class="link-underline">Select All</a>&nbsp; | &nbsp;
+      <a href="javascript:;" class="link-underline">Deselect All</a>
+    </div>
+    <div class="dlg-label acti-list">
+      <div class="acti-item acti-item-selected" ng-repeat="i in [0,1]">
+        <p class="acti-id fweight">aaa</p>
+        <div class="acti-desc">
+          <span class="acti-desc-text">adasdasda</span>
+          <input type="checkbox" class="pull-right" checked/>
+        </div>
+      </div>
+      <div class="acti-item" ng-repeat="i in [0,1,2]">
+        <p class="acti-id fweight">aaa</p>
+        <div class="acti-desc">
+          <span class="acti-desc-text">adasdasda</span>
+          <input type="checkbox" class="pull-right"/>
+        </div>
+      </div>
+    </div>
+    <div class="dlg-label acti-add">
+      <a href="javascript:;" class="icon-link link-underline size13" ng-click="switchCreateHide(false)" ng-show="createHide">&#xe619; Create another</a>
+      <div ng-show="!createHide">
+        <input type="text" class="form-control dlg-input acti-add-id" placeholder="Activity ID"/>
+        <input type="text" class="form-control dlg-input acti-add-desc" placeholder="Activity Description"/>
+        <button type="button" ng-click="switchCreateHide(true)" class="btn btn-simple">Add</button>
+      </div>
+    </div>
+    <div class="dlg-label size13 color8">
+      TIP: Make sure to tell your freelancer after you've made these changes
+    </div>
+    <div class="dlg-label dlg-btn-wrapper">
+      <button class="btn btn-primary ald-btn-primary">Save Changes</button>
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="text/ng-template" id="company-contact-edit-dlg.html">
+<div class="company-contact-edit-dlg">
+  <div class="dlg-header clearfix">
+    <div class="pull-left">Edit Company Contact</div>
+    <a href="javascript:;" class="pull-right icon-link">&#xe61b;</a>
+  </div>
+  <div class="dlg-content">
+    <div class="dlg-label size12">
+      Company contact lets other members of your organization know who's responsible for managing this freelancer.
+    </div>
+    <div class="dlg-label fweight">
+      Select a team member
+    </div>
+    <div class="dlg-label cced-select-wrapper">
+      <input type="text" class="form-control select-input cced-select"/>
+      <ul class="list-unstyled cced-member-list">
+        <li class="cced-item-selected">
+          <img src="/images/user.png"/>
+          <span class="cced-member-text">Tu xianming</span>
+        </li>
+        <li ng-repeat="i in [0,1,2,3,4]">
+          <img src="/images/user.png"/>
+          <span class="cced-member-text">Tu xianming</span>
+        </li>
+      </ul>
+    </div>
+    <div class="dlg-label dlg-btn-wrapper">
+      <button class="btn btn-simple">Save Changes</button>
+      <a href="javascript:;" class="link-underline">Cancel</a>
+    </div>
+  </div>
+</div>
+</script>
+<!--end dialog-->

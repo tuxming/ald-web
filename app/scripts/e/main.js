@@ -8,13 +8,7 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: webroot+'/e/myjobs.html',
       controller: 'myJobsCtrl',
       controllerAs: 'myjobs'
-    })
-    .when('/contracts', {
-      templateUrl: webroot+'/e/contracts.html',
-      controller: 'contractCtrl',
-      controllerAs: 'contracts'
-    })
-    .when('/my-contractors', {
+    }).when('/my-contractors', {
         templateUrl: webroot + '/e/freelancers/hired.html',
         controller: 'HiredCtrl',
         controllerAs: 'hired'
