@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="sch-title">
+        <h3>End Contract with Freelacer-name (project-name)</h3>
+      </div>
+
+      <p class="fweight size12">Pay Feelancer</p>
+      <p class="size12">No additional payments</p>
+
+      <br/>
+      <p class="size13 fweight">
+        Share your experience! Your honest feedback provides helpful information to both the freelancer and the Upwork community.
+      </p>
+
+      <div class="ec-wrapper">
+        <p class="flighter size16 iconfont no-margin">&#xe649;Private Feedback </p>
+        <p class="fweight size12 m-normal-left"> This feedback will be kept anonymous and never shared directly with the freelancer.
+          <a href="javascript:;" class="link-underline size12">Learn more</a>
+        </p>
+
+        <div class="fweight size13 m-sm-top m-sm-bottom">Reason for ending contract:</div>
+        <select class="select" id="reason" name="reason" style="width:350px;">
+          <option selected="selected" label="Please select..." value="">Please select...</option>
+          <option label="Job completed successfully" value="104">Job completed successfully</option>
+          <option label="Job canceled due to freelancer performance" value="235">Job canceled due to freelancer performance</option>
+          <option label="Job canceled for other reasons" value="107">Job canceled for other reasons</option>
+          <option label="Another reason" value="236">Another reason</option>
+        </select>
+
+        <div class="fweight size13 m-normal-top">How likely are you to recommend this freelancer to a friend or a colleague? </div>
+        <div class="size13">
+          <span class="inblock txtop m-normal-right">not at all likely</span>
+          <label class="m-sm-left" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10]">
+            {{i}}<br/>
+            <input type="radio" name="score"/>
+          </label>
+          <span class="inblock txtop m-normal-left">Extremely likely</span>
+
+          <div class="fweight size13 m-sm-bottom m-normal-top">Why not? <span class="fnormal">(optional)</span></div>
+          <div class="close-bad">
+            <input type="checkbox" />&nbsp;&nbsp;Poor quality of work<br/>
+            <input type="checkbox" />&nbsp;&nbsp;Missed deadlines<br/>
+            <input type="checkbox" />&nbsp;&nbsp;Poor communication<br/>
+            <input type="checkbox" />&nbsp;&nbsp;Logged more time than necessary<br/>
+            <input type="checkbox" />&nbsp;&nbsp;Freelancer who completed the work was not the person I interviewed<br/>
+            <input type="checkbox" />&nbsp;&nbsp;Something else<br/>
+          </div>
+
+          <p class="fweight size13 m-sm-bottom m-normal-top">What do you think are their strengths? <span class="fnormal">(optional)</span></p>
+          <div class="close-good">
+            <input type="checkbox" />&nbsp;&nbsp;Quality of work <br/>
+            <input type="checkbox" />&nbsp;&nbsp;Adherence to deadlines <br/>
+            <input type="checkbox" />&nbsp;&nbsp;Communicationn<br/>
+            <input type="checkbox" />&nbsp;&nbsp;Something else<br/>
+          </div>
+          <textarea class="pm-textarea" style="width:400px;" cols="80" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="ec-wrapper">
+        <p class="flighter size16 iconfont no-margin">&#xe649;Public Feedback</p>
+        <p class="fweight size12 m-normal-left">This feedback will be shared on your freelancer's profile only after they've left feedback for you.
+          <a href="javascript:;" class="link-underline size12">Learn more</a>
+        </p>
+
+        <div class="fweight size13 m-sm-top m-sm-bottom">Feedback to Freelancer</div>
+        <div>
+          <div><i class="icon-link m-sm-right" ng-repeat="i in [0,1,2,3,4]">&#xe627;</i>&nbsp;&nbsp;Adherence to Schedule</div>
+          <div><i class="icon-link m-sm-right" ng-repeat="i in [0,1,2,3,4]">&#xe627;</i>&nbsp;&nbsp;Quality of Work</div>
+          <div><i class="icon-link m-sm-right" ng-repeat="i in [0,1,2,3,4]">&#xe627;</i>&nbsp;&nbsp;Availability</div>
+          <div><i class="icon-link m-sm-right" ng-repeat="i in [0,1,2,3,4]">&#xe627;</i>&nbsp;&nbsp;Communication</div>
+          <div><i class="icon-link m-sm-right" ng-repeat="i in [0,1,2,3,4]">&#xe627;</i>&nbsp;&nbsp;Skills</div>
+          <div><i class="icon-link m-sm-right" ng-repeat="i in [0,1,2,3,4]">&#xe627;</i>&nbsp;&nbsp;Cooperation</div>
+        </div>
+        <p class="size16">Total Score: <span class="fweight">0.00</span></p>
+
+        <p class="fweight size13">Share your experience with this freelancer to the Upwork community:</p>
+        <textarea class="pm-textarea" style="width:400px;" cols="80" rows="3"></textarea>
+        <p class="size12">See an <a href="javascript:;" class="link-underline size12">example of appropriate feedback</a></p>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="btn btn-primary ald-btn-primary">End Contract</button>
+        <a href="javascript:;" class="link-underline fweight">Cancel</a>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@
  } -->
 <div class="container">
     <div class="row">
-        <div class="col-md-12 text-center">
+        <div class="col-md-12 txcenter">
             <h1 class="o-h2-bold m-md-bottom m-xs-top create-account-title">
                 <span>Create a Free Client Account</span>
             </h1>
@@ -16,17 +16,17 @@
     </div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4 signup-linkedin" ng-init="socialConnect.increaseLinkedIn=true">
-            <div class="text-center">
+            <div class="txcenter">
                 <span>
                     <a href="#" class="btn btn-md eo-btn-linkedin">
                         <i class="glyphicon air-icon-social-linkedin"></i> Sign up with LinkedIn
                     </a>
                 </span>
             </div>
-            <div class="text-center">
+            <div class="txcenter">
                 <div class="o-or-divider-horizontal">OR</div>
             </div>
-            <div class="text-center" ng-show="socialConnect.increaseLinkedIn">
+            <div class="txcenter" ng-show="socialConnect.increaseLinkedIn">
                 <span>
                     <a href="#" class="btn btn-md eo-btn-email" ng-click="socialConnect.increaseLinkedIn=false">
                         <i class="glyphicon air-icon-social-linkedin"></i> Sign up with LinkedIn
@@ -133,7 +133,7 @@
                             <span ng-messages="signup.form.vcode.$error" class="ng-inactive">
                             </span>
                         </span>
-                        <div class="text-center">
+                        <div class="txcenter">
                             <img class="sign-up-v-code" src="/images/v_code.jpg">
                         </div>
                     </div>
@@ -169,7 +169,7 @@
                     </span>
                 </span>
             </div>
-            <div class="text-center">
+            <div class="txcenter">
                 <button type="button" ng-click="goto('d','/d/')" class="btn btn-md btn-primary m-lg-top-bottom m-xs-left-right o-signup-submit" ng-disabled="signup.form.$pending || loading || disableSubmit">
                     <i class="glyphicon-md air-icon-loading ng-hide" ng-show="signup.form.$pending || loading"></i>
                     Get Started

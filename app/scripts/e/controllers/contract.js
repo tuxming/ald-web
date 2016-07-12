@@ -93,6 +93,18 @@ app.controller('contractDetailCtrl', function($scope, $rootScope,$uibModal){
 
 });
 
+app.controller('switchToHourlyCtrl', function($scope, $rootScope){
+  $rootScope.title="Switch to Hourly";
+});
+
+app.controller('paymentCtrl', function($scope, $rootScope){
+  $rootScope.title="Mack One-Time Payment: xxxx";
+});
+
+app.controller('closeCtrl', function($scope, $rootScope){
+  $rootScope.title="End Contract with Freelacer-name (project-name)";
+});
+
 app.config(function($routeProvider, $locationProvider){
   $routeProvider
     .when('/',{
@@ -104,6 +116,21 @@ app.config(function($routeProvider, $locationProvider){
       templateUrl: webroot+'/e/contract/detail.html',
       controller: 'contractDetailCtrl',
       controllerAs: 'detail'
+    })
+    .when('/switch-to-hourly',{
+      templateUrl: webroot+'/e/contract/switch-to-hourly.html',
+      controller: 'switchToHourlyCtrl',
+      controllerAs: 'switchToHourly'
+    })
+    .when('/payment',{
+      templateUrl: webroot+'/e/contract/payment.html',
+      controller: 'paymentCtrl',
+      controllerAs: 'payment'
+    })
+    .when('/close',{
+      templateUrl: webroot+'/e/contract/close.html',
+      controller: 'closeCtrl',
+      controllerAs: 'close'
     })
     ;
 });
