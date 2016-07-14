@@ -1,0 +1,202 @@
+<!-- tpl {"parent": "app/template/index.tpl.html",
+   "title": "Home - Freelancers browse", "js":["/scripts/app.js"],"css":["/styles/home/home.css"]
+ } -->
+<div class="container">
+    <div class="row m-0-bottom m-normal-top div-content-panel div-content-panel-first">
+        <div class="col-xs-12 profiles-browse-search-panel">
+            <form class="filterjobs" accept-charset="UTF-8" method="get">
+                <span class="iconfont prefix-pre">&#xe616;</span>
+                <input type="text" class="form-control c-input prefix-input txt-f-search" placeholder="Search frelancers">
+                <button type="submit" class="btn btn-f-b-search">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="row m-0-bottom div-content-panel ">
+        <div class="row advance-conditionlist">
+            <div class="col-xs-3">
+                <div class="dropdown ald-dropdown">
+                    <a class="dropdown-toggle ald-dropdown-toggle advance-conditionlist-a" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span>Any category</span><span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu ald-dropdown-menu advance-conditionlist-ul">
+                        <li>Please select</li>
+                        <li>Web,Mobile&Software Dev</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="dropdown ald-dropdown">
+                    <a class="dropdown-toggle ald-dropdown-toggle advance-conditionlist-a" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span>Any job success</span><span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu ald-dropdown-menu advance-conditionlist-ul">
+                        <li>Please select</li>
+                        <li>Web,Mobile&Software Dev</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="dropdown ald-dropdown">
+                    <a class="dropdown-toggle ald-dropdown-toggle advance-conditionlist-a" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span>Any hourly rate</span><span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu ald-dropdown-menu advance-conditionlist-ul">
+                        <li>Please select</li>
+                        <li>Web,Mobile&Software Dev</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row m-normal-top" ng-init="showAdvanceCondition=false">
+            <div class="col-xs-12">
+                <a href="javascript:void(0)" ng-click="showAdvanceCondition=!showAdvanceCondition"><i class="iconfont" ng-show="!showAdvanceCondition">&#xe655;</i><i class="iconfont" ng-show="showAdvanceCondition">&#xe651;</i>&nbsp;&nbsp;<span class="">Advanced filters</span></a>
+                <a href="javascript:void(0)" class="m-normal-left" disabled="disabled"><i class="iconfont">&#xe618;</i>&nbsp;&nbsp;<span class="">Clear all filters</span></a>
+            </div>
+        </div>
+        <div class="row advance-condition-panel" ng-show="showAdvanceCondition">
+            <div class="col-xs-12"><hr /></div>
+            <div class="col-xs-12 ">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div>
+                            <h4>Hours Billed</h4>
+                            <div>
+                                <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>One-time project</label></div>
+                                <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>At least 100 hours billed (5)</label></div>
+                                <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>At least 1,000 hours billed (3)</label></div>
+                            </div>
+                            <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-helper"></span>Within last 6 months only</label></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4>Location</h4>
+                        <div>
+                            <span class="iconfont prefix-pre">&#xe616;</span>
+                            <input type="text" class="form-control c-input prefix-input condition-search-input" style="width:100%" placeholder="Select locations" />
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4>Tests</h4>
+                        <div class="" style="padding-left:10px;">
+                            <span class="iconfont prefix-pre">&#xe616;</span>
+                            <input type="text" class="form-control c-input prefix-input condition-search-input" style="width:100%" placeholder="Find a different test" />
+                        </div>
+                        <div class="m-normal-top dropdown ald-dropdown" readonly="readonly">
+                            <a class="dropdown-toggle ald-dropdown-toggle advance-conditionlist-a" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span>Any hourly rate</span><span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu ald-dropdown-menu advance-conditionlist-ul">
+                                <li>Please select</li>
+                                <li>Web,Mobile&Software Dev</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div>
+                            <h4>Last Activity</h4>
+                            <div>
+                                <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Any time (5)</label></div>
+                                <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Last active within 2 Weeks (4)</label></div>
+                                <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Last active within 1 Month (4)</label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4>Freelancers Type</h4>
+                        <div>
+                            <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Any freelancer type (5)</label></div>
+                            <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Independent freelancers (4)</label></div>
+                            <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Agency freelancers (1)</label></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4>English Level</h4>
+                        <div>
+                            <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Any english level</label></div>
+                            <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Basic english</label></div>
+                            <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Conversational english</label></div>
+                            <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Fluent english</label></div>
+                            <div class="radio select_item"><label><input type="radio" name="project_type"><span class="checkbox-replacement-helper"></span>Native or Bilingual english</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <h4>Other Languages</h4>
+                        <div>
+                            <span class="iconfont prefix-pre">&#xe616;</span>
+                            <input type="text" class="form-control c-input prefix-input condition-search-input" style="width:100%" placeholder="Find a different language" />
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4>Title search</h4>
+                        <div>
+                            <span class="iconfont prefix-pre">&#xe616;</span>
+                            <input type="text" class="form-control c-input prefix-input condition-search-input" style="width:100%" placeholder="Find freelancers by title" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 m-lg-top">
+                <button class="btn btn-default btn-advance-search">Post Job</button><button class="btn btn-link btn-advance-cancel">Preview</button>
+            </div>
+        </div>
+    </div>
+    <div class="row m-0-bottom p-normal-top result-article-panel">
+        <div class="col-xs-1">
+            <img class="lancer-head-img" src="/images/pic1.jpg" />
+        </div>
+        <div class="col-xs-9">
+            <div class="row"><a href="javascript:void(0)">CyberSolutions LLC</a></div>
+            <div class="row m-sm-bottom"><span>Magento Experts!</span></div>
+            <div class="row m-sm-bottom">
+                <div class="col-xs-3"><span>$55.00 - $55.00 / hr</span></div>
+                <div class="col-xs-2"><span>1,624 hrs</span></div>
+                <div class="col-xs-3"><span class="job-success-level">100% Job Success</span></div>
+                <div class="col-xs-4"><span><i class="iconfont">&#xe626;</i>United States</span></div>
+            </div>
+            <div class="row m-sm-bottom m-sm-top">
+                <div class="col-xs-1"><img class="relevant-agency-head-img" src="/images/pic1.jpg" /></div>
+                <div class="col-xs-11">
+                    <span>Relevant agency member</span>
+                    <p><a href="javascript:void(0)">Brian Wade</a> CyberSolutions LLC - Magento Developer - Enterprise and Community</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <button class="btn m-sm-bottom btn-invite-job">Invite To Job</button>
+            <button class="btn btn-save-lancer"><i class="iconfont">&#xe654;</i>Save</button>
+        </div>
+    </div>
+    <div class="row m-0-bottom p-normal-top result-article-panel">
+        <div class="col-xs-1">
+            <img class="lancer-head-img" src="/images/pic1.jpg" />
+        </div>
+        <div class="col-xs-9">
+            <div class="row"><a href="javascript:void(0)">CyberSolutions LLC</a></div>
+            <div class="row m-sm-bottom"><span>Magento Experts!</span></div>
+            <div class="row m-sm-bottom">
+                <div class="col-xs-3"><span>$55.00 - $55.00 / hr</span></div>
+                <div class="col-xs-2"><span>1,624 hrs</span></div>
+                <div class="col-xs-3"><span class="job-success-level">100% Job Success</span></div>
+                <div class="col-xs-4"><span><i class="iconfont">&#xe626;</i>United States</span></div>
+            </div>
+            <div class="row m-sm-bottom m-sm-top">
+                <div class="col-xs-1"><img class="relevant-agency-head-img" src="/images/pic1.jpg" /></div>
+                <div class="col-xs-11">
+                    <span>Relevant agency member</span>
+                    <p><a href="javascript:void(0)">Brian Wade</a> CyberSolutions LLC - Magento Developer - Enterprise and Community</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <button class="btn m-sm-bottom btn-invite-job">Invite To Job</button>
+            <button class="btn btn-save-lancer"><i class="iconfont">&#xe654;</i>Save</button>
+        </div>
+    </div>
+    <div class="row m-0-bottom div-content-panel" style="padding:20px 5px 10px 5px;">
+        <div class="col-xs-12"><a href="javascript:void(0)" class="help-us-search"><strong>Help Upwork improve your search experience.</strong></a></div>
+    </div>
+</div>
