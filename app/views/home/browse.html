@@ -47,10 +47,21 @@
                 </div>
             </div>
         </div>
-        <div class="row m-normal-top" ng-init="showAdvanceCondition=false">
+        <div class="row m-normal-top" ng-init="showAdvanceCondition=false;expandedmode=false;compactmode=true;">
             <div class="col-xs-12">
                 <a href="javascript:void(0)" ng-click="showAdvanceCondition=!showAdvanceCondition"><i class="iconfont" ng-show="!showAdvanceCondition">&#xe655;</i><i class="iconfont" ng-show="showAdvanceCondition">&#xe651;</i>&nbsp;&nbsp;<span class="">Advanced filters</span></a>
                 <a href="javascript:void(0)" class="m-normal-left" disabled="disabled"><i class="iconfont">&#xe618;</i>&nbsp;&nbsp;<span class="">Clear all filters</span></a>
+                <div class="pull-right view-mode-menu-panel" ng-init="showViewmodeMenu=false">
+                    View&nbsp;<span class="btn view-mode-menu-a" ng-click="showViewmodeMenu=!showViewmodeMenu"><i class="iconfont m-sm-right fweight">&#xe635;</i><i class="iconfont m-sm-left">&#xe614;</i></span>
+                    <ul class="list-unstyled viewmode-menulist" ng-show="showViewmodeMenu">
+                        <li ng-click="expandedmode=false;compactmode=true;showViewmodeMenu=!showViewmodeMenu;" ng-class="{'active': compactmode}">
+                            <i class="iconfont m-sm-right">&#xe635;</i>&nbsp;Compact
+                        </li>
+                        <li ng-click="expandedmode=true;compactmode=false;showViewmodeMenu=!showViewmodeMenu;" ng-class="{'active': expandedmode}">
+                            <i class="iconfont m-sm-right">&#xe635;</i>&nbsp;Expanded
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="row advance-condition-panel" ng-show="showAdvanceCondition">
@@ -144,11 +155,11 @@
             </div>
         </div>
     </div>
-    <div class="row m-0-bottom p-normal-top result-article-panel">
-        <div class="col-xs-1">
-            <img class="lancer-head-img" src="/images/pic1.jpg" />
+    <div class="row m-0-bottom result-article-panel" ng-class="{'p-lg-top':expandedmode,'p-lg-bottom':expandedmode, 'p-normal-top':compactmode, 'p-normal-bottom':compactmode,'size16':expandedmode,'size13':compactmode}">
+        <div ng-class="{true: 'col-xs-2', false: 'col-xs-1'}[expandedmode]">
+            <img ng-class="{true: 'expanded-lancer-head-img', false: 'lancer-head-img'}[expandedmode]" src="/images/pic1.jpg" />
         </div>
-        <div class="col-xs-9">
+        <div ng-class="{true: 'col-xs-8', false: 'col-xs-9'}[expandedmode]">
             <div class="row"><a href="javascript:void(0)">CyberSolutions LLC</a></div>
             <div class="row m-sm-bottom"><span>Magento Experts!</span></div>
             <div class="row m-sm-bottom">
@@ -157,7 +168,7 @@
                 <div class="col-xs-3"><span class="job-success-level">100% Job Success</span></div>
                 <div class="col-xs-4"><span><i class="iconfont">&#xe626;</i>United States</span></div>
             </div>
-            <div class="row m-sm-bottom m-sm-top">
+            <div class="row m-sm-bottom m-sm-top" ng-show="expandedmode">
                 <div class="col-xs-1"><img class="relevant-agency-head-img" src="/images/pic1.jpg" /></div>
                 <div class="col-xs-11">
                     <span>Relevant agency member</span>
@@ -170,11 +181,11 @@
             <button class="btn btn-save-lancer"><i class="iconfont">&#xe654;</i>Save</button>
         </div>
     </div>
-    <div class="row m-0-bottom p-normal-top result-article-panel">
-        <div class="col-xs-1">
-            <img class="lancer-head-img" src="/images/pic1.jpg" />
+    <div class="row m-0-bottom result-article-panel" ng-class="{'p-lg-top':expandedmode,'p-lg-bottom':expandedmode, 'p-normal-top':compactmode, 'p-normal-bottom':compactmode,'size16':expandedmode,'size13':compactmode}">
+        <div ng-class="{true: 'col-xs-2', false: 'col-xs-1'}[expandedmode]">
+            <img ng-class="{true: 'expanded-lancer-head-img', false: 'lancer-head-img'}[expandedmode]" src="/images/pic1.jpg" />
         </div>
-        <div class="col-xs-9">
+        <div ng-class="{true: 'col-xs-8', false: 'col-xs-9'}[expandedmode]">
             <div class="row"><a href="javascript:void(0)">CyberSolutions LLC</a></div>
             <div class="row m-sm-bottom"><span>Magento Experts!</span></div>
             <div class="row m-sm-bottom">
@@ -183,7 +194,59 @@
                 <div class="col-xs-3"><span class="job-success-level">100% Job Success</span></div>
                 <div class="col-xs-4"><span><i class="iconfont">&#xe626;</i>United States</span></div>
             </div>
-            <div class="row m-sm-bottom m-sm-top">
+            <div class="row m-sm-bottom m-sm-top" ng-show="expandedmode">
+                <div class="col-xs-1"><img class="relevant-agency-head-img" src="/images/pic1.jpg" /></div>
+                <div class="col-xs-11">
+                    <span>Relevant agency member</span>
+                    <p><a href="javascript:void(0)">Brian Wade</a> CyberSolutions LLC - Magento Developer - Enterprise and Community</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <button class="btn m-sm-bottom btn-invite-job">Invite To Job</button>
+            <button class="btn btn-save-lancer"><i class="iconfont">&#xe654;</i>Save</button>
+        </div>
+    </div>
+    <div class="row m-0-bottom result-article-panel" ng-class="{'p-lg-top':expandedmode,'p-lg-bottom':expandedmode, 'p-normal-top':compactmode, 'p-normal-bottom':compactmode,'size16':expandedmode,'size13':compactmode}">
+        <div ng-class="{true: 'col-xs-2', false: 'col-xs-1'}[expandedmode]">
+            <img ng-class="{true: 'expanded-lancer-head-img', false: 'lancer-head-img'}[expandedmode]" src="/images/pic1.jpg" />
+        </div>
+        <div ng-class="{true: 'col-xs-8', false: 'col-xs-9'}[expandedmode]">
+            <div class="row"><a href="javascript:void(0)">CyberSolutions LLC</a></div>
+            <div class="row m-sm-bottom"><span>Magento Experts!</span></div>
+            <div class="row m-sm-bottom">
+                <div class="col-xs-3"><span>$55.00 - $55.00 / hr</span></div>
+                <div class="col-xs-2"><span>1,624 hrs</span></div>
+                <div class="col-xs-3"><span class="job-success-level">100% Job Success</span></div>
+                <div class="col-xs-4"><span><i class="iconfont">&#xe626;</i>United States</span></div>
+            </div>
+            <div class="row m-sm-bottom m-sm-top" ng-show="expandedmode">
+                <div class="col-xs-1"><img class="relevant-agency-head-img" src="/images/pic1.jpg" /></div>
+                <div class="col-xs-11">
+                    <span>Relevant agency member</span>
+                    <p><a href="javascript:void(0)">Brian Wade</a> CyberSolutions LLC - Magento Developer - Enterprise and Community</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <button class="btn m-sm-bottom btn-invite-job">Invite To Job</button>
+            <button class="btn btn-save-lancer"><i class="iconfont">&#xe654;</i>Save</button>
+        </div>
+    </div>
+    <div class="row m-0-bottom result-article-panel" ng-class="{'p-lg-top':expandedmode,'p-lg-bottom':expandedmode, 'p-normal-top':compactmode, 'p-normal-bottom':compactmode,'size16':expandedmode,'size13':compactmode}">
+        <div ng-class="{true: 'col-xs-2', false: 'col-xs-1'}[expandedmode]">
+            <img ng-class="{true: 'expanded-lancer-head-img', false: 'lancer-head-img'}[expandedmode]" src="/images/pic1.jpg" />
+        </div>
+        <div ng-class="{true: 'col-xs-8', false: 'col-xs-9'}[expandedmode]">
+            <div class="row"><a href="javascript:void(0)">CyberSolutions LLC</a></div>
+            <div class="row m-sm-bottom"><span>Magento Experts!</span></div>
+            <div class="row m-sm-bottom">
+                <div class="col-xs-3"><span>$55.00 - $55.00 / hr</span></div>
+                <div class="col-xs-2"><span>1,624 hrs</span></div>
+                <div class="col-xs-3"><span class="job-success-level">100% Job Success</span></div>
+                <div class="col-xs-4"><span><i class="iconfont">&#xe626;</i>United States</span></div>
+            </div>
+            <div class="row m-sm-bottom m-sm-top" ng-show="expandedmode">
                 <div class="col-xs-1"><img class="relevant-agency-head-img" src="/images/pic1.jpg" /></div>
                 <div class="col-xs-11">
                     <span>Relevant agency member</span>

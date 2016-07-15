@@ -101,6 +101,12 @@
     height: 65px;
     border-radius: 50%;
 }
+.expanded-lancer-head-img{
+    margin: 0 20px auto 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
 
 .relevant-agency-head-img {
     margin: 0 10px auto auto;
@@ -108,45 +114,107 @@
     height: 40px;
     border-radius: 50%;
 }
-.job-success-level{
+
+.job-success-level {
     border-bottom: 4px solid lighten(@btnblue,30%);
     padding-bottom: 5px;
 }
-.btn-invite-job{
-    width:90%;
-    background-color:@baseColor;
-    color:@white;
+
+.btn-invite-job {
+    width: 90%;
+    background-color: @baseColor;
+    color: @white;
 }
-.btn-invite-job:hover{
-    background-color:darken(@baseColor,5%);
-    color:@white;
-    border-radius:0px;
+
+.btn-invite-job:hover {
+    background-color: darken(@baseColor,5%);
+    color: @white;
+    border-radius: 0px;
 }
-.btn-save-lancer{
-    width:90%;
-    background-color:@white;
-    color:@baseColor;
-    border:2px solid @lightGrayColor;
+
+.btn-save-lancer {
+    width: 90%;
+    background-color: @white;
+    color: @baseColor;
+    border: 2px solid @lightGrayColor;
 }
-.btn-save-lancer:hover{
-    color:@baseColor;
-    border:2px solid @baseColor;
-    background-color:@white;
-    border-radius:0px;
+
+.btn-save-lancer:hover {
+    color: @baseColor;
+    border: 2px solid @baseColor;
+    background-color: @white;
+    border-radius: 0px;
 }
-.result-article-panel{
-    background-color:@white;
+
+.result-article-panel {
+    background-color: @white;
+    cursor: pointer;
+    border-width: 1px 2px;
+    border-color: @lightGrayColor;
+    border-style: solid;
+}
+
+.result-article-panel:hover {
+    border-width: 1px 2px;
+    border-color: @baseColor;
+    border-style: solid;
+}
+
+.help-us-search:hover {
+    text-decoration: underline;
+}
+
+.view-mode-menu-panel {
+    position: relative;
+}
+
+.view-mode-menu-a {
+    color: @baseColor;
+    background-color: @white;
+    border: 2px solid @lightGrayColor;
+    padding: 2px 2px 2px 10px;
+}
+
+.view-mode-menu-a:active {
+    color: @white;
+    background-color: darken(@baseColor,5%);
+    border: 2px solid darken(@baseColor,5%);
+    border-radius: 0px;
+}
+
+.view-mode-menu-a:hover {
+    color: @baseColor;
+    background-color: @white;
+    border: 2px solid darken(@baseColor,5%);
+    border-radius: 0px;
+}
+
+.viewmode-menulist {
+    position: absolute;
+    right: 1px;
+    width: 250px;
+    z-index: 1000;
+    background-color: @white;
+}
+
+.viewmode-menulist li:first-child {
+    border-top: 2px solid @lightGrayColor;
+}
+
+.viewmode-menulist li {
+    height: 43px;
+    line-height: 43px;
+    border-width: 1px 2px 1px 2px;
+    border-style: solid;
+    border-color: @lightGrayColor;
+    padding-left: 18px;
     cursor:pointer;
-    border-width:1px 2px;
-    border-color:@lightGrayColor;
-    border-style:solid;
 }
-.result-article-panel:hover{
-    border-width:1px 2px;
-    border-color:@baseColor;
-    border-style:solid;
+.viewmode-menulist li:hover{
+    border:2px solid @baseColor;
 }
-.help-us-search:hover{
-   text-decoration:underline;
+.viewmode-menulist li.active{
+    border-left:4px solid @baseColor;
+    color:@baseColor;
 }
 /***** browse.html end *******/
