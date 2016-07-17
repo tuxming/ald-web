@@ -1,51 +1,139 @@
 <div class="container">
-	<!--tip bar-->
-	<div class="row tip-bar" id="tip-bar">
-		
-	</div><!--end tip bar-->
-	
-	<!--start center-->
-	<div class="row">
-		<div class="col-xs-12">	
-			<h3 class="page-title">我的建议</h3>
-			<div class="tab">
+    <!--tip bar-->
+    <div class="row tip-bar" id="tip-bar">
+
+    </div><!--end tip bar-->
+    <!--start center-->
+    <div class="row">
+        <div class="col-xs-12">
+            <h3 class="page-title">我的建议</h3>
+            <div class="tab">
                 <!--build {"type":"tpl", "ref":"/template/proposalsnav.html"}-->
                 <!--endbuild-->
-				<div class="tab-content">
-					<div class="tab-content-1">
-						<div class="nothing-box">
-							<span>
-								<span>0 Offers</span>
-								<span class="pull-right iconfont nothing-box-icon">&#xe611;<!-- 提示 --></span>
-							</span>
-						</div><!--end box-->
-						
-						<div class="nothing-box">
-							<span>
-								<span>0 Active Candidacies</span>
-								<span class="pull-right iconfont nothing-box-icon">&#xe611;<!-- 提示 --></span>
-							</span>
-						</div><!--end box-->
-						
-						<div class="nothing-box">
-							<span>
-								<span>0 Invitations to Interview</span>
-								<span class="pull-right iconfont nothing-box-icon">&#xe611;<!-- 提示 --></span>
-							</span>
-						</div><!--end box-->
-							
-						<div class="nothing-box">
-							<span>
-								<span>0 Submitted Proposals</span>
-								<span class="pull-right iconfont nothing-box-icon">&#xe611;<!-- 提示 --></span>
-							</span>
-						</div><!--end box-->
-						
-					</div>
-				</div><!--end tab-content-->
-			</div><!--end tab-->
-			<p class="pull-right"><a href="javascript:;">搜工作</a> | <a href="javascript:;">我的资料</a></p>
-		</div><!--end center-->
-	</div><!--end row-->
-</div><!--end content container-->
+                <div class="tab-content">
+                    <div class="tab-content-1">
+                        <div class="nothing-box">
+                            <span>
+                                <span>0 Offers</span>
+                                <span class="pull-right iconfont nothing-box-icon">&#xe611;<!-- 提示 --></span>
+                            </span>
+                        </div><!--end box-->
 
+                        <div class="nothing-box">
+                            <span class="m-normal-bottom">
+                                <span>6 Active Candidacies</span>
+                                <span class="pull-right iconfont nothing-box-icon">&#xe611;<!-- 提示 --></span>
+                            </span>
+                            <div class="candidacies-data-list" ng-init="itemlist=[{title:'Architect and dev ninja for a SaaS Workflow and Analytics system',url:'javascript:void(0)',remark:'C G',createdate:'Jul 11, 2016',timespan:'6 days ago'},
+                                     {title:'Real Time Data Website Based Upon Web Scraping',url:'javascript:void(0)',remark:'Robert K',createdate:'Jul 04, 2016',timespan:'12 days ago'},
+                                     {title:'Architect and dev ninja for a SaaS Workflow and Analytics system',url:'javascript:void(0)',remark:'C G',createdate:'Jul 11, 2016',timespan:'6 days ago'},
+                                     {title:'Real Time Data Website Based Upon Web Scraping',url:'javascript:void(0)',remark:'Robert K',createdate:'Jul 04, 2016',timespan:'12 days ago'},
+                                     {title:'Architect and dev ninja for a SaaS Workflow and Analytics system',url:'javascript:void(0)',remark:'C G',createdate:'Jul 11, 2016',timespan:'6 days ago'},
+                                     {title:'Real Time Data Website Based Upon Web Scraping',url:'javascript:void(0)',remark:'Robert K',createdate:'Jul 04, 2016',timespan:'12 days ago'}]">
+                                <div class="row p-normal-bottom p-normal-top p-sm-left p-sm-right m-normal-top">
+                                    <div class="col-xs-2">
+                                        <h4 class="candidacies-data-header">Received</h4>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <h4 class="candidacies-data-header">Job</h4>
+                                    </div>
+                                </div>
+                                <div class="row p-normal-bottom p-sm-left p-sm-right candidacies-data-row" ng-repeat="item in itemlist">
+                                    <div class="col-xs-2">
+                                        <div>{{item.createdate}}</div>
+                                        <small class="text-muted">{{item.timespan}}</small>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <div><a href="{{item.url}}">{{item.title}}</a></div>
+                                        <small class="text-muted">{{item.remark}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end box-->
+
+                        <div class="nothing-box">
+                            <span>
+                                <span>0 Invitations to Interview</span>
+                                <span class="pull-right iconfont nothing-box-icon">&#xe611;<!-- 提示 --></span>
+                            </span>
+                        </div><!--end box-->
+
+                        <div class="nothing-box">
+                            <span>
+                                <span>8 Submitted Proposals</span>
+                                <span class="pull-right iconfont nothing-box-icon">&#xe611;<!-- 提示 --></span>
+                            </span>
+                            <div class="pagination-layout size14 m-normal-top">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo; Prev</span>
+                                        </a>
+                                    </li>
+                                    <li><a class="active" href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">Next &raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="candidacies-data-list" ng-init="itemlist=[{title:'Architect and dev ninja for a SaaS Workflow and Analytics system',url:'javascript:void(0)',remark:'C G',createdate:'Jul 11, 2016',timespan:'6 days ago'},
+                                     {title:'Real Time Data Website Based Upon Web Scraping',url:'javascript:void(0)',remark:'Robert K',createdate:'Jul 04, 2016',timespan:'12 days ago'},
+                                     {title:'Architect and dev ninja for a SaaS Workflow and Analytics system',url:'javascript:void(0)',remark:'C G',createdate:'Jul 11, 2016',timespan:'6 days ago'},
+                                     {title:'Real Time Data Website Based Upon Web Scraping',url:'javascript:void(0)',remark:'Robert K',createdate:'Jul 04, 2016',timespan:'12 days ago'},
+                                     {title:'Architect and dev ninja for a SaaS Workflow and Analytics system',url:'javascript:void(0)',remark:'C G',createdate:'Jul 11, 2016',timespan:'6 days ago'},
+                                     {title:'Real Time Data Website Based Upon Web Scraping',url:'javascript:void(0)',remark:'Robert K',createdate:'Jul 04, 2016',timespan:'12 days ago'},
+                                     {title:'Architect and dev ninja for a SaaS Workflow and Analytics system',url:'javascript:void(0)',remark:'C G',createdate:'Jul 11, 2016',timespan:'6 days ago'},
+                                     {title:'Real Time Data Website Based Upon Web Scraping',url:'javascript:void(0)',remark:'Robert K',createdate:'Jul 04, 2016',timespan:'12 days ago'}]">
+                                <div class="row p-normal-bottom p-sm-left p-sm-right m-normal-top">
+                                    <div class="col-xs-2">
+                                        <h4 class="candidacies-data-header">Received</h4>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <h4 class="candidacies-data-header">Job</h4>
+                                    </div>
+                                </div>
+                                <div class="row p-normal-bottom p-normal-top p-sm-left p-sm-right candidacies-data-row" ng-repeat="item in itemlist">
+                                    <div class="col-xs-2">
+                                        <div>{{item.createdate}}</div>
+                                        <small class="text-muted">{{item.timespan}}</small>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <div><a href="{{item.url}}">{{item.title}}</a></div>
+                                        <small class="text-muted">{{item.remark}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pagination-layout size14">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo; Prev</span>
+                                        </a>
+                                    </li>
+                                    <li><a class="active" href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">Next &raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--end box-->
+
+                    </div>
+                </div><!--end tab-content-->
+            </div><!--end tab-->
+            <p class="pull-right"><a href="javascript:;">搜工作</a> | <a href="javascript:;">我的资料</a></p>
+        </div><!--end center-->
+    </div><!--end row-->
+</div><!--end content container-->
