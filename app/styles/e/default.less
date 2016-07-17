@@ -541,3 +541,27 @@ table.c-list2{
   left: 32px;
   z-index: 1;
 }
+
+
+.ts-selector{
+  border-color: @white;
+  background: @white;
+}
+
+.ts-tabs{
+  list-style:none;
+  padding:0px;
+  margin:0px;
+  background: #e0e0e0;
+}
+.ts-tabs li{
+  display:inline-block;
+  padding: 8px 15px;
+  cursor: pointer;
+  color: @baseColor;
+}
+
+.ts-tabs li:hover, .ts-tabs .active{
+  color: @white;
+  background: @baseColor;
+}

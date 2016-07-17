@@ -53,6 +53,7 @@ var menu = {
         label: "工作",
         url: webroot+"/e/#/myjobs",
         active: true,
+        method: "load",
         submenu:[
           {label:"我的工作", url: webroot+"/e/#/myjobs"},
           {label:"我的合同", url: webroot+"/e/contract"},
@@ -72,7 +73,6 @@ var menu = {
       },
       reports:{
         label: "报表",
-        method: "load",
         url: webroot+"/e/report/contract_hourly.html",
         submenu:[
           {label:"固定工资", url: webroot+"/e/report/contract_fixedprice.html"}
@@ -129,7 +129,6 @@ app.controller("parentCtrl", function($scope, store, $window){
       store.set("menu", mymenu);
     }
     $window.location.href = webroot + url;
-
   }
 
 });
@@ -189,15 +188,18 @@ app.directive("loginNav", function(){
           i++;
         }
 
-        $scope.menu[inKey].active = true;
-        $scope.submenu = $scope.menu[inKey].submenu;
+        currItem.active = true;
+
+        $scope.submenu = currItem.submenu;
 
         store.set("menu", $scope.menu);
 
         //$location.path(url);
 
         window.location.href = url;
-        window.location.reload();
+        if(currItem.method=='load' && $location.absUrl().lastIndexOf("messages.html") == -1){
+          window.location.reload();
+        }
         //return url;
       };
 
