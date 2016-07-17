@@ -194,7 +194,7 @@ app.directive("loginNav", function(){
 
         store.set("menu", $scope.menu);
 
-          $location.path(url);
+        //$location.path(url);
 
         window.location.href = url;
         window.location.reload();
