@@ -23,6 +23,7 @@ angular.module('app')
         store.set("menu", mymenu);
       }else if(type=='a'){
         var mymenu = menu.login.agency;
+        mymenu.findwork.active = true;
         store.set("menu", mymenu);
       }
       $window.location.href = webroot + url;

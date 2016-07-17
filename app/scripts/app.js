@@ -83,10 +83,20 @@ var menu = {
         url: webroot+"/usual/messages.html"
       }
     },
-    agency:{
+    agency: {
+      findwork: {
+          label: "找工作",
+          url: webroot + "/a/",
+          active: true,
+          method: "load",
+          submenu: [
+              { label: "找工作", url: webroot + "/a/#/" },
+              { label: "机构名册", url: webroot + "/a/#/roster" }
+          ]
+      },
       reports:{
         label: "报表",
-        url: webroot+"/reports/main.html"
+        url: webroot+"/a/reports/main.html"
       },
       messages:{
         label: "消息",
