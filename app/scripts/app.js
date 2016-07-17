@@ -51,10 +51,10 @@ var menu = {
     client:{
       jobs:{
         label: "工作",
-        url: webroot+"/e",
+        url: webroot+"/e/#/myjobs",
         active: true,
         submenu:[
-          {label:"我的工作", url: webroot+"/e"},
+          {label:"我的工作", url: webroot+"/e/#/myjobs"},
           {label:"我的合同", url: webroot+"/e/contract"},
           {label:"发布工作", url: webroot + "/e/#/jobs/new"}
         ]
@@ -64,10 +64,10 @@ var menu = {
         url: webroot + "/e/#/my-contractors",
         method: "load",
         submenu:[
-          {label:"我的员工", url: "/e/#/my-contractors" },
-          { label: "找员工", url: "/e/#/freelancers/find" },
-          { label: "工作日志", url: "/e/#/freelancers/workdiary" },
-          {label:"邀请员工", url: "/e/#/byo" }
+          {label:"我的员工", url: webroot +"/e/#/my-contractors" },
+          { label: "找员工", url: webroot +"/e/#/freelancers/find" },
+          { label: "工作日志", url: webroot +"/e/#/freelancers/workdiary" },
+          {label:"邀请员工", url: webroot +"/e/#/byo" }
         ]
       },
       reports:{
@@ -181,6 +181,7 @@ app.directive("loginNav", function(){
         var currItem;
         for(var key in $scope.menu){
           if(i==index){
+
             inKey = key;
             currItem = $scope.menu[key];
           }
@@ -189,11 +190,15 @@ app.directive("loginNav", function(){
         }
 
         $scope.menu[inKey].active = true;
+        $scope.submenu = $scope.menu[inKey].submenu;
 
         store.set("menu", $scope.menu);
 
-        $window.location.href = url;
+          $location.path(url);
 
+        window.location.href = url;
+        window.location.reload();
+        //return url;
       };
 
       $scope.switchToFreelancer = function(){

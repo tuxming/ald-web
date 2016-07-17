@@ -4,10 +4,13 @@
 'use strict'
 app.config(function($routeProvider, $locationProvider){
   $routeProvider
-    .when('/',{
+    .when('/myjobs',{
       templateUrl: webroot+'/e/myjobs.html',
       controller: 'myJobsCtrl',
       controllerAs: 'myjobs'
+    }).when('/e/contract/',{
+      redirectTo: webroot+'/e/contract/index.html'
+
     }).when('/my-contractors', {
         templateUrl: webroot + '/e/freelancers/hired.html',
         controller: 'HiredCtrl',
