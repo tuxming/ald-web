@@ -220,4 +220,35 @@
 .workdiary-developers-info:hover{
     background-color:lighten(@lightGrayColor,8%);
 }
+.drop-person-selector{
+    position:relative;
+}
+.person-list-panel{
+    position:absolute;
+    top:70px;
+    left:0px;
+    background-color:@white;
+    z-index:1000;
+    max-height:200px;
+    overflow-y:auto;
+    width:530px;
+}
+.person-list-panel-ul{
+    
+}
+.person-list-panel-ul li{
+    padding-top:10px;
+    height:61px;
+    border-width:1px 2px;
+    border:1px solid @lightGrayColor;
+}
+.person-list-panel-ul li:hover{
+    background-color:darken(@lightColor,50%);
+}
+.relevant-agency-head-img {
+    margin: 0 10px auto auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
 /****** workdiary.html end ******/
