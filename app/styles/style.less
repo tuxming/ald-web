@@ -2533,3 +2533,56 @@ button, html input[type=button], input[type=reset], input[type=submit] {
    background-color:lighten(@lightGrayColor,6%);
 }
 /******* myfreelancersnav.html end ***********/
+
+/*********login.html css**************/
+.login-container{text-align:center;}
+.login-container > div{
+  display:inline-block;
+  margin:30px auto 0px auto;
+}
+.login-container > div >*{
+  text-align:left;
+}
+.login-input-pwd, .login-input-name{width: 400px; box-shadow: 0px;
+    height:40px; border:2px solid @unactive;
+  display:inline-block; border-radius: 2px;
+}
+.login-input-name:hover, .login-input-name:focus,
+.login-input-pwd:hover, .login-input-pwd:focus{
+  box-shadow:none;
+  border-color: @baseColor;
+}
+.login-alert-warning{color:red; font-size:13px;}
+.login-container .input-err{
+  border-color:red;
+}
+
+.login-container h3{
+  margin: 50px 0px;
+}
+.login-btn{
+  width:400px; text-align:left;
+}
+.login-btn > button{
+  padding: 10px 55px;
+}
+
+.login-select i{
+  font-size:24px;
+  color: #37A000;
+  position:relative;
+  top: 3px;
+}
+
+.login-select{
+  cursor: pointer;
+  padding:10px 5px;
+}
+
+.login-select:hover{
+  background:#eeeeee;
+
+}
+
+/*********login.html css end**************/
+

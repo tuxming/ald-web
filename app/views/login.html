@@ -1,0 +1,40 @@
+<!-- tpl {"parent": "app/template/nologin.tpl.html",
+   "title": "Login - ALD Work", "js":["/scripts/app.js"]
+ } -->
+<div class="container">
+    <div class="row">
+        <div class="xs-col-12 login-container">
+            <h3>Log in and get to work</h3>
+            
+            <div>
+                <input class="form-control login-input-name" type="text" />
+                <div class="login-alert-warning iconfont">
+                    &#xe612; this field is required
+                </div>
+            </div>
+            <br/>
+            <div>
+                <input class="form-control login-input-pwd" type="password" />
+                <div class="login-alert-warning iconfont">
+                    &#xe612; this field is required
+                </div>
+            </div>
+            <br/>
+
+            <div class="login-btn" ng-init="clickedRemind=false">
+                <button class="btn btn-simple size14">Log In</button>
+                <span class="login-select">
+                    <i class="iconfont" ng-click="clickedRemind=true" ng-show="!clickedRemind">&#xe644;</i>
+                    <i class="iconfont" ng-click="clickedRemind=false" ng-show="clickedRemind">&#xe645;</i>
+                    Remember me next time
+                </span>
+            </div>
+            <br/>
+            <div>
+                <a href="javascript:;" class="bcolor size12 fnormal">Forget password</a>
+            </div>
+
+        </div>
+
+    </div>
+</div><!--end container-->
